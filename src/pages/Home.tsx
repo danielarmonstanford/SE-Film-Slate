@@ -60,9 +60,9 @@ export default function Home({ setIsHovering }: HomeProps) {
         {/* HERO BACKGROUND IMAGE */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+            src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80" 
             alt="Hero Background" 
-            className="w-full h-full object-cover grayscale opacity-40"
+            className="w-full h-full object-cover grayscale opacity-30"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--black)] via-transparent to-[var(--black)] opacity-80" />

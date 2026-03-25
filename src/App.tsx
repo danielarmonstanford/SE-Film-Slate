@@ -14,7 +14,7 @@ import Method from './pages/Method';
 import Lab from './pages/Lab';
 import Collect from './pages/Collect';
 import Spatial from './pages/Spatial';
-import Inquire from './pages/Contact';
+import Inquire from './pages/Inquire';
 import ProjectDetail from './pages/ProjectDetail';
 
 export default function App() {

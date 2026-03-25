@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PROJECTS } from '../types';
 
-const InvestmentOpportunities: React.FC = () => {
+const Slate: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
@@ -136,4 +136,4 @@ const InvestmentOpportunities: React.FC = () => {
   );
 };
 
-export default InvestmentOpportunities;
+export default Slate;
