@@ -11,8 +11,11 @@
   --black-2: #0E0C09;
   --black-3: #141210;
   --white: #F4EFE6;
+  --cream: #F4EFE6;
+  --beige: #D1C7B7;
   --bronze: #D4AF37;
   --bronze-light: #E5C78B;
+  --red: #FF0000;
   --red-urgent: #FF4444;
   --green-funded: #4CAF50;
   --line: rgba(244,239,230,0.08);
@@ -39,6 +42,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 9px;
   letter-spacing: 0.55em;
   text-transform: uppercase;
+  color: var(--beige);
 }
 
 .btn-text {
@@ -47,12 +51,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
+  color: var(--white);
 }
 
 .body-text {
   font-family: var(--font-sans);
   font-weight: 300;
   letter-spacing: 0.02em;
+  color: var(--beige);
 }
 
 .italic-emphasis {
