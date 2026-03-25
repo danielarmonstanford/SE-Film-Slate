@@ -232,6 +232,44 @@ export const PROJECTS: Project[] = [
       { role: 'Producer', name: 'Daniel Stanford' },
       { role: 'Art Director', name: 'Daniel Stanford' }
     ]
+  },
+  {
+    id: '006',
+    slug: 'bared-to-you',
+    title: 'Bared to You',
+    genre: 'TV SERIES',
+    image: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&q=80',
+    description: 'An intimate, unflinching romantic drama series based on the global bestseller "Bared to You" by Sylvia Day.',
+    status: 'Funding Open',
+    statusColor: 'var(--bronze)',
+    details: 'Based on the Crossfire series by Sylvia Day (11M+ copies sold)',
+    stats: 'Target Raise: $350K | Pilot Stage',
+    positioning: 'The next global streaming obsession: "Succession" meets "Normal People".',
+    budgetRange: '$350K (Pilot) / $2.5M–$7M (Full Series)',
+    equityAvailable: '$350,000',
+    taxIncentives: '30–40% ANCINE Rebates (São Paulo)',
+    salesStrategy: 'Pilot-to-Series licensing deal with major streamers (Netflix, Prime, Hulu).',
+    targetROI: '5–15x Recoupment on Pilot Spend',
+    comparables: ['Normal People', 'Outlander', 'Succession', 'Bridgerton'],
+    marketPositioning: 'Fastest-growing streaming genre with the highest completion rates.',
+    audience: 'Global fanbase of 11M+ readers; adult drama and romance enthusiasts.',
+    timingRelevance: 'High demand for emotionally raw, adult storytelling in the streaming era.',
+    commercialStrengths: [
+      'Built-in global fanbase of 11 million readers.',
+      'Proven literary prestige and high-completion genre.',
+      'Significant cost efficiency via São Paulo production hub.',
+      'Multi-season franchise potential (5 novels).'
+    ],
+    dataRoomUrl: 'https://notion.so/bared-to-you-data-room',
+    team: [
+      { role: 'Executive Producer', name: 'Daniel Stanford' },
+      { role: 'Art Direction', name: 'Daniel Stanford' },
+      { role: 'Casting', name: 'Daniel Stanford' }
+    ],
+    previewImages: [
+      'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80',
+      'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80'
+    ]
   }
 ];
 ;
