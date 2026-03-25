@@ -85,7 +85,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              to="/investment-opportunities" 
+              to="/slate" 
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-[35px] py-[14px] hover:bg-[var(--bronze-light)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -93,7 +93,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               VIEW FILM INVESTMENT SLATE
             </Link>
             <Link 
-              to="/work" 
+              to="/disciplines" 
               className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-[35px] py-[14px] hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -119,7 +119,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </h2>
           </div>
           <Link 
-            to="/investment-opportunities" 
+            to="/slate" 
             className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-8 py-3 hover:bg-white hover:text-[var(--black)] transition-all mt-8 md:mt-0"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
@@ -324,7 +324,7 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         <div className="text-center mt-32 reveal">
           <Link 
-            to="/work" 
+            to="/disciplines" 
             className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}

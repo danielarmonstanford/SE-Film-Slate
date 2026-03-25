@@ -20,7 +20,7 @@ const ProjectDetail: React.FC = () => {
     if (foundProject) {
       setProject(foundProject);
     } else {
-      navigate('/investment-opportunities');
+      navigate('/slate');
     }
   }, [slug, navigate]);
 
@@ -51,7 +51,7 @@ const ProjectDetail: React.FC = () => {
               REQUEST INVESTMENT MATERIALS
             </a>
             <Link 
-              to="/investment-opportunities" 
+              to="/slate" 
               className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -287,7 +287,7 @@ const ProjectDetail: React.FC = () => {
           </div>
           <div className="mt-20">
             <Link 
-              to="/investment-opportunities" 
+              to="/slate" 
               className="text-[var(--bronze)] text-xs uppercase tracking-[0.3em] hover:opacity-70 transition-opacity"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
