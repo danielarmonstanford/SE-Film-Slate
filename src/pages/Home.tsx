@@ -60,7 +60,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         {/* HERO BACKGROUND IMAGE */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80" 
+            src="https://res.cloudinary.com/dno3ruh4b/image/upload/f_auto,q_auto/Screen_Shot_2026-03-25_at_9.37.22_AM_iverbn"
             alt="Hero Background" 
             className="w-full h-full object-cover grayscale opacity-30"
             referrerPolicy="no-referrer"
