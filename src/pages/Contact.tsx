@@ -97,7 +97,7 @@ const InvestorInquiry: React.FC = () => {
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  SCHEDULE ADVISORY CALL
+                  SCHEDULE INVESTOR CALL
                 </a>
               </div>
             </div>

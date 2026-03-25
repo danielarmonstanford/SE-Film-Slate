@@ -20,7 +20,7 @@ const ProjectDetail: React.FC = () => {
     if (foundProject) {
       setProject(foundProject);
     } else {
-      navigate('/slate');
+      navigate('/investment-opportunities');
     }
   }, [slug, navigate]);
 
@@ -48,10 +48,10 @@ const ProjectDetail: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              REQUEST FULL INVESTMENT DECK
+              REQUEST INVESTMENT MATERIALS
             </a>
             <Link 
-              to="/slate" 
+              to="/investment-opportunities" 
               className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -108,7 +108,7 @@ const ProjectDetail: React.FC = () => {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            REQUEST FULL INVESTMENT DECK
+            REQUEST INVESTMENT MATERIALS
           </a>
         </motion.div>
       </section>
@@ -282,12 +282,12 @@ const ProjectDetail: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              REQUEST FULL PACKAGE
+              REQUEST INVESTMENT MATERIALS
             </a>
           </div>
           <div className="mt-20">
             <Link 
-              to="/slate" 
+              to="/investment-opportunities" 
               className="text-[var(--bronze)] text-xs uppercase tracking-[0.3em] hover:opacity-70 transition-opacity"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}

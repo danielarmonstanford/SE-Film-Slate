@@ -31,7 +31,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Investment Opportunities', path: '/slate' },
+    { name: 'Investment Opportunities', path: '/investment-opportunities' },
     { name: 'Disciplines', path: '/work' },
     { name: 'Spatial Resonance™', path: '/spatial' },
     { name: 'Investor Inquiry', path: '/contact' },

@@ -62,7 +62,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           {['About', 'Investment Opportunities', 'Disciplines', 'Spatial Resonance™', 'Investor Inquiry'].map((item) => (
             <Link 
               key={item}
-              to={item === 'Investment Opportunities' ? '/slate' : item === 'Disciplines' ? '/work' : item === 'Spatial Resonance™' ? '/spatial' : item === 'Investor Inquiry' ? '/contact' : `/${item.toLowerCase()}`} 
+              to={item === 'Investment Opportunities' ? '/investment-opportunities' : item === 'Disciplines' ? '/work' : item === 'Spatial Resonance™' ? '/spatial' : item === 'Investor Inquiry' ? '/contact' : `/${item.toLowerCase()}`} 
               className="label-text text-[9px] tracking-[0.4em] text-[rgba(244,239,230,0.3)] hover:text-[var(--bronze)] transition-colors uppercase"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -110,7 +110,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              to="/slate" 
+              to="/investment-opportunities" 
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-[35px] py-[14px] hover:bg-[var(--bronze-light)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -144,7 +144,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </h2>
           </div>
           <Link 
-            to="/slate" 
+            to="/investment-opportunities" 
             className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-8 py-3 hover:bg-white hover:text-[var(--black)] transition-all mt-8 md:mt-0"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
@@ -465,12 +465,12 @@ export default function Home({ setIsHovering }: HomeProps) {
               SCHEDULE INVESTOR CALL
             </a>
             <a 
-              href="mailto:DARSbit@prontonmail.ch?subject=Request%20Full%20Package" 
+              href="mailto:DARSbit@prontonmail.ch?subject=Request%20Investment%20Materials" 
               className="btn-text border border-[rgba(212,175,55,0.35)] text-[var(--bronze)] px-10 py-4 hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              REQUEST FULL PACKAGE
+              REQUEST INVESTMENT MATERIALS
             </a>
           </div>
         </div>

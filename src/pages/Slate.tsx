@@ -119,7 +119,7 @@ const InvestmentOpportunities: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              REQUEST FULL SLATE DATA
+              REQUEST INVESTMENT MATERIALS
             </a>
             <a 
               href="mailto:DARSbit@prontonmail.ch?subject=Investor%20Call"
@@ -127,7 +127,7 @@ const InvestmentOpportunities: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              SCHEDULE ADVISORY CALL
+              SCHEDULE INVESTOR CALL
             </a>
           </div>
         </div>
