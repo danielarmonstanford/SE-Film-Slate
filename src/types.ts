@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
   {
     id: '001',
     slug: 'acnd',
-    title: 'ACND',
+    title: "A Child's Night Dream",
     genre: 'FILM',
     image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80',
     description: 'A high-stakes political thriller exploring the intersection of power, media, and global influence.',

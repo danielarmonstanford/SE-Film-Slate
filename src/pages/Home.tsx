@@ -57,40 +57,15 @@ export default function Home({ setIsHovering }: HomeProps) {
     <div className="bg-[var(--black)]">
       {/* SECTION 1 — HERO */}
       <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[var(--black)]">
-        {/* TOP MENU OVERLAY */}
-        <div className="absolute top-[120px] left-0 w-full z-[10] hidden lg:flex justify-center gap-12 reveal">
-          {['About', 'Investment Opportunities', 'Disciplines', 'Spatial Resonance™', 'Investor Inquiry'].map((item) => (
-            <Link 
-              key={item}
-              to={item === 'Investment Opportunities' ? '/investment-opportunities' : item === 'Disciplines' ? '/work' : item === 'Spatial Resonance™' ? '/spatial' : item === 'Investor Inquiry' ? '/contact' : `/${item.toLowerCase()}`} 
-              className="label-text text-[9px] tracking-[0.4em] text-[rgba(244,239,230,0.3)] hover:text-[var(--bronze)] transition-colors uppercase"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              {item}
-            </Link>
-          ))}
-        </div>
-
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at 25% 35%, rgba(212,175,55,0.12) 0%, transparent 50%)' }} />
-        <div className="absolute top-0 left-0 w-full h-[72px] bg-[var(--black)] z-[3]" />
-        <div className="absolute bottom-0 left-0 w-full h-[72px] bg-[var(--black)] z-[3]" />
-        <div className="absolute inset-[72px] border border-[rgba(244,239,230,0.04)] pointer-events-none" />
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[rgba(212,175,55,0.3)] pointer-events-none" />
-        <div className="absolute top-0 left-1/2 w-[1px] h-full bg-[rgba(212,175,55,0.3)] pointer-events-none" />
-        
-        <div className="absolute top-[102px] left-[102px] w-[18px] h-[18px] border-t border-l border-[var(--bronze)]" />
-        <div className="absolute top-[102px] right-[102px] w-[18px] h-[18px] border-t border-r border-[var(--bronze)]" />
-        <div className="absolute bottom-[102px] left-[102px] w-[18px] h-[18px] border-b border-l border-[var(--bronze)]" />
-        <div className="absolute bottom-[102px] right-[102px] w-[18px] h-[18px] border-b border-r border-[var(--bronze)]" />
-
-        <div className="absolute inset-0 z-[1] opacity-40">
+        {/* HERO BACKGROUND IMAGE */}
+        <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80" 
-            alt="Cinematic Mountains" 
-            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+            alt="Hero Background" 
+            className="w-full h-full object-cover grayscale opacity-40"
             referrerPolicy="no-referrer"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--black)] via-transparent to-[var(--black)] opacity-80" />
         </div>
 
         <div className="relative z-[5] text-center hero-reveal">
@@ -115,7 +90,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              VIEW INVESTMENT OPPORTUNITIES
+              VIEW FILM INVESTMENT SLATE
             </Link>
             <Link 
               to="/work" 
@@ -134,13 +109,13 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
       </section>
 
-      {/* SECTION 2 — INVESTMENT OPPORTUNITIES */}
+      {/* SECTION 2 — FILM INVESTMENT SLATE */}
       <section id="slate" className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black)]">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 reveal">
           <div>
-            <div className="label-text text-[10px] text-[var(--bronze)] mb-4">02 / INVESTMENT OPPORTUNITIES</div>
+            <div className="label-text text-[10px] text-[var(--bronze)] mb-4">02 / FILM INVESTMENT SLATE</div>
             <h2 className="text-[48px] text-[var(--white)]">
-              Current Investment Opportunities
+              Current Film Investment Slate
             </h2>
           </div>
           <Link 
@@ -149,7 +124,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            VIEW ALL OPPORTUNITIES →
+            VIEW FILM INVESTMENT SLATE →
           </Link>
         </div>
 
@@ -214,7 +189,7 @@ export default function Home({ setIsHovering }: HomeProps) {
                     onMouseEnter={() => setIsHovering(true)}
                     onMouseLeave={() => setIsHovering(false)}
                   >
-                    VIEW INVESTMENT OVERVIEW
+                    VIEW SLATE OVERVIEW
                   </Link>
                 )}
               </div>
@@ -439,7 +414,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
       </section>
 
-      {/* SECTION 9 — INVESTOR INQUIRY */}
+      {/* SECTION 9 — INQUIRE */}
       <section id="contact" className="section-divider py-[192px] px-4 md:px-20 bg-[var(--black)] text-center">
         <div className="reveal">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-4">09 / BEGIN</div>
@@ -449,12 +424,12 @@ export default function Home({ setIsHovering }: HomeProps) {
           </h2>
           <div className="flex flex-row flex-wrap gap-4 justify-center">
             <a 
-              href="mailto:DARSbit@prontonmail.ch?subject=Investor%20Inquiry" 
+              href="mailto:DARSbit@prontonmail.ch?subject=Inquiry" 
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              INVESTOR INQUIRY
+              INQUIRE
             </a>
             <a 
               href="mailto:DARSbit@prontonmail.ch?subject=Schedule%20Investor%20Call" 

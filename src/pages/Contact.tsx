@@ -6,7 +6,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 
-const InvestorInquiry: React.FC = () => {
+const Inquire: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
@@ -24,8 +24,7 @@ const InvestorInquiry: React.FC = () => {
         >
           <div className="label-text text-[10px] text-[var(--bronze)] mb-8 uppercase tracking-[0.4em]">06 / CONNECT</div>
           <h1 className="text-[clamp(3.5rem,10vw,10rem)] leading-[0.88] mb-16 uppercase tracking-tighter">
-            Investor<br />
-            <span className="italic-emphasis">Inquiry</span>
+            <span className="italic-emphasis">Inquire</span>
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
@@ -108,4 +107,4 @@ const InvestorInquiry: React.FC = () => {
   );
 };
 
-export default InvestorInquiry;
+export default Inquire;

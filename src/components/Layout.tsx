@@ -31,33 +31,18 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Investment Opportunities', path: '/investment-opportunities' },
+    { name: 'Film Investment Slate', path: '/investment-opportunities' },
     { name: 'Disciplines', path: '/work' },
     { name: 'Spatial Resonance™', path: '/spatial' },
-    { name: 'Investor Inquiry', path: '/contact' },
+    { name: 'Inquire', path: '/contact' },
   ];
 
   return (
     <div className="min-h-screen bg-[var(--black)]">
-      {/* TOP BAR */}
-      <div className="fixed top-0 left-0 right-0 z-[250] bg-[var(--black)] border-b border-[rgba(212,175,55,0.1)] py-2 hidden lg:flex justify-center gap-8">
-        {navItems.map((item) => (
-          <Link 
-            key={item.name}
-            to={item.path} 
-            className="label-text text-[8px] tracking-[0.3em] text-[rgba(244,239,230,0.3)] hover:text-[var(--bronze)] transition-colors uppercase"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            {item.name}
-          </Link>
-        ))}
-      </div>
-
       {/* NAVIGATION */}
       <nav 
         id="main-nav" 
-        className={`fixed top-[32px] left-0 right-0 z-[200] flex justify-between items-center px-4 md:px-20 py-[35px] transition-all duration-500 bg-gradient-to-b from-[rgba(8,7,5,0.97)] to-transparent ${scrolled ? 'scrolled' : ''}`}
+        className={`fixed top-0 left-0 right-0 z-[200] flex justify-between items-center px-4 md:px-12 py-[35px] transition-all duration-500 bg-gradient-to-b from-[rgba(8,7,5,0.97)] to-transparent ${scrolled ? 'scrolled' : ''}`}
       >
         <Link 
           to="/" 
@@ -65,22 +50,22 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <div className="text-[16px] tracking-[0.4em] uppercase font-headline text-white leading-none">
+          <div className="text-[32px] tracking-[0.45em] uppercase font-headline text-white leading-none">
             Stanford
           </div>
-          <div className="text-[7px] tracking-[0.6em] uppercase font-sans text-[var(--red)] mt-1 ml-[2px]">
+          <div className="text-[14px] tracking-[1.45em] uppercase font-sans text-[var(--red)] mt-1 ml-[2px] w-full">
             Emporium
           </div>
         </Link>
 
         <div className="hidden lg:flex gap-10 items-center">
-          {navItems.map((item) => (
+          {navItems.filter(item => item.name !== 'Home').map((item) => (
             <Link 
               key={item.name}
               to={item.path} 
-              className={`label-text text-[10px] tracking-[0.28em] transition-colors ${
-                location.pathname === item.path ? 'text-white' : 'text-[rgba(244,239,230,0.35)]'
-              } hover:text-[var(--red)]`}
+              className={`label-text text-[10px] tracking-[0.22em] transition-colors uppercase ${
+                location.pathname === item.path ? 'text-white' : 'text-[rgba(244,239,230,0.4)]'
+              } hover:text-[var(--bronze)]`}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
@@ -89,14 +74,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           ))}
         </div>
 
-        <a 
-          href="mailto:DARSbit@prontonmail.ch" 
-          className="btn-text border border-[rgba(212,175,55,0.35)] text-[var(--bronze)] px-[22px] py-[10px] hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
-          INVESTOR INQUIRY →
-        </a>
+        <div className="lg:w-[180px] hidden lg:block" />
       </nav>
 
       <main>{children}</main>

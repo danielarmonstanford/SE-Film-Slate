@@ -14,7 +14,7 @@ import Method from './pages/Method';
 import Lab from './pages/Lab';
 import Collect from './pages/Collect';
 import Spatial from './pages/Spatial';
-import Contact from './pages/Contact';
+import Inquire from './pages/Contact';
 import ProjectDetail from './pages/ProjectDetail';
 
 export default function App() {
@@ -66,7 +66,7 @@ export default function App() {
             <Route path="/lab" element={<Lab />} />
             <Route path="/collect" element={<Collect />} />
             <Route path="/spatial" element={<Spatial />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Inquire />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
           </Routes>
         </Layout>

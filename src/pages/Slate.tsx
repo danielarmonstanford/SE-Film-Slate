@@ -34,10 +34,10 @@ const InvestmentOpportunities: React.FC = () => {
     <div className="bg-[var(--black)] min-h-screen pt-[160px] pb-[120px]">
       <div className="px-4 md:px-20 max-w-[1800px] mx-auto">
         <header className="mb-24 reveal">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-6">02 / OPPORTUNITIES</div>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-6">02 / FILM INVESTMENT SLATE</div>
           <h1 className="text-[clamp(3rem,8vw,8rem)] text-white leading-[0.95] mb-12">
-            Investment<br />
-            <span className="italic-emphasis">Opportunities</span>
+            Film Investment<br />
+            <span className="italic-emphasis">Slate</span>
           </h1>
           <p className="text-[var(--cream)] text-lg max-w-2xl leading-relaxed opacity-80">
             A curated selection of high-potential cinematic ventures. Each project is structured for commercial viability, 
@@ -102,7 +102,7 @@ const InvestmentOpportunities: React.FC = () => {
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  VIEW INVESTMENT OVERVIEW
+                  VIEW SLATE OVERVIEW
                 </Link>
               </div>
             </div>

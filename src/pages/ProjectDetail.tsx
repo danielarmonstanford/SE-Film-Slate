@@ -56,7 +56,7 @@ const ProjectDetail: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              BACK TO OPPORTUNITIES
+              BACK TO FILM INVESTMENT SLATE
             </Link>
           </div>
         </motion.div>
@@ -292,7 +292,7 @@ const ProjectDetail: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              ← BACK TO ALL OPPORTUNITIES
+              ← BACK TO FILM INVESTMENT SLATE
             </Link>
           </div>
         </div>
