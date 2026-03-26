@@ -51,6 +51,20 @@ const Inquire: React.FC = () => {
                 </div>
 
                 <div>
+                  <h4 className="label-text text-[11px] text-[var(--bronze)] mb-4 uppercase tracking-widest">WhatsApp</h4>
+                  <a
+                    href="https://wa.me/15149696027"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xl text-white hover:text-[var(--bronze)] transition-colors"
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                  >
+                    +1 (514) 969-6027
+                  </a>
+                </div>
+
+                <div>
                   <h4 className="label-text text-[11px] text-[var(--bronze)] mb-4 uppercase tracking-widest">Global Presence</h4>
                   <div className="grid grid-cols-2 gap-8 text-[#F5F0E6]">
                     <div>
