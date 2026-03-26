@@ -75,7 +75,8 @@ export const PROJECTS: Project[] = [
     team: [
       { role: 'Director', name: 'Sean Stone' },
       { role: 'Executive Producer', name: 'Oliver Stone' },
-      { role: 'Executive Producer', name: 'Mel Gibson' }
+      { role: 'Executive Producer', name: 'Mel Gibson' },
+      { role: 'Executive Producer', name: 'Daniel Stanford' }
     ]
   },
   {
@@ -119,7 +120,8 @@ export const PROJECTS: Project[] = [
     team: [
       { role: 'Director', name: 'Steven C. Miller' },
       { role: 'Lead Cast', name: 'Sylvester Stallone' },
-      { role: 'Cast', name: 'Ester Expósito' }
+      { role: 'Cast', name: 'Ester Expósito' },
+      { role: 'Executive Producer', name: 'Daniel Stanford' }
     ]
   },
   {
@@ -156,7 +158,7 @@ export const PROJECTS: Project[] = [
     dataRoomUrl: 'https://notion.so/exit-paradise-data-room',
     team: [
       { role: 'Lead Cast', name: 'Gerard Butler' },
-      { role: 'Producer', name: 'Daniel Stanford' }
+      { role: 'Executive Producer', name: 'Daniel Stanford' }
     ]
   },
   {
@@ -193,7 +195,7 @@ export const PROJECTS: Project[] = [
     dataRoomUrl: 'https://notion.so/consequence-data-room',
     team: [
       { role: 'Lead Cast', name: 'Kiefer Sutherland' },
-      { role: 'Producer', name: 'Daniel Stanford' }
+      { role: 'Executive Producer', name: 'Daniel Stanford' }
     ]
   },
   {
@@ -232,7 +234,7 @@ export const PROJECTS: Project[] = [
     dataRoomUrl: 'https://notion.so/400xy-data-room',
     team: [
       { role: 'IP Owner / Director', name: 'Alastair Paton' },
-      { role: 'EP & Art Direction', name: 'Daniel Stanford' }
+      { role: 'Executive Producer', name: 'Daniel Stanford' }
     ]
   },
   {

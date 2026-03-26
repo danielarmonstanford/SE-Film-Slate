@@ -343,59 +343,7 @@ const ProjectDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 6: DATA ROOM */}
-      <section className="py-40 px-4 md:px-20 bg-[var(--bronze)] text-[var(--black)] text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="label-text text-[10px] text-[var(--black)] opacity-60 mb-8 uppercase tracking-[0.4em]">06 / DATA ROOM</div>
-          <h2 className="text-[clamp(2.5rem,5vw,5rem)] leading-[1.1] mb-12 uppercase font-bold">
-            Access Full Investment Materials
-          </h2>
-          <p className="text-lg mb-12 opacity-80 max-w-2xl mx-auto">
-            Qualified investors can access the secure data room containing detailed financial models,
-            market analysis, and legal documentation.
-          </p>
-          <a
-            href={investorPackUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-text bg-[var(--black)] text-white px-12 py-5 hover:bg-[#222] transition-colors inline-block"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            DOWNLOAD INVESTOR PACK →
-          </a>
-
-          {/* Notion PDF documents (ACND and future projects) */}
-          {(docsLoading || docs.length > 0) && (
-            <div className="mt-16">
-              <div className="label-text text-[10px] text-[var(--black)] opacity-60 mb-6 uppercase tracking-[0.4em]">
-                Investment Documents
-              </div>
-              {docsLoading ? (
-                <p className="text-[var(--black)] opacity-60 text-sm">Loading documents…</p>
-              ) : (
-                <div className="flex flex-wrap gap-4 justify-center">
-                  {docs.map((doc, i) => (
-                    <a
-                      key={i}
-                      href={doc.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-text bg-[var(--black)] text-white px-6 py-3 text-xs hover:bg-[#222] transition-colors inline-flex items-center gap-2"
-                      onMouseEnter={() => setIsHovering(true)}
-                      onMouseLeave={() => setIsHovering(false)}
-                    >
-                      ↓ {doc.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* SECTION 7: CLOSING CTA */}
+      {/* SECTION 6: CLOSING CTA */}
       <section className="py-40 px-4 md:px-20 bg-[var(--black)] text-center">
         <div className="max-w-4xl mx-auto">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-12 uppercase tracking-[0.4em]">07 / NEXT STEPS</div>
@@ -406,6 +354,35 @@ const ProjectDetail: React.FC = () => {
             primaryLabel="INQUIRE"
             setIsHovering={setIsHovering}
           />
+
+          {/* Notion PDF documents */}
+          {(docsLoading || docs.length > 0) && (
+            <div className="mt-16">
+              <div className="label-text text-[10px] text-[var(--bronze)] opacity-60 mb-6 uppercase tracking-[0.4em]">
+                Investment Documents
+              </div>
+              {docsLoading ? (
+                <p className="text-[var(--cream)] opacity-40 text-sm">Loading documents…</p>
+              ) : (
+                <div className="flex flex-wrap gap-4 justify-center">
+                  {docs.map((doc, i) => (
+                    <a
+                      key={i}
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-text border border-[rgba(244,239,230,0.15)] text-[var(--cream)] px-6 py-3 text-xs hover:border-[var(--bronze)] hover:text-[var(--bronze)] transition-all inline-flex items-center gap-2"
+                      onMouseEnter={() => setIsHovering(true)}
+                      onMouseLeave={() => setIsHovering(false)}
+                    >
+                      ↓ {doc.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
           <div className="mt-20">
             <Link
               to="/slate"
