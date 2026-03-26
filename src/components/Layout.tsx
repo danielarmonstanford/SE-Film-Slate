@@ -54,7 +54,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           <div className="text-[32px] tracking-[0.45em] uppercase font-headline text-white leading-none">
             Stanford
           </div>
-          <div className="text-[14px] tracking-[1.45em] uppercase font-sans text-[var(--red)] mt-1 ml-[2px] w-full">
+          <div className="text-[16px] tracking-[1.3em] uppercase font-sans text-[var(--red)] mt-1 ml-[2px] w-full">
             Emporium
           </div>
         </Link>
@@ -86,7 +86,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           <div>
             <div className="text-[18px] font-normal text-white">Daniel Stanford</div>
             <div className="label-text text-[9px] tracking-[0.32em] text-[var(--bronze)] mt-1">
-              Director · Spatial Visionary · Creative Producer
+              Creative Director · Spatial Visionary · Executive Producer
             </div>
             <div className="label-text text-[9px] text-[var(--bronze)] opacity-60 mt-2 lowercase tracking-normal">
               Stanford Emporium

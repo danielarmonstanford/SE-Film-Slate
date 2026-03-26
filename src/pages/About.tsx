@@ -94,16 +94,16 @@ const About = () => {
               Daniel Armon Stanford
             </h2>
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
-              Daniel Armon Stanford is a Director, Brand Strategist, and Executive Producer with 30 years of experience producing high-impact visual work across fashion campaigns, feature film development, fine art, commercial video, architecture, music, and emerging technology.
+              Daniel Armon Stanford is a Creative Director, Brand Strategist, and Executive Producer with 30 years of experience producing high-impact visual work across fashion campaigns, feature film development, fine art, commercial video, architecture, music, and emerging technology.
             </p>
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
-              He has directed and produced campaigns for GUESS, Victoria's Secret, Intimissimi, Lancôme, Revlon, La Maison Simons, SSENSE, and Aldo, leading productions across five continents — from Rio to Morocco to Southeast Asia.
+              He has led creative direction and produced campaigns for GUESS, Victoria's Secret, Intimissimi, Lancôme, Revlon, La Maison Simons, SSENSE, and Aldo, overseeing productions across five continents — from Rio to Morocco to Southeast Asia.
             </p>
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               His fine art has been exhibited at MIS — Museum of Image & Sound (São Paulo) and the Cornell Art Museum (Florida), with work shown during Art Basel Miami week. He is also the co-founder of NuLab, an audio-visual intelligence studio operating at the intersection of AI, sound, and spatial media (nulab.space). His work spans NFT art, cryptocurrency-native creative strategy, and AI-generated image systems for luxury and editorial brands.
             </p>
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
-              As an Executive Producer and Art Director on the international co-production 400XY (Canada · China · Greece), Stanford brings casting instinct, visual authority, and cross-cultural production fluency into feature film. His creative approach is defined by precision — the same discipline applied to global fashion campaigns, now brought into tone, character, and cinematic world-building.
+              As Executive Producer and Art Director on the international co-production 400XY (Canada · China · Greece), Stanford brings casting instinct, visual authority, and cross-cultural production fluency into feature film development. His creative approach is defined by precision — the same discipline applied to global fashion campaigns, now brought into tone, character, and cinematic world-building.
             </p>
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               Stanford's broader work includes research into modern modular sustainable housing systems (passive and positive house architecture), wellness brand architecture, and large-scale fashion show production. He operates from Montréal with reach into New York, London, and Los Angeles.

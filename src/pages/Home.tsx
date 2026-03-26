@@ -72,7 +72,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
             <div className="label-text text-[9px] text-[var(--bronze)]">
-              Director · Spatial Visionary · Creative Producer
+              Creative Director · Spatial Visionary · Executive Producer
             </div>
             <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
           </div>
@@ -203,7 +203,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div className="reveal">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-4">03 / EXPERTISE</div>
           <h2 className="text-[48px] text-[var(--white)]">
-            Directed Disciplines
+            Creative Disciplines
           </h2>
         </div>
 
