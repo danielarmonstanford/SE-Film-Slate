@@ -13,6 +13,49 @@ interface NotionDoc {
   url: string;
 }
 
+// ── Reusable CTA block ────────────────────────────────────────────────────────
+interface ProjectCTAProps {
+  headline: string;
+  body: string;
+  investorPackUrl: string;
+  primaryLabel?: string;
+  setIsHovering: (v: boolean) => void;
+}
+
+const ProjectCTA: React.FC<ProjectCTAProps> = ({
+  headline,
+  body,
+  investorPackUrl,
+  primaryLabel = 'INQUIRE',
+  setIsHovering,
+}) => (
+  <div className="max-w-2xl mx-auto text-center">
+    <h3 className="text-3xl md:text-4xl mb-6 leading-snug">{headline}</h3>
+    <p className="text-[var(--cream)] opacity-60 text-sm leading-loose mb-10 max-w-xl mx-auto">{body}</p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <Link
+        to="/inquire"
+        className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        {primaryLabel}
+      </Link>
+      <a
+        href={investorPackUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        DOWNLOAD INVESTOR PACK
+      </a>
+    </div>
+  </div>
+);
+// ─────────────────────────────────────────────────────────────────────────────
+
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -60,13 +103,16 @@ const ProjectDetail: React.FC = () => {
 
   if (!project) return null;
 
-  // Placeholder check (if project is incomplete, we show a simplified version)
+  // Single source of truth for the investor pack URL
+  const investorPackUrl = project.dataRoomUrl;
+
+  // Incomplete projects show a minimal gated view
   const isIncomplete = !project.marketPositioning;
 
   if (isIncomplete) {
     return (
       <div className="bg-[var(--black)] min-h-screen text-white pt-[160px] pb-[120px] px-4 md:px-20">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -76,16 +122,16 @@ const ProjectDetail: React.FC = () => {
           <h1 className="text-[clamp(3rem,8vw,8rem)] leading-[0.95] mb-12 uppercase">{project.title}</h1>
           <p className="text-[var(--cream)] text-xl mb-16 opacity-80 italic">"Full materials available upon request."</p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a 
-              href={`mailto:DARSbit@prontonmail.ch?subject=Inquiry:%20${project.title}`}
+            <Link
+              to="/inquire"
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              REQUEST INVESTMENT MATERIALS
-            </a>
-            <Link 
-              to="/slate" 
+              INQUIRE
+            </Link>
+            <Link
+              to="/slate"
               className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -100,19 +146,20 @@ const ProjectDetail: React.FC = () => {
 
   return (
     <div className="bg-[var(--black)] min-h-screen text-white">
+
       {/* SECTION 1: HERO */}
       <section className="relative h-[90vh] flex items-end pb-24 px-4 md:px-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={project.image} 
+          <img
+            src={project.image}
             alt={project.title}
             className="w-full h-full object-cover opacity-40"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--black)] via-transparent to-transparent" />
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -136,14 +183,28 @@ const ProjectDetail: React.FC = () => {
               <span className="text-xl text-white uppercase tracking-wider">{project.status}</span>
             </div>
           </div>
-          <a 
-            href={`mailto:DARSbit@prontonmail.ch?subject=Deck%20Request:%20${project.title}`}
-            className="btn-text bg-[var(--bronze)] text-[var(--black)] px-12 py-5 hover:bg-[var(--bronze-light)] transition-colors inline-block"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            REQUEST INVESTMENT MATERIALS
-          </a>
+
+          {/* Hero CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href={investorPackUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-text bg-[var(--bronze)] text-[var(--black)] px-12 py-5 hover:bg-[var(--bronze-light)] transition-colors inline-block"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              DOWNLOAD INVESTOR PACK
+            </a>
+            <Link
+              to="/inquire"
+              className="btn-text border border-[rgba(244,239,230,0.3)] text-white px-12 py-5 hover:bg-white hover:text-[var(--black)] transition-all inline-block"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              INQUIRE
+            </Link>
+          </div>
         </motion.div>
       </section>
 
@@ -201,7 +262,17 @@ const ProjectDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 3: WHY THIS PROJECT WORKS */}
+      {/* MID-PAGE CTA — after snapshot */}
+      <section className="py-24 px-4 md:px-20 border-t border-b border-[rgba(244,239,230,0.06)]">
+        <ProjectCTA
+          headline="Access the Full Investor Package"
+          body="Deck, finance plan, budget summary, and supporting materials."
+          investorPackUrl={investorPackUrl}
+          setIsHovering={setIsHovering}
+        />
+      </section>
+
+      {/* SECTION 3: STRATEGIC VALUE */}
       <section className="py-32 px-4 md:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-16 uppercase tracking-[0.4em]">03 / STRATEGIC VALUE</div>
@@ -227,7 +298,7 @@ const ProjectDetail: React.FC = () => {
               <ul className="space-y-6">
                 {project.commercialStrengths?.map((strength, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="text-[var(--bronze)] font-bold">0{i+1}</span>
+                    <span className="text-[var(--bronze)] font-bold">0{i + 1}</span>
                     <p className="text-[var(--cream)] opacity-90">{strength}</p>
                   </li>
                 ))}
@@ -237,16 +308,16 @@ const ProjectDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 4: VISUAL / TONE */}
+      {/* SECTION 4: VISUAL & TONE */}
       <section className="py-32 px-4 md:px-20 bg-[#080808]">
         <div className="max-w-7xl mx-auto">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-16 uppercase tracking-[0.4em]">04 / VISUAL & TONE</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {project.previewImages?.map((img, i) => (
               <div key={i} className="aspect-[16/9] overflow-hidden bg-[#111]">
-                <img 
-                  src={img} 
-                  alt={`Visual ${i}`} 
+                <img
+                  src={img}
+                  alt={`Visual ${i}`}
                   className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
                   referrerPolicy="no-referrer"
                 />
@@ -256,7 +327,7 @@ const ProjectDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 5: TEAM */}
+      {/* SECTION 5: KEY TEAM */}
       <section className="py-32 px-4 md:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-16 uppercase tracking-[0.4em]">05 / KEY TEAM</div>
@@ -272,7 +343,7 @@ const ProjectDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 6: DATA ROOM ACCESS */}
+      {/* SECTION 6: DATA ROOM */}
       <section className="py-40 px-4 md:px-20 bg-[var(--bronze)] text-[var(--black)] text-center">
         <div className="max-w-4xl mx-auto">
           <div className="label-text text-[10px] text-[var(--black)] opacity-60 mb-8 uppercase tracking-[0.4em]">06 / DATA ROOM</div>
@@ -280,21 +351,21 @@ const ProjectDetail: React.FC = () => {
             Access Full Investment Materials
           </h2>
           <p className="text-lg mb-12 opacity-80 max-w-2xl mx-auto">
-            Qualified investors can access the secure data room containing detailed financial models, 
+            Qualified investors can access the secure data room containing detailed financial models,
             market analysis, and legal documentation.
           </p>
           <a
-            href={project.dataRoomUrl}
+            href={investorPackUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-text bg-[var(--black)] text-white px-12 py-5 hover:bg-[#222] transition-colors inline-block"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            ACCESS SECURE DATA ROOM →
+            DOWNLOAD INVESTOR PACK →
           </a>
 
-          {/* PDF Downloads from Notion */}
+          {/* Notion PDF documents (ACND and future projects) */}
           {(docsLoading || docs.length > 0) && (
             <div className="mt-16">
               <div className="label-text text-[10px] text-[var(--black)] opacity-60 mb-6 uppercase tracking-[0.4em]">
@@ -324,32 +395,20 @@ const ProjectDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 7: CALL TO ACTION */}
-      <section className="py-32 px-4 md:px-20 bg-[var(--black)] text-center">
+      {/* SECTION 7: CLOSING CTA */}
+      <section className="py-40 px-4 md:px-20 bg-[var(--black)] text-center">
         <div className="max-w-4xl mx-auto">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-12 uppercase tracking-[0.4em]">07 / NEXT STEPS</div>
-          <h3 className="text-4xl mb-16">Ready to discuss this opportunity?</h3>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a 
-              href={`mailto:DARSbit@prontonmail.ch?subject=Schedule%20Call:%20${project.title}`}
-              className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              SCHEDULE INVESTOR CALL
-            </a>
-            <a 
-              href={`mailto:DARSbit@prontonmail.ch?subject=Full%20Package%20Request:%20${project.title}`}
-              className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              REQUEST INVESTMENT MATERIALS
-            </a>
-          </div>
+          <ProjectCTA
+            headline="Serious Investor Inquiry"
+            body="For strategic partners, co-producers, and qualified investors — contact us for direct access and deal terms."
+            investorPackUrl={investorPackUrl}
+            primaryLabel="INQUIRE"
+            setIsHovering={setIsHovering}
+          />
           <div className="mt-20">
-            <Link 
-              to="/slate" 
+            <Link
+              to="/slate"
               className="text-[var(--bronze)] text-xs uppercase tracking-[0.3em] hover:opacity-70 transition-opacity"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -359,6 +418,7 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };
