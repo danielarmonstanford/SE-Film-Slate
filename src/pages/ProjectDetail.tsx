@@ -263,13 +263,33 @@ const ProjectDetail: React.FC = () => {
       </section>
 
       {/* MID-PAGE CTA — after snapshot */}
-      <section className="py-24 px-4 md:px-20 border-t border-b border-[rgba(244,239,230,0.06)]">
-        <ProjectCTA
-          headline="Access the Full Investor Package"
-          body="Deck, finance plan, budget summary, and supporting materials."
-          investorPackUrl={investorPackUrl}
-          setIsHovering={setIsHovering}
-        />
+      <section className="py-14 px-4 md:px-20 border-t border-[rgba(244,239,230,0.06)]">
+        <div className="max-w-3xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <div>
+            <p className="text-sm text-[var(--cream)] opacity-70 mb-1">Access the Full Investor Package</p>
+            <p className="text-xs text-[var(--cream)] opacity-40">Deck, finance plan, budget summary, and supporting materials.</p>
+          </div>
+          <div className="flex gap-4 shrink-0">
+            <a
+              href={investorPackUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-text border border-[rgba(244,239,230,0.2)] text-[var(--cream)] px-6 py-3 text-xs hover:border-[var(--bronze)] hover:text-[var(--bronze)] transition-all"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              DOWNLOAD PACK
+            </a>
+            <Link
+              to="/inquire"
+              className="btn-text text-[var(--bronze)] px-4 py-3 text-xs hover:opacity-70 transition-opacity"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              INQUIRE →
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* SECTION 3: STRATEGIC VALUE */}
@@ -344,16 +364,33 @@ const ProjectDetail: React.FC = () => {
       </section>
 
       {/* SECTION 6: CLOSING CTA */}
-      <section className="py-40 px-4 md:px-20 bg-[var(--black)] text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-12 uppercase tracking-[0.4em]">07 / NEXT STEPS</div>
-          <ProjectCTA
-            headline="Serious Investor Inquiry"
-            body="For strategic partners, co-producers, and qualified investors — contact us for direct access and deal terms."
-            investorPackUrl={investorPackUrl}
-            primaryLabel="INQUIRE"
-            setIsHovering={setIsHovering}
-          />
+      <section className="py-32 px-4 md:px-20 bg-[var(--black)] text-center border-t border-[rgba(244,239,230,0.06)]">
+        <div className="max-w-2xl mx-auto">
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-8 uppercase tracking-[0.4em]">Next Steps</div>
+          <h3 className="text-2xl mb-4 text-white">Serious Investor Inquiry</h3>
+          <p className="text-xs text-[var(--cream)] opacity-50 leading-relaxed mb-10 max-w-lg mx-auto">
+            For strategic partners, co-producers, and qualified investors — contact us for direct access and deal terms.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/inquire"
+              className="btn-text bg-[var(--bronze)] text-[var(--black)] px-8 py-4 hover:bg-[var(--bronze-light)] transition-colors text-xs"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              INQUIRE
+            </Link>
+            <a
+              href={investorPackUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-text border border-[rgba(244,239,230,0.15)] text-[var(--cream)] px-8 py-4 hover:border-[var(--bronze)] hover:text-[var(--bronze)] transition-all text-xs"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              DOWNLOAD INVESTOR PACK
+            </a>
+          </div>
 
           {/* Notion PDF documents */}
           {(docsLoading || docs.length > 0) && (

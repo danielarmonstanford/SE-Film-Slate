@@ -5,6 +5,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { EMAIL_CONTACT, SOCIAL_LINKS } from '../constants';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -107,24 +108,26 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           </div>
 
           <div className="text-center lg:text-right">
-            <a 
-              href="mailto:DARSbit@prontonmail.ch" 
+            <a
+              href={`mailto:${EMAIL_CONTACT}`}
               className="body-text text-[11px] text-[rgba(244,239,230,0.45)] hover:text-white transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              DARSbit@prontonmail.ch
+              {EMAIL_CONTACT}
             </a>
             <div className="flex justify-center lg:justify-end gap-6 mt-4">
-              {['IG', 'Vimeo', 'IMDb', 'LI'].map((social) => (
-                <a 
-                  key={social}
-                  href="#" 
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="label-text text-[9px] text-[rgba(244,239,230,0.2)] hover:text-[var(--bronze)] transition-colors"
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  {social}
+                  {link.short}
                 </a>
               ))}
             </div>

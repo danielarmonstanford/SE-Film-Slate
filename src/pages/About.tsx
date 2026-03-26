@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { EMAIL_CONTACT, SOCIAL_LINKS } from '../constants';
 
 const About = () => {
   return (
@@ -30,16 +31,16 @@ const About = () => {
             <p className="text-lg md:text-2xl leading-relaxed font-light">
               Cinema is not merely a sequence of images. It is emotional architecture — built through rhythm, restraint, and precision.
             </p>
-            <p className="text-sm opacity-60 leading-loose">
+            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               Our approach is rooted in Visual Silence: the moments between the action where the real narrative breathes. Where tension forms. Where character reveals itself without dialogue. Where atmosphere becomes meaning.
             </p>
-            <p className="text-sm opacity-60 leading-loose">
+            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               Founded by Daniel Armon Stanford, Stanford Emporium evolved from boutique creative agency roots into a full-scale creative studio spanning feature film development, commercial direction, fine art, and cinematic branding. We specialize in projects that require a strong aesthetic hand — work that demands discipline, clarity, and intentional visual authorship.
             </p>
-            <p className="text-sm opacity-60 leading-loose">
+            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               From concept to final delivery, we oversee the entire creative pipeline — direction, packaging, design, casting support, and visual execution. Our global network of collaborators allows us to scale production rapidly while maintaining the intimate, hands-on control that defines the studio.
             </p>
-            <p className="text-sm opacity-60 leading-loose font-medium tracking-wide">
+            <p className="text-sm text-[#F5F0E6] opacity-90 leading-loose font-medium tracking-wide">
               We build projects for audiences who can feel the difference.
             </p>
           </div>
@@ -92,19 +93,19 @@ const About = () => {
             <h2 className="font-['Noto_Serif'] text-3xl md:text-4xl italic leading-snug">
               Daniel Armon Stanford
             </h2>
-            <p className="text-sm opacity-60 leading-loose">
+            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               Daniel Armon Stanford is a Director, Brand Strategist, and Executive Producer with 30 years of experience producing high-impact visual work across fashion campaigns, feature film development, fine art, commercial video, architecture, music, and emerging technology.
             </p>
-            <p className="text-sm opacity-60 leading-loose">
+            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               He has directed and produced campaigns for GUESS, Victoria's Secret, Intimissimi, Lancôme, Revlon, La Maison Simons, SSENSE, and Aldo, leading productions across five continents — from Rio to Morocco to Southeast Asia.
             </p>
-            <p className="text-sm opacity-60 leading-loose">
+            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               His fine art has been exhibited at MIS — Museum of Image & Sound (São Paulo) and the Cornell Art Museum (Florida), with work shown during Art Basel Miami week. He is also the co-founder of NuLab, an audio-visual intelligence studio operating at the intersection of AI, sound, and spatial media (nulab.space). His work spans NFT art, cryptocurrency-native creative strategy, and AI-generated image systems for luxury and editorial brands.
             </p>
-            <p className="text-sm opacity-60 leading-loose">
+            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               As an Executive Producer and Art Director on the international co-production 400XY (Canada · China · Greece), Stanford brings casting instinct, visual authority, and cross-cultural production fluency into feature film. His creative approach is defined by precision — the same discipline applied to global fashion campaigns, now brought into tone, character, and cinematic world-building.
             </p>
-            <p className="text-sm opacity-60 leading-loose">
+            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               Stanford's broader work includes research into modern modular sustainable housing systems (passive and positive house architecture), wellness brand architecture, and large-scale fashion show production. He operates from Montréal with reach into New York, London, and Los Angeles.
             </p>
           </div>
@@ -120,16 +121,46 @@ const About = () => {
           <div className="md:col-span-7">
             <h2 className="font-['Noto_Serif'] text-3xl italic mb-12">Select Recognition</h2>
             <ul className="space-y-6">
-              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm opacity-60 leading-relaxed">
+              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
                 London International Advertising Award — Art Direction, GUESS Set Me Free
               </li>
-              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm opacity-60 leading-relaxed">
+              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
                 Silver &amp; Honourable Mentions — Canadian National Magazine Awards (Fashion &amp; Beauty / Eye Candy)
               </li>
-              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm opacity-60 leading-relaxed">
+              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
                 Fine art exhibited at MIS São Paulo and the Cornell Art Museum Florida
               </li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* CONNECT */}
+      <section className="px-6 max-w-[1800px] mx-auto mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
+          <div className="md:col-span-3">
+            <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">Connect</span>
+          </div>
+          <div className="md:col-span-7">
+            <div className="flex flex-wrap gap-10 items-center">
+              <a
+                href={`mailto:${EMAIL_CONTACT}`}
+                className="text-sm text-[#F5F0E6] opacity-70 hover:opacity-100 hover:text-[#CC0000] transition-all"
+              >
+                {EMAIL_CONTACT}
+              </a>
+              {SOCIAL_LINKS.map(link => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="label-text text-[10px] uppercase tracking-[0.2em] text-[#F5F0E6] opacity-50 hover:opacity-100 hover:text-[#CC0000] transition-all"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -141,7 +172,7 @@ const About = () => {
           <h2 className="font-['Noto_Serif'] text-3xl md:text-5xl italic mb-8 leading-snug">
             Not a traditional production company.
           </h2>
-          <p className="text-sm opacity-60 leading-loose mb-6 max-w-xl mx-auto">
+          <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose mb-6 max-w-xl mx-auto">
             A creative intelligence studio — producing work at the highest level across media, brands, and cultures for three decades.
           </p>
           <blockquote className="font-['Noto_Serif'] italic text-xl opacity-70 mb-16">
