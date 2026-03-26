@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
       'High-stakes political subject matter with built-in media controversy.',
       'Strategic release timing aligned with global political events.'
     ],
-    dataRoomUrl: 'https://notion.so/acnd-investment-data-room',
+    dataRoomUrl: 'https://www.notion.so/001-A-Child-s-Night-Dream-32e8a599ff278037bc01d8da158c1b7b',
     team: [
       { role: 'Director', name: 'Sean Stone' },
       { role: 'Executive Producer', name: 'Oliver Stone' },
