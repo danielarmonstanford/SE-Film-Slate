@@ -8,11 +8,18 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { PROJECTS, Project } from '../types';
 import { motion } from 'motion/react';
 
+interface NotionDoc {
+  name: string;
+  url: string;
+}
+
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [project, setProject] = useState<Project | null>(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [docs, setDocs] = useState<NotionDoc[]>([]);
+  const [docsLoading, setDocsLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,6 +30,33 @@ const ProjectDetail: React.FC = () => {
       navigate('/slate');
     }
   }, [slug, navigate]);
+
+  useEffect(() => {
+    if (!project?.notionPageId) return;
+    const apiKey = import.meta.env.VITE_NOTION_API_KEY;
+    if (!apiKey) return;
+
+    setDocsLoading(true);
+    fetch(`https://api.notion.com/v1/blocks/${project.notionPageId}/children?page_size=100`, {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Notion-Version': '2022-06-28',
+      },
+    })
+      .then(r => r.json())
+      .then(data => {
+        const files: NotionDoc[] = (data.results || [])
+          .filter((b: any) => b.type === 'file')
+          .map((b: any) => ({
+            name: b.file?.name || 'Document',
+            url: b.file?.file?.url || b.file?.external?.url || '',
+          }))
+          .filter((f: NotionDoc) => f.url);
+        setDocs(files);
+      })
+      .catch(() => {})
+      .finally(() => setDocsLoading(false));
+  }, [project]);
 
   if (!project) return null;
 
@@ -249,7 +283,7 @@ const ProjectDetail: React.FC = () => {
             Qualified investors can access the secure data room containing detailed financial models, 
             market analysis, and legal documentation.
           </p>
-          <a 
+          <a
             href={project.dataRoomUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -259,6 +293,34 @@ const ProjectDetail: React.FC = () => {
           >
             ACCESS SECURE DATA ROOM →
           </a>
+
+          {/* PDF Downloads from Notion */}
+          {(docsLoading || docs.length > 0) && (
+            <div className="mt-16">
+              <div className="label-text text-[10px] text-[var(--black)] opacity-60 mb-6 uppercase tracking-[0.4em]">
+                Investment Documents
+              </div>
+              {docsLoading ? (
+                <p className="text-[var(--black)] opacity-60 text-sm">Loading documents…</p>
+              ) : (
+                <div className="flex flex-wrap gap-4 justify-center">
+                  {docs.map((doc, i) => (
+                    <a
+                      key={i}
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-text bg-[var(--black)] text-white px-6 py-3 text-xs hover:bg-[#222] transition-colors inline-flex items-center gap-2"
+                      onMouseEnter={() => setIsHovering(true)}
+                      onMouseLeave={() => setIsHovering(false)}
+                    >
+                      ↓ {doc.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </section>
 
