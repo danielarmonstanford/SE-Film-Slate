@@ -231,7 +231,7 @@ export const PROJECTS: Project[] = [
       'Greek Film Centre support + Ontario CRS tax credit eligibility.',
       'Multi-territory pre-sales via treaty rights reduce financial risk.'
     ],
-    dataRoomUrl: 'https://notion.so/400xy-data-room',
+    dataRoomUrl: '/400XY_Investment_Dossier.pdf',
     team: [
       { role: 'IP Owner / Director', name: 'Alastair Paton' },
       { role: 'Executive Producer', name: 'Daniel Stanford' }
