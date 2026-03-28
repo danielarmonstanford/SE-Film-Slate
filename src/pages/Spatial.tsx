@@ -33,6 +33,25 @@ const Spatial = () => {
         </div>
       </section>
 
+      {/* LOFT IMAGE */}
+      <section className="w-full mb-0">
+        <img
+          src="/spatial-loft.jpg"
+          alt="Spatial Resonance — Industrial Loft"
+          className="w-full object-cover"
+          style={{ maxHeight: '85vh' }}
+        />
+      </section>
+
+      {/* DESIGN DIAGRAM */}
+      <section className="px-6 max-w-[1400px] mx-auto py-32 mb-0">
+        <img
+          src="/spatial-resonance-design.png"
+          alt="Spatial Resonance Design — Artful Living"
+          className="w-full object-contain"
+        />
+      </section>
+
       <section className="py-48 px-6 text-center bg-[#1c1b1b]">
         <h2 className="font-['Noto_Serif'] text-4xl md:text-6xl italic mb-12">Design the space.</h2>
         <Link
