@@ -208,32 +208,52 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-[1px] bg-[var(--line)] mt-20 reveal">
           {[
-            { icon: '◈', title: 'Film Development', img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80' },
-            { icon: '⬡', title: 'Spatial Resonance', img: 'https://images.unsplash.com/photo-1511497584788-876760111969?w=600&q=80' },
-            { icon: '◉', title: 'Visual Direction', img: 'https://images.unsplash.com/photo-1590593162211-f9827b7ad6a4?w=600&q=80' },
-            { icon: '△', title: 'Future Habitat Concepts', img: 'https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=600&q=80' },
-            { icon: '✦', title: 'NuLab Audio Visual', img: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80' },
-            { icon: '✺', title: 'Fine Art', img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80' }
-          ].map((item) => (
-            <div 
-              key={item.title}
-              className="group relative bg-[var(--black-2)] p-[80px_32px] text-center hover:bg-[var(--black-3)] transition-all overflow-hidden"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              <div className="absolute inset-0 z-0 transition-opacity duration-700 opacity-20 group-hover:opacity-40">
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover grayscale blur-[2px] group-hover:blur-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(212,175,55,0.12) 0%, transparent 70%)' }} />
-              <div className="relative z-10 text-[24px] text-[var(--bronze)] opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">{item.icon}</div>
-              <h4 className="relative z-10 text-[17px] font-normal text-white mt-8">{item.title}</h4>
-            </div>
-          ))}
+            { icon: '◈', title: 'Film Development', img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80', href: '/investment-opportunities', external: false },
+            { icon: '⬡', title: 'Spatial Resonance', img: 'https://images.unsplash.com/photo-1511497584788-876760111969?w=600&q=80', href: '/spatial', external: false },
+            { icon: '◉', title: 'Visual Direction', img: 'https://images.unsplash.com/photo-1590593162211-f9827b7ad6a4?w=600&q=80', href: '/production-design', external: false },
+            { icon: '△', title: 'Future Habitat Concepts', img: 'https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=600&q=80', href: '/lab', external: false },
+            { icon: '✦', title: 'NuLab Audio Visual', img: '/nulab-preview.jpg', href: 'https://nulab.space', external: true },
+            { icon: '✺', title: 'Fine Art', img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80', href: '/fine-art', external: false },
+          ].map((item) => {
+            const inner = (
+              <>
+                <div className="absolute inset-0 z-0 transition-opacity duration-700 opacity-20 group-hover:opacity-40">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-cover grayscale blur-[2px] group-hover:blur-0 transition-all duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(212,175,55,0.12) 0%, transparent 70%)' }} />
+                <div className="relative z-10 text-[24px] text-[var(--bronze)] opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">{item.icon}</div>
+                <h4 className="relative z-10 text-[17px] font-normal text-white mt-8">{item.title}</h4>
+              </>
+            );
+            return item.external ? (
+              <a
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative bg-[var(--black-2)] p-[80px_32px] text-center hover:bg-[var(--black-3)] transition-all overflow-hidden"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                {inner}
+              </a>
+            ) : (
+              <Link
+                key={item.title}
+                to={item.href}
+                className="group relative bg-[var(--black-2)] p-[80px_32px] text-center hover:bg-[var(--black-3)] transition-all overflow-hidden"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                {inner}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
