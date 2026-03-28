@@ -54,7 +54,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           <div className="text-[32px] tracking-[0.45em] uppercase font-headline text-white leading-none">
             Stanford
           </div>
-          <div className="text-[16px] tracking-[1.48em] uppercase font-sans text-[var(--red)] mt-1 ml-[2px]">
+          <div className="text-[16px] tracking-[1.52em] uppercase font-sans text-[var(--red)] mt-1 ml-[2px]">
             Emporium
           </div>
         </Link>
