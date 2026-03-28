@@ -63,6 +63,7 @@ export default function App() {
             <Route path="/" element={<Home setIsHovering={setIsHovering} />} />
             <Route path="/about" element={<About />} />
             <Route path="/slate" element={<Slate />} />
+            <Route path="/investment-opportunities" element={<Slate />} />
             <Route path="/disciplines" element={<Work />} />
             <Route path="/method" element={<Method />} />
             <Route path="/lab" element={<Lab />} />

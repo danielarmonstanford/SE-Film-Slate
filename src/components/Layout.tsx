@@ -31,13 +31,11 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
 
   const navItems = [
     { name: 'Home', path: '/', label: 'Home' },
-    { name: 'About', path: '/about', label: 'About' },
-    { name: 'Film Investment Slate', path: '/slate', label: 'Film Slate' },
+    { name: 'Investment Opportunities', path: '/investment-opportunities', label: 'Investment Opportunities' },
+    { name: 'Production Design', path: '/production-design', label: 'Production Design' },
     { name: 'Disciplines', path: '/disciplines', label: 'Disciplines' },
-    { name: 'Production Design', path: '/production-design', label: 'Prod. Design' },
+    { name: 'Spatial Resonance™', path: '/spatial', label: 'Spatial Resonance™' },
     { name: 'Fine Art', path: '/fine-art', label: 'Fine Art' },
-    { name: 'Spatial Resonance™', path: '/spatial', label: 'Spatial' },
-    { name: 'Inquire', path: '/inquire', label: 'Inquire' },
   ];
 
   return (
