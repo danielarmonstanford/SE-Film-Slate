@@ -16,6 +16,7 @@ import Collect from './pages/Collect';
 import Spatial from './pages/Spatial';
 import Inquire from './pages/Inquire';
 import ProjectDetail from './pages/ProjectDetail';
+import ProductionDesign from './pages/ProductionDesign';
 
 export default function App() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -68,6 +69,7 @@ export default function App() {
             <Route path="/spatial" element={<Spatial />} />
             <Route path="/inquire" element={<Inquire />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
+            <Route path="/production-design" element={<ProductionDesign />} />
           </Routes>
         </Layout>
       </div>
