@@ -35,6 +35,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
     { name: 'Film Investment Slate', path: '/slate', label: 'Film Slate' },
     { name: 'Disciplines', path: '/disciplines', label: 'Disciplines' },
     { name: 'Production Design', path: '/production-design', label: 'Prod. Design' },
+    { name: 'Fine Art', path: '/fine-art', label: 'Fine Art' },
     { name: 'Spatial Resonance™', path: '/spatial', label: 'Spatial' },
     { name: 'Inquire', path: '/inquire', label: 'Inquire' },
   ];

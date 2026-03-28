@@ -17,6 +17,7 @@ import Spatial from './pages/Spatial';
 import Inquire from './pages/Inquire';
 import ProjectDetail from './pages/ProjectDetail';
 import ProductionDesign from './pages/ProductionDesign';
+import FineArt from './pages/FineArt';
 
 export default function App() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -70,6 +71,7 @@ export default function App() {
             <Route path="/inquire" element={<Inquire />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
             <Route path="/production-design" element={<ProductionDesign />} />
+            <Route path="/fine-art" element={<FineArt />} />
           </Routes>
         </Layout>
       </div>
