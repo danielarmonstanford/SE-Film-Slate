@@ -47,15 +47,15 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
       >
         <Link 
           to="/" 
-          className="group flex flex-col items-start"
+          className="group flex flex-col items-center"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <div className="text-[32px] tracking-[0.45em] uppercase font-headline text-white leading-none">
-            Stanford
+          <div className="font-['Noto_Serif'] uppercase text-white leading-tight text-center" style={{ letterSpacing: '0.18em' }}>
+            Daniel Stanford
           </div>
-          <div className="text-[16px] tracking-[1.3em] uppercase font-sans text-[var(--red)] mt-1 ml-[2px] w-full">
-            Emporium
+          <div className="text-[10px] uppercase text-center text-[#CC0000] mt-[3px]" style={{ letterSpacing: '0.55em' }}>
+            Stanford Emporium
           </div>
         </Link>
 
