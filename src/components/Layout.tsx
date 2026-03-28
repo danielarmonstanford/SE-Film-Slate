@@ -30,12 +30,12 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
   }, [location.pathname]);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Film Investment Slate', path: '/slate' },
-    { name: 'Disciplines', path: '/disciplines' },
-    { name: 'Spatial Resonance™', path: '/spatial' },
-    { name: 'Inquire', path: '/inquire' },
+    { name: 'Home', path: '/', label: 'Home' },
+    { name: 'About', path: '/about', label: 'About' },
+    { name: 'Film Investment Slate', path: '/slate', label: 'Film Slate' },
+    { name: 'Disciplines', path: '/disciplines', label: 'Disciplines' },
+    { name: 'Spatial Resonance™', path: '/spatial', label: 'Spatial Resonance™' },
+    { name: 'Inquire', path: '/inquire', label: 'Inquire' },
   ];
 
   return (
@@ -70,7 +70,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              {item.name}
+              {item.label}
             </Link>
           ))}
         </div>

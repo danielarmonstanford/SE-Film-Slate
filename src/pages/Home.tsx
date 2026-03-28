@@ -209,7 +209,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-[1px] bg-[var(--line)] mt-20 reveal">
           {[
             { icon: '◈', title: 'Film Development', img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80', href: '/investment-opportunities', external: false },
-            { icon: '⬡', title: 'Spatial Resonance', img: 'https://images.unsplash.com/photo-1511497584788-876760111969?w=600&q=80', href: '/spatial', external: false },
+            { icon: '⬡', title: 'Spatial Resonance', img: '/spatial-preview.jpg', href: '/spatial', external: false },
             { icon: '◉', title: 'Visual Direction', img: 'https://images.unsplash.com/photo-1590593162211-f9827b7ad6a4?w=600&q=80', href: '/production-design', external: false },
             { icon: '△', title: 'Future Habitat Concepts', img: 'https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=600&q=80', href: '/lab', external: false },
             { icon: '✦', title: 'NuLab Audio Visual', img: '/nulab-preview.jpg', href: 'https://nulab.space', external: true },
@@ -221,7 +221,7 @@ export default function Home({ setIsHovering }: HomeProps) {
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-full object-cover grayscale blur-[2px] group-hover:blur-0 transition-all duration-700"
+                    className="w-full h-full object-cover grayscale transition-all duration-700"
                     referrerPolicy="no-referrer"
                   />
                 </div>
