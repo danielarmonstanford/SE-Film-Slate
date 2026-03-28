@@ -34,7 +34,8 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
     { name: 'About', path: '/about', label: 'About' },
     { name: 'Film Investment Slate', path: '/slate', label: 'Film Slate' },
     { name: 'Disciplines', path: '/disciplines', label: 'Disciplines' },
-    { name: 'Spatial Resonance™', path: '/spatial', label: 'Spatial Resonance™' },
+    { name: 'Production Design', path: '/production-design', label: 'Prod. Design' },
+    { name: 'Spatial Resonance™', path: '/spatial', label: 'Spatial' },
     { name: 'Inquire', path: '/inquire', label: 'Inquire' },
   ];
 
