@@ -65,7 +65,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
               key={item.name}
               to={item.path} 
               className={`label-text text-[10px] tracking-[0.22em] transition-colors uppercase ${
-                location.pathname === item.path ? 'text-white' : 'text-[rgba(244,239,230,0.4)]'
+                location.pathname === item.path ? 'text-white' : 'text-[rgba(244,239,230,0.75)]'
               } hover:text-[var(--bronze)]`}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -88,7 +88,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
             <div className="label-text text-[9px] tracking-[0.32em] text-[var(--bronze)] mt-1">
               Creative Director · Spatial Visionary · Executive Producer
             </div>
-            <div className="label-text text-[9px] text-[var(--bronze)] opacity-60 mt-2 lowercase tracking-normal">
+            <div className="label-text text-[9px] text-[var(--bronze)] opacity-90 mt-2 lowercase tracking-normal">
               Stanford Emporium
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
               <Link 
                 key={item.name}
                 to={item.path} 
-                className="label-text text-[9px] tracking-[0.23em] text-[rgba(244,239,230,0.35)] hover:text-[var(--bronze)] transition-colors"
+                className="label-text text-[9px] tracking-[0.23em] text-[rgba(244,239,230,0.7)] hover:text-[var(--bronze)] transition-colors"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
@@ -110,7 +110,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           <div className="text-center lg:text-right">
             <a
               href={`mailto:${EMAIL_CONTACT}`}
-              className="body-text text-[11px] text-[rgba(244,239,230,0.45)] hover:text-white transition-colors"
+              className="body-text text-[11px] text-white hover:text-[var(--bronze)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
@@ -123,7 +123,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="label-text text-[9px] text-[rgba(244,239,230,0.2)] hover:text-[var(--bronze)] transition-colors"
+                  className="label-text text-[9px] text-[rgba(244,239,230,0.65)] hover:text-[var(--bronze)] transition-colors"
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
@@ -135,10 +135,10 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
         </div>
 
         <div className="section-divider mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="label-text text-[8px] tracking-[0.22em] text-[rgba(244,239,230,0.15)]">
+          <div className="label-text text-[8px] tracking-[0.22em] text-[rgba(244,239,230,0.5)]">
             © 2026 Daniel Stanford — Stanford Emporium. All rights reserved.
           </div>
-          <div className="label-text text-[8px] tracking-[0.22em] text-[rgba(244,239,230,0.15)]">
+          <div className="label-text text-[8px] tracking-[0.22em] text-[rgba(244,239,230,0.5)]">
             Los Angeles · Montreal · Tulum
           </div>
         </div>

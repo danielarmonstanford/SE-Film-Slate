@@ -24,7 +24,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
           <div className="md:col-span-3 md:sticky top-32 h-fit">
             <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">EST. 2018</span>
-            <h3 className="text-xs uppercase tracking-[0.2em] opacity-40">The Studio Philosophy</h3>
+            <h3 className="text-xs uppercase tracking-[0.2em] opacity-75">The Studio Philosophy</h3>
           </div>
 
           <div className="md:col-span-6 space-y-10">
@@ -50,7 +50,7 @@ const About = () => {
               <blockquote className="italic text-xl font-['Noto_Serif'] leading-relaxed opacity-80">
                 "To create is to define the boundaries of the unknown."
               </blockquote>
-              <cite className="block mt-4 text-[10px] uppercase tracking-[0.3em] opacity-40 not-italic">
+              <cite className="block mt-4 text-[10px] uppercase tracking-[0.3em] opacity-75 not-italic">
                 — Daniel Armon Stanford
               </cite>
             </div>
@@ -86,7 +86,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
           <div className="md:col-span-3 md:sticky top-32 h-fit">
             <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">Founder</span>
-            <h3 className="text-xs uppercase tracking-[0.2em] opacity-40">Daniel Armon Stanford</h3>
+            <h3 className="text-xs uppercase tracking-[0.2em] opacity-75">Daniel Armon Stanford</h3>
           </div>
 
           <div className="md:col-span-7 space-y-8">
@@ -121,13 +121,13 @@ const About = () => {
           <div className="md:col-span-7">
             <h2 className="font-['Noto_Serif'] text-3xl italic mb-12">Select Recognition</h2>
             <ul className="space-y-6">
-              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
+              <li className="border-t border-[rgba(244,239,230,0.2)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
                 London International Advertising Award — Art Direction, GUESS Set Me Free
               </li>
-              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
+              <li className="border-t border-[rgba(244,239,230,0.2)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
                 Silver &amp; Honourable Mentions — Canadian National Magazine Awards (Fashion &amp; Beauty / Eye Candy)
               </li>
-              <li className="border-t border-[rgba(244,239,230,0.08)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
+              <li className="border-t border-[rgba(244,239,230,0.2)] pt-6 text-sm text-[#F5F0E6] opacity-85 leading-relaxed">
                 Fine art exhibited at MIS São Paulo and the Cornell Art Museum Florida
               </li>
             </ul>
@@ -145,7 +145,7 @@ const About = () => {
             <div className="flex flex-wrap gap-10 items-center">
               <a
                 href={`mailto:${EMAIL_CONTACT}`}
-                className="text-sm text-[#F5F0E6] opacity-70 hover:opacity-100 hover:text-[#CC0000] transition-all"
+                className="text-sm text-white hover:text-[#CC0000] transition-all"
               >
                 {EMAIL_CONTACT}
               </a>
@@ -155,7 +155,7 @@ const About = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="label-text text-[10px] uppercase tracking-[0.2em] text-[#F5F0E6] opacity-50 hover:opacity-100 hover:text-[#CC0000] transition-all"
+                  className="label-text text-[10px] uppercase tracking-[0.2em] text-white opacity-85 hover:opacity-100 hover:text-[#CC0000] transition-all"
                 >
                   {link.label}
                 </a>
@@ -168,14 +168,14 @@ const About = () => {
       {/* CLOSING STATEMENT / CTA */}
       <section className="py-48 px-6 text-center bg-[#1c1b1b]">
         <div className="max-w-3xl mx-auto">
-          <p className="text-sm opacity-50 uppercase tracking-[0.3em] mb-8">Stanford Emporium</p>
+          <p className="text-sm opacity-80 uppercase tracking-[0.3em] mb-8">Stanford Emporium</p>
           <h2 className="font-['Noto_Serif'] text-3xl md:text-5xl italic mb-8 leading-snug">
             Not a traditional production company.
           </h2>
           <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose mb-6 max-w-xl mx-auto">
             A creative intelligence studio — producing work at the highest level across media, brands, and cultures for three decades.
           </p>
-          <blockquote className="font-['Noto_Serif'] italic text-xl opacity-70 mb-16">
+          <blockquote className="font-['Noto_Serif'] italic text-xl opacity-90 mb-16">
             "To create is to define the boundaries of the unknown."
             <cite className="block mt-3 text-[10px] uppercase tracking-[0.3em] opacity-60 not-italic">
               — Daniel Armon Stanford

@@ -80,7 +80,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             I direct ideas<br />
             <span className="italic-emphasis">into reality.</span>
           </h1>
-          <div className="label-text text-[10px] tracking-[0.45em] text-[rgba(244,239,230,0.35)] mb-12">
+          <div className="label-text text-[10px] tracking-[0.45em] text-white mb-12">
             Films · Spaces · Concepts · Worlds
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -94,7 +94,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </Link>
             <Link 
               to="/disciplines" 
-              className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-[35px] py-[14px] hover:bg-white hover:text-[var(--black)] transition-all"
+              className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-[35px] py-[14px] hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
@@ -120,7 +120,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           </div>
           <Link 
             to="/slate" 
-            className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-8 py-3 hover:bg-white hover:text-[var(--black)] transition-all mt-8 md:mt-0"
+            className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-8 py-3 hover:bg-white hover:text-[var(--black)] transition-all mt-8 md:mt-0"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
@@ -131,7 +131,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         {/* FEATURE TRAILER PREVIEW */}
         <div className="mb-20 reveal">
           <div className="label-text text-[9px] text-[var(--bronze)] mb-6 tracking-[0.4em] uppercase">Feature Trailer Preview</div>
-          <div className="aspect-video w-full bg-[var(--black-2)] border border-[rgba(212,175,55,0.12)] overflow-hidden relative group">
+          <div className="aspect-video w-full bg-[var(--black-2)] border border-[rgba(166,124,0,0.45)] overflow-hidden relative group">
             <iframe 
               src="https://www.youtube.com/embed/3aAvQxtvKiA?autoplay=0&mute=1&controls=1&loop=1" 
               className="w-full h-full grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
@@ -158,9 +158,9 @@ export default function Home({ setIsHovering }: HomeProps) {
                   ⚡ {card.urgent}
                 </div>
               )}
-              <div className="label-text text-[10px] opacity-30 mb-4">{card.id}</div>
+              <div className="label-text text-[10px] opacity-65 mb-4">{card.id}</div>
               <h3 className="text-[28px] mb-4">{card.title}</h3>
-              <div className="body-text text-[11px] opacity-60 mb-6">{card.details}</div>
+              <div className="body-text text-[11px] opacity-90 mb-6">{card.details}</div>
               <div className="space-y-2 mb-8">
                 <div className="body-text text-[11px]">{card.stats}</div>
                 {card.pos && <div className="body-text text-[11px]">{card.pos}</div>}
@@ -170,15 +170,15 @@ export default function Home({ setIsHovering }: HomeProps) {
                   <div 
                     className="border px-3 py-1 inline-block w-fit text-[9px] tracking-[0.1em]"
                     style={{ 
-                      borderColor: card.statusColor || 'rgba(244,239,230,0.15)',
-                      color: card.statusColor || 'rgba(244,239,230,0.45)'
+                      borderColor: card.statusColor || 'rgba(244,239,230,0.5)',
+                      color: card.statusColor || 'rgba(244,239,230,0.9)'
                     }}
                   >
                     {card.status}
                   </div>
                 )}
                 {card.subStatus && (
-                  <div className="text-[10px] italic text-[rgba(244,239,230,0.3)]">
+                  <div className="text-[10px] italic text-[rgba(244,239,230,0.75)]">
                     {card.subStatus}
                   </div>
                 )}
@@ -231,7 +231,7 @@ export default function Home({ setIsHovering }: HomeProps) {
                 />
               </div>
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(212,175,55,0.12) 0%, transparent 70%)' }} />
-              <div className="relative z-10 text-[24px] text-[var(--bronze)] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">{item.icon}</div>
+              <div className="relative z-10 text-[24px] text-[var(--bronze)] opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">{item.icon}</div>
               <h4 className="relative z-10 text-[17px] font-normal text-white mt-8">{item.title}</h4>
             </div>
           ))}
@@ -246,7 +246,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             Spatial Resonance<sup className="text-[0.22em] text-[var(--bronze)] font-body align-top">™</sup>
           </h2>
           
-          <div className="max-w-[1000px] mx-auto mb-16 aspect-video bg-[var(--black-2)] border border-[rgba(212,175,55,0.12)] overflow-hidden">
+          <div className="max-w-[1000px] mx-auto mb-16 aspect-video bg-[var(--black-2)] border border-[rgba(166,124,0,0.45)] overflow-hidden">
             {/* Support for embedded video or static image */}
             <iframe 
               src="https://www.youtube.com/embed/vr0fI6bZGa4?autoplay=0&mute=1&controls=0&loop=1" 
@@ -258,7 +258,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             />
           </div>
 
-          <p className="max-w-[520px] mx-auto body-text text-[13px] leading-[2.1] text-[rgba(244,239,230,0.45)] mb-12">
+          <p className="max-w-[520px] mx-auto body-text text-[13px] leading-[2.1] text-white mb-12">
             I design environments that influence perception, emotion, and energy through composition, geometry, and visual flow.
           </p>
           <Link 
@@ -325,7 +325,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div className="text-center mt-32 reveal">
           <Link 
             to="/disciplines" 
-            className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+            className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
@@ -343,7 +343,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             <h2 className="text-[clamp(2.5rem,5vw,5rem)] text-white mb-8 leading-tight">
               Future Habitat Lab
             </h2>
-            <p className="body-text text-[13px] text-[rgba(244,239,230,0.45)] leading-[2] mb-10">
+            <p className="body-text text-[13px] text-white leading-[2] mb-10">
               Experimental concepts for sustainable, rapid-build, and next-generation environments.
             </p>
             <Link 
@@ -356,7 +356,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </Link>
           </div>
 
-          <div className="relative h-[460px] border border-[rgba(212,175,55,0.12)] overflow-hidden reveal">
+          <div className="relative h-[460px] border border-[rgba(166,124,0,0.45)] overflow-hidden reveal">
             <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(rgba(212,175,55,0.05) 0 1px, transparent 1px 45px), repeating-linear-gradient(90deg, rgba(212,175,55,0.05) 0 1px, transparent 1px 45px)' }} />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-[rgba(212,175,55,0.12)] blur-[60px] rounded-full pointer-events-none" />
             <div className="scan-line" />
@@ -400,12 +400,12 @@ export default function Home({ setIsHovering }: HomeProps) {
           <h2 className="text-[clamp(2rem,4.5vw,4rem)] text-white mb-4">
             Collect Works
           </h2>
-          <div className="label-text text-[10px] tracking-[0.38em] text-[rgba(244,239,230,0.35)] mb-12">
+          <div className="label-text text-[10px] tracking-[0.38em] text-white mb-12">
             Limited editions. Original prints. Objects.
           </div>
           <Link 
             to="/collect" 
-            className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+            className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
@@ -433,7 +433,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </a>
             <a 
               href="mailto:DARSbit@prontonmail.ch?subject=Schedule%20Investor%20Call" 
-              className="btn-text border border-[rgba(244,239,230,0.18)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+              className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
