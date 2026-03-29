@@ -145,12 +145,19 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[1px] bg-[var(--line)] border border-[var(--line)] reveal">
           {PROJECTS.map((card) => (
-            <div 
+            <div
               key={card.id}
               className="group relative bg-[var(--black)] p-[40px_28px] overflow-hidden hover:bg-[var(--black-3)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
+              {/* Faded B&W project image background */}
+              {card.image && (
+                <div
+                  className="absolute inset-0 bg-cover bg-center grayscale pointer-events-none"
+                  style={{ backgroundImage: `url(${card.image})`, opacity: 0.07 }}
+                />
+              )}
               <div className="absolute top-0 left-0 w-full h-[2px] bg-[var(--bronze)] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
               {card.urgent && (
                 <div className="border border-[var(--red-urgent)] text-[var(--red-urgent)] text-[8px] tracking-[0.1em] px-2 py-1 inline-block mb-6">
