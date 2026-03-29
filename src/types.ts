@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
     slug: 'acnd',
     title: "A Child's Night Dream",
     genre: 'FILM',
-    image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&q=80',
+    image: '/acnd-poster.jpg',
     description: 'A high-stakes political thriller exploring the intersection of power, media, and global influence.',
     urgent: 'EXTREMELY URGENT',
     details: 'Dir: Sean Stone | EP: Oliver Stone & Mel Gibson',
@@ -52,6 +52,7 @@ export const PROJECTS: Project[] = [
     statusColor: 'var(--red-urgent)',
     deckUrl: 'https://drive.google.com/file/d/1_placeholder_deck_link/view?usp=sharing',
     previewImages: [
+      '/acnd-poster.jpg',
       'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80',
       'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80'
     ],
@@ -84,7 +85,7 @@ export const PROJECTS: Project[] = [
     slug: '99',
     title: '"99"',
     genre: 'FILM',
-    image: 'https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=1200&q=80',
+    image: '/film-99-poster.jpg',
     description: 'An action-packed narrative featuring Sylvester Stallone, set against a backdrop of urban grit and redemption.',
     details: 'Featuring Sylvester Stallone — Deal Memo Available',
     stats: 'Budget: $12M | Allocation Open: $4M',
@@ -92,6 +93,7 @@ export const PROJECTS: Project[] = [
     subStatus: 'IN DEVELOPMENT',
     deckUrl: 'https://drive.google.com/file/d/1_placeholder_deck_link/view?usp=sharing',
     previewImages: [
+      '/film-99-poster.jpg',
       'https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=800&q=80',
       'https://images.unsplash.com/photo-1601513057803-52a0ad1222b4?w=800&q=80',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
@@ -129,7 +131,7 @@ export const PROJECTS: Project[] = [
     slug: 'exit-paradise',
     title: 'Exit Paradise',
     genre: 'FILM',
-    image: 'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&q=80',
+    image: '/exit-paradise-poster.jpg',
     description: 'A cinematic journey starring Gerard Butler, exploring the boundaries of paradise and the cost of escape.',
     details: 'Starring Gerard Butler',
     stats: 'Budget: $25M | Allocation Open: $5M',
@@ -137,6 +139,7 @@ export const PROJECTS: Project[] = [
     subStatus: 'Structured Financing Complete',
     statusColor: 'var(--green-funded)',
     previewImages: [
+      '/exit-paradise-poster.jpg',
       'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
       'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=80'
     ],
@@ -166,7 +169,7 @@ export const PROJECTS: Project[] = [
     slug: 'a-town-called-consequence',
     title: 'A Town Called Consequence',
     genre: 'FILM',
-    image: 'https://images.unsplash.com/photo-1590593162211-f9827b7ad6a4?w=1200&q=80',
+    image: '/consequence-poster.jpg',
     description: 'A gritty western starring Kiefer Sutherland, where every choice has a price and every town has a secret.',
     details: 'Starring Kiefer Sutherland',
     stats: 'Budget: $8M | Allocation Open: $2M',
@@ -174,6 +177,7 @@ export const PROJECTS: Project[] = [
     subStatus: 'Packaging Phase — Fully Financed',
     statusColor: 'var(--green-funded)',
     previewImages: [
+      '/consequence-poster.jpg',
       'https://images.unsplash.com/photo-1533167649158-6d508895b980?w=800&q=80',
       'https://images.unsplash.com/photo-1501183638710-841dd1904471?w=800&q=80'
     ],
@@ -203,7 +207,7 @@ export const PROJECTS: Project[] = [
     slug: '400xy',
     title: '400XY',
     genre: 'Sci-Fi Epic',
-    image: 'https://images.unsplash.com/photo-1545665277-5937489579f2?w=1920&q=80',
+    image: '/400xy-art.jpg',
     description: 'Three cities. One frequency. Zero boundaries. A Sci-Fi epic filmed across Canada, China, and Greece.',
     urgent: 'EXTREMELY URGENT',
     details: 'Dir: Alastair Paton | EP & Art Direction: Daniel Stanford',
@@ -213,6 +217,9 @@ export const PROJECTS: Project[] = [
     statusColor: 'var(--red-urgent)',
     deckUrl: 'https://drive.google.com/file/d/1_placeholder_deck_link/view?usp=sharing',
     previewImages: [
+      '/400xy-art.jpg',
+      '/400xy-director.jpg',
+      '/400xy-moodboard.jpg',
       'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
       'https://images.unsplash.com/photo-1506318137071-a8e063b4b519?w=800&q=80'
     ],
