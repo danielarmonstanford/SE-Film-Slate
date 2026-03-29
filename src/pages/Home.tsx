@@ -155,7 +155,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               {card.image && (
                 <div
                   className="absolute inset-0 bg-cover bg-center grayscale pointer-events-none"
-                  style={{ backgroundImage: `url(${card.image})`, opacity: 0.07 }}
+                  style={{ backgroundImage: `url(${card.image})`, opacity: 0.15 }}
                 />
               )}
               <div className="absolute top-0 left-0 w-full h-[2px] bg-[var(--bronze)] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
