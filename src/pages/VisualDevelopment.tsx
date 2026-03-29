@@ -8,12 +8,12 @@ const capabilities = [
 ];
 
 const moodBoard = [
-  'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80',
-  'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80',
-  'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80',
-  'https://images.unsplash.com/photo-1545665277-5937489579f2?w=800&q=80',
-  'https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800&q=80',
-  'https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=800&q=80',
+  '/ref-scifi-woman.jpg',
+  '/ref-speedboat-night.jpg',
+  '/ref-scifi-desert.jpg',
+  '/ref-rooftop-pool.jpg',
+  '/ref-underwater.jpg',
+  '/ref-turkish-bath.jpg',
 ];
 
 const VisualDevelopment = () => {
