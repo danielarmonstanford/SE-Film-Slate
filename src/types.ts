@@ -91,6 +91,7 @@ export const PROJECTS: Project[] = [
     stats: 'Budget: $12M | Capital Committed: $10M | Equity Open: $2M',
     pos: 'Status: Active — Secondary Priority to ACND',
     status: 'Financing Close',
+    statusColor: 'var(--green-funded)',
     subStatus: 'Production Active — Egypt',
     deckUrl: 'https://drive.google.com/file/d/1_placeholder_deck_link/view?usp=sharing',
     previewImages: [
