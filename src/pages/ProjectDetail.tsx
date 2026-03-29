@@ -194,8 +194,18 @@ const ProjectDetail: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              DOWNLOAD INVESTOR PACK
+              VIEW SLATE OVERVIEW
             </a>
+            {project.dataRoomGatedPath && (
+              <Link
+                to={project.dataRoomGatedPath}
+                className="btn-text bg-[var(--red)] text-white px-12 py-5 hover:bg-[#CC0000] transition-colors inline-block"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                ACCESS FULL DATA ROOM
+              </Link>
+            )}
             <Link
               to="/inquire"
               className="btn-text border border-[rgba(244,239,230,0.3)] text-white px-12 py-5 hover:bg-white hover:text-[var(--black)] transition-all inline-block"
@@ -392,8 +402,18 @@ const ProjectDetail: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              DOWNLOAD INVESTOR PACK
+              VIEW SLATE OVERVIEW
             </a>
+            {project.dataRoomGatedPath && (
+              <Link
+                to={project.dataRoomGatedPath}
+                className="btn-text border border-[var(--red)] text-[var(--red)] px-8 py-4 hover:bg-[var(--red)] hover:text-white transition-all text-xs"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                FULL DATA ROOM →
+              </Link>
+            )}
           </div>
 
           {/* Notion PDF documents */}

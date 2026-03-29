@@ -32,6 +32,7 @@ export interface Project {
   timingRelevance: string;
   commercialStrengths: string[];
   dataRoomUrl: string;
+  dataRoomGatedPath?: string;
   notionPageId?: string;
   team: { role: string; name: string }[];
 }
@@ -72,6 +73,7 @@ export const PROJECTS: Project[] = [
       'Strategic release timing aligned with global political events.'
     ],
     dataRoomUrl: 'https://www.notion.so/001-A-Child-s-Night-Dream-32e8a599ff278037bc01d8da158c1b7b',
+    dataRoomGatedPath: '/acnd-dataroom',
     notionPageId: '32e8a599ff278037bc01d8da158c1b7b',
     team: [
       { role: 'Director', name: 'Sean Stone' },
