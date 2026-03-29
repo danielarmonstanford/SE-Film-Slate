@@ -66,13 +66,7 @@ const FineArt = () => {
         <div className="border-t border-[rgba(244,239,230,0.14)] pt-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[rgba(244,239,230,0.08)]">
             {works.map((work) => (
-              <a
-                key={work.title}
-                href={PAYHIP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#131313] block overflow-hidden"
-              >
+              <div key={work.title} className="group bg-[#131313] overflow-hidden">
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <img
                     src={work.src}
@@ -87,7 +81,7 @@ const FineArt = () => {
                     <span className="text-[9px] uppercase tracking-[0.3em] text-[#CC0000]">{work.edition}</span>
                   </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>

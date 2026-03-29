@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -68,7 +68,7 @@ export default function App() {
             <Route path="/disciplines" element={<Work />} />
             <Route path="/method" element={<Method />} />
             <Route path="/lab" element={<Lab />} />
-            <Route path="/collect" element={<Collect />} />
+            <Route path="/collect" element={<Navigate to="/fine-art" replace />} />
             <Route path="/spatial" element={<Spatial />} />
             <Route path="/inquire" element={<Inquire />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
