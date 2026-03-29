@@ -31,11 +31,10 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
 
   const navItems = [
     { name: 'Home', path: '/', label: 'Home' },
+    { name: 'About', path: '/about', label: 'About' },
     { name: 'Investment Opportunities', path: '/investment-opportunities', label: 'Investment Opportunities' },
-    { name: 'Production Design', path: '/production-design', label: 'Production Design' },
-    { name: 'Disciplines', path: '/disciplines', label: 'Disciplines' },
-    { name: 'Spatial Resonance™', path: '/spatial', label: 'Spatial Resonance™' },
-    { name: 'Fine Art', path: '/fine-art', label: 'Fine Art' },
+    { name: 'Visual Development', path: '/visual-development', label: 'Visual Development' },
+    { name: 'Investor Inquiry', path: '/investor-inquiry', label: 'Investor Inquiry' },
   ];
 
   return (
