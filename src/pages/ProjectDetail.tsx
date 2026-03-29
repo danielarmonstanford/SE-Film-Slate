@@ -299,9 +299,11 @@ const ProjectDetail: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div>
               <h3 className="text-4xl mb-8 leading-tight">Market Positioning</h3>
-              <p className="text-[var(--cream)] opacity-70 leading-relaxed text-lg mb-12">
-                {project.marketPositioning}
-              </p>
+              <div className="text-[var(--cream)] opacity-70 leading-relaxed text-lg mb-12 space-y-4">
+                {project.marketPositioning.split('\n\n').map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
               <div className="space-y-8">
                 <div>
                   <h4 className="text-[var(--bronze)] text-sm uppercase tracking-widest mb-3">Target Audience</h4>
@@ -328,24 +330,26 @@ const ProjectDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 4: VISUAL & TONE */}
-      <section className="py-32 px-4 md:px-20 bg-[#080808]">
-        <div className="max-w-7xl mx-auto">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-16 uppercase tracking-[0.4em]">04 / VISUAL & TONE</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {project.previewImages?.map((img, i) => (
-              <div key={i} className="aspect-[16/9] overflow-hidden bg-[#111]">
-                <img
-                  src={img}
-                  alt={`Visual ${i}`}
-                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            ))}
+      {/* SECTION 4: VISUAL & TONE — only shown when images exist */}
+      {project.previewImages && project.previewImages.length > 0 && (
+        <section className="py-32 px-4 md:px-20 bg-[#080808]">
+          <div className="max-w-7xl mx-auto">
+            <div className="label-text text-[10px] text-[var(--bronze)] mb-16 uppercase tracking-[0.4em]">04 / VISUAL & TONE</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {project.previewImages.map((img, i) => (
+                <div key={i} className="aspect-[16/9] overflow-hidden bg-[#111]">
+                  <img
+                    src={img}
+                    alt={`Visual ${i}`}
+                    className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* SECTION 5: KEY TEAM */}
       <section className="py-32 px-4 md:px-20">
@@ -378,7 +382,7 @@ const ProjectDetail: React.FC = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              INQUIRE
+              {slug === '400xy' ? 'INQUIRE FOR NDA + PITCH DECK ACCESS' : 'INQUIRE'}
             </Link>
             <a
               href={investorPackUrl}
