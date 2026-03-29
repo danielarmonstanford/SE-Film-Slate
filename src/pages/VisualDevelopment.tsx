@@ -103,7 +103,13 @@ const VisualDevelopment = () => {
       </section>
 
       {/* SECTION 5 — FINE ART */}
-      <section className="px-6 max-w-[1800px] mx-auto mb-32">
+      <section className="relative mb-32 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/fineart-wall.jpg)' }}
+        />
+        <div className="absolute inset-0 bg-[rgba(8,7,5,0.72)]" />
+        <div className="relative px-6 max-w-[1800px] mx-auto py-24">
         <div className="border-t border-[rgba(244,239,230,0.14)] pt-16 grid grid-cols-1 md:grid-cols-12 gap-16">
           <div className="md:col-span-3 md:sticky top-32 h-fit">
             <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">Fine Art</span>
@@ -126,6 +132,7 @@ const VisualDevelopment = () => {
               </a>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
