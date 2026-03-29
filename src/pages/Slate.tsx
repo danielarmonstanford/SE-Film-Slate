@@ -65,6 +65,11 @@ const Slate: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
                   referrerPolicy="no-referrer"
                 />
+                {project.urgent && (
+                  <div className="absolute top-4 left-4 border border-[var(--red-urgent)] text-[var(--red-urgent)] text-[8px] tracking-[0.1em] px-2 py-1 bg-[var(--black)]">
+                    ⚡ {project.urgent}
+                  </div>
+                )}
                 <div className="absolute top-4 right-4">
                   <span className="label-text text-[8px] bg-[var(--black)] text-[var(--bronze)] px-3 py-1 border border-[rgba(212,175,55,0.3)]">
                     {project.status.toUpperCase()}
