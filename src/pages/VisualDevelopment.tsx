@@ -21,21 +21,28 @@ const VisualDevelopment = () => {
     <div className="bg-[#131313] pt-32">
 
       {/* SECTION 1 — HEADER */}
-      <section className="px-6 max-w-[1800px] mx-auto mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
-          <div className="md:col-span-3 md:sticky top-32 h-fit">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">
-              Art Direction · Production Design · Visual Worlds
-            </span>
-          </div>
-          <div className="md:col-span-7 space-y-10">
-            <h1 className="font-['Noto_Serif'] text-4xl md:text-6xl leading-tight font-light">
-              Visual Development<br />
-              <em className="text-[#CC0000] not-italic italic">&amp; Art Direction.</em>
-            </h1>
-            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose max-w-2xl">
-              Thirty years of directing visual environments — from global fashion campaigns to feature film pre-visualization, LED volume production design, and fine art exhibited internationally. This is the capability behind every project on this slate.
-            </p>
+      <section className="relative mb-24 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/visual-dev-hero.jpg)' }}
+        />
+        <div className="absolute inset-0 bg-[rgba(8,7,5,0.65)]" />
+        <div className="relative px-6 max-w-[1800px] mx-auto py-32">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
+            <div className="md:col-span-3 md:sticky top-32 h-fit">
+              <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">
+                Art Direction · Production Design · Visual Worlds
+              </span>
+            </div>
+            <div className="md:col-span-7 space-y-10">
+              <h1 className="font-['Noto_Serif'] text-4xl md:text-6xl leading-tight font-light">
+                Visual Development<br />
+                <em className="text-[#CC0000] not-italic italic">&amp; Art Direction.</em>
+              </h1>
+              <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose max-w-2xl">
+                Thirty years of directing visual environments — from global fashion campaigns to feature film pre-visualization, LED volume production design, and fine art exhibited internationally. This is the capability behind every project on this slate.
+              </p>
+            </div>
           </div>
         </div>
       </section>
