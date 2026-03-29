@@ -129,12 +129,12 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         {/* FEATURE TRAILER PREVIEW */}
         <div className="mb-20 reveal">
-          <div className="label-text text-[9px] text-[var(--bronze)] mb-6 tracking-[0.4em] uppercase">Feature Trailer Preview</div>
+          <div className="label-text text-[9px] text-[var(--bronze)] mb-6 tracking-[0.4em] uppercase">Execution Reel · Stanford Emporium</div>
           <div className="aspect-video w-full bg-[var(--black-2)] border border-[rgba(166,124,0,0.45)] overflow-hidden relative group">
-            <iframe 
-              src="https://www.youtube.com/embed/3aAvQxtvKiA?autoplay=0&mute=1&controls=1&loop=1" 
+            <iframe
+              src="https://www.youtube.com/embed/J_9FshPdUWk?autoplay=1&mute=1&loop=1&playlist=J_9FshPdUWk&controls=0"
               className="w-full h-full grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-              title="Feature Trailer Preview"
+              title="Execution Reel · Stanford Emporium"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
