@@ -4,6 +4,33 @@ import { Link } from 'react-router-dom';
 const GATE_PASSWORD = 'money';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1vyYg-63ZfsTaeVA9z6WMd5CWouho8ikL';
 const NOTION_URL = 'https://www.notion.so/001-A-Child-s-Night-Dream-32e8a599ff278037bc01d8da158c1b7b';
+const NOTIFY_EMAIL = 'DARSbit@proton.ch';
+const WEB3FORMS_KEY = (import.meta as any).env?.VITE_WEB3FORMS_KEY as string | undefined;
+
+const sendNotification = async (submitterEmail: string) => {
+  if (!WEB3FORMS_KEY) return;
+  const now = new Date();
+  const timestamp = now.toLocaleString('en-CA', {
+    timeZone: 'America/Toronto',
+    dateStyle: 'full',
+    timeStyle: 'long',
+  });
+  try {
+    await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: `ACND Data Room Access — ${submitterEmail}`,
+        from_name: 'Stanford Emporium — Data Room Gate',
+        to: NOTIFY_EMAIL,
+        message: `New full data room access granted.\n\nInvestor email: ${submitterEmail}\nProject: A Child's Night Dream (001)\nAccessed: ${timestamp}\nPage: /acnd-dataroom`,
+      }),
+    });
+  } catch {
+    // Notification failure is silent — access is still granted
+  }
+};
 
 const DataRoomGate = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +38,7 @@ const DataRoomGate = () => {
   const [error, setError] = useState('');
   const [granted, setGranted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
       setError('Please enter a valid email address.');
@@ -22,6 +49,8 @@ const DataRoomGate = () => {
       return;
     }
     setError('');
+    // Fire notification — don't await so access is instant
+    sendNotification(email);
     setGranted(true);
     setTimeout(() => {
       window.open(DATA_ROOM_URL, '_blank');
