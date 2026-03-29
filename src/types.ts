@@ -271,7 +271,7 @@ export const PROJECTS: Project[] = [
       'Goldcrest Pictures NY entity — institutional production credibility.',
       'Period crime drama genre: consistent festival, theatrical, and VOD performance.'
     ],
-    dataRoomUrl: '/inquire',
+    dataRoomUrl: 'https://drive.google.com/drive/folders/1ucw9T8ocEvJFza44RMsMKIFeo4u93A9o?usp=share_link',
     team: [
       { role: 'Director', name: 'Colin Broderick' },
       { role: 'Executive Producer', name: 'Steven Spielberg' },
