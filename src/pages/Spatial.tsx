@@ -3,6 +3,62 @@ import { Link } from 'react-router-dom';
 const Spatial = () => {
   return (
     <div className="bg-[#131313] pt-32">
+
+      {/* BREADCRUMB */}
+      <div className="px-6 max-w-[1800px] mx-auto mb-12">
+        <Link
+          to="/visual-development"
+          style={{ fontSize: '0.6rem', letterSpacing: '0.12em', color: 'rgba(229,226,225,0.4)' }}
+          className="uppercase hover:text-[rgba(229,226,225,0.75)] transition-colors duration-300"
+        >
+          ← Visual Development
+        </Link>
+      </div>
+
+      {/* VISUAL WORLDS & NFT ART */}
+      <section className="px-6 max-w-[1800px] mx-auto mb-24">
+        <span className="block text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold mb-4">
+          Multimedia · NFT · Sound
+        </span>
+        <h2 className="font-['Noto_Serif'] text-3xl md:text-5xl italic leading-snug mb-12">
+          Visual Worlds &amp; NFT Art
+        </h2>
+
+        {/* 16:9 YouTube embed */}
+        <div className="w-full mb-12" style={{ aspectRatio: '16/9' }}>
+          <iframe
+            src="https://www.youtube.com/embed/Ggc8qzs-b20?controls=1&rel=0&modestbranding=1"
+            title="NuLab — Visual Worlds & NFT Art"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+            style={{ border: 'none', display: 'block' }}
+          />
+        </div>
+
+        {/* Text block */}
+        <div className="max-w-[640px]">
+          <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose mb-6">
+            NuLab Audio Visual Intelligence — sound, image, and frequency as a unified creative field.
+            Spatial Resonance™ is the philosophy. This is the proof.
+          </p>
+          <a
+            href="https://nulab.space"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border border-[rgba(244,239,230,0.3)] text-[#F5F0E6] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-white hover:text-white transition-all duration-300"
+          >
+            Explore NuLab →
+          </a>
+        </div>
+      </section>
+
+      {/* DIVIDER */}
+      <div className="px-6 max-w-[1800px] mx-auto mb-24">
+        <div className="border-t border-[rgba(244,239,230,0.08)]" />
+      </div>
+
+      {/* SPATIAL RESONANCE — existing content */}
       <section className="relative h-[70vh] w-full overflow-hidden mb-32">
         <img
           src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&q=80"
@@ -61,6 +117,7 @@ const Spatial = () => {
           INITIATE INQUIRY
         </Link>
       </section>
+
     </div>
   );
 };
