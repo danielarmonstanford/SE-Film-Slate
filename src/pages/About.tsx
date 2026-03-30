@@ -174,6 +174,59 @@ const About = () => {
         </div>
       </section>
 
+      {/* LEGACY CAMPAIGNS */}
+      <style>{`.legacy-strip { overflow-x: auto; display: flex; scrollbar-width: none; } .legacy-strip::-webkit-scrollbar { display: none; }`}</style>
+      <section className="mb-48">
+        <div className="px-6 max-w-[1800px] mx-auto mb-10">
+          <span className="block text-[0.6rem] uppercase tracking-[0.5em] text-[#CC0000] font-bold mb-4">
+            30 Years · Selected Work
+          </span>
+          <h2 className="font-['Noto_Serif'] text-3xl md:text-4xl italic leading-snug">
+            The campaigns that defined <em>a generation's taste.</em>
+          </h2>
+        </div>
+
+        <div className="legacy-strip">
+          {[
+            { src: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80', label: 'Guess · Set Me Free · London Advertising Award' },
+            { src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80', label: "Victoria's Secret · Sexy Vol III · 10th Anniversary" },
+            { src: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80', label: 'Intimissimi · Global Campaign' },
+            { src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80', label: 'La Maison Simons · Brand Image' },
+            { src: 'https://images.unsplash.com/photo-1524863479829-916d8e77f114?w=600&q=80', label: 'Lancôme · Beauty Launches' },
+            { src: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80', label: 'SSENSE · Aldo · 360° Content' },
+          ].map((item, i, arr) => (
+            <div
+              key={i}
+              className="flex-none group"
+              style={{
+                width: '280px',
+                borderRight: i < arr.length - 1 ? '1px solid rgba(229,226,225,0.08)' : 'none',
+              }}
+            >
+              <div style={{ aspectRatio: '3/2', overflow: 'hidden' }}>
+                <img
+                  src={item.src}
+                  alt={item.label}
+                  className="w-full h-full object-cover transition-all duration-[800ms]"
+                  style={{ filter: 'grayscale(20%) contrast(1.1)' }}
+                  onMouseEnter={e => (e.currentTarget.style.filter = 'grayscale(0%) contrast(1.1)')}
+                  onMouseLeave={e => (e.currentTarget.style.filter = 'grayscale(20%) contrast(1.1)')}
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="px-3 py-3">
+                <span
+                  className="uppercase block"
+                  style={{ fontSize: '0.55rem', letterSpacing: '0.1em', color: 'rgba(229,226,225,0.5)' }}
+                >
+                  {item.label}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CLOSING STATEMENT / CTA */}
       <section className="py-48 px-6 text-center bg-[#1c1b1b]">
         <div className="max-w-3xl mx-auto">
