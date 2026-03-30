@@ -85,7 +85,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           <div>
             <div className="text-[18px] font-normal text-white">Daniel Stanford</div>
             <div className="label-text text-[9px] tracking-[0.32em] text-[var(--bronze)] mt-1">
-              Creative Director · Spatial Visionary · Executive Producer
+              Creative Director · Visionary · Executive Producer
             </div>
             <div className="label-text text-[9px] text-[var(--bronze)] opacity-90 mt-2 lowercase tracking-normal">
               Stanford Emporium

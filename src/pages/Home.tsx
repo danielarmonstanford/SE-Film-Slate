@@ -71,7 +71,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
             <div className="label-text text-[9px] text-[var(--bronze)]">
-              Creative Director · Spatial Visionary · Executive Producer
+              Creative Director · Visionary · Executive Producer
             </div>
             <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
           </div>
