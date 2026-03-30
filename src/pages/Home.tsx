@@ -17,6 +17,80 @@ export default function Home({ setIsHovering }: HomeProps) {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
+  // Ambient audio player
+  const playerRef = useRef<any>(null);
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const [volume, setVolume] = useState(40);
+  const [playerReady, setPlayerReady] = useState(false);
+
+  useEffect(() => {
+    let destroyed = false;
+
+    const initPlayer = () => {
+      if (destroyed || !(window as any).YT?.Player) return;
+      const el = document.getElementById('ambient-yt-player');
+      if (!el) return;
+      const p = new (window as any).YT.Player('ambient-yt-player', {
+        events: {
+          onReady: (evt: any) => {
+            if (destroyed) return;
+            evt.target.setVolume(40);
+            playerRef.current = evt.target;
+            setPlayerReady(true);
+          },
+          onStateChange: (evt: any) => {
+            if (destroyed) return;
+            setAudioPlaying(evt.data === 1);
+          },
+        },
+      });
+      if (!destroyed) playerRef.current = p;
+    };
+
+    if ((window as any).YT?.Player) {
+      initPlayer();
+    } else {
+      // Avoid duplicate script tags
+      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+      }
+      const prev = (window as any).onYouTubeIframeAPIReady;
+      (window as any).onYouTubeIframeAPIReady = () => {
+        if (prev) prev();
+        initPlayer();
+      };
+    }
+
+    return () => {
+      destroyed = true;
+      if (playerRef.current?.destroy) {
+        try { playerRef.current.destroy(); } catch {}
+      }
+      playerRef.current = null;
+      setPlayerReady(false);
+      setAudioPlaying(false);
+    };
+  }, []);
+
+  const toggleAudio = () => {
+    if (!playerRef.current || !playerReady) return;
+    if (audioPlaying) {
+      playerRef.current.pauseVideo();
+    } else {
+      playerRef.current.playVideo();
+    }
+  };
+
+  const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = Number(e.target.value);
+    setVolume(val);
+    if (playerRef.current && playerReady) {
+      playerRef.current.setVolume(val);
+    }
+  };
+
   useEffect(() => {
     const observerOptions = { threshold: 0.1 };
     const revealObserver = new IntersectionObserver((entries) => {
@@ -476,6 +550,64 @@ export default function Home({ setIsHovering }: HomeProps) {
           </div>
         </div>
       </section>
+
+      {/* AMBIENT AUDIO — hidden iframe (off-screen, must have real size for YT API) */}
+      <div
+        aria-hidden="true"
+        style={{ position: 'fixed', top: '-200px', left: '-200px', width: '100px', height: '100px', pointerEvents: 'none', visibility: 'hidden' }}
+      >
+        <iframe
+          id="ambient-yt-player"
+          width="100"
+          height="100"
+          src="https://www.youtube.com/embed/8-wAvbxB7D8?autoplay=0&mute=0&loop=1&playlist=8-wAvbxB7D8&controls=0&enablejsapi=1"
+          allow="autoplay"
+          title="Ambient Audio"
+        />
+      </div>
+
+      {/* AMBIENT AUDIO CONTROL — fixed bottom-right */}
+      <div className="fixed bottom-6 right-6 z-[300] flex flex-col items-end gap-1">
+        {/* Volume row — shown when playing */}
+        {audioPlaying && (
+          <div className="flex items-center gap-2 px-3 py-[6px] bg-[rgba(8,7,5,0.92)] border border-[rgba(244,239,230,0.1)]">
+            <span className="label-text text-[7px] tracking-[0.2em] text-[rgba(244,239,230,0.3)] uppercase">Vol</span>
+            <input
+              type="range"
+              min={0}
+              max={100}
+              value={volume}
+              onChange={handleVolume}
+              className="w-[80px] cursor-pointer"
+              style={{ accentColor: 'rgba(244,239,230,0.6)' }}
+            />
+          </div>
+        )}
+
+        {/* Play/pause button */}
+        <button
+          onClick={toggleAudio}
+          className={`flex items-center gap-[10px] px-4 py-3 border transition-all duration-300 ${
+            audioPlaying
+              ? 'border-[rgba(244,239,230,0.4)] bg-[rgba(8,7,5,0.92)] text-white'
+              : 'border-[rgba(244,239,230,0.25)] bg-[rgba(8,7,5,0.92)] text-[rgba(244,239,230,0.65)] hover:border-white hover:text-white'
+          }`}
+          title={playerReady ? (audioPlaying ? 'Pause ambient music' : 'Play ambient music') : 'Loading…'}
+        >
+          {/* Icon */}
+          <span className="text-[13px] leading-none w-3 text-center">
+            {!playerReady ? '◌' : audioPlaying ? '❚❚' : '▶'}
+          </span>
+          <span className="label-text text-[8px] tracking-[0.3em] uppercase">
+            {audioPlaying ? 'Ambient' : 'Ambient'}
+          </span>
+        </button>
+
+        {/* Credit */}
+        <div className="label-text text-[7px] tracking-[0.12em] text-[rgba(244,239,230,0.18)] text-right pr-[2px]">
+          Bucharest Symphony Orchestra
+        </div>
+      </div>
     </div>
   );
 }

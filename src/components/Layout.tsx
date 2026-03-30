@@ -14,6 +14,7 @@ interface LayoutProps {
 
 export default function Layout({ children, setIsHovering }: LayoutProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -24,10 +25,17 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll to top on route change
+  // Scroll to top and close mobile menu on route change
   useEffect(() => {
     window.scrollTo(0, 0);
+    setMobileOpen(false);
   }, [location.pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
   const navItems = [
     { name: 'Home', path: '/', label: 'Home' },
@@ -40,12 +48,12 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
   return (
     <div className="min-h-screen bg-[var(--black)]">
       {/* NAVIGATION */}
-      <nav 
-        id="main-nav" 
+      <nav
+        id="main-nav"
         className={`fixed top-0 left-0 right-0 z-[200] flex justify-between items-center px-4 md:px-12 py-[35px] transition-all duration-500 bg-gradient-to-b from-[rgba(8,7,5,0.97)] to-transparent ${scrolled ? 'scrolled' : ''}`}
       >
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="group flex flex-col items-start"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
@@ -58,11 +66,12 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           </div>
         </Link>
 
+        {/* Desktop nav links */}
         <div className="hidden lg:flex gap-10 items-center">
           {navItems.filter(item => item.name !== 'Home').map((item) => (
-            <Link 
+            <Link
               key={item.name}
-              to={item.path} 
+              to={item.path}
               className={`label-text text-[10px] tracking-[0.22em] transition-colors uppercase ${
                 location.pathname === item.path ? 'text-white' : 'text-[rgba(244,239,230,0.75)]'
               } hover:text-[var(--bronze)]`}
@@ -75,7 +84,54 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
         </div>
 
         <div className="lg:w-[180px] hidden lg:block" />
+
+        {/* Mobile hamburger */}
+        <button
+          className="lg:hidden flex flex-col justify-center items-end gap-[5px] w-8 h-8 z-[210] relative"
+          onClick={() => setMobileOpen(prev => !prev)}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+        >
+          <span
+            className="block h-[1px] bg-white transition-all duration-300 origin-right"
+            style={{ width: mobileOpen ? '24px' : '24px', transform: mobileOpen ? 'rotate(-45deg) translateY(4px)' : 'none' }}
+          />
+          <span
+            className="block h-[1px] bg-white transition-all duration-300"
+            style={{ width: '16px', opacity: mobileOpen ? 0 : 1 }}
+          />
+          <span
+            className="block h-[1px] bg-white transition-all duration-300 origin-right"
+            style={{ width: mobileOpen ? '24px' : '20px', transform: mobileOpen ? 'rotate(45deg) translateY(-4px)' : 'none' }}
+          />
+        </button>
       </nav>
+
+      {/* MOBILE MENU OVERLAY */}
+      <div
+        className={`fixed inset-0 z-[190] bg-[rgba(8,7,5,0.97)] flex flex-col justify-center items-start px-8 transition-all duration-500 lg:hidden ${
+          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <nav className="flex flex-col gap-8 w-full">
+          {navItems.map((item, i) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`label-text text-[11px] tracking-[0.35em] uppercase transition-all duration-300 ${
+                location.pathname === item.path ? 'text-white' : 'text-[rgba(244,239,230,0.55)]'
+              } hover:text-[var(--bronze)]`}
+              style={{ transitionDelay: mobileOpen ? `${i * 60}ms` : '0ms', transform: mobileOpen ? 'translateX(0)' : 'translateX(-16px)', opacity: mobileOpen ? 1 : 0 }}
+              onClick={() => setMobileOpen(false)}
+            >
+              <span className="text-[var(--bronze)] mr-3 text-[9px]">0{i + 1}</span>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="mt-16 label-text text-[8px] tracking-[0.3em] text-[rgba(244,239,230,0.25)] uppercase">
+          Stanford Emporium
+        </div>
+      </div>
 
       <main>{children}</main>
 
