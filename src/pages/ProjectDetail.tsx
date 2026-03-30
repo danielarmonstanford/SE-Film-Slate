@@ -31,7 +31,7 @@ const ProjectCTA: React.FC<ProjectCTAProps> = ({
 }) => (
   <div className="max-w-2xl mx-auto text-center">
     <h3 className="text-3xl md:text-4xl mb-6 leading-snug">{headline}</h3>
-    <p className="text-[var(--cream)] opacity-60 text-sm leading-loose mb-10 max-w-xl mx-auto">{body}</p>
+    <p className="text-[rgba(229,226,225,0.72)] text-sm leading-loose mb-10 max-w-xl mx-auto">{body}</p>
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
       <Link
         to="/inquire"
@@ -227,15 +227,15 @@ const ProjectDetail: React.FC = () => {
               <h4 className="label-text text-[11px] text-[var(--bronze)] mb-6 uppercase">Financials</h4>
               <ul className="space-y-4">
                 <li className="flex justify-between border-b border-[rgba(244,239,230,0.05)] pb-2">
-                  <span className="text-[var(--cream)] opacity-60 text-sm">Equity Available</span>
+                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Equity Available</span>
                   <span className="text-white text-sm">{project.equityAvailable}</span>
                 </li>
                 <li className="flex justify-between border-b border-[rgba(244,239,230,0.05)] pb-2">
-                  <span className="text-[var(--cream)] opacity-60 text-sm">Tax Incentives</span>
+                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Tax Incentives</span>
                   <span className="text-white text-sm">{project.taxIncentives}</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-[var(--cream)] opacity-60 text-sm">Target ROI Range</span>
+                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Target ROI Range</span>
                   <span className="text-white text-sm font-bold text-[var(--bronze)]">{project.targetROI}</span>
                 </li>
               </ul>
@@ -245,11 +245,11 @@ const ProjectDetail: React.FC = () => {
               <h4 className="label-text text-[11px] text-[var(--bronze)] mb-6 uppercase">Market Strategy</h4>
               <ul className="space-y-4">
                 <li className="flex flex-col border-b border-[rgba(244,239,230,0.05)] pb-2">
-                  <span className="text-[var(--cream)] opacity-60 text-[10px] uppercase mb-1">Sales Strategy</span>
+                  <span className="text-[rgba(229,226,225,0.72)] text-[10px] uppercase mb-1">Sales Strategy</span>
                   <span className="text-white text-sm">{project.salesStrategy}</span>
                 </li>
                 <li className="flex flex-col">
-                  <span className="text-[var(--cream)] opacity-60 text-[10px] uppercase mb-1">Comparable Films</span>
+                  <span className="text-[rgba(229,226,225,0.72)] text-[10px] uppercase mb-1">Comparable Films</span>
                   <span className="text-white text-sm">{project.comparables?.join(' / ')}</span>
                 </li>
               </ul>
@@ -259,11 +259,11 @@ const ProjectDetail: React.FC = () => {
               <h4 className="label-text text-[11px] text-[var(--bronze)] mb-6 uppercase">Project Data</h4>
               <ul className="space-y-4">
                 <li className="flex justify-between border-b border-[rgba(244,239,230,0.05)] pb-2">
-                  <span className="text-[var(--cream)] opacity-60 text-sm">Genre</span>
+                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Genre</span>
                   <span className="text-white text-sm">{project.genre}</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-[var(--cream)] opacity-60 text-sm">Production Year</span>
+                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Production Year</span>
                   <span className="text-white text-sm">{project.year}</span>
                 </li>
               </ul>

@@ -77,7 +77,7 @@ const DataRoomGate = () => {
         {/* Option 1 — Notion overview (no gate) */}
         <div className="border border-[rgba(244,239,230,0.1)] p-6 mb-8">
           <div className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.4)] mb-3">Option 01 — Slate Overview</div>
-          <p className="text-xs text-[rgba(244,239,230,0.6)] leading-relaxed mb-5">
+          <p className="text-xs text-[rgba(229,226,225,0.72)] leading-relaxed mb-5">
             Project summary, team, and investment highlights. No access code required.
           </p>
           <a
@@ -100,7 +100,7 @@ const DataRoomGate = () => {
         {/* Option 2 — Gated full data room */}
         <div className="mb-2">
           <div className="text-[9px] uppercase tracking-[0.4em] text-[#CC0000] mb-3">Option 02 — Full Data Room</div>
-          <p className="text-xs text-[rgba(244,239,230,0.6)] leading-relaxed mb-6">
+          <p className="text-xs text-[rgba(229,226,225,0.72)] leading-relaxed mb-6">
             Full financials, budget breakdown, legal structure, and supporting materials. Access code required.
           </p>
         </div>
@@ -157,7 +157,7 @@ const DataRoomGate = () => {
             <div className="text-[var(--green-funded)] text-[10px] uppercase tracking-[0.5em]">
               ✓ Access Granted
             </div>
-            <p className="text-sm text-[rgba(244,239,230,0.6)]">Opening data room…</p>
+            <p className="text-sm text-[rgba(229,226,225,0.72)]">Opening data room…</p>
             <a
               href={DATA_ROOM_URL}
               target="_blank"

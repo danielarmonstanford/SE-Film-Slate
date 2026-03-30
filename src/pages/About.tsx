@@ -178,7 +178,7 @@ const About = () => {
       <style>{`.legacy-strip { overflow-x: auto; display: flex; scrollbar-width: none; } .legacy-strip::-webkit-scrollbar { display: none; }`}</style>
       <section className="mb-48">
         <div className="px-6 max-w-[1800px] mx-auto mb-10">
-          <span className="block text-[0.6rem] uppercase tracking-[0.5em] text-[#CC0000] font-bold mb-4">
+          <span className="block text-[0.65rem] uppercase tracking-[0.5em] text-[#CC0000] font-bold mb-4">
             30 Years · Selected Work
           </span>
           <h2 className="font-['Noto_Serif'] text-3xl md:text-4xl italic leading-snug">

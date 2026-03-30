@@ -69,11 +69,11 @@ const Inquire: React.FC = () => {
                   <div className="grid grid-cols-2 gap-8 text-[#F5F0E6]">
                     <div>
                       <p className="text-white mb-1">Montreal</p>
-                      <p className="text-xs opacity-60">Strategic Hub</p>
+                      <p className="text-xs text-[rgba(229,226,225,0.72)]">Strategic Hub</p>
                     </div>
                     <div>
                       <p className="text-white mb-1">Tulum</p>
-                      <p className="text-xs opacity-60">Creative Residency</p>
+                      <p className="text-xs text-[rgba(229,226,225,0.72)]">Creative Residency</p>
                     </div>
                   </div>
                 </div>
@@ -106,21 +106,21 @@ const Inquire: React.FC = () => {
                   <span className="text-[var(--bronze)] font-bold">01</span>
                   <div>
                     <h5 className="text-white mb-2 uppercase text-sm">Initial Inquiry</h5>
-                    <p className="text-xs text-[#F5F0E6] opacity-60 leading-relaxed">Send an email with your background and specific project of interest.</p>
+                    <p className="text-xs text-[rgba(229,226,225,0.72)] leading-relaxed">Send an email with your background and specific project of interest.</p>
                   </div>
                 </li>
                 <li className="flex gap-6">
                   <span className="text-[var(--bronze)] font-bold">02</span>
                   <div>
                     <h5 className="text-white mb-2 uppercase text-sm">Qualification</h5>
-                    <p className="text-xs text-[#F5F0E6] opacity-60 leading-relaxed">Our team will verify credentials and provide access to the secure data room.</p>
+                    <p className="text-xs text-[rgba(229,226,225,0.72)] leading-relaxed">Our team will verify credentials and provide access to the secure data room.</p>
                   </div>
                 </li>
                 <li className="flex gap-6">
                   <span className="text-[var(--bronze)] font-bold">03</span>
                   <div>
                     <h5 className="text-white mb-2 uppercase text-sm">Advisory Call</h5>
-                    <p className="text-xs text-[#F5F0E6] opacity-60 leading-relaxed">Schedule a direct call with our producers to discuss terms and strategic alignment.</p>
+                    <p className="text-xs text-[rgba(229,226,225,0.72)] leading-relaxed">Schedule a direct call with our producers to discuss terms and strategic alignment.</p>
                   </div>
                 </li>
               </ul>

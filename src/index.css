@@ -29,6 +29,13 @@ body {
   font-weight: 300;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+p, li, span {
+  line-height: 1.85;
+  letter-spacing: 0.01em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 .label-text {
   font-family: var(--font-sans);
   font-weight: 300;
-  font-size: 9px;
+  font-size: 0.65rem;
   letter-spacing: 0.55em;
   text-transform: uppercase;
   color: var(--white);
