@@ -50,7 +50,7 @@ const About = () => {
               <img
                 src="/daniel-stanford-portrait.jpg"
                 alt="Daniel Armon Stanford"
-                className="w-16 h-16 rounded-full object-cover object-top mb-6 grayscale opacity-90"
+                className="w-[90px] h-[90px] rounded-full object-cover object-top mb-6"
               />
               <blockquote className="italic text-xl font-['Noto_Serif'] leading-relaxed opacity-80">
                 "To create is to define the boundaries of the unknown."
