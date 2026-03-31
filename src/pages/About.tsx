@@ -47,6 +47,11 @@ const About = () => {
 
           <div className="md:col-span-3">
             <div className="border-l border-[#CC0000] pl-8 py-4">
+              <img
+                src="/daniel-stanford-portrait.jpg"
+                alt="Daniel Armon Stanford"
+                className="w-16 h-16 rounded-full object-cover object-top mb-6 grayscale opacity-90"
+              />
               <blockquote className="italic text-xl font-['Noto_Serif'] leading-relaxed opacity-80">
                 "To create is to define the boundaries of the unknown."
               </blockquote>
