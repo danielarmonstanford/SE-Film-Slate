@@ -290,11 +290,11 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-[1px] bg-[var(--line)] mt-20 reveal">
           {[
             { icon: '◈', title: 'Film Development', img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80', href: '/investment-opportunities', external: false },
-            { icon: '⬡', title: 'Spatial Resonance', img: '/spatial-preview.jpg', href: '/spatial', external: false },
-            { icon: '◉', title: 'Visual Direction', img: 'https://images.unsplash.com/photo-1590593162211-f9827b7ad6a4?w=600&q=80', href: '/production-design', external: false },
+            { icon: '⬡', title: 'Visual Worlds & NFT Art', img: '/spatial-preview.jpg', href: '/spatial', external: false },
+            { icon: '◉', title: 'Visual Direction', img: '/visual-direction-connan.jpg', href: '/production-design', external: false },
             { icon: '△', title: 'Future Habitat Concepts', img: 'https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=600&q=80', href: '/lab', external: false },
-            { icon: '✦', title: 'NuLab Audio Visual', img: '/nulab-preview.jpg', href: 'https://nulab.space', external: true },
-            { icon: '✺', title: 'Fine Art', img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80', href: '/fine-art', external: false },
+            { icon: '✦', title: 'NuLab Audiovisual Intelligence', img: '/nulab-preview.jpg', href: 'https://nulab.space', external: true },
+            { icon: '✺', title: 'Fine Art', img: '/fineart-loas-starmont.png', href: '/fine-art', external: false },
           ].map((item) => {
             const inner = (
               <>
@@ -364,7 +364,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div className="nft-strip -mx-4 md:-mx-20 text-left">
           {[
             { src: '/nft-sea-of-dunes.jpg',   label: 'Sea of Dunes · Paintscape' },
-            { src: '/nft-snake-details.png',  label: 'Snake 2025 · Detail' },
+            { src: '/nft-jayne-silver-gold.jpg', label: 'Jayne · Silver Gold · Brazil' },
             { src: '/nft-year-of-snake.jpg',  label: 'Year of the Snake · DARS' },
             { src: '/nft-toxic-politics.jpg', label: 'Toxic Politics · Dystopian' },
             { src: '/nft-khalumia.jpg',       label: 'Khalumia · Japan · 40×60' },
