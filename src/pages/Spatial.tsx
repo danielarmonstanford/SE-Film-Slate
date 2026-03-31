@@ -24,8 +24,8 @@ const Spatial = () => {
           Visual Worlds &amp; NFT Art
         </h2>
 
-        {/* 16:9 YouTube embed */}
-        <div className="w-full mb-12" style={{ aspectRatio: '16/9' }}>
+        {/* 16:9 YouTube embed — constrained width for sharp render */}
+        <div className="max-w-[800px] mb-12" style={{ aspectRatio: '16/9' }}>
           <iframe
             src="https://www.youtube.com/embed/Ggc8qzs-b20?controls=1&rel=0&modestbranding=1"
             title="NuLab — Visual Worlds & NFT Art"
@@ -67,7 +67,7 @@ const Spatial = () => {
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="font-['Noto_Serif'] text-5xl md:text-8xl italic text-center">
-            Spatial.
+            Visual Worlds &amp; NFT Art.
           </h1>
         </div>
       </section>

@@ -47,6 +47,18 @@ const FineArt = () => {
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose max-w-2xl">
               The fine art practice of Daniel Armon Stanford spans large-format photography, AI-assisted image systems, and NFT editions — exhibited at <strong className="text-white font-normal">MIS — Museum of Image &amp; Sound, São Paulo</strong>, the <strong className="text-white font-normal">Cornell Art Museum, Florida</strong>, and shown during <strong className="text-white font-normal">Art Basel Miami</strong> week. Each work is produced in strictly limited editions with archival standards.
             </p>
+            {/* FASCINASIA — mix media painting series */}
+            <div className="max-w-[800px]" style={{ aspectRatio: '16/9' }}>
+              <iframe
+                src="https://www.youtube.com/embed/vr0fI6bZGa4?controls=1&rel=0&modestbranding=1"
+                title="FASCINASIA — The Mix Media Painting Series"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+                style={{ border: 'none', display: 'block' }}
+              />
+            </div>
+
             <div>
               <a
                 href={PAYHIP_URL}
