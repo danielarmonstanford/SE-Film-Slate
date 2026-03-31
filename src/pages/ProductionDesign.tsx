@@ -82,15 +82,6 @@ const ProductionDesign = () => {
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               This is not compromise. This is intelligence applied to production design.
             </p>
-            <div className="relative w-full mt-8" style={{ paddingTop: '56.25%' }}>
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/gUnxzVOs3rk"
-                title="Virtual Production & The LED Volume"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
           </div>
         </div>
       </section>
