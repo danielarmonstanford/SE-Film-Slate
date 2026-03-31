@@ -118,15 +118,15 @@ const Slate: React.FC = () => {
         <div className="mt-40 pt-24 border-t border-[rgba(244,239,230,0.1)] text-center reveal">
           <h2 className="text-4xl text-white mb-12">Interested in our full portfolio?</h2>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a 
-              href="mailto:DARSbit@prontonmail.ch?subject=Portfolio%20Inquiry"
+            <Link
+              to="/inquire"
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
               REQUEST INVESTMENT MATERIALS
-            </a>
-            <a 
+            </Link>
+            <a
               href="mailto:DARSbit@prontonmail.ch?subject=Investor%20Call"
               className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}

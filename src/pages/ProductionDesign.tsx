@@ -121,12 +121,12 @@ const ProductionDesign = () => {
           <p className="text-sm text-[#F5F0E6] opacity-70 leading-loose mb-12 max-w-xl mx-auto">
             Bring us into your project at the concept stage and we'll build the visual world from the ground up.
           </p>
-          <a
-            href="mailto:studio@stanfordemporium.com?subject=Production Design Inquiry"
+          <Link
+            to="/inquire"
             className="bg-[#CC0000] text-white text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
           >
             INITIATE INQUIRY
-          </a>
+          </Link>
         </div>
       </section>
 
