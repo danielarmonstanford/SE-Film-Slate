@@ -487,11 +487,10 @@ export default function Home({ setIsHovering }: HomeProps) {
       {/* SECTION 8 — COLLECT WORKS */}
       <section id="collect" className="section-divider relative py-[144px] px-4 md:px-20 bg-[var(--black-2)] text-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-50">
-          <img 
-            src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=1920&q=80" 
-            alt="Love is Eternal" 
+          <img
+            src="/collect-hero.jpg"
+            alt="Collect Works — Daniel Armon Stanford"
             className="w-full h-full object-cover grayscale"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-[var(--black-2)] opacity-40" />
         </div>
