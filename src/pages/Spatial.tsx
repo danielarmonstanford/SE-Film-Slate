@@ -24,6 +24,18 @@ const Spatial = () => {
           Visual Worlds &amp; NFT Art
         </h1>
 
+        {/* Video */}
+        <div className="max-w-[720px] mb-12" style={{ aspectRatio: '16/9' }}>
+          <iframe
+            src="https://www.youtube.com/embed/zWNpZgAPezs?controls=1&rel=0&modestbranding=1"
+            title="Visual Worlds & NFT Art — Spatial Resonance"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+            style={{ border: 'none', display: 'block' }}
+          />
+        </div>
+
         {/* Text block */}
         <div className="max-w-[640px] space-y-6">
           <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
