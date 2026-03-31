@@ -484,7 +484,68 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
       </section>
 
-      {/* SECTION 8 — COLLECT WORKS */}
+      {/* SECTION 8 — VISUAL WORLDS & NFT ART */}
+      <section className="section-divider py-[120px] px-4 md:px-20 bg-[var(--black)]">
+        <div className="reveal mb-12">
+          <span className="block label-text text-[0.65rem] text-[#CC0000] mb-4">Multimedia · NFT · Sound</span>
+          <h2 className="text-[clamp(2rem,4vw,4rem)] text-white leading-tight mb-2">
+            Visual Worlds &amp; NFT Art
+          </h2>
+        </div>
+
+        {/* Video — medium width, sharp */}
+        <div className="max-w-[680px] mb-16 reveal" style={{ aspectRatio: '16/9' }}>
+          <iframe
+            src="https://www.youtube.com/embed/Ggc8qzs-b20?controls=1&rel=0&modestbranding=1"
+            title="FASCINASIA — NFT Art Animated"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+            style={{ border: 'none', display: 'block' }}
+          />
+        </div>
+
+        {/* Horizontal art strip */}
+        <style>{`.nft-strip{overflow-x:auto;display:flex;scrollbar-width:none;}.nft-strip::-webkit-scrollbar{display:none;}`}</style>
+        <div className="nft-strip -mx-4 md:-mx-20">
+          {[
+            { src: '/nft-sea-of-dunes.jpg',    label: 'Sea of Dunes · Paintscape' },
+            { src: '/nft-snake-details.png',   label: 'Snake 2025 · Detail' },
+            { src: '/nft-year-of-snake.jpg',   label: 'Year of the Snake · DARS' },
+            { src: '/nft-toxic-politics.jpg',  label: 'Toxic Politics · Dystopian' },
+            { src: '/nft-khalumia.jpg',        label: 'Khalumia · Japan · 40×60' },
+            { src: '/nft-desert-warrior.jpg',  label: 'Desert Warrior · NFT Edition' },
+            { src: '/nft-snake-goddess.jpg',   label: 'Snake Goddess · NFT Edition' },
+          ].map((item, i, arr) => (
+            <div
+              key={i}
+              className="flex-none"
+              style={{
+                width: '280px',
+                borderRight: i < arr.length - 1 ? '1px solid rgba(229,226,225,0.08)' : 'none',
+              }}
+            >
+              <div style={{ aspectRatio: '3/2', overflow: 'hidden' }}>
+                <img
+                  src={item.src}
+                  alt={item.label}
+                  className="w-full h-full object-cover transition-all duration-[800ms]"
+                  style={{ filter: 'grayscale(15%) contrast(1.05)' }}
+                  onMouseEnter={e => (e.currentTarget.style.filter = 'grayscale(0%) contrast(1.05)')}
+                  onMouseLeave={e => (e.currentTarget.style.filter = 'grayscale(15%) contrast(1.05)')}
+                />
+              </div>
+              <div className="px-3 py-3">
+                <span className="uppercase block" style={{ fontSize: '0.55rem', letterSpacing: '0.1em', color: 'rgba(229,226,225,0.5)' }}>
+                  {item.label}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 9 — COLLECT WORKS */}
       <section id="collect" className="section-divider relative py-[144px] px-4 md:px-20 bg-[var(--black-2)] text-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-50">
           <img
@@ -495,7 +556,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           <div className="absolute inset-0 bg-[var(--black-2)] opacity-40" />
         </div>
         <div className="relative z-10 reveal">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">08 / COLLECTION</div>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">09 / COLLECTION</div>
           <h2 className="text-[clamp(2rem,4.5vw,4rem)] text-white mb-4">
             Collect Works
           </h2>

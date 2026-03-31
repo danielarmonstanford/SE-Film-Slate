@@ -168,8 +168,8 @@ const About = () => {
       {/* RESEARCH & VISION */}
       <section className="px-6 max-w-[1800px] mx-auto py-12 mb-0">
         <div className="border-t border-[rgba(244,239,230,0.08)] pt-8 flex flex-col md:flex-row md:items-center gap-3 md:gap-10">
-          <span className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.35)]">Research &amp; Vision</span>
-          <span className="text-[11px] text-[rgba(244,239,230,0.4)]">Spatial Resonance™ — a philosophy of environment, emotion, and frequency.</span>
+          <span className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.35)]">Visual Worlds &amp; NFT Art</span>
+          <span className="text-[11px] text-[rgba(244,239,230,0.4)]">NuLab Audio Visual Intelligence — sound, image, and frequency as a unified creative field.</span>
           <Link to="/spatial" className="text-[10px] tracking-[0.2em] text-[rgba(244,239,230,0.35)] hover:text-[rgba(244,239,230,0.7)] transition-colors">Explore →</Link>
         </div>
       </section>
