@@ -42,7 +42,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
     { name: 'About', path: '/about', label: 'About' },
     { name: 'Investment Opportunities', path: '/investment-opportunities', label: 'Investment Opportunities' },
     { name: 'Visual Development', path: '/visual-development', label: 'Visual Development' },
-    { name: 'Investor Inquiry', path: '/investor-inquiry', label: 'Investor Inquiry' },
+    { name: 'Investor Inquiry', path: '/inquire', label: 'Investor Inquiry' },
   ];
 
   return (
