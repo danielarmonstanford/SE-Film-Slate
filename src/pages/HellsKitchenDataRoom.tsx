@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const GATE_PASSWORD = 'money';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1nouywacAT2WlrlbyDM3XLb2hLQjTjMAl?usp=sharing';
-const NOTION_URL = 'https://drive.google.com/drive/folders/1nouywacAT2WlrlbyDM3XLb2hLQjTjMAl?usp=sharing';
+const NOTION_URL = 'https://drive.google.com/file/d/1fhksH7oyC6_7lO8aXRTcjFk6mnhzzpVV/view?usp=drive_link';
 const NOTIFY_EMAIL = 'DARSbit@proton.ch';
 const WEB3FORMS_KEY = (import.meta as any).env?.VITE_WEB3FORMS_KEY as string | undefined;
 
