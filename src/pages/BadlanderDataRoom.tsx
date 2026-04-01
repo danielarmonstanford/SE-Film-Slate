@@ -57,7 +57,7 @@ const BadlanderDataRoom = () => {
 
   return (
     <div className="bg-[var(--black)] min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
-      <div className="w-full max-w-[480px]">
+      <div className="w-full max-w-[640px]">
 
         {/* Header */}
         <div className="mb-12">
@@ -166,6 +166,20 @@ const BadlanderDataRoom = () => {
             </a>
           </div>
         )}
+
+        {/* Director's Reel */}
+        <div className="mt-12">
+          <div className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.4)] mb-4">Director's Reel — Johnny Martin</div>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              src="https://www.youtube.com/embed/Xa0Sbh2tazI"
+              title="Johnny Martin Director's Reel"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full border-0"
+            />
+          </div>
+        </div>
 
         {/* Back link */}
         <div className="mt-12 pt-8 border-t border-[rgba(244,239,230,0.06)] text-center">
