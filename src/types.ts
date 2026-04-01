@@ -34,6 +34,7 @@ export interface Project {
   dataRoomUrl: string;
   dataRoomGatedPath?: string;
   notionPageId?: string;
+  youtubeId?: string;
   team: { role: string; name: string }[];
 }
 
@@ -374,6 +375,7 @@ export const PROJECTS: Project[] = [
       '/badlander-key-art.png'
     ],
     dataRoomGatedPath: '/badlander-dataroom',
+    youtubeId: 'Xa0Sbh2tazI',
   }
 ];
 ;

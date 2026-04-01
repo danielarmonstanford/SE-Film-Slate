@@ -361,10 +361,28 @@ const ProjectDetail: React.FC = () => {
         </section>
       )}
 
-      {/* SECTION 5: KEY TEAM */}
+      {/* SECTION 5: DIRECTOR'S REEL */}
+      {project.youtubeId && (
+        <section className="py-32 px-4 md:px-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="label-text text-[10px] text-[var(--bronze)] mb-16 uppercase tracking-[0.4em]">05 / DIRECTOR'S REEL</div>
+            <div className="relative w-full max-w-4xl" style={{ paddingBottom: '45%' }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${project.youtubeId}`}
+                title="Director's Reel"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full border-0"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 6: KEY TEAM */}
       <section className="py-32 px-4 md:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-16 uppercase tracking-[0.4em]">05 / KEY TEAM</div>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-16 uppercase tracking-[0.4em]">06 / KEY TEAM</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {project.team?.map((member, i) => (
               <div key={i} className="flex flex-col">
