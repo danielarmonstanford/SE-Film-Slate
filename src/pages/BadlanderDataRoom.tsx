@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const GATE_PASSWORD = 'money';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1nouywacAT2WlrlbyDM3XLb2hLQjTjMAl?usp=sharing';
 const NOTION_URL = 'https://drive.google.com/drive/folders/1nouywacAT2WlrlbyDM3XLb2hLQjTjMAl?usp=sharing';
-const NOTIFY_EMAIL = 'DARSbit@proton.ch';
+const NOTIFY_EMAIL = 'DanielArmonStanford@gmail.com';
 const WEB3FORMS_KEY = (import.meta as any).env?.VITE_WEB3FORMS_KEY as string | undefined;
 
 const sendNotification = async (submitterEmail: string) => {

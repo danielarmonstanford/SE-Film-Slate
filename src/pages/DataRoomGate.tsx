@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const GATE_PASSWORD = 'money';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1vyYg-63ZfsTaeVA9z6WMd5CWouho8ikL';
 const NOTION_URL = 'https://www.notion.so/001-A-Child-s-Night-Dream-32e8a599ff278037bc01d8da158c1b7b';
-const NOTIFY_EMAIL = 'DARSbit@proton.ch';
+const NOTIFY_EMAIL = 'DanielArmonStanford@gmail.com';
 const WEB3FORMS_KEY = (import.meta as any).env?.VITE_WEB3FORMS_KEY as string | undefined;
 
 const sendNotification = async (submitterEmail: string) => {
