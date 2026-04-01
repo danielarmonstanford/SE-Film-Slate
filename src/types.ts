@@ -324,6 +324,54 @@ export const PROJECTS: Project[] = [
       'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80',
       'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80'
     ]
+  },
+  {
+    id: '008',
+    slug: 'badlander',
+    title: 'Badlander',
+    genre: 'Action Horror / Thriller',
+    image: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=1200&q=80',
+    description: 'In a decaying city, former Black Ops soldier Ray Hawkins and his elite ghost unit — the Zombie Squad — hunt a monstrous creature feeding on the innocent and evading capture through underground tunnels.',
+    status: 'Funding Open',
+    statusColor: 'var(--bronze)',
+    details: 'Dir: Johnny Martin | Prod: Bryan Lord, Joe Di Maio, Thomas Sjolund',
+    stats: 'Budget: $10M | Shoot: July/August 2026 | Location: Italy (possibly US)',
+    pos: 'Equity participation — Revenue share on distribution',
+    positioning: 'James Franco leads a visceral action-horror that blurs the line between myth and reality.',
+    budgetRange: '$10M',
+    equityAvailable: 'Allocation Open',
+    taxIncentives: 'Italy production incentives available',
+    salesStrategy: 'Theatrical + VOD. Strong genre pre-sales on Franco / Bacon / Fukuhara attachments.',
+    targetROI: 'Revenue share on distribution',
+    comparables: ['Predator', 'The Ritual', 'Bone Tomahawk'],
+    marketPositioning: 'A high-concept action-horror with a proven ensemble cast. James Franco leads alongside Kevin Bacon, Josh Lucas, Alex Pettyfer, and Karen Fukuhara. Directed by Johnny Martin (Vengeance: A Love Story, Deadpool 2 stunt coordinator). Shooting July/August 2026 in Italy (US locations under consideration).\n\nAfter a brutal massacre — victims found mutilated with missing organs — Hawkins and the Zombie Squad uncover a dark legend: the Badlander, a creature hunting in the shadows and evading capture through underground tunnels. Haunted by personal loss and a failing marriage, Hawkins must confront this otherworldly predator with the help of a determined reporter and a mysterious Navajo elder.',
+    audience: 'Genre horror and action fans globally; strong VOD and streaming performance in the $10M budget tier.',
+    timingRelevance: 'Shoot commences July 2026. Funding window open now.',
+    commercialStrengths: [
+      'James Franco (lead) — proven global box office draw.',
+      'Kevin Bacon — iconic genre credibility and international recognition.',
+      'Josh Lucas, Alex Pettyfer, Karen Fukuhara — deep ensemble with broad demographic reach.',
+      'Director Johnny Martin — action genre specialist with major studio credits.',
+      '$10M budget sits in the high-performance VOD / limited theatrical sweet spot.',
+      'Italy production incentives reduce effective investor exposure.',
+      'High-concept creature mythology with franchise potential.',
+      'Action-horror: consistently strong streaming and VOD performance globally.'
+    ],
+    team: [
+      { role: 'Director', name: 'Johnny Martin' },
+      { role: 'Producer', name: 'Bryan Lord' },
+      { role: 'Producer', name: 'Joe Di Maio' },
+      { role: 'Producer', name: 'Thomas Sjolund' },
+      { role: 'Cast (Lead)', name: 'James Franco' },
+      { role: 'Cast', name: 'Kevin Bacon' },
+      { role: 'Cast', name: 'Josh Lucas' },
+      { role: 'Cast', name: 'Alex Pettyfer' },
+      { role: 'Cast', name: 'Karen Fukuhara' },
+      { role: 'Executive Producer', name: 'Daniel Stanford' }
+    ],
+    previewImages: [
+      'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&q=80'
+    ]
   }
 ];
 ;
