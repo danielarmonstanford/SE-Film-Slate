@@ -330,7 +330,7 @@ export const PROJECTS: Project[] = [
     slug: 'badlander',
     title: 'Badlander',
     genre: 'Action Horror / Thriller',
-    image: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=1200&q=80',
+    image: '/badlander-key-art.png',
     description: 'In a decaying city, former Black Ops soldier Ray Hawkins and his elite ghost unit — the Zombie Squad — hunt a monstrous creature feeding on the innocent and evading capture through underground tunnels.',
     status: 'Funding Open',
     statusColor: 'var(--bronze)',
@@ -370,7 +370,7 @@ export const PROJECTS: Project[] = [
       { role: 'Executive Producer', name: 'Daniel Stanford' }
     ],
     previewImages: [
-      'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&q=80'
+      '/badlander-key-art.png'
     ]
   }
 ];
