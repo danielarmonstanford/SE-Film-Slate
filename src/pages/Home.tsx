@@ -149,11 +149,11 @@ export default function Home({ setIsHovering }: HomeProps) {
             </div>
             <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
           </div>
-          <h1 className="text-[clamp(3rem,9vw,9rem)] leading-[1.1] text-[var(--white)] mb-2">
+          <h1 className="text-[clamp(3rem,9vw,9rem)] leading-[1.1] text-[var(--white)] mb-2" style={{ textShadow: '0 2px 40px rgba(0,0,0,0.8)' }}>
             I direct ideas<br />
             <span className="italic-emphasis">into reality.</span>
           </h1>
-          <div className="label-text text-[10px] tracking-[0.45em] text-white mb-12">
+          <div className="label-text text-[10px] tracking-[0.35em] text-white opacity-[0.82] mb-12">
             Films · Spaces · Concepts · Worlds
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
