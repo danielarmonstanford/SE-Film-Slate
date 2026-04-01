@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const GATE_PASSWORD = 'money';
-const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1nouywacAT2WlrlbyDM3XLb2hLQjTjMAl?usp=sharing';
+const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1ucw9T8ocEvJFza44RMsMKIFeo4u93A9o';
 const NOTION_URL = 'https://drive.google.com/file/d/1fhksH7oyC6_7lO8aXRTcjFk6mnhzzpVV/view?usp=drive_link';
 const NOTIFY_EMAIL = 'DanielArmonStanford@gmail.com';
 const WEB3FORMS_KEY = '0928c0d9-38cc-4327-99b1-a50349a62ed7';
