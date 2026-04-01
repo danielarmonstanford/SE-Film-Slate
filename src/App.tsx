@@ -20,6 +20,8 @@ import ProductionDesign from './pages/ProductionDesign';
 import FineArt from './pages/FineArt';
 import VisualDevelopment from './pages/VisualDevelopment';
 import DataRoomGate from './pages/DataRoomGate';
+import HellsKitchenDataRoom from './pages/HellsKitchenDataRoom';
+import BadlanderDataRoom from './pages/BadlanderDataRoom';
 
 export default function App() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -77,6 +79,8 @@ export default function App() {
             <Route path="/fine-art" element={<FineArt />} />
             <Route path="/visual-development" element={<VisualDevelopment />} />
             <Route path="/acnd-dataroom" element={<DataRoomGate />} />
+            <Route path="/hells-kitchen-dataroom" element={<HellsKitchenDataRoom />} />
+            <Route path="/badlander-dataroom" element={<BadlanderDataRoom />} />
           </Routes>
         </Layout>
       </div>

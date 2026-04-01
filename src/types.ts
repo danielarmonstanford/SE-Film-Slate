@@ -252,6 +252,7 @@ export const PROJECTS: Project[] = [
     status: 'Funding Open',
     statusColor: 'var(--red-urgent)',
     previewImages: ['/hells-kitchen-poster.jpg'],
+    dataRoomGatedPath: '/hells-kitchen-dataroom',
     positioning: '$1.5M equity sought. NY 30% tax credit reduces net budget to $12.5M. Shoot April 20, 2026.',
     budgetRange: '$16.9M gross / $12.5M net after NY 30% tax credit',
     equityAvailable: '$1.5M',
@@ -371,7 +372,8 @@ export const PROJECTS: Project[] = [
     ],
     previewImages: [
       '/badlander-key-art.png'
-    ]
+    ],
+    dataRoomGatedPath: '/badlander-dataroom',
   }
 ];
 ;
