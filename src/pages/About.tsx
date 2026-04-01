@@ -6,14 +6,17 @@ const About = () => {
     <div className="bg-[#131313] pt-32">
 
       {/* HERO */}
-      <section className="relative h-[70vh] w-full overflow-hidden mb-32">
+      <section className="relative h-[70vh] w-full overflow-hidden mb-32" style={{ marginLeft: 'calc(50% - 50vw)', width: '100vw' }}>
         <img
-          src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80"
-          alt="Stanford Emporium"
-          className="w-full h-full object-cover grayscale opacity-50"
+          src="/collect-hero.jpg"
+          alt="Stanford Emporium — Kerala"
+          className="w-full h-full object-cover"
+          style={{ filter: 'sepia(25%) saturate(1.4) brightness(0.88)', objectPosition: 'center 30%' }}
         />
+        {/* warm gold gradient overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,4,0.45) 0%, rgba(180,120,20,0.08) 40%, rgba(10,8,4,0.55) 100%)' }} />
         <div className="absolute inset-0 flex items-center justify-center px-6">
-          <h1 className="font-['Noto_Serif'] text-5xl md:text-8xl italic text-center leading-tight">
+          <h1 className="font-['Noto_Serif'] text-5xl md:text-8xl italic text-center leading-tight" style={{ textShadow: '0 2px 40px rgba(0,0,0,0.7)' }}>
             About
           </h1>
         </div>
