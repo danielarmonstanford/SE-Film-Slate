@@ -196,7 +196,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           </div>
           <h1 className="text-[clamp(3rem,9vw,9rem)] leading-[1.1] mb-2" style={{ textShadow: '0 2px 40px rgba(0,0,0,0.8)' }}>
             <span style={{ color: '#e5e2e1' }}>I direct ideas</span><br />
-            <span className="italic-emphasis" style={{ color: '#CC0000' }}>into reality.</span>
+            <span className="italic-emphasis">into reality.</span>
           </h1>
           <div style={{ fontSize: 'clamp(0.62rem, 1.5vw, 0.75rem)', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.55)', marginBottom: '44px', marginTop: '4px' }}>
             Executive Producer · Production Design · Film Investment
