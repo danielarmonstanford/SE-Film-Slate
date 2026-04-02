@@ -52,6 +52,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
     { name: 'Home', path: '/', label: 'Home' },
     { name: 'About', path: '/about', label: 'About' },
     { name: 'Investment Opportunities', path: '/investment-opportunities', label: 'Investment Opportunities' },
+    { name: 'Services', path: '/disciplines', label: 'Services' },
     { name: 'Visual Development', path: '/visual-development', label: 'Visual Development' },
     { name: 'Investor Inquiry', path: '/inquire', label: 'Investor Inquiry' },
   ];

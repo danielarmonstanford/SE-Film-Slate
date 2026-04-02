@@ -1,47 +1,133 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Work = () => {
+const services = [
+  {
+    num: '01',
+    title: 'Production Design',
+    desc: 'Set design, colour world, spatial architecture. The complete visual environment from concept to set.',
+  },
+  {
+    num: '02',
+    title: 'Art Direction',
+    desc: 'On-set execution. Department management. Every frame consistent with the visual bible.',
+  },
+  {
+    num: '03',
+    title: 'Casting Consultation',
+    desc: 'Ensemble coherence. Character-to-environment visual intelligence. Instinctive eye for talent honed across 30 years of directing people.',
+  },
+  {
+    num: '04',
+    title: 'Brand & Identity',
+    desc: 'Every film needs a visual identity system — titles, props, signage, world-building graphics.',
+    link: { label: 'Stanford Emporium →', href: 'https://www.stanfordemporium.com', external: true },
+  },
+  {
+    num: '05',
+    title: 'Soundtrack Intelligence',
+    desc: 'Score selection is a Production Design decision. Collecting original motion picture scores since childhood — Vangelis, Morricone, Zimmer — that ear informs every spatial and tonal choice.',
+  },
+  {
+    num: '06',
+    title: 'Location Reference & Scouting',
+    desc: 'Thirty years. Five continents. An unpublished archive of large-format photography available as location reference and background plates.',
+  },
+  {
+    num: '07',
+    title: 'Matte Painting & Background Plates',
+    desc: 'Cinematic landscape photography repurposed as production-ready environment material. Brazil, Sri Lanka, Japan, and beyond.',
+  },
+  {
+    num: '08',
+    title: 'NuLab VFX & Virtual Production',
+    desc: 'LED Volume integration and AI-visual pipeline via NuLab Audio Visual Intelligence.',
+    link: { label: 'nulab.space →', href: 'https://nulab.space', external: true },
+  },
+  {
+    num: '09',
+    title: 'Creative Consulting',
+    desc: 'Turnkey creative oversight for productions needing strategic visual intelligence without a full department. Available for features, pilots, and branded content.',
+  },
+];
+
+const Work: React.FC = () => {
   return (
-    <div className="bg-[#131313] pt-32">
-      <section className="relative h-[70vh] w-full overflow-hidden mb-32">
-        <img
-          src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80"
-          alt="Work Hero"
-          className="w-full h-full object-cover grayscale opacity-50"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="font-['Noto_Serif'] text-5xl md:text-8xl italic text-center">
-            Disciplines.
-          </h1>
+    <div className="bg-[#131313] min-h-screen pt-40 pb-0">
+
+      {/* HEADER */}
+      <section className="px-6 md:px-20 max-w-[1800px] mx-auto mb-20">
+        <span style={{ fontSize: '0.6rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', display: 'block', marginBottom: '20px' }}>
+          Full Creative Services
+        </span>
+        <h1 style={{ fontFamily: "'Noto Serif', serif", fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, lineHeight: 1.05, color: '#e5e2e1', marginBottom: '0' }}>
+          Everything a production needs.
+        </h1>
+        <h1 style={{ fontFamily: "'Noto Serif', serif", fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.05, color: '#CC0000', marginBottom: '40px' }}>
+          Under one intelligence.
+        </h1>
+        <p style={{ maxWidth: '680px', fontSize: '0.9rem', color: 'rgba(229,226,225,0.65)', lineHeight: 1.9 }}>
+          Most productions hire seven different vendors for what happens here under one creative vision. From initial concept to final frame — Production Design, Art Direction, Brand Identity, Casting, Soundtrack Intelligence, Location, and Visual Effects. This is the complete offering.
+        </p>
+      </section>
+
+      {/* SERVICE GRID */}
+      <section className="px-6 md:px-20 max-w-[1800px] mx-auto mb-32">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1px', background: 'rgba(229,226,225,0.06)' }}>
+          {services.map((s) => (
+            <div
+              key={s.num}
+              style={{
+                background: '#1c1b1b',
+                border: '1px solid rgba(229,226,225,0.06)',
+                padding: '32px',
+                borderRadius: 0,
+                transition: 'border-color 400ms',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(204,0,0,0.3)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(229,226,225,0.06)')}
+            >
+              <div style={{ fontFamily: "'Noto Serif', serif", fontStyle: 'italic', fontSize: '1.5rem', color: '#CC0000', marginBottom: '14px', lineHeight: 1 }}>
+                {s.num}
+              </div>
+              <h3 style={{ fontFamily: "'Noto Serif', serif", fontSize: '1.1rem', fontWeight: 300, color: '#e5e2e1', marginBottom: '12px', lineHeight: 1.3 }}>
+                {s.title}
+              </h3>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(229,226,225,0.5)', lineHeight: 1.75, marginBottom: s.link ? '16px' : '0' }}>
+                {s.desc}
+              </p>
+              {s.link && (
+                <a
+                  href={s.link.href}
+                  target={s.link.external ? '_blank' : undefined}
+                  rel={s.link.external ? 'noopener noreferrer' : undefined}
+                  style={{ fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#CC0000', textDecoration: 'none', transition: 'opacity 200ms' }}
+                  onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
+                  onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                >
+                  {s.link.label}
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="px-6 max-w-[1800px] mx-auto mb-48">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
-          <div className="md:col-span-3 sticky top-32 h-fit">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">OUR WORK</span>
-            <h3 className="text-xs uppercase tracking-[0.2em] opacity-40">Areas of Practice</h3>
-          </div>
-          <div className="md:col-span-6 space-y-12">
-            <p className="text-lg md:text-2xl leading-relaxed font-light">
-              From narrative film to spatial design, our disciplines span the full spectrum of the cinematic arts.
-            </p>
-            <p className="text-sm opacity-50 leading-loose">
-              Each project is approached with the same commitment to craft and intention, regardless of medium or scale.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-48 px-6 text-center bg-[#1c1b1b]">
-        <h2 className="font-['Noto_Serif'] text-4xl md:text-6xl italic mb-12">Start a project.</h2>
-        <Link
-          to="/inquire"
-          className="bg-[#CC0000] text-white text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
+      {/* CTA */}
+      <section style={{ background: '#0d0d0d', padding: '96px 24px', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: "'Noto Serif', serif", fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', marginBottom: '40px', lineHeight: 1.2 }}>
+          One call. Full creative picture.
+        </h2>
+        <a
+          href="mailto:danielarmonstanford@gmail.com?subject=Creative%20Consulting%20Inquiry"
+          style={{ display: 'inline-block', background: '#CC0000', color: '#131313', fontSize: '0.62rem', letterSpacing: '0.3em', textTransform: 'uppercase', padding: '16px 48px', textDecoration: 'none', transition: 'background 300ms' }}
+          onMouseEnter={e => (e.currentTarget.style.background = '#930000')}
+          onMouseLeave={e => (e.currentTarget.style.background = '#CC0000')}
         >
-          INITIATE INQUIRY
-        </Link>
+          Begin Consulting Conversation
+        </a>
       </section>
+
     </div>
   );
 };
