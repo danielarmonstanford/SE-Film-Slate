@@ -204,9 +204,9 @@ export default function Home({ setIsHovering }: HomeProps) {
           <div className="hero-cta-group flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/slate"
-              style={{ fontSize: 'clamp(0.58rem, 1.2vw, 0.68rem)', letterSpacing: '0.28em', padding: '14px clamp(24px, 4vw, 40px)', background: '#C9971F', color: '#131313', border: 'none', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'background 300ms' }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = '#A67C00'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = '#C9971F'}
+              style={{ fontSize: 'clamp(0.58rem, 1.2vw, 0.68rem)', letterSpacing: '0.28em', padding: '14px clamp(24px, 4vw, 40px)', background: 'transparent', color: '#ffffff', border: '1px solid rgba(255,255,255,0.6)', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'background 300ms, border-color 300ms, color 300ms', backdropFilter: 'blur(4px)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.9)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.6)'; }}
             >
               VIEW INVESTMENT OPPORTUNITIES
             </Link>
