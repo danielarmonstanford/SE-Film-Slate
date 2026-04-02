@@ -204,9 +204,9 @@ export default function Home({ setIsHovering }: HomeProps) {
           <div className="hero-cta-group flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/slate"
-              style={{ fontSize: 'clamp(0.58rem, 1.2vw, 0.68rem)', letterSpacing: '0.28em', padding: '14px clamp(24px, 4vw, 40px)', background: '#CC0000', color: '#131313', border: 'none', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'background 300ms' }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = '#930000'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = '#CC0000'}
+              style={{ fontSize: 'clamp(0.58rem, 1.2vw, 0.68rem)', letterSpacing: '0.28em', padding: '14px clamp(24px, 4vw, 40px)', background: '#C76C5E', color: '#131313', border: 'none', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'background 300ms' }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = '#9A3F34'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = '#C76C5E'}
             >
               VIEW INVESTMENT OPPORTUNITIES
             </Link>
