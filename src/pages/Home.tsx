@@ -292,7 +292,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-[1px] bg-[var(--line)] mt-20 reveal">
           {[
             { icon: '◈', title: 'Film Development', img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80', href: '/investment-opportunities', external: false },
-            { icon: '⬡', title: 'Visual Worlds & NFT Art', img: '/spatial-preview.jpg', href: '/spatial', external: false },
+            { icon: '⬡', title: 'Visual Worlds & Digital Collection Art', img: '/spatial-preview.jpg', href: '/spatial', external: false },
             { icon: '◉', title: 'Visual Direction', img: '/visual-direction-connan.jpg', href: '/production-design', external: false },
             { icon: '△', title: 'Future Habitat Concepts', img: 'https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=600&q=80', href: '/lab', external: false },
             { icon: '✦', title: 'NuLab Audiovisual Intelligence', img: '/nulab-preview.jpg', href: 'https://nulab.space', external: true },
@@ -343,9 +343,9 @@ export default function Home({ setIsHovering }: HomeProps) {
       {/* SECTION 4 — VISUAL WORLDS & NFT ART */}
       <section id="visual-worlds" className="section-divider py-[120px] px-4 md:px-20 bg-[var(--black)] text-center overflow-hidden">
         <div className="reveal mb-10">
-          <span className="block label-text text-[0.65rem] text-[#CC0000] mb-4">Multimedia · NFT · Sound</span>
+          <span className="block label-text text-[0.65rem] text-[#CC0000] mb-4">Multimedia · Digital Collection · Sound</span>
           <h2 className="text-[clamp(2.5rem,7.5vw,7.5rem)] italic text-white mb-8">
-            Visual Worlds &amp; NFT Art
+            Visual Worlds &amp; Digital Collection Art
           </h2>
         </div>
 
@@ -353,7 +353,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div className="max-w-[720px] mx-auto mb-16 reveal" style={{ aspectRatio: '16/9' }}>
           <iframe
             src="https://www.youtube.com/embed/Ggc8qzs-b20?autoplay=1&mute=1&loop=1&playlist=Ggc8qzs-b20&controls=1&rel=0&modestbranding=1"
-            title="FASCINASIA — NFT Art Animated"
+            title="FASCINASIA — Digital Collection Art Animated"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="w-full h-full"
@@ -370,8 +370,8 @@ export default function Home({ setIsHovering }: HomeProps) {
             { src: '/nft-year-of-snake.jpg',  label: 'Year of the Snake · DARS' },
             { src: '/nft-toxic-politics.jpg', label: 'Toxic Politics · Dystopian' },
             { src: '/nft-khalumia.jpg',       label: 'Khalumia · Japan · 40×60' },
-            { src: '/nft-desert-warrior.jpg', label: 'Desert Warrior · NFT Edition' },
-            { src: '/nft-snake-goddess.jpg',  label: 'Snake Goddess · NFT Edition' },
+            { src: '/nft-desert-warrior.jpg', label: 'Desert Warrior · Digital Collection Edition' },
+            { src: '/nft-snake-goddess.jpg',  label: 'Snake Goddess · Digital Collection Edition' },
           ].map((item, i, arr) => (
             <div
               key={i}

@@ -108,7 +108,7 @@ const About = () => {
               He has led creative direction and produced campaigns for GUESS, Victoria's Secret, Intimissimi, Lancôme, Revlon, La Maison Simons, SSENSE, and Aldo, overseeing productions across five continents — from Rio to Morocco to Southeast Asia.
             </p>
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
-              His fine art has been exhibited at MIS — Museum of Image & Sound (São Paulo) and the Cornell Art Museum (Florida), with work shown during Art Basel Miami week. He is also the co-founder of NuLab, an audio-visual intelligence studio operating at the intersection of AI, sound, and spatial media (nulab.space). His work spans NFT art, cryptocurrency-native creative strategy, and AI-generated image systems for luxury and editorial brands.
+              His fine art has been exhibited at MIS — Museum of Image & Sound (São Paulo) and the Cornell Art Museum (Florida), with work shown during Art Basel Miami week. He is also the co-founder of NuLab, an audio-visual intelligence studio operating at the intersection of AI, sound, and spatial media (nulab.space). His work spans Digital Collection Art, cryptocurrency-native creative strategy, and AI-generated image systems for luxury and editorial brands.
             </p>
             <p style={{
               fontFamily: "'Noto Serif', serif",
@@ -187,7 +187,7 @@ const About = () => {
       {/* RESEARCH & VISION */}
       <section className="px-6 max-w-[1800px] mx-auto py-12 mb-0">
         <div className="border-t border-[rgba(244,239,230,0.08)] pt-8 flex flex-col md:flex-row md:items-center gap-3 md:gap-10">
-          <span className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.35)]">Visual Worlds &amp; NFT Art</span>
+          <span className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.35)]">Visual Worlds &amp; Digital Collection Art</span>
           <span className="text-[11px] text-[rgba(244,239,230,0.4)]">NuLab Audio Visual Intelligence — sound, image, and frequency as a unified creative field.</span>
           <Link to="/spatial" className="text-[10px] tracking-[0.2em] text-[rgba(244,239,230,0.35)] hover:text-[rgba(244,239,230,0.7)] transition-colors">Explore →</Link>
         </div>

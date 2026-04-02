@@ -18,17 +18,17 @@ const Spatial = () => {
       {/* VISUAL WORLDS & NFT ART */}
       <section className="px-6 max-w-[1800px] mx-auto mb-24">
         <span className="block text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold mb-4">
-          Multimedia · NFT · Sound
+          Multimedia · Digital Collection · Sound
         </span>
         <h1 className="font-['Noto_Serif'] text-4xl md:text-6xl italic leading-snug mb-12">
-          Visual Worlds &amp; NFT Art
+          Visual Worlds &amp; Digital Collection Art
         </h1>
 
         {/* Video */}
         <div className="max-w-[720px] mb-12" style={{ aspectRatio: '16/9' }}>
           <iframe
             src="https://www.youtube.com/embed/zWNpZgAPezs?controls=1&rel=0&modestbranding=1"
-            title="Visual Worlds & NFT Art — Spatial Resonance"
+            title="Visual Worlds & Digital Collection Art — Spatial Resonance"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="w-full h-full"
@@ -40,7 +40,7 @@ const Spatial = () => {
         <div className="max-w-[640px] space-y-6">
           <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
             NuLab Audio Visual Intelligence — sound, image, and frequency as a unified creative field.
-            Where digital art, motion, and NFT editions converge into a single authorial vision.
+            Where digital art, motion, and Digital Collection editions converge into a single authorial vision.
           </p>
           <a
             href="https://nulab.space"
@@ -56,7 +56,7 @@ const Spatial = () => {
       {/* CTA */}
       <section className="py-32 px-6 text-center bg-[#1c1b1b] mt-24">
         <h2 className="font-['Noto_Serif'] text-3xl md:text-5xl italic mb-12 font-light">
-          Commission original NFT &amp; digital editions.
+          Commission original Digital Collection &amp; digital editions.
         </h2>
         <Link
           to="/inquire"

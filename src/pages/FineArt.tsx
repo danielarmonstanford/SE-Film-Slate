@@ -21,7 +21,7 @@ const works = [
     src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800',
     title: 'Architectural Void',
     medium: 'NuLab AI Art',
-    edition: 'NFT + Print Edition',
+    edition: 'Limited Digital + Print Edition',
   },
 ];
 
@@ -45,7 +45,7 @@ const FineArt = () => {
               <em className="text-[#CC0000] not-italic italic">Collectable Works.</em>
             </h1>
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose max-w-2xl">
-              The fine art practice of Daniel Armon Stanford spans large-format photography, AI-assisted image systems, and NFT editions — exhibited at <strong className="text-white font-normal">MIS — Museum of Image &amp; Sound, São Paulo</strong>, the <strong className="text-white font-normal">Cornell Art Museum, Florida</strong>, and shown during <strong className="text-white font-normal">Art Basel Miami</strong> week. Each work is produced in strictly limited editions with archival standards.
+              The fine art practice of Daniel Armon Stanford spans large-format photography, AI-assisted image systems, and Digital Collection editions — exhibited at <strong className="text-white font-normal">MIS — Museum of Image &amp; Sound, São Paulo</strong>, the <strong className="text-white font-normal">Cornell Art Museum, Florida</strong>, and shown during <strong className="text-white font-normal">Art Basel Miami</strong> week. Each work is produced in strictly limited editions with archival standards.
             </p>
             {/* FASCINASIA — mix media painting series */}
             <div className="max-w-[800px]" style={{ aspectRatio: '16/9' }}>
@@ -107,7 +107,7 @@ const FineArt = () => {
             Works available in strictly limited editions.
           </h2>
           <p className="text-sm text-[#F5F0E6] opacity-70 leading-loose mb-12 max-w-xl mx-auto">
-            Archival prints, NFT editions, and AI-assisted works — each authenticated and numbered. Shipped globally.
+            Archival prints, Digital Collection editions, and AI-assisted works — each authenticated and numbered. Shipped globally.
           </p>
           <a
             href={PAYHIP_URL}
