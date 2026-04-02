@@ -158,10 +158,10 @@ const About = () => {
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
               />
             </div>
-            <p style={{ fontSize: '0.5rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '14px' }}>Online · Art</p>
+            <p style={{ fontSize: '0.5rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '14px' }}>Online · Print · Art</p>
             <p style={{ fontFamily: "'Noto Serif', serif", fontSize: '1.1rem', fontWeight: 300, marginBottom: '10px', color: '#F5F0E6' }}>KA Online Magazine</p>
             <p style={{ fontSize: '0.78rem', color: 'rgba(229,226,225,0.7)', marginBottom: '6px', lineHeight: 1.6 }}>Art — Daniel Stanford</p>
-            <p style={{ fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(229,226,225,0.3)', textTransform: 'uppercase', marginBottom: '20px' }}>2024</p>
+            <p style={{ fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(229,226,225,0.3)', textTransform: 'uppercase', marginBottom: '20px' }}>2024 · Also Appeared in Print Issue</p>
             <a
               href="https://kaonlinemagazine.com/art-daniel-stanford/"
               target="_blank"
