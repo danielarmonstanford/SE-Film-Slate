@@ -103,6 +103,29 @@ const VisualDevelopment = () => {
       <section className="px-6 max-w-[1800px] mx-auto mb-32">
         <div className="border-t border-[rgba(244,239,230,0.14)] pt-16">
           <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-16">Visual Reference</span>
+
+          {/* SEA OF DUNES — Video Showcase */}
+          <div className="mb-16">
+            <p style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '14px' }}>
+              Sea of Dunes · Brazil · 2024
+            </p>
+            <h3 style={{ fontFamily: "'Noto Serif', serif", fontStyle: 'italic', fontSize: '1.8rem', color: '#e5e2e1', fontWeight: 300, marginBottom: '16px' }}>
+              Environmental Worldbuilding Study
+            </h3>
+            <p style={{ fontSize: '0.8rem', color: 'rgba(229,226,225,0.65)', lineHeight: 1.9, maxWidth: '600px' }}>
+              A cinematic study of the Brazilian dune landscape as production design environment — scale, light, texture, and atmosphere documented as location reference and background plate material.
+            </p>
+            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginTop: '32px', marginBottom: '48px' }}>
+              <iframe
+                src="https://player.vimeo.com/video/1179698917?byline=0&title=0&portrait=0&color=CC0000"
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Sea of Dunes — Environmental Worldbuilding Study"
+              />
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-[rgba(244,239,230,0.08)]">
             {moodBoard.map((url, i) => (
               <div key={i} className="bg-[#131313] overflow-hidden">
