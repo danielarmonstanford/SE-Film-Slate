@@ -131,6 +131,132 @@ const About = () => {
         </div>
       </section>
 
+      {/* PRESS & RECOGNITION */}
+      <section className="px-6 max-w-[1800px] mx-auto mb-48">
+        <p style={{ fontSize: '0.6rem', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '20px' }}>
+          Press · Publications · Recognition
+        </p>
+        <h2 style={{ fontFamily: "'Noto Serif', serif", fontWeight: 300, fontSize: 'clamp(2rem,5vw,3.5rem)', lineHeight: 1.15, marginBottom: '16px' }}>
+          In Print.<br />
+          <em style={{ color: '#CC0000' }}>&amp; On Record.</em>
+        </h2>
+        <p style={{ fontSize: '0.8rem', color: 'rgba(229,226,225,0.45)', marginBottom: '48px', letterSpacing: '0.02em' }}>
+          Featured in international art, fashion, and lifestyle publications across three decades.
+        </p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1px', background: 'rgba(229,226,225,0.06)' }}>
+          {/* Card 1 */}
+          <div
+            style={{ background: '#1c1b1b', border: '1px solid rgba(229,226,225,0.06)', padding: '28px', borderLeft: '2px solid rgba(204,0,0,0.3)', transition: 'background 400ms ease, border-color 400ms ease' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'rgba(255,255,255,0.02)'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = '#1c1b1b'; (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(229,226,225,0.06)'; }}
+          >
+            <div style={{ marginBottom: '18px', marginLeft: '-28px', marginRight: '-28px', marginTop: '-28px', overflow: 'hidden', aspectRatio: '16/7' }}>
+              <img
+                src="/ka-magazine-feature.jpg"
+                alt="KA Online Magazine — Art Daniel Stanford"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+              />
+            </div>
+            <p style={{ fontSize: '0.5rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '14px' }}>Online · Art</p>
+            <p style={{ fontFamily: "'Noto Serif', serif", fontSize: '1.1rem', fontWeight: 300, marginBottom: '10px', color: '#F5F0E6' }}>KA Online Magazine</p>
+            <p style={{ fontSize: '0.78rem', color: 'rgba(229,226,225,0.7)', marginBottom: '6px', lineHeight: 1.6 }}>Art — Daniel Stanford</p>
+            <p style={{ fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(229,226,225,0.3)', textTransform: 'uppercase', marginBottom: '20px' }}>2024</p>
+            <a
+              href="https://kaonlinemagazine.com/art-daniel-stanford/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#CC0000', textDecoration: 'none' }}
+              onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+              onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
+            >
+              Read Feature →
+            </a>
+          </div>
+
+          {/* Card 2 */}
+          <div style={{ background: '#1c1b1b', border: '1px solid rgba(229,226,225,0.06)', padding: '28px', borderLeft: '2px solid rgba(204,0,0,0.3)' }}>
+            <p style={{ fontSize: '0.5rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '14px' }}>Published · Fashion · Limited Edition</p>
+            <img
+              src="/press-sexy-cover.jpg"
+              alt="SEXY Volume III — Victoria's Secret"
+              style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', marginBottom: '18px', filter: 'contrast(1.05)' }}
+            />
+            <p style={{ fontFamily: "'Noto Serif', serif", fontSize: '1.2rem', fontWeight: 300, marginBottom: '10px', color: '#e5e2e1' }}>Victoria's Secret</p>
+            <p style={{ fontFamily: "'Noto Serif', serif", fontSize: '0.9rem', fontStyle: 'italic', color: 'rgba(229,226,225,0.75)', marginBottom: '14px', lineHeight: 1.6 }}>SEXY Volume III — A Tribute to a Decade of Sexy Swimwear</p>
+            <p style={{ fontSize: '0.72rem', color: 'rgba(229,226,225,0.55)', lineHeight: 1.8, marginBottom: '16px' }}>
+              Art Direction and Photomontage. Limited edition black cloth-bound collector's set featuring photography by Ellen Von Unwerth, Raphael Mazzucco, and Russell James. Supermodels include Gisele Bundchen, Naomi Campbell, Heidi Klum, Alessandra Ambrosio, and Adriana Lima. Locations: St. Tropez, Tulum, Sardinia.
+            </p>
+            <p style={{ fontSize: '0.55rem', color: 'rgba(229,226,225,0.3)', fontStyle: 'italic', marginBottom: '18px' }}>Collector's Edition · 3-Volume Set</p>
+            <a
+              href="https://www.raphaelmazzucco.com/books"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: '0.58rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#CC0000', textDecoration: 'none' }}
+              onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+              onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
+            >
+              View Publisher →
+            </a>
+          </div>
+
+          {/* Card 3 */}
+          <div style={{ background: '#1c1b1b', border: '1px solid rgba(229,226,225,0.06)', padding: '28px', borderLeft: '2px solid rgba(204,0,0,0.3)' }}>
+            <p style={{ fontSize: '0.5rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '14px' }}>Fine Art · Exhibition</p>
+            <p style={{ fontFamily: "'Noto Serif', serif", fontSize: '1.1rem', fontWeight: 300, marginBottom: '10px', color: '#F5F0E6' }}>MIS São Paulo · Cornell Art Museum · Art Basel Miami</p>
+            <p style={{ fontSize: '0.78rem', color: 'rgba(229,226,225,0.7)', marginBottom: '6px', lineHeight: 1.6 }}>Fine Art Exhibition — International Presence</p>
+            <p style={{ fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(229,226,225,0.3)', textTransform: 'uppercase', marginBottom: '20px' }}>Ongoing</p>
+            <p style={{ fontSize: '0.58rem', letterSpacing: '0.15em', color: 'rgba(229,226,225,0.3)', fontStyle: 'italic' }}>Archive · Available on Request</p>
+          </div>
+        </div>
+
+        <p style={{ marginTop: '28px', fontSize: '0.55rem', fontStyle: 'italic', color: 'rgba(229,226,225,0.3)', letterSpacing: '0.05em' }}>
+          Additional press archive and campaign tearsheets available upon professional inquiry.{' '}
+          <a
+            href="mailto:studio@stanfordemporium.com?subject=Press Archive Request"
+            style={{ color: 'rgba(229,226,225,0.4)', textDecoration: 'underline' }}
+          >
+            studio@stanfordemporium.com
+          </a>
+        </p>
+      </section>
+
+      {/* COLLABORATOR VOICES */}
+      <section style={{
+        borderTop: '1px solid rgba(229,226,225,0.05)',
+        padding: '60px 0',
+        maxWidth: '1800px',
+        margin: '0 auto 48px',
+        paddingLeft: 'clamp(16px,4vw,24px)',
+        paddingRight: 'clamp(16px,4vw,24px)',
+      }}>
+        <p style={{ fontSize: '0.6rem', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#CC0000', textAlign: 'center', marginBottom: '40px' }}>
+          Collaborator Voices
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px' }}>
+          {/* Left */}
+          <div style={{ borderLeft: '2px solid rgba(204,0,0,0.25)', paddingLeft: '24px' }}>
+            <p style={{ fontFamily: "'Noto Serif', serif", fontStyle: 'italic', fontSize: '1rem', color: 'rgba(229,226,225,0.82)', lineHeight: 1.9, marginBottom: '20px' }}>
+              "Daniel has been an inspirational marketing and advertising force for several of my products — able to convey brand intent to the masses while highlighting the spirit of the brand."
+            </p>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#e5e2e1', marginBottom: '4px' }}>Ramak Radmard</p>
+            <p style={{ fontSize: '0.55rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.35)' }}>Creative Director · Lucidream</p>
+          </div>
+          {/* Right */}
+          <div style={{ borderLeft: '2px solid rgba(204,0,0,0.25)', paddingLeft: '24px' }}>
+            <p style={{ fontFamily: "'Noto Serif', serif", fontStyle: 'italic', fontSize: '1rem', color: 'rgba(229,226,225,0.82)', lineHeight: 1.9, marginBottom: '20px' }}>
+              "Daniel is one of the best creative directors I know. His input and vision to any project is highly valuable."
+            </p>
+            <p style={{ fontSize: '0.65rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#e5e2e1', marginBottom: '4px' }}>Reyhan Sofraci</p>
+            <p style={{ fontSize: '0.55rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.35)' }}>Creative Director</p>
+          </div>
+        </div>
+        <hr style={{ border: 'none', borderTop: '1px solid rgba(229,226,225,0.06)', margin: '40px 0 16px' }} />
+        <p style={{ fontSize: '0.55rem', fontStyle: 'italic', color: 'rgba(229,226,225,0.3)', textAlign: 'center', letterSpacing: '0.05em' }}>
+          Additional references available upon professional inquiry.
+        </p>
+      </section>
+
       {/* SELECT RECOGNITION */}
       <section className="px-6 max-w-[1800px] mx-auto mb-48">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
