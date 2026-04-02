@@ -200,6 +200,19 @@ nav.scrolled {
   100% { transform: translateX(-50%); }
 }
 
+/* ── HERO CTA GROUP — mobile ── */
+@media (max-width: 768px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-cta-group a,
+  .hero-cta-group button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* ── MOBILE SLATE ── */
 @media (max-width: 768px) {
   .mobile-full-width {

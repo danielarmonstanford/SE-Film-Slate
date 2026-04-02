@@ -194,30 +194,29 @@ export default function Home({ setIsHovering }: HomeProps) {
             </div>
             <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
           </div>
-          <h1 className="text-[clamp(3rem,9vw,9rem)] leading-[1.1] text-[var(--white)] mb-2" style={{ textShadow: '0 2px 40px rgba(0,0,0,0.8)' }}>
-            I direct ideas<br />
-            <span className="italic-emphasis">into reality.</span>
+          <h1 className="text-[clamp(3rem,9vw,9rem)] leading-[1.1] mb-2" style={{ textShadow: '0 2px 40px rgba(0,0,0,0.8)' }}>
+            <span style={{ color: '#e5e2e1' }}>I direct ideas</span><br />
+            <span className="italic-emphasis" style={{ color: '#CC0000' }}>into reality.</span>
           </h1>
-          <div className="label-text text-[10px] tracking-[0.35em] text-white opacity-[0.82] mb-12">
-            Films · Spaces · Concepts · Worlds
+          <div style={{ fontSize: 'clamp(0.62rem, 1.5vw, 0.75rem)', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.55)', marginBottom: '44px', marginTop: '4px' }}>
+            Executive Producer · Production Design · Film Investment
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="hero-cta-group flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/slate"
-              className="btn-text bg-[var(--bronze)] text-[var(--black)] px-[35px] py-[14px] hover:bg-[var(--bronze-light)] transition-colors"
-              style={{ minWidth: 'min(280px, 85vw)' }}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
+              style={{ fontSize: 'clamp(0.58rem, 1.2vw, 0.68rem)', letterSpacing: '0.28em', padding: '14px clamp(24px, 4vw, 40px)', background: '#CC0000', color: '#131313', border: 'none', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'background 300ms' }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = '#930000'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = '#CC0000'}
             >
-              VIEW FILM INVESTMENT SLATE
+              VIEW INVESTMENT OPPORTUNITIES
             </Link>
-            <Link 
-              to="/disciplines" 
-              className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-[35px] py-[14px] hover:bg-white hover:text-[var(--black)] transition-all"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
+            <Link
+              to="/inquire"
+              style={{ fontSize: 'clamp(0.58rem, 1.2vw, 0.68rem)', letterSpacing: '0.28em', padding: '14px clamp(24px, 4vw, 40px)', background: 'transparent', border: '1px solid rgba(229,226,225,0.3)', color: 'rgba(229,226,225,0.8)', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'border-color 300ms, color 300ms' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = '#CC0000'; (e.currentTarget as HTMLElement).style.color = '#CC0000'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(229,226,225,0.3)'; (e.currentTarget as HTMLElement).style.color = 'rgba(229,226,225,0.8)'; }}
             >
-              ENTER STUDIO
+              REQUEST INVESTMENT PACKAGE
             </Link>
           </div>
           <div style={{ width: '40px', height: '1px', background: '#CC0000', margin: '32px auto 0' }} />
