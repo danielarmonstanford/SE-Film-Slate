@@ -184,6 +184,38 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
       </section>
 
+      {/* MARQUEE STRIP */}
+      {(() => {
+        const text = 'EXECUTIVE PRODUCER  ·  PRODUCTION DESIGN  ·  ART DIRECTION  ·  FILM INVESTMENT  ·  WORLDBUILDING FOR CINEMA  ·  VISUAL DEVELOPMENT  ·  STANFORD EMPORIUM  ·  ';
+        const repeated = text.repeat(6);
+        return (
+          <div style={{
+            width: '100%',
+            height: '44px',
+            background: '#0e0e0e',
+            borderTop: '1px solid rgba(229,226,225,0.06)',
+            borderBottom: '1px solid rgba(229,226,225,0.06)',
+            overflow: 'hidden',
+            display: 'flex',
+            alignItems: 'center',
+          }}>
+            <div style={{
+              display: 'flex',
+              width: 'max-content',
+              animation: 'marquee 30s linear infinite',
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.6rem',
+              letterSpacing: '0.35em',
+              color: 'rgba(229,226,225,0.35)',
+              textTransform: 'uppercase',
+              whiteSpace: 'nowrap',
+            }}>
+              {repeated}
+            </div>
+          </div>
+        );
+      })()}
+
       {/* SECTION 2 — FILM INVESTMENT SLATE */}
       <section id="slate" className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black)]">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 reveal">

@@ -188,6 +188,12 @@ nav.scrolled {
   cursor: grabbing;
 }
 
+/* ── MARQUEE ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* ── MOBILE SLATE ── */
 @media (max-width: 768px) {
   .mobile-full-width {
