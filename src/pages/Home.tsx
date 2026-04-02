@@ -229,6 +229,41 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
       </section>
 
+      {/* PROOF STRIP */}
+      <div style={{ width: '100%', background: '#0a0a0a', borderTop: '1px solid rgba(204,0,0,0.2)', borderBottom: '1px solid rgba(229,226,225,0.05)', padding: '14px 0', overflow: 'hidden', position: 'relative' }}>
+        <div style={{ display: 'flex', gap: '0', animation: 'proofScroll 35s linear infinite', width: 'max-content' }}>
+          {[
+            'Executive Producer',
+            'Production Design',
+            'Art Direction',
+            'Visual Development',
+            'Global Location Archive',
+            "Victoria's Secret · Guess · Lancôme",
+            'MIS São Paulo · Art Basel Miami',
+            'London International Advertising Award',
+            'Feature Film Investment',
+            'LED Volume · Virtual Production',
+            'NuLab Audio Visual Intelligence',
+          ].concat([
+            'Executive Producer',
+            'Production Design',
+            'Art Direction',
+            'Visual Development',
+            'Global Location Archive',
+            "Victoria's Secret · Guess · Lancôme",
+            'MIS São Paulo · Art Basel Miami',
+            'London International Advertising Award',
+            'Feature Film Investment',
+            'LED Volume · Virtual Production',
+            'NuLab Audio Visual Intelligence',
+          ]).map((item, i) => (
+            <span key={i} style={{ fontSize: '0.58rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: i % 2 === 0 ? 'rgba(229,226,225,0.45)' : 'rgba(204,0,0,0.6)', whiteSpace: 'nowrap', padding: '0 28px', borderRight: '1px solid rgba(229,226,225,0.08)' }}>
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* MARQUEE STRIP */}
       {(() => {
         const text = 'EXECUTIVE PRODUCER  ·  PRODUCTION DESIGN  ·  ART DIRECTION  ·  FILM INVESTMENT  ·  WORLDBUILDING FOR CINEMA  ·  VISUAL DEVELOPMENT  ·  STANFORD EMPORIUM  ·  ';
