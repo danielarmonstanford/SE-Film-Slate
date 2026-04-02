@@ -286,3 +286,39 @@ nav.scrolled {
     min-height: 85vh !important;
   }
 }
+
+/* ── SECTION SPACING & READABILITY ── */
+
+/* Breathing room between major sections */
+main > section + section {
+  margin-top: 0;
+  padding-top: clamp(60px, 8vw, 120px);
+}
+
+/* Ensure section padding is generous */
+main > section {
+  padding-bottom: clamp(60px, 8vw, 120px);
+}
+
+/* Eyebrow labels — more space above them */
+.section-eyebrow,
+[style*="letterSpacing: '0.55em'"],
+[style*="letter-spacing: 0.55em"] {
+  margin-bottom: 16px;
+}
+
+/* Increase body text opacity globally */
+p {
+  color: rgba(229,226,225,0.78);
+}
+
+/* Section dividers — add subtle separator */
+main > section {
+  border-bottom: 1px solid rgba(229,226,225,0.04);
+}
+
+@media (max-width: 768px) {
+  main > section + section {
+    padding-top: 60px;
+  }
+}
