@@ -188,6 +188,13 @@ nav.scrolled {
   cursor: grabbing;
 }
 
+/* ── MOBILE NAV ── */
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: block !important; }
+  .desktop-nav-links { display: none !important; }
+  .desktop-nav-cta { display: none !important; }
+}
+
 /* ── MOBILE OPTIMIZATION ── */
 @media (max-width: 768px) {
 

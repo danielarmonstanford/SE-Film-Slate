@@ -67,7 +67,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden lg:flex gap-10 items-center">
+        <div className="desktop-nav-links hidden md:flex gap-10 items-center">
           {navItems.filter(item => item.name !== 'Home').map((item) => (
             <Link
               key={item.name}
@@ -83,55 +83,71 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           ))}
         </div>
 
-        <div className="lg:w-[180px] hidden lg:block" />
+        <div className="desktop-nav-cta md:w-[180px] hidden md:block" />
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden flex flex-col justify-center items-end gap-[5px] w-8 h-8 z-[210] relative"
+          className="mobile-menu-btn"
           onClick={() => setMobileOpen(prev => !prev)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'none' }}
         >
-          <span
-            className="block h-[1px] bg-white transition-all duration-300 origin-right"
-            style={{ width: mobileOpen ? '24px' : '24px', transform: mobileOpen ? 'rotate(-45deg) translateY(4px)' : 'none' }}
-          />
-          <span
-            className="block h-[1px] bg-white transition-all duration-300"
-            style={{ width: '16px', opacity: mobileOpen ? 0 : 1 }}
-          />
-          <span
-            className="block h-[1px] bg-white transition-all duration-300 origin-right"
-            style={{ width: mobileOpen ? '24px' : '20px', transform: mobileOpen ? 'rotate(45deg) translateY(-4px)' : 'none' }}
-          />
+          <div style={{ width: '22px', height: '1px', background: '#e5e2e1', marginBottom: '5px' }} />
+          <div style={{ width: '22px', height: '1px', background: '#e5e2e1', marginBottom: '5px' }} />
+          <div style={{ width: '14px', height: '1px', background: '#CC0000' }} />
         </button>
       </nav>
 
       {/* MOBILE MENU OVERLAY */}
-      <div
-        className={`fixed inset-0 z-[190] bg-[rgba(8,7,5,0.97)] flex flex-col justify-center items-start px-8 transition-all duration-500 lg:hidden ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-      >
-        <nav className="flex flex-col gap-8 w-full">
-          {navItems.map((item, i) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className={`label-text text-[11px] tracking-[0.35em] uppercase transition-all duration-300 ${
-                location.pathname === item.path ? 'text-white' : 'text-[rgba(244,239,230,0.55)]'
-              } hover:text-[var(--bronze)]`}
-              style={{ transitionDelay: mobileOpen ? `${i * 60}ms` : '0ms', transform: mobileOpen ? 'translateX(0)' : 'translateX(-16px)', opacity: mobileOpen ? 1 : 0 }}
-              onClick={() => setMobileOpen(false)}
-            >
-              <span className="text-[var(--bronze)] mr-3 text-[9px]">0{i + 1}</span>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="mt-16 label-text text-[8px] tracking-[0.3em] text-[rgba(244,239,230,0.25)] uppercase">
-          Stanford Emporium
+      {mobileOpen && (
+        <div
+          style={{
+            position: 'fixed', inset: 0, zIndex: 300,
+            background: 'rgba(13,13,13,0.97)',
+            display: 'flex', flexDirection: 'column',
+            justifyContent: 'center', alignItems: 'center',
+          }}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setMobileOpen(false)}
+            style={{
+              position: 'absolute', top: '24px', right: '24px',
+              background: 'none', border: 'none', cursor: 'pointer',
+              color: '#CC0000', fontSize: '2rem', lineHeight: 1,
+            }}
+            aria-label="Close menu"
+          >
+            ×
+          </button>
+
+          <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  fontFamily: "'Noto Serif', serif",
+                  fontSize: '2rem',
+                  letterSpacing: '0.1em',
+                  color: location.pathname === item.path ? '#ffffff' : '#e5e2e1',
+                  padding: '20px 0',
+                  textDecoration: 'none',
+                  display: 'block',
+                  textAlign: 'center',
+                  width: '100%',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#CC0000')}
+                onMouseLeave={e => (e.currentTarget.style.color = location.pathname === item.path ? '#ffffff' : '#e5e2e1')}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
         </div>
-      </div>
+      )}
 
       <main>{children}</main>
 
