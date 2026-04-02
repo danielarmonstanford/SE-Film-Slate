@@ -110,6 +110,17 @@ const About = () => {
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               His fine art has been exhibited at MIS — Museum of Image & Sound (São Paulo) and the Cornell Art Museum (Florida), with work shown during Art Basel Miami week. He is also the co-founder of NuLab, an audio-visual intelligence studio operating at the intersection of AI, sound, and spatial media (nulab.space). His work spans NFT art, cryptocurrency-native creative strategy, and AI-generated image systems for luxury and editorial brands.
             </p>
+            <p style={{
+              fontFamily: "'Noto Serif', serif",
+              fontStyle: 'italic',
+              fontSize: '1.15rem',
+              color: 'rgba(229,226,225,0.85)',
+              lineHeight: '1.9',
+              borderLeft: '2px solid #CC0000',
+              paddingLeft: '24px',
+            }}>
+              The lineage here is deliberate. Ken Adam built the visual identity of seven James Bond films — nominated for the Oscar for Best Production Design on The Spy Who Loved Me — by treating every set as an argument about power, architecture, and psychological space. That is the same discipline applied here: from a Guess campaign shot in Morocco to a feature film set in 1970s Manhattan. The medium changes. The philosophy of space does not.
+            </p>
             <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
               As Executive Producer and Art Director on the international co-production 400XY (Canada · China · Greece), Stanford brings casting instinct, visual authority, and cross-cultural production fluency into feature film development. His creative approach is defined by precision — the same discipline applied to global fashion campaigns, now brought into tone, character, and cinematic world-building.
             </p>
