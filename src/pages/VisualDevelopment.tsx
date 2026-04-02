@@ -17,6 +17,11 @@ const moodBoard = [
 ];
 
 const VisualDevelopment = () => {
+  // Browser tab title
+  if (typeof document !== 'undefined') {
+    document.title = 'Visual Development · Daniel Stanford';
+  }
+
   return (
     <div className="bg-[#131313] pt-32">
 
@@ -36,11 +41,16 @@ const VisualDevelopment = () => {
             </div>
             <div className="md:col-span-7 space-y-10">
               <h1 className="font-['Noto_Serif'] text-4xl md:text-6xl leading-tight font-light">
-                Visual Development<br />
-                <em className="text-[#CC0000] not-italic italic">&amp; Art Direction.</em>
+                <span style={{ color: '#e5e2e1' }}>Worldbuilding</span><br />
+                <em style={{ color: '#CC0000' }}>for Cinema.</em>
               </h1>
-              <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose max-w-2xl">
-                Thirty years of directing visual environments — from global fashion campaigns to feature film pre-visualization, LED volume production design, and fine art exhibited internationally. This is the capability behind every project on this slate.
+              <p style={{
+                maxWidth: '700px',
+                fontSize: 'clamp(0.9rem, 2vw, 1.05rem)',
+                lineHeight: '1.9',
+                color: 'rgba(229,226,225,0.75)',
+              }}>
+                Production Design is the architecture of belief. Thirty years directing visual environments — from Guess campaigns in Morocco to feature film pre-visualization — has produced a visual language that operates at cinematic scale. This is the proof.
               </p>
             </div>
           </div>
