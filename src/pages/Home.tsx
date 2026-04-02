@@ -159,7 +159,7 @@ export default function Home({ setIsHovering }: HomeProps) {
   return (
     <div className="bg-[var(--black)]">
       {/* SECTION 1 — HERO */}
-      <section className="relative w-screen h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[var(--black)]">
+      <section className="relative w-screen h-screen min-h-[700px] flex items-end justify-center overflow-hidden bg-[var(--black)]">
         {/* HERO BACKGROUND — Vimeo on desktop, static fallback on mobile */}
         <div className="absolute inset-0 z-0" style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
 
@@ -186,7 +186,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%', background: 'linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.6) 40%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
         </div>
 
-        <div className="relative z-[5] text-center hero-reveal">
+        <div className="relative z-[5] text-center hero-reveal w-full" style={{ paddingBottom: '164px' }}>
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
             <div className="label-text text-[9px] text-[var(--bronze)]">
