@@ -180,7 +180,10 @@ export default function Home({ setIsHovering }: HomeProps) {
             className="md:hidden w-full h-full object-cover opacity-75"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--black)] via-transparent to-[var(--black)] opacity-80" />
+          {/* Top gradient — nav readability */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '35%', background: 'linear-gradient(to bottom, rgba(13,13,13,0.75) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
+          {/* Bottom gradient — text readability */}
+          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%', background: 'linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.6) 40%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
         </div>
 
         <div className="relative z-[5] text-center hero-reveal">
