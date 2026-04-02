@@ -22,6 +22,7 @@ export default function Home({ setIsHovering }: HomeProps) {
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [volume, setVolume] = useState(40);
   const [playerReady, setPlayerReady] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     let destroyed = false;
@@ -127,17 +128,58 @@ export default function Home({ setIsHovering }: HomeProps) {
     sliderRef.current.scrollLeft = scrollLeft - walk;
   };
 
+  const testimonials = [
+    {
+      quote: "Daniel has been an inspirational marketing and advertising force for several of my products. Daniel is able to convey brand intent to the masses, while highlighting the spirit of the brand. His projects have involved numerous international companies, deploying marketing and advertising campaigns, and defining brand engagement strategies.",
+      name: "Ramak Radmard",
+      title: "Creative Director · Lucidream",
+      year: "Client relationship 15+ years"
+    },
+    {
+      quote: "Daniel is one of the best creative directors I know. He is a pleasure to work with and a true high-spirited individual whose input and vision to any project is highly valuable.",
+      name: "Reyhan Sofraci",
+      title: "Creative Director",
+      year: "Colleague"
+    },
+    {
+      quote: "His ambition and creativity set him apart from other creative directors and his positive energy is contagious.",
+      name: "Nori Elshinnawy",
+      title: "Commercial Transformation Leader",
+      year: "Collaborator"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(i => (i + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
   return (
     <div className="bg-[var(--black)]">
       {/* SECTION 1 — HERO */}
-      <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[var(--black)]">
-        {/* HERO BACKGROUND IMAGE */}
-        <div className="absolute inset-0 z-0">
-          <img 
+      <section className="relative w-screen h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[var(--black)]">
+        {/* HERO BACKGROUND — Vimeo on desktop, static fallback on mobile */}
+        <div className="absolute inset-0 z-0" style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
+
+          {/* Vimeo background — hidden on mobile */}
+          <div className="hidden md:block" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+            <iframe
+              src="https://player.vimeo.com/video/1179698917?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+              style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '177.78vh', minWidth: '100%', height: '100%', minHeight: '56.25vw', border: 'none', pointerEvents: 'none' }}
+              allow="autoplay; fullscreen"
+              title="Hero background"
+            />
+          </div>
+
+          {/* Static fallback — always visible on mobile, hidden on desktop */}
+          <img
             src="/D80_9144.jpg"
             alt="Hero Background"
-            className="w-full h-full object-cover opacity-75"
+            className="md:hidden w-full h-full object-cover opacity-75"
           />
+
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--black)] via-transparent to-[var(--black)] opacity-80" />
         </div>
 
@@ -542,14 +584,74 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
       </section>
 
-      {/* SECTION 7 — PHILOSOPHY */}
-      <section className="section-divider relative py-[208px] px-4 md:px-20 bg-[var(--black)] text-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(212,175,55,0.04) 0%, transparent 60%)' }} />
-        <div className="relative z-10 max-w-[900px] mx-auto reveal">
-          <h2 className="text-[clamp(2rem,6vw,6rem)] italic text-white leading-[1.18]">
-            "The future belongs to those who design it."
-          </h2>
-          <div id="philosophy-rule" className="w-[50px] h-[1px] bg-[var(--bronze)] mx-auto mt-14 scale-x-0 transition-transform duration-1000 origin-center" />
+      {/* SECTION 7 — TESTIMONIALS */}
+      <section style={{
+        padding: 'clamp(60px,8vw,100px) clamp(20px,6vw,80px)',
+        background: '#0e0e0e',
+        textAlign: 'center',
+        borderTop: '1px solid rgba(229,226,225,0.05)',
+        borderBottom: '1px solid rgba(229,226,225,0.05)',
+      }}>
+        <p style={{
+          fontSize: '0.6rem', letterSpacing: '0.4em',
+          textTransform: 'uppercase', color: '#CC0000',
+          marginBottom: '32px',
+        }}>
+          Client Testimonials
+        </p>
+
+        <p style={{
+          fontFamily: "'Noto Serif', serif",
+          fontStyle: 'italic',
+          fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+          lineHeight: 1.85,
+          color: 'rgba(229,226,225,0.88)',
+          maxWidth: '780px',
+          margin: '0 auto 32px',
+        }}>
+          "{testimonials[currentIndex].quote}"
+        </p>
+
+        <p style={{
+          fontSize: '0.7rem',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          color: '#e5e2e1',
+          marginBottom: '4px',
+          fontWeight: 400,
+        }}>
+          — {testimonials[currentIndex].name}
+        </p>
+
+        <p style={{
+          fontSize: '0.58rem',
+          letterSpacing: '0.25em',
+          textTransform: 'uppercase',
+          color: 'rgba(229,226,225,0.35)',
+        }}>
+          {testimonials[currentIndex].title}
+        </p>
+
+        {/* Dot indicators */}
+        <div style={{
+          display: 'flex', justifyContent: 'center',
+          gap: '8px', marginTop: '32px',
+        }}>
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              style={{
+                width: i === currentIndex ? '24px' : '6px',
+                height: '1px',
+                background: i === currentIndex
+                  ? '#CC0000' : 'rgba(229,226,225,0.2)',
+                border: 'none', cursor: 'pointer',
+                padding: 0,
+                transition: 'all 0.4s ease',
+              }}
+            />
+          ))}
         </div>
       </section>
 
