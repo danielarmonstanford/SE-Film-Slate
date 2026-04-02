@@ -374,6 +374,7 @@ export const PROJECTS: Project[] = [
     previewImages: [
       '/badlander-key-art.png'
     ],
+    dataRoomUrl: 'https://drive.google.com/file/d/1xq0uiyPgh7P163ubaUUNuEt1aZq2ymby/view',
     dataRoomGatedPath: '/badlander-dataroom',
     youtubeId: 'Xa0Sbh2tazI',
   }
