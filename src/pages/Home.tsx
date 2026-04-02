@@ -153,16 +153,6 @@ export default function Home({ setIsHovering }: HomeProps) {
             I direct ideas<br />
             <span className="italic-emphasis">into reality.</span>
           </h1>
-          <p style={{
-            fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
-            letterSpacing: '0.35em',
-            textTransform: 'uppercase',
-            color: 'rgba(229,226,225,0.6)',
-            marginBottom: '40px',
-            marginTop: '-8px',
-          }}>
-            Executive Producer · Production Design · Film Investment
-          </p>
           <div className="label-text text-[10px] tracking-[0.35em] text-white opacity-[0.82] mb-12">
             Films · Spaces · Concepts · Worlds
           </div>

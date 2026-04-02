@@ -204,18 +204,6 @@ nav.scrolled {
     padding-right: 20px !important;
   }
 
-  /* Hero headline — prevent overflow on small screens */
-  h1 {
-    font-size: clamp(2.2rem, 10vw, 4rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.02em !important;
-  }
-
-  h2 {
-    font-size: clamp(1.8rem, 7vw, 3rem) !important;
-    line-height: 1.1 !important;
-  }
-
   /* Body text — more readable on mobile screens */
   p {
     font-size: 0.95rem !important;
@@ -279,10 +267,6 @@ nav.scrolled {
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: clamp(1.9rem, 9vw, 2.8rem) !important;
-  }
-
   /* Hero — reduce height slightly on very small phones */
   section[style*="height: 100vh"] {
     min-height: 85vh !important;
