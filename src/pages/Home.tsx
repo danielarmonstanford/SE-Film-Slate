@@ -153,13 +153,24 @@ export default function Home({ setIsHovering }: HomeProps) {
             I direct ideas<br />
             <span className="italic-emphasis">into reality.</span>
           </h1>
+          <p style={{
+            fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
+            letterSpacing: '0.35em',
+            textTransform: 'uppercase',
+            color: 'rgba(229,226,225,0.6)',
+            marginBottom: '40px',
+            marginTop: '-8px',
+          }}>
+            Executive Producer · Production Design · Film Investment
+          </p>
           <div className="label-text text-[10px] tracking-[0.35em] text-white opacity-[0.82] mb-12">
             Films · Spaces · Concepts · Worlds
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/slate" 
+            <Link
+              to="/slate"
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-[35px] py-[14px] hover:bg-[var(--bronze-light)] transition-colors"
+              style={{ minWidth: 'min(280px, 85vw)' }}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
@@ -174,6 +185,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               ENTER STUDIO
             </Link>
           </div>
+          <div style={{ width: '40px', height: '1px', background: '#CC0000', margin: '32px auto 0' }} />
         </div>
 
         <div className="absolute bottom-[90px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-pulse">
