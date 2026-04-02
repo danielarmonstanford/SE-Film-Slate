@@ -365,8 +365,8 @@ export default function Home({ setIsHovering }: HomeProps) {
         <style>{`.nft-strip{overflow-x:auto;display:flex;scrollbar-width:none;}.nft-strip::-webkit-scrollbar{display:none;}`}</style>
         <div className="nft-strip -mx-4 md:-mx-20 text-left">
           {[
-            { src: '/nft-sea-of-dunes.jpg',   label: 'Sea of Dunes · Paintscape' },
-            { src: '/nft-jayne-silver-gold.jpg', label: 'Jayne · Silver Gold · Brazil' },
+            { src: '/nft-sea-of-dunes.jpg',   label: 'Sea of Dunes — Environmental Worldbuilding Study' },
+            { src: '/nft-jayne-silver-gold.jpg', label: 'Location Reference · Background Plate Material · Brazil' },
             { src: '/nft-year-of-snake.jpg',  label: 'Year of the Snake · DARS' },
             { src: '/nft-toxic-politics.jpg', label: 'Toxic Politics · Dystopian' },
             { src: '/nft-khalumia.jpg',       label: 'Khalumia · Japan · 40×60' },
