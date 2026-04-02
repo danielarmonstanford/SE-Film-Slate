@@ -18,11 +18,22 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+    const onScroll = () => {
+      const nav = document.getElementById('main-nav');
+      if (nav) {
+        if (window.scrollY > 60) {
+          nav.style.background = 'rgba(13,13,13,0.96)';
+          nav.style.backdropFilter = 'blur(20px)';
+          nav.style.borderBottom = '1px solid rgba(229,226,225,0.06)';
+        } else {
+          nav.style.background = 'transparent';
+          nav.style.backdropFilter = 'blur(0px)';
+          nav.style.borderBottom = 'none';
+        }
+      }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   // Scroll to top and close mobile menu on route change
@@ -50,7 +61,8 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
       {/* NAVIGATION */}
       <nav
         id="main-nav"
-        className={`fixed top-0 left-0 right-0 z-[200] flex justify-between items-center px-4 md:px-12 py-[35px] transition-all duration-500 bg-gradient-to-b from-[rgba(8,7,5,0.97)] to-transparent ${scrolled ? 'scrolled' : ''}`}
+        className="fixed top-0 left-0 right-0 z-[200] flex justify-between items-center px-4 md:px-12 py-[35px]"
+        style={{ background: 'transparent', transition: 'background 0.4s ease, border-color 0.4s ease' }}
       >
         <Link
           to="/"
@@ -68,19 +80,27 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
 
         {/* Desktop nav links */}
         <div className="desktop-nav-links hidden md:flex gap-10 items-center">
-          {navItems.filter(item => item.name !== 'Home').map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className={`label-text text-[10px] tracking-[0.22em] transition-colors uppercase ${
-                location.pathname === item.path ? 'text-white' : 'text-[rgba(244,239,230,0.75)]'
-              } hover:text-[var(--bronze)]`}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.filter(item => item.name !== 'Home').map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.name}
+                to={item.path}
+                style={{
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                  color: isActive ? '#CC0000' : 'rgba(229,226,225,0.75)',
+                  transition: 'color 300ms',
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#CC0000'; setIsHovering(true); }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isActive ? '#CC0000' : 'rgba(229,226,225,0.75)'; setIsHovering(false); }}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="desktop-nav-cta md:w-[180px] hidden md:block" />
