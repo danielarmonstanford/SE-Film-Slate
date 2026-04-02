@@ -66,12 +66,12 @@ const Slate: React.FC = () => {
                   referrerPolicy="no-referrer"
                 />
                 {project.urgent && (
-                  <div className="absolute top-4 left-4 border border-[var(--red-urgent)] text-[var(--red-urgent)] text-[8px] tracking-[0.1em] px-2 py-1 bg-[var(--black)]">
+                  <div className="absolute top-4 left-4 border border-[var(--red-urgent)] text-[var(--red-urgent)] tracking-[0.1em] bg-[var(--black)]" style={{ fontSize: 'clamp(0.55rem, 2vw, 0.65rem)', padding: '4px 10px' }}>
                     ⚡ {project.urgent}
                   </div>
                 )}
                 <div className="absolute top-4 right-4">
-                  <span className="label-text text-[8px] bg-[var(--black)] text-[var(--bronze)] px-3 py-1 border border-[rgba(212,175,55,0.3)]">
+                  <span className="label-text bg-[var(--black)] text-[var(--bronze)] border border-[rgba(212,175,55,0.3)]" style={{ fontSize: 'clamp(0.55rem, 2vw, 0.65rem)', padding: '4px 10px' }}>
                     {project.status.toUpperCase()}
                   </span>
                 </div>
@@ -101,9 +101,9 @@ const Slate: React.FC = () => {
                   </div>
                 </div>
 
-                <Link 
+                <Link
                   to={`/project/${project.slug}`}
-                  className="btn-text w-full py-4 border border-[rgba(212,175,55,0.3)] text-[var(--bronze)] text-center hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all"
+                  className="btn-text w-full py-4 border border-[rgba(212,175,55,0.3)] text-[var(--bronze)] text-center hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all mobile-full-width"
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >

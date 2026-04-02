@@ -188,6 +188,14 @@ nav.scrolled {
   cursor: grabbing;
 }
 
+/* ── MOBILE SLATE ── */
+@media (max-width: 768px) {
+  .mobile-full-width {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
 /* ── MOBILE NAV ── */
 @media (max-width: 768px) {
   .mobile-menu-btn { display: block !important; }
