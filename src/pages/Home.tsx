@@ -142,21 +142,21 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         {/* HERO TEXT BLOCK */}
         <div ref={heroTextRef} className="hero-text-block" style={{ position: 'relative', zIndex: 10, padding: '0 60px 44px 28px' }}>
-          <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#e5e2e1', marginBottom: '14px' }}>
+          <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.72)', marginBottom: '14px' }}>
             Executive Producer · Production Design · Film Investment
           </div>
           <h1 style={{ margin: 0, padding: 0 }}>
-            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(34px, 5.5vw, 64px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#e5e2e1', display: 'block' }}>
+            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#e5e2e1', display: 'block' }}>
               I direct ideas
             </span>
-            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(34px, 5.5vw, 64px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#C9971F', display: 'block', marginBottom: '24px' }}>
+            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#C9971F', display: 'block', marginBottom: '24px' }}>
               into reality.
             </span>
           </h1>
           <button
             className="hero-invest-btn"
             onClick={() => navigate('/investment-opportunities')}
-            style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9971F', border: '1px solid rgba(201,151,31,0.5)', padding: '12px 28px', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s' }}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '10px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9971F', border: '1px solid rgba(201,151,31,0.5)', padding: '12px 28px', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#C9971F'; (e.currentTarget as HTMLButtonElement).style.color = '#080808'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = '#C9971F'; }}
           >
@@ -181,10 +181,10 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div style={{
           fontFamily: 'Arial, Helvetica, sans-serif',
           fontWeight: 700,
-          fontSize: '7px',
+          fontSize: '10px',
           letterSpacing: '0.45em',
           textTransform: 'uppercase',
-          color: 'rgba(229,226,225,0.25)',
+          color: 'rgba(229,226,225,0.5)',
           marginBottom: '48px',
           textAlign: 'center',
         }}>
@@ -237,7 +237,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               top: '16px', left: '16px',
               fontFamily: 'Arial, Helvetica, sans-serif',
               fontWeight: 700,
-              fontSize: '6.5px',
+              fontSize: '9px',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
               color: '#cc0000',
@@ -255,8 +255,8 @@ export default function Home({ setIsHovering }: HomeProps) {
                 fontFamily: "'EB Garamond', Georgia, serif",
                 fontStyle: 'italic',
                 fontWeight: 400,
-                fontSize: 'clamp(16px,3vw,22px)',
-                color: '#e5e2e1',
+                fontSize: 'clamp(18px,3.5vw,28px)',
+                color: '#f4ede0',
                 lineHeight: 1.1,
                 marginBottom: '6px',
               }}>
@@ -265,10 +265,10 @@ export default function Home({ setIsHovering }: HomeProps) {
               <div style={{
                 fontFamily: 'Arial, Helvetica, sans-serif',
                 fontWeight: 700,
-                fontSize: '6.5px',
+                fontSize: '9px',
                 letterSpacing: '0.3em',
                 textTransform: 'uppercase',
-                color: 'rgba(229,226,225,0.4)',
+                color: 'rgba(229,226,225,0.6)',
               }}>
                 Sawyer Spielberg · Melissa Leo
               </div>
@@ -283,10 +283,10 @@ export default function Home({ setIsHovering }: HomeProps) {
             marginTop: '32px',
             fontFamily: 'Arial, Helvetica, sans-serif',
             fontWeight: 700,
-            fontSize: '7.5px',
+            fontSize: '10px',
             letterSpacing: '0.32em',
             textTransform: 'uppercase',
-            color: 'rgba(229,226,225,0.4)',
+            color: 'rgba(229,226,225,0.55)',
             textDecoration: 'none',
             transition: 'color 0.3s',
           }}
