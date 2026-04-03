@@ -195,17 +195,6 @@ nav.scrolled {
   to   { transform: scaleX(0); }
 }
 
-/* ── MARQUEE ── */
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ── PROOF STRIP ── */
-@keyframes proofScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
 
 /* ── HERO CTA GROUP — mobile ── */
 @media (max-width: 768px) {
