@@ -39,20 +39,27 @@ export default function Home({ setIsHovering }: HomeProps) {
     return () => revealObserver.disconnect();
   }, []);
 
-  // Hero text fade-in on mount, fade-out after 30s
+  // Hero text 10s fade-in / fade-out cycle
   useEffect(() => {
     const el = heroTextRef.current;
     if (!el) return;
-    // Start invisible, fade in
     el.style.opacity = '0';
-    el.style.transition = 'opacity 1.4s ease';
-    const fadeIn = setTimeout(() => { el.style.opacity = '1'; }, 400);
-    // Fade out at 30s
-    const fadeOut = setTimeout(() => {
-      el.style.transition = 'opacity 1.2s ease';
-      el.style.opacity = '0';
-    }, 30000);
-    return () => { clearTimeout(fadeIn); clearTimeout(fadeOut); };
+    let destroyed = false;
+    const VISIBLE_MS = 10000;
+    const FADE_MS = 1200;
+    const cycle = () => {
+      if (destroyed) return;
+      el.style.transition = 'opacity 1.4s ease';
+      el.style.opacity = '1';
+      setTimeout(() => {
+        if (destroyed) return;
+        el.style.transition = `opacity ${FADE_MS}ms ease`;
+        el.style.opacity = '0';
+        setTimeout(() => { if (!destroyed) cycle(); }, FADE_MS + 300);
+      }, VISIBLE_MS);
+    };
+    const t = setTimeout(cycle, 400);
+    return () => { destroyed = true; clearTimeout(t); };
   }, []);
 
   const handleMouseDown = (e: React.MouseEvent) => {
