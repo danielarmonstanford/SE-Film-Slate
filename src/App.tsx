@@ -22,6 +22,7 @@ import VisualDevelopment from './pages/VisualDevelopment';
 import DataRoomGate from './pages/DataRoomGate';
 import HellsKitchenDataRoom from './pages/HellsKitchenDataRoom';
 import BadlanderDataRoom from './pages/BadlanderDataRoom';
+import UGRPDataRoom from './pages/UGRPDataRoom';
 
 export default function App() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -81,6 +82,7 @@ export default function App() {
             <Route path="/acnd-dataroom" element={<DataRoomGate />} />
             <Route path="/hells-kitchen-dataroom" element={<HellsKitchenDataRoom />} />
             <Route path="/badlander-dataroom" element={<BadlanderDataRoom />} />
+            <Route path="/ugrp-dataroom" element={<UGRPDataRoom />} />
           </Routes>
         </Layout>
       </div>
