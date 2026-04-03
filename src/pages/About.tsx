@@ -1,17 +1,31 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { EMAIL_CONTACT, SOCIAL_LINKS } from '../constants';
 
 const About = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const img = document.getElementById('about-hero-img');
+      if (img) {
+        const scrolled = window.scrollY;
+        img.style.transform = `translateY(${scrolled * 0.35}px)`;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="bg-[#131313] pt-32">
 
       {/* HERO */}
-      <section className="relative h-[70vh] w-full overflow-hidden mb-32" style={{ marginLeft: 'calc(50% - 50vw)', width: '100vw' }}>
+      <section className="relative h-[70vh] mb-32" style={{ marginLeft: 'calc(50% - 50vw)', width: '100vw', overflow: 'hidden', position: 'relative' }}>
         <img
+          id="about-hero-img"
           src="/collect-hero.jpg"
           alt="Stanford Emporium — Kerala"
           className="w-full h-full object-cover"
-          style={{ filter: 'sepia(25%) saturate(1.4) brightness(0.88)', objectPosition: 'center 30%' }}
+          style={{ filter: 'sepia(25%) saturate(1.4) brightness(0.88)', objectPosition: 'center 30%', willChange: 'transform' }}
         />
         {/* warm gold gradient overlay */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,8,4,0.45) 0%, rgba(180,120,20,0.08) 40%, rgba(10,8,4,0.55) 100%)' }} />
