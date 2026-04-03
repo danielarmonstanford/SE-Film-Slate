@@ -60,10 +60,10 @@ const Work: React.FC = () => {
         <span style={{ fontSize: '0.6rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', display: 'block', marginBottom: '20px' }}>
           Full Creative Services
         </span>
-        <h1 style={{ fontFamily: "'Noto Serif', serif", fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, lineHeight: 1.05, color: '#e5e2e1', marginBottom: '0' }}>
+        <h1 style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, lineHeight: 1.05, color: '#e5e2e1', marginBottom: '0' }}>
           Everything a production needs.
         </h1>
-        <h1 style={{ fontFamily: "'Noto Serif', serif", fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.05, color: '#CC0000', marginBottom: '40px' }}>
+        <h1 style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.05, color: '#CC0000', marginBottom: '40px' }}>
           Under one intelligence.
         </h1>
         <p style={{ maxWidth: '680px', fontSize: '0.9rem', color: 'rgba(229,226,225,0.65)', lineHeight: 1.9 }}>
@@ -87,10 +87,10 @@ const Work: React.FC = () => {
               onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(204,0,0,0.3)')}
               onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(229,226,225,0.06)')}
             >
-              <div style={{ fontFamily: "'Noto Serif', serif", fontStyle: 'italic', fontSize: '1.5rem', color: '#CC0000', marginBottom: '14px', lineHeight: 1 }}>
+              <div style={{ fontStyle: 'italic', fontSize: '1.5rem', color: '#CC0000', marginBottom: '14px', lineHeight: 1 }}>
                 {s.num}
               </div>
-              <h3 style={{ fontFamily: "'Noto Serif', serif", fontSize: '1.1rem', fontWeight: 300, color: '#e5e2e1', marginBottom: '12px', lineHeight: 1.3 }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 300, color: '#e5e2e1', marginBottom: '12px', lineHeight: 1.3 }}>
                 {s.title}
               </h3>
               <p style={{ fontSize: '0.75rem', color: 'rgba(229,226,225,0.5)', lineHeight: 1.75, marginBottom: s.link ? '16px' : '0' }}>
@@ -115,7 +115,7 @@ const Work: React.FC = () => {
 
       {/* CTA */}
       <section style={{ background: '#0d0d0d', padding: '96px 24px', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: "'Noto Serif', serif", fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', marginBottom: '40px', lineHeight: 1.2 }}>
+        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', marginBottom: '40px', lineHeight: 1.2 }}>
           One call. Full creative picture.
         </h2>
         <a
