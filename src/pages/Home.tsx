@@ -141,9 +141,9 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         {/* HERO TEXT BLOCK */}
         <div ref={heroTextRef} style={{ position: 'relative', zIndex: 10, padding: '0 60px 44px 28px' }}>
-          <p style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.38)', marginBottom: '14px' }}>
+          <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.38)', marginBottom: '14px' }}>
             Executive Producer · Production Design · Film Investment
-          </p>
+          </div>
           <h1 style={{ margin: 0, padding: 0 }}>
             <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(34px, 5.5vw, 64px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#e5e2e1', display: 'block' }}>
               I direct ideas
