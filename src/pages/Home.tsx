@@ -115,6 +115,7 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         {/* VIMEO BACKGROUND */}
         <iframe
+          className="hero-vimeo"
           src="https://player.vimeo.com/video/1179764303?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0"
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', zIndex: 0 }}
           allow="autoplay"
@@ -140,7 +141,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '62%', background: 'linear-gradient(to top, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0.48) 50%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
 
         {/* HERO TEXT BLOCK */}
-        <div ref={heroTextRef} style={{ position: 'relative', zIndex: 10, padding: '0 60px 44px 28px' }}>
+        <div ref={heroTextRef} className="hero-text-block" style={{ position: 'relative', zIndex: 10, padding: '0 60px 44px 28px' }}>
           <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#e5e2e1', marginBottom: '14px' }}>
             Executive Producer · Production Design · Film Investment
           </div>

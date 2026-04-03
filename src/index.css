@@ -356,8 +356,36 @@ main > section {
   }
 }
 
-/* ── MOBILE HERO CTA ── */
+/* ── MOBILE HERO ── */
 @media (max-width: 768px) {
+  /* Fill viewport with video — no black bars */
+  .hero-vimeo {
+    top: 50% !important;
+    left: 50% !important;
+    width: 177.78vh !important; /* 16:9 */
+    height: 100% !important;
+    min-width: 100% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  /* Center all hero text */
+  .hero-text-block {
+    width: 100% !important;
+    padding: 0 20px 52px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Center nav logo */
+  .nav-logo {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+  }
+
+  /* CTA button */
   .hero-invest-btn {
     width: 50% !important;
     font-size: 10px !important;

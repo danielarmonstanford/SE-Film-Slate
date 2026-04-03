@@ -67,7 +67,7 @@ export default function Nav() {
   return (
     <>
       {/* LOGO — fixed top-left */}
-      <div style={{ position: 'fixed', top: '24px', left: '28px', zIndex: 200 }}>
+      <div className="nav-logo" style={{ position: 'fixed', top: '24px', left: '28px', zIndex: 200 }}>
         <Link to="/" style={{ textDecoration: 'none' }}>
           <div style={{ fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, color: '#e5e2e1', lineHeight: 1 }}>
             Stanford
