@@ -40,7 +40,7 @@ p, li, span {
 
 /* ── SITE DESIGN RULE: All headings use Cormorant Garamond (var(--font-serif)) ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif) !important;
   font-weight: 300;
 }
 
