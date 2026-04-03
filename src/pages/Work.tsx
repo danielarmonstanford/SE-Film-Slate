@@ -6,6 +6,7 @@ const services = [
     num: '01',
     title: 'Production Design',
     desc: 'Set design, colour world, spatial architecture. The complete visual environment from concept to set.',
+    link: { label: 'Production Design →', href: '/production-design', external: false },
   },
   {
     num: '02',
@@ -14,38 +15,43 @@ const services = [
   },
   {
     num: '03',
+    title: 'Photomontage & Composite',
+    desc: 'The construction of impossible realities from photographic elements. Applied to campaign work, book design, fine art, and film pre-visualization. Credited on Victoria\'s Secret SEXY Volume III alongside Ellen Von Unwerth and Raphael Mazzucco.',
+  },
+  {
+    num: '04',
     title: 'Casting Consultation',
     desc: 'Ensemble coherence. Character-to-environment visual intelligence. Instinctive eye for talent honed across 30 years of directing people.',
   },
   {
-    num: '04',
+    num: '05',
     title: 'Brand & Identity',
     desc: 'Every film needs a visual identity system — titles, props, signage, world-building graphics.',
     link: { label: 'Stanford Emporium →', href: 'https://www.stanfordemporium.com', external: true },
   },
   {
-    num: '05',
+    num: '06',
     title: 'Soundtrack Intelligence',
     desc: 'Score selection is a Production Design decision. Collecting original motion picture scores since childhood — Vangelis, Morricone, Zimmer — that ear informs every spatial and tonal choice.',
   },
   {
-    num: '06',
+    num: '07',
     title: 'Location Reference & Scouting',
     desc: 'Thirty years. Five continents. An unpublished archive of large-format photography available as location reference and background plates.',
   },
   {
-    num: '07',
+    num: '08',
     title: 'Matte Painting & Background Plates',
     desc: 'Cinematic landscape photography repurposed as production-ready environment material. Brazil, Sri Lanka, Japan, and beyond.',
   },
   {
-    num: '08',
+    num: '09',
     title: 'NuLab VFX & Virtual Production',
     desc: 'LED Volume integration and AI-visual pipeline via NuLab Audio Visual Intelligence.',
     link: { label: 'nulab.space →', href: 'https://nulab.space', external: true },
   },
   {
-    num: '09',
+    num: '10',
     title: 'Creative Consulting',
     desc: 'Turnkey creative oversight for productions needing strategic visual intelligence without a full department. Available for features, pilots, and branded content.',
   },
@@ -97,16 +103,27 @@ const Work: React.FC = () => {
                 {s.desc}
               </p>
               {s.link && (
-                <a
-                  href={s.link.href}
-                  target={s.link.external ? '_blank' : undefined}
-                  rel={s.link.external ? 'noopener noreferrer' : undefined}
-                  style={{ fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#CC0000', textDecoration: 'none', transition: 'opacity 200ms' }}
-                  onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
-                  onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-                >
-                  {s.link.label}
-                </a>
+                s.link.external ? (
+                  <a
+                    href={s.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#CC0000', textDecoration: 'none', transition: 'opacity 200ms' }}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                  >
+                    {s.link.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={s.link.href}
+                    style={{ fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#CC0000', textDecoration: 'none', transition: 'opacity 200ms' }}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                  >
+                    {s.link.label}
+                  </Link>
+                )
               )}
             </div>
           ))}
