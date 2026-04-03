@@ -68,7 +68,7 @@ export default function Nav() {
           <div style={{ fontSize: '22px', letterSpacing: '0.45em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, color: '#e5e2e1', lineHeight: 1 }}>
             Stanford
           </div>
-          <div style={{ fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', color: '#CC0000', marginTop: '3px' }}>
+          <div style={{ fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', color: '#C9971F', marginTop: '3px' }}>
             Emporium
           </div>
         </Link>
@@ -100,14 +100,14 @@ export default function Nav() {
                   fontSize: '6.5px',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  color: isActive ? '#CC0000' : 'rgba(229,226,225,0.4)',
+                  color: isActive ? '#C9971F' : 'rgba(229,226,225,0.4)',
                   textDecoration: 'none',
                   transition: 'color 0.3s ease',
                   padding: '4px 0',
                   whiteSpace: 'nowrap',
                 }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#CC0000'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? '#CC0000' : 'rgba(229,226,225,0.4)'; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? '#C9971F' : 'rgba(229,226,225,0.4)'; }}
               >
                 {item.label}
               </Link>
@@ -121,7 +121,7 @@ export default function Nav() {
           aria-label={audioOn ? 'Pause ambient audio' : 'Play ambient audio'}
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
         >
-          <span style={{ fontSize: '15px', color: '#CC0000' }}>{audioOn ? '♬' : '♪'}</span>
+          <span style={{ fontSize: '15px', color: '#C9971F' }}>{audioOn ? '♬' : '♪'}</span>
           <span style={{ writingMode: 'vertical-rl', fontSize: '7px', fontWeight: 700, letterSpacing: '0.3em', color: 'rgba(229,226,225,0.7)', textTransform: 'uppercase' }}>
             Sound
           </span>

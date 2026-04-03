@@ -148,15 +148,15 @@ export default function Home({ setIsHovering }: HomeProps) {
             <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(34px, 5.5vw, 64px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#e5e2e1', display: 'block' }}>
               I direct ideas
             </span>
-            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(34px, 5.5vw, 64px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#cc0000', display: 'block', marginBottom: '24px' }}>
+            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(34px, 5.5vw, 64px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#C9971F', display: 'block', marginBottom: '24px' }}>
               into reality.
             </span>
           </h1>
           <button
             onClick={() => navigate('/investment-opportunities')}
-            style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#cc0000', border: '1px solid rgba(204,0,0,0.5)', padding: '12px 28px', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#cc0000'; (e.currentTarget as HTMLButtonElement).style.color = '#080808'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = '#cc0000'; }}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9971F', border: '1px solid rgba(201,151,31,0.5)', padding: '12px 28px', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#C9971F'; (e.currentTarget as HTMLButtonElement).style.color = '#080808'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = '#C9971F'; }}
           >
             INVEST IN FILM
           </button>
