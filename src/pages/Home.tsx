@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../types';
 
 interface HomeProps {
@@ -12,85 +12,14 @@ interface HomeProps {
 }
 
 export default function Home({ setIsHovering }: HomeProps) {
+  const navigate = useNavigate();
+  const heroTextRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  // Ambient audio player
-  const playerRef = useRef<any>(null);
-  const [audioPlaying, setAudioPlaying] = useState(false);
-  const [volume, setVolume] = useState(40);
-  const [playerReady, setPlayerReady] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    let destroyed = false;
-
-    const initPlayer = () => {
-      if (destroyed || !(window as any).YT?.Player) return;
-      const el = document.getElementById('ambient-yt-player');
-      if (!el) return;
-      const p = new (window as any).YT.Player('ambient-yt-player', {
-        events: {
-          onReady: (evt: any) => {
-            if (destroyed) return;
-            evt.target.setVolume(40);
-            playerRef.current = evt.target;
-            setPlayerReady(true);
-          },
-          onStateChange: (evt: any) => {
-            if (destroyed) return;
-            setAudioPlaying(evt.data === 1);
-          },
-        },
-      });
-      if (!destroyed) playerRef.current = p;
-    };
-
-    if ((window as any).YT?.Player) {
-      initPlayer();
-    } else {
-      // Avoid duplicate script tags
-      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        document.head.appendChild(tag);
-      }
-      const prev = (window as any).onYouTubeIframeAPIReady;
-      (window as any).onYouTubeIframeAPIReady = () => {
-        if (prev) prev();
-        initPlayer();
-      };
-    }
-
-    return () => {
-      destroyed = true;
-      if (playerRef.current?.destroy) {
-        try { playerRef.current.destroy(); } catch {}
-      }
-      playerRef.current = null;
-      setPlayerReady(false);
-      setAudioPlaying(false);
-    };
-  }, []);
-
-  const toggleAudio = () => {
-    if (!playerRef.current || !playerReady) return;
-    if (audioPlaying) {
-      playerRef.current.pauseVideo();
-    } else {
-      playerRef.current.playVideo();
-    }
-  };
-
-  const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = Number(e.target.value);
-    setVolume(val);
-    if (playerRef.current && playerReady) {
-      playerRef.current.setVolume(val);
-    }
-  };
 
   useEffect(() => {
     const observerOptions = { threshold: 0.1 };
@@ -108,6 +37,22 @@ export default function Home({ setIsHovering }: HomeProps) {
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     return () => revealObserver.disconnect();
+  }, []);
+
+  // Hero text fade-in on mount, fade-out after 30s
+  useEffect(() => {
+    const el = heroTextRef.current;
+    if (!el) return;
+    // Start invisible, fade in
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 1.4s ease';
+    const fadeIn = setTimeout(() => { el.style.opacity = '1'; }, 400);
+    // Fade out at 30s
+    const fadeOut = setTimeout(() => {
+      el.style.transition = 'opacity 1.2s ease';
+      el.style.opacity = '0';
+    }, 30000);
+    return () => { clearTimeout(fadeIn); clearTimeout(fadeOut); };
   }, []);
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -159,73 +104,59 @@ export default function Home({ setIsHovering }: HomeProps) {
   return (
     <div className="bg-[var(--black)]">
       {/* SECTION 1 — HERO */}
-      <section className="relative w-screen h-screen min-h-[700px] flex items-end justify-center overflow-hidden bg-[var(--black)]">
-        {/* HERO BACKGROUND — Vimeo on desktop, static fallback on mobile */}
-        <div className="absolute inset-0 z-0" style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', width: '100vw', height: '100vh', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
 
-          {/* Vimeo background — hidden on mobile */}
-          <div className="hidden md:block" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-            <iframe
-              src="https://player.vimeo.com/video/1179698917?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-              style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '177.78vh', minWidth: '100%', height: '100%', minHeight: '56.25vw', border: 'none', pointerEvents: 'none' }}
-              allow="autoplay; fullscreen"
-              title="Hero background"
-            />
-          </div>
+        {/* VIMEO BACKGROUND */}
+        <iframe
+          src="https://player.vimeo.com/video/1179764303?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0"
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', zIndex: 0 }}
+          allow="autoplay"
+          title="hero"
+          onError={() => {
+            const el = document.getElementById('hero-fallback');
+            if (el) el.style.display = 'block';
+          }}
+        />
 
-          {/* Static fallback — always visible on mobile, hidden on desktop */}
-          <img
-            src="/D80_9144.jpg"
-            alt="Hero Background"
-            className="md:hidden w-full h-full object-cover opacity-75"
-          />
+        {/* MOBILE FALLBACK */}
+        <img
+          id="hero-fallback"
+          src="/D80_9144.jpg"
+          alt="Hero Background"
+          style={{ display: 'none', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+        />
 
-          {/* Top gradient — nav readability */}
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '35%', background: 'linear-gradient(to bottom, rgba(13,13,13,0.75) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
-          {/* Bottom gradient — text readability */}
-          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%', background: 'linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.6) 40%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
-        </div>
+        {/* TOP GRADIENT */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '38%', background: 'linear-gradient(to bottom, rgba(8,8,8,0.72) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
 
-        <div className="relative z-[5] text-center hero-reveal w-full" style={{ paddingBottom: '164px' }}>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
-            <div className="label-text text-[9px] text-[var(--bronze)]">
-              Creative Director · Visionary · Executive Producer
-            </div>
-            <div className="w-[30px] h-[1px] bg-[var(--bronze)]" />
-          </div>
-          <h1 className="text-[clamp(3rem,9vw,9rem)] leading-[1.1] mb-2" style={{ textShadow: '0 2px 40px rgba(0,0,0,0.8)' }}>
-            <span style={{ color: '#e5e2e1' }}>I direct ideas</span><br />
-            <span className="italic-emphasis">into reality.</span>
-          </h1>
-          <div style={{ fontSize: 'clamp(0.62rem, 1.5vw, 0.75rem)', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.55)', marginBottom: '44px', marginTop: '4px' }}>
+        {/* BOTTOM GRADIENT */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '62%', background: 'linear-gradient(to top, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0.48) 50%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
+
+        {/* HERO TEXT BLOCK */}
+        <div ref={heroTextRef} style={{ position: 'relative', zIndex: 10, padding: '0 60px 44px 28px' }}>
+          <p style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.38)', marginBottom: '14px' }}>
             Executive Producer · Production Design · Film Investment
-          </div>
-          <div className="hero-cta-group flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/slate"
-              style={{ fontSize: 'clamp(0.58rem, 1.2vw, 0.68rem)', letterSpacing: '0.28em', padding: '14px clamp(24px, 4vw, 40px)', background: 'transparent', color: '#ffffff', border: '1px solid rgba(255,255,255,0.6)', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'background 300ms, border-color 300ms, color 300ms', backdropFilter: 'blur(4px)' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.9)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.6)'; }}
-            >
-              VIEW INVESTMENT OPPORTUNITIES
-            </Link>
-            <Link
-              to="/inquire"
-              style={{ fontSize: 'clamp(0.58rem, 1.2vw, 0.68rem)', letterSpacing: '0.28em', padding: '14px clamp(24px, 4vw, 40px)', background: 'transparent', border: '1px solid rgba(229,226,225,0.3)', color: 'rgba(229,226,225,0.8)', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'border-color 300ms, color 300ms' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = '#CC0000'; (e.currentTarget as HTMLElement).style.color = '#CC0000'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(229,226,225,0.3)'; (e.currentTarget as HTMLElement).style.color = 'rgba(229,226,225,0.8)'; }}
-            >
-              REQUEST INVESTMENT PACKAGE
-            </Link>
-          </div>
-          <div style={{ width: '40px', height: '1px', background: '#CC0000', margin: '32px auto 0' }} />
+          </p>
+          <h1 style={{ margin: 0, padding: 0 }}>
+            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(34px, 5.5vw, 64px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#e5e2e1', display: 'block' }}>
+              I direct ideas
+            </span>
+            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 400, fontSize: 'clamp(34px, 5.5vw, 64px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#cc0000', display: 'block', marginBottom: '24px' }}>
+              into reality.
+            </span>
+          </h1>
+          <button
+            onClick={() => navigate('/investment-opportunities')}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#cc0000', border: '1px solid rgba(204,0,0,0.5)', padding: '12px 28px', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#cc0000'; (e.currentTarget as HTMLButtonElement).style.color = '#080808'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = '#cc0000'; }}
+          >
+            INVEST IN FILM
+          </button>
         </div>
 
-        <div className="absolute bottom-[90px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-pulse">
-          <div className="label-text text-[8px]">SCROLL</div>
-          <div className="w-[1px] h-[40px] bg-gradient-to-b from-[var(--bronze)] to-transparent" />
-        </div>
+        {/* TIMER BAR */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, height: '1px', background: '#cc0000', width: '100%', transformOrigin: 'left', animation: 'shrink 30s linear forwards', zIndex: 10 }} />
       </section>
 
       {/* PROOF STRIP */}
@@ -758,63 +689,6 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
       </section>
 
-      {/* AMBIENT AUDIO — hidden iframe (off-screen, must have real size for YT API) */}
-      <div
-        aria-hidden="true"
-        style={{ position: 'fixed', top: '-200px', left: '-200px', width: '100px', height: '100px', pointerEvents: 'none', visibility: 'hidden' }}
-      >
-        <iframe
-          id="ambient-yt-player"
-          width="100"
-          height="100"
-          src="https://www.youtube.com/embed/8-wAvbxB7D8?autoplay=0&mute=0&loop=1&playlist=8-wAvbxB7D8&controls=0&enablejsapi=1"
-          allow="autoplay"
-          title="Ambient Audio"
-        />
-      </div>
-
-      {/* AMBIENT AUDIO CONTROL — fixed bottom-right */}
-      <div className="fixed bottom-6 right-6 z-[300] flex flex-col items-end gap-1">
-        {/* Volume row — shown when playing */}
-        {audioPlaying && (
-          <div className="flex items-center gap-2 px-3 py-[6px] bg-[rgba(8,7,5,0.92)] border border-[rgba(244,239,230,0.1)]">
-            <span className="label-text text-[7px] tracking-[0.2em] text-[rgba(244,239,230,0.3)] uppercase">Vol</span>
-            <input
-              type="range"
-              min={0}
-              max={100}
-              value={volume}
-              onChange={handleVolume}
-              className="w-[80px] cursor-pointer"
-              style={{ accentColor: 'rgba(244,239,230,0.6)' }}
-            />
-          </div>
-        )}
-
-        {/* Play/pause button */}
-        <button
-          onClick={toggleAudio}
-          className={`flex items-center gap-[10px] px-4 py-3 border transition-all duration-300 ${
-            audioPlaying
-              ? 'border-[rgba(244,239,230,0.4)] bg-[rgba(8,7,5,0.92)] text-white'
-              : 'border-[rgba(244,239,230,0.25)] bg-[rgba(8,7,5,0.92)] text-[rgba(244,239,230,0.65)] hover:border-white hover:text-white'
-          }`}
-          title={playerReady ? (audioPlaying ? 'Pause ambient music' : 'Play ambient music') : 'Loading…'}
-        >
-          {/* Icon */}
-          <span className="text-[13px] leading-none w-3 text-center">
-            {!playerReady ? '◌' : audioPlaying ? '❚❚' : '▶'}
-          </span>
-          <span className="label-text text-[8px] tracking-[0.3em] uppercase">
-            {audioPlaying ? 'Ambient' : 'Ambient'}
-          </span>
-        </button>
-
-        {/* Credit */}
-        <div className="label-text text-[7px] tracking-[0.12em] text-[rgba(244,239,230,0.18)] text-right pr-[2px]">
-          Bucharest Symphony Orchestra
-        </div>
-      </div>
     </div>
   );
 }
