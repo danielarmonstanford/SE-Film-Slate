@@ -2,10 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [audioOn, setAudioOn] = useState(false);
   const [playerReady, setPlayerReady] = useState(false);
   const playerRef = useRef<any>(null);
   const location = useLocation();
+
+  // Close menu on route change
+  useEffect(() => { setMenuOpen(false); }, [location.pathname]);
 
   // Ambient audio — YouTube IFrame API
   useEffect(() => {
@@ -63,7 +67,7 @@ export default function Nav() {
   return (
     <>
       {/* LOGO — fixed top-left */}
-      <div style={{ position: 'fixed', top: '24px', left: '28px', zIndex: 50 }}>
+      <div style={{ position: 'fixed', top: '24px', left: '28px', zIndex: 200 }}>
         <Link to="/" style={{ textDecoration: 'none' }}>
           <div style={{ fontSize: '22px', letterSpacing: '0.45em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, color: '#e5e2e1', lineHeight: 1 }}>
             Stanford
@@ -74,18 +78,51 @@ export default function Nav() {
         </Link>
       </div>
 
-      {/* RIGHT COLUMN — always-visible vertical nav */}
-      <div style={{
-        position: 'fixed', top: 0, right: 0, bottom: 0, width: '48px', zIndex: 100,
-        borderLeft: '1px solid rgba(229,226,225,0.05)',
-        display: 'flex', flexDirection: 'column', alignItems: 'center',
-        justifyContent: 'space-between', padding: '24px 0 36px',
-        background: 'transparent',
-      }}>
+      {/* HAMBURGER — fixed top-right */}
+      <button
+        onClick={() => setMenuOpen(o => !o)}
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+        style={{
+          position: 'fixed', top: '24px', right: '28px', zIndex: 200,
+          background: 'none', border: 'none', cursor: 'pointer',
+          display: 'flex', flexDirection: 'column', gap: '5px',
+          padding: '4px',
+        }}
+      >
+        <span style={{
+          display: 'block', width: '24px', height: '1px',
+          background: '#e5e2e1',
+          transform: menuOpen ? 'translateY(6px) rotate(45deg)' : 'none',
+          transition: 'transform 0.3s ease',
+        }} />
+        <span style={{
+          display: 'block', width: '24px', height: '1px',
+          background: '#e5e2e1',
+          opacity: menuOpen ? 0 : 1,
+          transition: 'opacity 0.3s ease',
+        }} />
+        <span style={{
+          display: 'block', width: '24px', height: '1px',
+          background: '#e5e2e1',
+          transform: menuOpen ? 'translateY(-6px) rotate(-45deg)' : 'none',
+          transition: 'transform 0.3s ease',
+        }} />
+      </button>
 
-        {/* Nav links — stacked vertically, always visible */}
-        <nav style={{ flex: 1, marginTop: '32px', display: 'flex', flexDirection: 'column', gap: 0, alignItems: 'center', justifyContent: 'space-around' }}>
-          {navLinks.map((item) => {
+      {/* FULLSCREEN OVERLAY */}
+      <div style={{
+        position: 'fixed', inset: 0, zIndex: 150,
+        background: 'rgba(8,7,5,0.50)',
+        backdropFilter: 'blur(2px)',
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'flex-start', justifyContent: 'center',
+        paddingLeft: 'clamp(32px, 8vw, 120px)',
+        opacity: menuOpen ? 1 : 0,
+        pointerEvents: menuOpen ? 'auto' : 'none',
+        transition: 'opacity 0.4s ease',
+      }}>
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {navLinks.map((item, i) => {
             const isActive = location.pathname === item.path ||
               (item.path !== '/' && location.pathname.startsWith(item.path));
             return (
@@ -93,21 +130,21 @@ export default function Nav() {
                 key={item.path}
                 to={item.path}
                 style={{
-                  writingMode: 'vertical-rl',
-                  transform: 'rotate(180deg)',
                   fontFamily: 'Arial, Helvetica, sans-serif',
                   fontWeight: 700,
-                  fontSize: '6.5px',
-                  letterSpacing: '0.22em',
+                  fontSize: 'clamp(36px, 6vw, 72px)',
+                  letterSpacing: '0.08em',
                   textTransform: 'uppercase',
-                  color: isActive ? '#C9971F' : 'rgba(229,226,225,0.4)',
+                  color: isActive ? '#C9971F' : 'rgba(229,226,225,0.85)',
                   textDecoration: 'none',
-                  transition: 'color 0.3s ease',
-                  padding: '4px 0',
-                  whiteSpace: 'nowrap',
+                  lineHeight: 1.15,
+                  opacity: menuOpen ? 1 : 0,
+                  transform: menuOpen ? 'translateY(0)' : 'translateY(16px)',
+                  transition: `opacity 0.4s ease ${i * 60}ms, transform 0.4s ease ${i * 60}ms, color 0.2s ease`,
+                  display: 'block',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? '#C9971F' : 'rgba(229,226,225,0.4)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? '#C9971F' : 'rgba(229,226,225,0.85)'; }}
               >
                 {item.label}
               </Link>
@@ -115,18 +152,18 @@ export default function Nav() {
           })}
         </nav>
 
-        {/* Audio button */}
+        {/* Audio toggle inside overlay */}
         <button
           onClick={toggleAudio}
           aria-label={audioOn ? 'Pause ambient audio' : 'Play ambient audio'}
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
+          style={{
+            marginTop: '56px', display: 'flex', alignItems: 'center', gap: '10px',
+            background: 'none', border: 'none', cursor: 'pointer', padding: 0,
+          }}
         >
-          <span style={{ fontSize: '15px', color: '#C9971F' }}>{audioOn ? '♬' : '♪'}</span>
-          <span style={{ writingMode: 'vertical-rl', fontSize: '7px', fontWeight: 700, letterSpacing: '0.3em', color: 'rgba(229,226,225,0.7)', textTransform: 'uppercase' }}>
-            Sound
-          </span>
-          <span style={{ writingMode: 'vertical-rl', fontFamily: "'EB Garamond', serif", fontStyle: 'italic', fontSize: '10px', color: 'rgba(229,226,225,0.55)', letterSpacing: '0.08em', marginTop: '4px' }}>
-            Zimmerman
+          <span style={{ fontSize: '18px', color: '#C9971F' }}>{audioOn ? '♬' : '♪'}</span>
+          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'rgba(229,226,225,0.6)', textTransform: 'uppercase' }}>
+            Sound · Zimmerman
           </span>
         </button>
       </div>
