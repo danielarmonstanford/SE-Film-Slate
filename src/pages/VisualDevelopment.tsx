@@ -8,12 +8,12 @@ const capabilities = [
 ];
 
 const moodBoard = [
-  '/ref-scifi-woman.jpg',
-  '/ref-speedboat-night.jpg',
-  '/ref-scifi-desert.jpg',
-  '/ref-rooftop-pool.jpg',
-  '/ref-underwater.jpg',
-  '/ref-turkish-bath.jpg',
+  { src: '/ref-scifi-woman.jpg',    filter: true },
+  { src: '/ref-speedboat-night.jpg', filter: true },
+  { src: '/ref-scifi-desert.jpg',   filter: true },
+  { src: '/ref-rooftop-pool.jpg',   filter: true },
+  { src: '/ref-underwater.jpg',     filter: true },
+  { src: '/birth-diptych.jpg',      filter: false },
 ];
 
 const VisualDevelopment = () => {
@@ -127,18 +127,53 @@ const VisualDevelopment = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-[rgba(244,239,230,0.08)]">
-            {moodBoard.map((url, i) => (
+            {moodBoard.map((item, i) => (
               <div key={i} className="bg-[#131313] overflow-hidden">
-                <div className="relative aspect-[4/3] overflow-hidden group">
+                <div className={`relative overflow-hidden group ${i === 5 ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}>
                   <img
-                    src={url}
-                    alt={`Visual reference ${i + 1}`}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    src={item.src}
+                    alt={i === 5 ? 'The Birth · Photomontage · Fine Art' : `Visual reference ${i + 1}`}
+                    className={`w-full h-full object-cover transition-all duration-700 ${item.filter ? 'grayscale group-hover:grayscale-0 group-hover:scale-105' : ''}`}
+                    style={i === 5 ? { objectPosition: 'center center' } : {}}
                   />
+                  {i === 5 && (
+                    <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)' }}>
+                      <p style={{ fontSize: '0.55rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#e5e2e1', marginBottom: '2px' }}>The Birth · Photomontage · Fine Art</p>
+                      <p style={{ fontSize: '0.5rem', letterSpacing: '0.1em', color: 'rgba(229,226,225,0.5)' }}>Concept Direction &amp; Composite</p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
           </div>
+
+          {/* THE BIRTH — Full Series Horizontal Progression */}
+          <div className="mt-16">
+            <p style={{ fontSize: '0.55rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '6px' }}>
+              The Birth · La Naissance · Fine Art Series
+            </p>
+            <p style={{ fontSize: '0.6rem', letterSpacing: '0.08em', color: 'rgba(229,226,225,0.35)', marginBottom: '20px' }}>
+              Concept Direction &amp; Photomontage — Daniel Armon Stanford
+            </p>
+            <div style={{ overflowX: 'auto', display: 'flex', background: '#000', scrollbarWidth: 'none' }}
+              className="[&::-webkit-scrollbar]:hidden">
+              {[
+                '/birth-001-title.jpg',
+                '/birth-diptych.jpg',
+                '/birth-003.jpg',
+                '/birth-004.jpg',
+              ].map((src, i) => (
+                <div key={i} style={{ flexShrink: 0, height: '420px', background: '#000', display: 'flex', alignItems: 'center' }}>
+                  <img
+                    src={src}
+                    alt={`The Birth — frame ${i + 1}`}
+                    style={{ height: '100%', width: 'auto', objectFit: 'contain', display: 'block' }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
