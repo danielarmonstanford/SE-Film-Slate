@@ -2,68 +2,69 @@ import { Link } from 'react-router-dom';
 
 const Spatial = () => {
   return (
-    <div className="bg-[#131313] pt-32">
+    <div className="bg-[#131313] min-h-screen pt-40 pb-0">
 
-      {/* BREADCRUMB */}
-      <div className="px-6 max-w-[1800px] mx-auto mb-12">
-        <Link
-          to="/visual-development"
-          style={{ fontSize: '0.6rem', letterSpacing: '0.12em', color: 'rgba(229,226,225,0.4)' }}
-          className="uppercase hover:text-[rgba(229,226,225,0.75)] transition-colors duration-300"
-        >
-          ← Visual Development
-        </Link>
-      </div>
-
-      {/* VISUAL WORLDS & NFT ART */}
-      <section className="px-6 max-w-[1800px] mx-auto mb-24">
-        <span className="block text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold mb-4">
-          Multimedia · Digital Collection · Sound
-        </span>
-        <h1 className="font-['Noto_Serif'] text-4xl md:text-6xl italic leading-snug mb-12">
-          Visual Worlds &amp; Digital Collection Art
+      {/* HEADER */}
+      <section className="px-6 md:px-20 max-w-[1400px] mx-auto mb-20">
+        <p style={{ fontSize: '0.6rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '20px' }}>
+          Philosophy · Research · Vision
+        </p>
+        <h1 style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, lineHeight: 1.05, color: '#e5e2e1', marginBottom: '8px' }}>
+          Spatial Resonance™
         </h1>
+        <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.4rem)', fontStyle: 'italic', color: '#CC0000', marginBottom: '64px', fontWeight: 300 }}>
+          Where environment and emotion intersect.
+        </p>
 
-        {/* Video */}
-        <div className="max-w-[720px] mb-12" style={{ aspectRatio: '16/9' }}>
-          <iframe
-            src="https://www.youtube.com/embed/zWNpZgAPezs?controls=1&rel=0&modestbranding=1"
-            title="Visual Worlds & Digital Collection Art — Spatial Resonance"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full"
-            style={{ border: 'none', display: 'block' }}
-          />
+        {/* TWO-COLUMN */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', gap: '64px', alignItems: 'start' }}>
+
+          {/* Left — text */}
+          <div>
+            <p style={{ fontFamily: "'Noto Serif', serif", fontStyle: 'italic', fontSize: '1.1rem', lineHeight: 1.9, color: 'rgba(229,226,225,0.85)', marginBottom: '28px' }}>
+              Every space tells a story before a single line of dialogue is spoken. Spatial Resonance™ is the philosophy behind thirty years of environment work — the idea that architecture, light, and atmosphere are not background but character.
+            </p>
+            <p style={{ fontSize: '0.85rem', lineHeight: 1.9, color: 'rgba(229,226,225,0.5)' }}>
+              From the geometry of a fashion campaign set in Morocco to the dune landscapes of Brazil to the neon corridors of Tokyo — every environment carries a frequency. This philosophy underpins the Production Design and Art Direction practice at Stanford Emporium.
+            </p>
+          </div>
+
+          {/* Right — Vimeo */}
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+            <iframe
+              src="https://player.vimeo.com/video/1179698917?byline=0&title=0&portrait=0&color=CC0000"
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title="Spatial Resonance — Brazil Dunes"
+            />
+          </div>
         </div>
+      </section>
 
-        {/* Text block */}
-        <div className="max-w-[640px] space-y-6">
-          <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
-            NuLab Audio Visual Intelligence — sound, image, and frequency as a unified creative field.
-            Where digital art, motion, and Digital Collection editions converge into a single authorial vision.
-          </p>
+      {/* FOOTER LINKS */}
+      <section className="px-6 md:px-20 max-w-[1400px] mx-auto pb-32">
+        <div style={{ height: '1px', background: 'rgba(229,226,225,0.08)', marginBottom: '40px' }} />
+        <div style={{ display: 'flex', gap: '40px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link
+            to="/visual-development"
+            style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#CC0000', textDecoration: 'none', transition: 'opacity 200ms' }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = '0.6')}
+            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+          >
+            ← Back to Visual Development
+          </Link>
           <a
             href="https://nulab.space"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-[rgba(244,239,230,0.3)] text-[#F5F0E6] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-white hover:text-white transition-all duration-300"
+            style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#CC0000', textDecoration: 'none', transition: 'opacity 200ms' }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = '0.6')}
+            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
           >
             Explore NuLab →
           </a>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-32 px-6 text-center bg-[#1c1b1b] mt-24">
-        <h2 className="font-['Noto_Serif'] text-3xl md:text-5xl italic mb-12 font-light">
-          Commission original Digital Collection &amp; digital editions.
-        </h2>
-        <Link
-          to="/inquire"
-          className="bg-[#CC0000] text-white text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
-        >
-          INITIATE INQUIRY
-        </Link>
       </section>
 
     </div>
