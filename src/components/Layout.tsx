@@ -53,7 +53,6 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
     { name: 'About', path: '/about', label: 'About' },
     { name: 'Investment Opportunities', path: '/investment-opportunities', label: 'Investment Opportunities' },
     { name: 'Services', path: '/disciplines', label: 'Services' },
-    { name: 'Visual Development', path: '/visual-development', label: 'Visual Development' },
     { name: 'Investor Inquiry', path: '/inquire', label: 'Investor Inquiry' },
   ];
 
@@ -93,7 +92,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
                   textTransform: 'uppercase',
                   textDecoration: 'none',
                   color: isActive ? '#CC0000' : 'rgba(229,226,225,0.75)',
-                  transition: 'color 300ms',
+                  transition: 'color 0.3s ease',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#CC0000'; setIsHovering(true); }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isActive ? '#CC0000' : 'rgba(229,226,225,0.75)'; setIsHovering(false); }}
