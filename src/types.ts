@@ -36,6 +36,25 @@ export interface Project {
   notionPageId?: string;
   youtubeId?: string;
   team: { role: string; name: string }[];
+  // Extended investment fields
+  number?: string;
+  shortTitle?: string;
+  urgency?: boolean;
+  timeSensitive?: boolean;
+  timeSensitiveLabel?: string;
+  director?: string;
+  ep?: string;
+  talent?: string;
+  logline?: string;
+  budget?: string;
+  investmentAsk?: string;
+  position?: string;
+  returnTarget?: string;
+  comparableFilms?: string;
+  investmentNote?: string;
+  disclaimer?: string;
+  heroImage?: string;
+  highlightColor?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -80,6 +99,64 @@ export const PROJECTS: Project[] = [
       { role: 'Director', name: 'Sean Stone' },
       { role: 'Executive Producer', name: 'Oliver Stone' },
       { role: 'Executive Producer', name: 'Mel Gibson' },
+      { role: 'Executive Producer', name: 'Daniel Stanford' }
+    ]
+  },
+  {
+    id: 'ugrp',
+    slug: 'ugrp',
+    number: '002',
+    shortTitle: 'UGRP',
+    title: 'Untitled Guy Ritchie Project',
+    genre: 'Action · Feature Film',
+    image: '/ugrp-poster.jpg',
+    heroImage: '/ugrp-poster.jpg',
+    description: 'A rare secondary equity assignment in one of the most anticipated action films currently in pre-production. Guy Ritchie writes and directs.',
+    logline: 'A pair of debt collectors for criminal organizations enlist the help of a high-level negotiator to recover $1 billion from a shady businessman, who recently had two previous debt collectors murdered on his private island.',
+    urgent: 'EXTREMELY URGENT',
+    urgency: true,
+    timeSensitive: true,
+    timeSensitiveLabel: 'Limited Availability — First Come First Served',
+    status: 'Funding Open',
+    statusColor: 'var(--red-urgent)',
+    director: 'Guy Ritchie',
+    ep: '',
+    talent: 'Henry Cavill · Jake Gyllenhaal · Eiza González',
+    details: 'Dir: Guy Ritchie | Talent: Henry Cavill · Jake Gyllenhaal · Eiza González',
+    stats: 'Budget: $73.8M | Equity Assignment: $1.5M | Ask: $1M',
+    pos: 'Position: Equity Assignment — 50% documented return at close',
+    budget: '$73.8M',
+    equityAvailable: '$1,500,000 primary equity assigned',
+    investmentAsk: '$1,000,000 USD',
+    position: 'Equity Assignment',
+    returnTarget: '50% documented return at assignment close. Full profit participation on $1.5M position.',
+    targetROI: '50% Documented Return at Assignment Close',
+    taxIncentives: 'Finance plan: $49.4M senior lending against international pre-sales and tax credits. Fully structured.',
+    salesStrategy: 'Black Bear International — worldwide distribution and pre-sales. Cannes headline package.',
+    comparableFilms: 'The Gentlemen ($22M/$115M) · Wrath of Man ($40M/$104M) · Baby Driver ($34M/$226M) · Bullet Train ($90M/$239M)',
+    comparables: ['The Gentlemen', 'Wrath of Man', 'Baby Driver', 'Bullet Train'],
+    investmentNote: 'You invest $1M. Documented cost basis is $1.5M — 50% return built in at close. Upside calculated on full $1.5M position. Finder\'s fee paid by assignor. Maximum available: $1,000,000 this tranche only. Minimum commitment: $250,000.',
+    disclaimer: 'This listing does not constitute a securities offering. Interested parties should consult their legal and tax advisors regarding cost basis treatment and profit participation terms.',
+    highlightColor: 'yellow',
+    positioning: 'Secondary equity assignment with 50% documented return at close on a $73.8M Guy Ritchie action film with A-list talent attached.',
+    budgetRange: '$73.8M',
+    marketPositioning: 'Cannes headline package. Black Bear International distribution. A-list cast with proven global box office.',
+    audience: 'Action fans, Guy Ritchie loyalists, global theatrical audiences (Ages 18–55).',
+    timingRelevance: 'Pre-production now. Limited $1M tranche — minimum $250K commitment. Finder\'s fee paid by assignor.',
+    commercialStrengths: [
+      'Guy Ritchie — proven global box office with The Gentlemen, Wrath of Man, and Snatch.',
+      'A-list cast: Henry Cavill, Jake Gyllenhaal, Eiza González.',
+      '50% return documented at cost basis close — rare secondary assignment structure.',
+      'Black Bear International pre-sales and Cannes package.'
+    ],
+    dataRoomUrl: '',
+    dataRoomGatedPath: '/ugrp-dataroom',
+    previewImages: ['/ugrp-poster.jpg'],
+    team: [
+      { role: 'Director', name: 'Guy Ritchie' },
+      { role: 'Lead', name: 'Henry Cavill' },
+      { role: 'Lead', name: 'Jake Gyllenhaal' },
+      { role: 'Lead', name: 'Eiza González' },
       { role: 'Executive Producer', name: 'Daniel Stanford' }
     ]
   },
