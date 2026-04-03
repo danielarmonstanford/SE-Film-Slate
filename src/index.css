@@ -355,3 +355,13 @@ main > section {
     padding-bottom: 32px !important;
   }
 }
+
+/* ── MOBILE HERO CTA ── */
+@media (max-width: 768px) {
+  .hero-invest-btn {
+    width: 50% !important;
+    font-size: 10px !important;
+    padding: 14px 0 !important;
+    text-align: center !important;
+  }
+}

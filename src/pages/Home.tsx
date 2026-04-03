@@ -111,7 +111,7 @@ export default function Home({ setIsHovering }: HomeProps) {
   return (
     <div className="bg-[var(--black)]">
       {/* SECTION 1 — HERO */}
-      <section style={{ position: 'relative', width: '100vw', height: '100vh', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
+      <section style={{ position: 'relative', width: '100vw', height: '100svh', minHeight: '100svh', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
 
         {/* VIMEO BACKGROUND */}
         <iframe
@@ -141,7 +141,7 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         {/* HERO TEXT BLOCK */}
         <div ref={heroTextRef} style={{ position: 'relative', zIndex: 10, padding: '0 60px 44px 28px' }}>
-          <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.38)', marginBottom: '14px' }}>
+          <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#e5e2e1', marginBottom: '14px' }}>
             Executive Producer · Production Design · Film Investment
           </div>
           <h1 style={{ margin: 0, padding: 0 }}>
@@ -153,6 +153,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </span>
           </h1>
           <button
+            className="hero-invest-btn"
             onClick={() => navigate('/investment-opportunities')}
             style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9971F', border: '1px solid rgba(201,151,31,0.5)', padding: '12px 28px', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#C9971F'; (e.currentTarget as HTMLButtonElement).style.color = '#080808'; }}
