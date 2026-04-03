@@ -167,6 +167,134 @@ export default function Home({ setIsHovering }: HomeProps) {
       </section>
 
 
+      {/* FEATURED PRODUCTION — POSTER */}
+      <section style={{
+        background: '#080808',
+        padding: 'clamp(80px,10vw,120px) clamp(28px,6vw,80px)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        borderTop: '1px solid rgba(229,226,225,0.04)',
+      }}>
+        <div style={{
+          fontFamily: 'Arial, Helvetica, sans-serif',
+          fontWeight: 700,
+          fontSize: '7px',
+          letterSpacing: '0.45em',
+          textTransform: 'uppercase',
+          color: 'rgba(229,226,225,0.25)',
+          marginBottom: '48px',
+          textAlign: 'center',
+        }}>
+          Featured Production
+        </div>
+
+        <a
+          href="/investment-opportunities"
+          style={{
+            display: 'block',
+            width: '100%',
+            maxWidth: '320px',
+            position: 'relative',
+            cursor: 'pointer',
+            textDecoration: 'none',
+          }}
+        >
+          <div
+            style={{
+              width: '100%',
+              aspectRatio: '2/3',
+              background: '#1a1208',
+              border: '1px solid rgba(229,226,225,0.08)',
+              overflow: 'hidden',
+              position: 'relative',
+              transition: 'border-color 0.4s',
+            }}
+            onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'}
+            onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(229,226,225,0.08)'}
+          >
+            <img
+              src="/hk-poster.jpg"
+              alt="Once Upon a Time in Hell's Kitchen"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                opacity: 0.8,
+                filter: 'contrast(1.1)',
+              }}
+            />
+            <div style={{
+              position: 'absolute',
+              bottom: 0, left: 0, right: 0,
+              height: '55%',
+              background: 'linear-gradient(to top, rgba(8,8,8,0.95) 0%, transparent 100%)',
+            }} />
+            <div style={{
+              position: 'absolute',
+              top: '16px', left: '16px',
+              fontFamily: 'Arial, Helvetica, sans-serif',
+              fontWeight: 700,
+              fontSize: '6.5px',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color: '#cc0000',
+              border: '1px solid rgba(204,0,0,0.4)',
+              padding: '4px 8px',
+              background: 'rgba(8,8,8,0.7)',
+            }}>
+              Equity Open
+            </div>
+            <div style={{
+              position: 'absolute',
+              bottom: '20px', left: '20px', right: '20px',
+            }}>
+              <div style={{
+                fontFamily: "'EB Garamond', Georgia, serif",
+                fontStyle: 'italic',
+                fontWeight: 400,
+                fontSize: 'clamp(16px,3vw,22px)',
+                color: '#e5e2e1',
+                lineHeight: 1.1,
+                marginBottom: '6px',
+              }}>
+                Once Upon a Time<br/>in Hell's Kitchen
+              </div>
+              <div style={{
+                fontFamily: 'Arial, Helvetica, sans-serif',
+                fontWeight: 700,
+                fontSize: '6.5px',
+                letterSpacing: '0.3em',
+                textTransform: 'uppercase',
+                color: 'rgba(229,226,225,0.4)',
+              }}>
+                Sawyer Spielberg · Melissa Leo
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="/investment-opportunities"
+          style={{
+            display: 'inline-block',
+            marginTop: '32px',
+            fontFamily: 'Arial, Helvetica, sans-serif',
+            fontWeight: 700,
+            fontSize: '7.5px',
+            letterSpacing: '0.32em',
+            textTransform: 'uppercase',
+            color: 'rgba(229,226,225,0.4)',
+            textDecoration: 'none',
+            transition: 'color 0.3s',
+          }}
+          onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = '#cc0000'}
+          onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(229,226,225,0.4)'}
+        >
+          View Full Film Slate →
+        </a>
+      </section>
+
       {/* SECTION 3 — DIRECTED DISCIPLINES */}
       <section className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black-2)]">
         <div className="reveal">
