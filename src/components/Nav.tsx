@@ -169,7 +169,7 @@ export default function Nav() {
       </div>
 
       {/* HIDDEN AMBIENT AUDIO PLAYER */}
-      <div aria-hidden="true" style={{ position: 'fixed', top: '-200px', left: '-200px', width: '100px', height: '100px', pointerEvents: 'none', visibility: 'hidden' }}>
+      <div aria-hidden="true" style={{ position: 'fixed', top: '-200px', left: '-200px', width: '100px', height: '100px', pointerEvents: 'none' }}>
         <iframe
           id="nav-ambient-player"
           width="100" height="100"
