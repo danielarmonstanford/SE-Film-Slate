@@ -189,6 +189,12 @@ nav.scrolled {
   cursor: grabbing;
 }
 
+/* ── HERO TIMER BAR ── */
+@keyframes shrink {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
 /* ── MARQUEE ── */
 @keyframes marquee {
   0%   { transform: translateX(0); }
@@ -340,5 +346,23 @@ main > section {
 @media (max-width: 768px) {
   main > section + section {
     padding-top: 60px;
+  }
+}
+
+/* Hero content right padding —
+   clears the 48px right column nav */
+@media (min-width: 769px) {
+  .hero-content,
+  [class*="hero-txt"] {
+    padding-right: 68px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content,
+  [class*="hero-txt"] {
+    padding-right: 60px !important;
+    padding-left: 20px !important;
+    padding-bottom: 32px !important;
   }
 }
