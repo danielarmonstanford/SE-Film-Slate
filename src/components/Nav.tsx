@@ -57,11 +57,11 @@ export default function Nav() {
   };
 
   const navLinks = [
-    { label: 'Home',              path: '/' },
-    { label: 'About',             path: '/about' },
-    { label: 'Film Slate',        path: '/investment-opportunities' },
-    { label: 'Visualization',     path: '/visual-development' },
-    { label: 'Production Design', path: '/disciplines' },
+    { label: 'Profile', path: '/about' },
+    { label: 'Film',    path: '/investment-opportunities' },
+    { label: 'Deliver', path: '/disciplines' },
+    { label: 'Worlds',  path: '/visual-development' },
+    { label: 'Access',  path: '/investor-inquiry' },
   ];
 
   return (
@@ -166,6 +166,19 @@ export default function Nav() {
             Sound · Zimmerman
           </span>
         </button>
+
+        {/* Footer contact line */}
+        <div style={{
+          position: 'absolute', bottom: '32px', left: 'clamp(32px, 8vw, 120px)', right: '32px',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        }}>
+          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'rgba(229,226,225,0.35)', textTransform: 'uppercase' }}>
+            film.daniel-stanford.com
+          </span>
+          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'rgba(229,226,225,0.35)', textTransform: 'uppercase' }}>
+            DanielArmonStanford@gmail.com
+          </span>
+        </div>
       </div>
 
       {/* HIDDEN AMBIENT AUDIO PLAYER */}

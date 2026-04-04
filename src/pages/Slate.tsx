@@ -35,9 +35,8 @@ const Slate: React.FC = () => {
       <div className="px-4 md:px-20 max-w-[1800px] mx-auto">
         <header className="mb-24 reveal">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-6">02 / FILM INVESTMENT SLATE</div>
-          <h1 className="text-[clamp(3rem,8vw,8rem)] text-white leading-[0.95] mb-12">
-            Film Investment<br />
-            <span className="italic-emphasis">Slate</span>
+          <h1 style={{ fontSize: 'clamp(4rem, 8vw, 9rem)', fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', lineHeight: 1, marginBottom: '48px' }}>
+            Film.
           </h1>
           <p className="text-[var(--cream)] text-lg max-w-2xl leading-relaxed opacity-80">
             A curated selection of high-potential cinematic ventures. Each project is structured for commercial viability, 

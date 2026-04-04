@@ -7,6 +7,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../types';
 
+// Vimeo Player SDK — loaded once, cached on window
+function loadVimeoSDK(): Promise<void> {
+  return new Promise((resolve) => {
+    if ((window as any).Vimeo) { resolve(); return; }
+    const s = document.createElement('script');
+    s.src = 'https://player.vimeo.com/api/player.js';
+    s.onload = () => resolve();
+    document.head.appendChild(s);
+  });
+}
+
 interface HomeProps {
   setIsHovering: (hovering: boolean) => void;
 }
@@ -20,6 +31,18 @@ export default function Home({ setIsHovering }: HomeProps) {
   const [scrollLeft, setScrollLeft] = useState(0);
 
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Vimeo SDK — force play on Safari
+  useEffect(() => {
+    let player: any = null;
+    loadVimeoSDK().then(() => {
+      const el = document.getElementById('vimeo-hero');
+      if (!el) return;
+      player = new (window as any).Vimeo.Player(el);
+      player.setMuted(true).then(() => player.play()).catch(() => {});
+    });
+    return () => { if (player) { try { player.destroy(); } catch {} } };
+  }, []);
 
   useEffect(() => {
     const observerOptions = { threshold: 0.1 };
@@ -115,18 +138,15 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         {/* VIMEO BACKGROUND */}
         <iframe
+          id="vimeo-hero"
           className="hero-vimeo"
-          src="https://player.vimeo.com/video/1179764303?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&playsinline=1"
+          src="https://player.vimeo.com/video/1179764303?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&playsinline=1&autopause=0&dnt=1"
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', zIndex: 0 }}
-          allow="autoplay"
+          allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
           title="hero"
           // @ts-ignore
           playsInline={true}
           webkit-playsinline="true"
-          onError={() => {
-            const el = document.getElementById('hero-fallback');
-            if (el) el.style.display = 'block';
-          }}
         />
 
         {/* MOBILE FALLBACK */}

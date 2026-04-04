@@ -66,11 +66,8 @@ const Work: React.FC = () => {
         <span style={{ fontSize: '0.6rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', display: 'block', marginBottom: '20px' }}>
           Full Creative Services
         </span>
-        <h1 style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, lineHeight: 1.05, color: '#e5e2e1', marginBottom: '0' }}>
-          Everything a production needs.
-        </h1>
-        <h1 style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, fontStyle: 'italic', lineHeight: 1.05, color: '#CC0000', marginBottom: '40px' }}>
-          Under one intelligence.
+        <h1 style={{ fontSize: 'clamp(4rem, 8vw, 9rem)', fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', lineHeight: 1, marginBottom: '40px' }}>
+          Deliver.
         </h1>
         <p style={{ maxWidth: '680px', fontSize: '0.9rem', color: 'rgba(229,226,225,0.65)', lineHeight: 1.9 }}>
           Most productions hire seven different vendors for what happens here under one creative vision. From initial concept to final frame — Production Design, Art Direction, Brand Identity, Casting, Soundtrack Intelligence, Location, and Visual Effects. This is the complete offering.

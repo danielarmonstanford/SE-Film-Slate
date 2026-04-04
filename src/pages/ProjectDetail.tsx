@@ -144,6 +144,170 @@ const ProjectDetail: React.FC = () => {
     );
   }
 
+  // ── UGRP — custom layout ──────────────────────────────────────────────────
+  if (slug === 'ugrp') {
+    const snapshotRows = [
+      { label: 'Investment Ask',        value: '$1,000,000 USD',                            yellow: false },
+      { label: 'Equity Assigned',       value: '$1,500,000 in primary film equity',         yellow: false },
+      { label: 'Immediate Return',      value: '50% at assignment close',                   yellow: true  },
+      { label: 'Documented Cost Basis', value: '$1,500,000',                                yellow: false },
+      { label: 'Upside Participation',  value: 'Full profit share on $1.5M position',       yellow: false },
+      { label: 'Maximum Available',     value: '$1,000,000 (this tranche only)',             yellow: false },
+      { label: 'Minimum Commitment',    value: '$250,000',                                   yellow: false },
+      { label: 'Commission',            value: 'Full finder\'s fee paid by assignor',        yellow: false },
+      { label: 'Distribution',          value: 'Black Bear International',                  yellow: false },
+      { label: 'Production Budget',     value: '$73.8M',                                    yellow: false },
+      { label: 'Filming Location',      value: 'Spain',                                     yellow: false },
+    ];
+    const comparables = [
+      { title: 'The Gentlemen',  stats: '$22M budget · $115M box office' },
+      { title: 'Wrath of Man',   stats: '$40M budget · $104M box office' },
+      { title: 'Baby Driver',    stats: '$34M budget · $226M box office' },
+      { title: 'Bullet Train',   stats: '$90M budget · $239M box office' },
+    ];
+    const whyParas = [
+      'You invest $1M. Your documented cost basis is $1.5M — a 50% return is built in at close.',
+      'Your upside exposure is calculated on the full $1.5M equity position, not your cash outlay. If this film performs in line with Guy Ritchie comparables — The Gentlemen returned 5x budget, Wrath of Man returned 2.6x — the back-end on $1.5M of primary equity is material.',
+      'The finder is paid by the assignor. Your $1M goes directly to work.',
+    ];
+
+    return (
+      <div className="bg-[var(--black)] min-h-screen text-white">
+
+        {/* SECTION 1 — HERO */}
+        <section className="relative h-[90vh] flex items-end pb-24 px-4 md:px-20 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img
+              src={project.heroImage || project.image}
+              alt={project.title}
+              className="w-full h-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--black)] via-[rgba(8,7,5,0.4)] to-transparent" />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10 max-w-5xl"
+          >
+            <div className="label-text text-[10px] text-[var(--bronze)] mb-6 uppercase tracking-[0.4em]">
+              002 · Investment Opportunity
+            </div>
+            <h1 className="text-[clamp(3rem,8vw,8rem)] leading-[0.9] mb-5 uppercase tracking-tight">
+              {project.title}
+            </h1>
+            <div style={{ color: '#ffc800', fontSize: '9px', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '20px' }}>
+              ⚡ Limited Availability — Equity Assignment
+            </div>
+            <p className="text-[rgba(229,226,225,0.7)] text-base md:text-lg mb-10 max-w-2xl leading-relaxed">
+              {project.logline}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                to={project.dataRoomGatedPath!}
+                className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                Access Data Room
+              </Link>
+              <Link
+                to="/inquire"
+                className="btn-text border border-[rgba(244,239,230,0.3)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                Inquire
+              </Link>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* SECTION 2 — INVESTMENT SNAPSHOT */}
+        <section className="py-24 px-4 md:px-20 bg-[#080808]">
+          <div className="max-w-3xl mx-auto">
+            <div className="label-text text-[10px] text-[var(--bronze)] mb-10 uppercase tracking-[0.4em]">
+              02 · Investment Snapshot
+            </div>
+            <div className="divide-y divide-[rgba(244,239,230,0.06)]">
+              {snapshotRows.map((row) => (
+                <div key={row.label} className="flex justify-between items-baseline py-3 gap-6">
+                  <span style={{ fontSize: '11px', color: 'rgba(229,226,225,0.5)', letterSpacing: '0.06em', flexShrink: 0 }}>
+                    {row.label}
+                  </span>
+                  <span style={{ fontSize: '13px', color: row.yellow ? '#ffc800' : '#e5e2e1', textAlign: 'right', fontWeight: row.yellow ? 700 : 400 }}>
+                    {row.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 3 — WHY THIS WORKS */}
+        <section className="py-24 px-4 md:px-20">
+          <div className="max-w-3xl mx-auto">
+            <div className="label-text text-[10px] text-[var(--bronze)] mb-10 uppercase tracking-[0.4em]">
+              03 · Why This Works
+            </div>
+            <div className="space-y-6">
+              {whyParas.map((para, i) => (
+                <p key={i} style={{ fontSize: '15px', color: 'rgba(229,226,225,0.78)', lineHeight: 1.85, letterSpacing: '0.01em' }}>
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 4 — COMPARABLE FILMS */}
+        <section className="py-24 px-4 md:px-20 bg-[#080808]">
+          <div className="max-w-3xl mx-auto">
+            <div className="label-text text-[10px] text-[var(--bronze)] mb-10 uppercase tracking-[0.4em]">
+              04 · Comparable Films
+            </div>
+            <div className="space-y-4">
+              {comparables.map((film) => (
+                <div key={film.title} className="flex items-baseline gap-3">
+                  <span style={{ fontSize: '14px', color: '#e5e2e1', minWidth: '160px' }}>{film.title}</span>
+                  <span style={{ fontSize: '12px', color: 'rgba(229,226,225,0.45)' }}>— {film.stats}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 5 — LEGAL DISCLAIMER */}
+        <section className="py-16 px-4 md:px-20">
+          <div className="max-w-3xl mx-auto">
+            <div
+              style={{
+                background: 'rgba(229,226,225,0.03)',
+                border: '1px solid rgba(229,226,225,0.08)',
+                padding: '16px 20px',
+                marginTop: '40px',
+              }}
+            >
+              <p style={{ fontSize: '12px', color: 'rgba(229,226,225,0.75)', fontStyle: 'italic', lineHeight: 1.85 }}>
+                {project.disclaimer}
+              </p>
+            </div>
+            <div className="mt-12 pt-8 border-t border-[rgba(244,239,230,0.06)]">
+              <Link
+                to="/investment-opportunities"
+                className="text-[9px] uppercase tracking-[0.3em] text-[rgba(244,239,230,0.3)] hover:text-[rgba(244,239,230,0.6)] transition-colors"
+              >
+                ← Back to Film Investment Slate
+              </Link>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    );
+  }
+  // ─────────────────────────────────────────────────────────────────────────────
+
   return (
     <div className="bg-[var(--black)] min-h-screen text-white">
 

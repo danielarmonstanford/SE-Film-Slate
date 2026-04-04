@@ -26,8 +26,8 @@ const Inquire: React.FC = () => {
           className="reveal active"
         >
           <div className="label-text text-[10px] text-[var(--bronze)] mb-8 uppercase tracking-[0.4em]">06 / CONNECT</div>
-          <h1 className="text-[clamp(3.5rem,10vw,10rem)] leading-[0.88] mb-16 uppercase tracking-tighter">
-            <span className="italic-emphasis">Inquire</span>
+          <h1 style={{ fontSize: 'clamp(4rem, 8vw, 9rem)', fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', lineHeight: 1, marginBottom: '64px' }}>
+            Access.
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">

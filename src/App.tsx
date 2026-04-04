@@ -75,6 +75,7 @@ export default function App() {
             <Route path="/collect" element={<Navigate to="/fine-art" replace />} />
             <Route path="/spatial" element={<Spatial />} />
             <Route path="/inquire" element={<Inquire />} />
+            <Route path="/investor-inquiry" element={<Inquire />} />
             <Route path="/project/:slug" element={<ProjectDetail />} />
             <Route path="/production-design" element={<ProductionDesign />} />
             <Route path="/fine-art" element={<FineArt />} />

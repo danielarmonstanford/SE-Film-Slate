@@ -78,14 +78,27 @@ const UGRPDataRoom = () => {
           <p className="text-xs text-[rgba(229,226,225,0.72)] leading-relaxed mb-5">
             Project summary, team, and investment highlights. No access code required.
           </p>
-          <a
-            href={NOTION_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block border border-[rgba(244,239,230,0.3)] text-[#F5F0E6] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-white hover:text-white transition-all duration-300"
-          >
-            View Slate Overview →
-          </a>
+          <div className="flex flex-col gap-3">
+            <a
+              href={NOTION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border border-[rgba(244,239,230,0.3)] text-[#F5F0E6] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-white hover:text-white transition-all duration-300"
+            >
+              View Slate Overview →
+            </a>
+            <a
+              href="https://blackbearpictures.com/film-and-tv/in%20the%20grey"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border border-[rgba(244,239,230,0.15)] text-[rgba(244,239,230,0.5)] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-[rgba(244,239,230,0.4)] hover:text-[rgba(244,239,230,0.8)] transition-all duration-300"
+            >
+              Watch Film Preview · Blackbear Pictures →
+            </a>
+          </div>
+          <p className="text-[8px] uppercase tracking-[0.25em] text-[rgba(244,239,230,0.25)] leading-relaxed mt-5">
+            © Blackbear Pictures. All Rights Reserved. IP owned by Blackbear Pictures.
+          </p>
         </div>
 
         {/* Divider */}
