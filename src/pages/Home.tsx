@@ -169,7 +169,7 @@ export default function Home({ setIsHovering }: HomeProps) {
       </section>
 
 
-      {/* FEATURED PRODUCTION — POSTER */}
+      {/* FEATURED PRODUCTIONS — TWO POSTERS */}
       <section style={{
         background: '#080808',
         padding: 'clamp(80px,10vw,120px) clamp(28px,6vw,80px)',
@@ -188,110 +188,98 @@ export default function Home({ setIsHovering }: HomeProps) {
           marginBottom: '48px',
           textAlign: 'center',
         }}>
-          Featured Production
+          Featured Productions
+        </div>
+
+        {/* Poster grid — 2 columns desktop, stacked mobile */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: 'clamp(16px,3vw,40px)',
+          width: '100%',
+          maxWidth: '680px',
+        }}>
+
+          {/* POSTER 1 — Hell's Kitchen */}
+          <a href="/investment-opportunities" style={{ display: 'block', textDecoration: 'none' }}>
+            <div
+              style={{
+                width: '100%', aspectRatio: '2/3', background: '#1a1208',
+                border: '1px solid rgba(229,226,225,0.08)', overflow: 'hidden',
+                position: 'relative', transition: 'border-color 0.4s',
+              }}
+              onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'}
+              onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(229,226,225,0.08)'}
+            >
+              <img src="/hk-poster.jpg" alt="Once Upon a Time in Hell's Kitchen"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8, filter: 'contrast(1.1)' }} />
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%',
+                background: 'linear-gradient(to top, rgba(8,8,8,0.95) 0%, transparent 100%)' }} />
+              <div style={{ position: 'absolute', top: '12px', left: '12px',
+                fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
+                letterSpacing: '0.3em', textTransform: 'uppercase', color: '#cc0000',
+                border: '1px solid rgba(204,0,0,0.4)', padding: '3px 7px', background: 'rgba(8,8,8,0.7)' }}>
+                Equity Open
+              </div>
+              <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300,
+                  fontSize: 'clamp(14px,2.5vw,22px)', color: '#f4ede0', lineHeight: 1.1, marginBottom: '5px' }}>
+                  Once Upon a Time<br/>in Hell's Kitchen
+                </div>
+                <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
+                  letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.6)' }}>
+                  Sawyer Spielberg · Melissa Leo
+                </div>
+              </div>
+            </div>
+          </a>
+
+          {/* POSTER 2 — UGRP */}
+          <a href="/investment-opportunities" style={{ display: 'block', textDecoration: 'none' }}>
+            <div
+              style={{
+                width: '100%', aspectRatio: '2/3', background: '#0d0d0d',
+                border: '1px solid rgba(229,226,225,0.08)', overflow: 'hidden',
+                position: 'relative', transition: 'border-color 0.4s',
+              }}
+              onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'}
+              onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(229,226,225,0.08)'}
+            >
+              <img src="/ugrp-poster.jpg" alt="Untitled Guy Ritchie Project"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', opacity: 0.85, filter: 'contrast(1.05)' }} />
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%',
+                background: 'linear-gradient(to top, rgba(8,8,8,0.95) 0%, transparent 100%)' }} />
+              <div style={{ position: 'absolute', top: '12px', left: '12px',
+                fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
+                letterSpacing: '0.3em', textTransform: 'uppercase', color: '#cc0000',
+                border: '1px solid rgba(204,0,0,0.4)', padding: '3px 7px', background: 'rgba(8,8,8,0.7)' }}>
+                Equity Open
+              </div>
+              <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300,
+                  fontSize: 'clamp(14px,2.5vw,22px)', color: '#f4ede0', lineHeight: 1.1, marginBottom: '5px' }}>
+                  Untitled Guy Ritchie Project
+                </div>
+                <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
+                  letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.6)' }}>
+                  Henry Cavill · Jake Gyllenhaal
+                </div>
+              </div>
+            </div>
+          </a>
+
         </div>
 
         <a
           href="/investment-opportunities"
           style={{
-            display: 'block',
-            width: '100%',
-            maxWidth: '320px',
-            position: 'relative',
-            cursor: 'pointer',
-            textDecoration: 'none',
-          }}
-        >
-          <div
-            style={{
-              width: '100%',
-              aspectRatio: '2/3',
-              background: '#1a1208',
-              border: '1px solid rgba(229,226,225,0.08)',
-              overflow: 'hidden',
-              position: 'relative',
-              transition: 'border-color 0.4s',
-            }}
-            onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'}
-            onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(229,226,225,0.08)'}
-          >
-            <img
-              src="/hk-poster.jpg"
-              alt="Once Upon a Time in Hell's Kitchen"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                opacity: 0.8,
-                filter: 'contrast(1.1)',
-              }}
-            />
-            <div style={{
-              position: 'absolute',
-              bottom: 0, left: 0, right: 0,
-              height: '55%',
-              background: 'linear-gradient(to top, rgba(8,8,8,0.95) 0%, transparent 100%)',
-            }} />
-            <div style={{
-              position: 'absolute',
-              top: '16px', left: '16px',
-              fontFamily: 'Arial, Helvetica, sans-serif',
-              fontWeight: 700,
-              fontSize: '9px',
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: '#cc0000',
-              border: '1px solid rgba(204,0,0,0.4)',
-              padding: '4px 8px',
-              background: 'rgba(8,8,8,0.7)',
-            }}>
-              Equity Open
-            </div>
-            <div style={{
-              position: 'absolute',
-              bottom: '20px', left: '20px', right: '20px',
-            }}>
-              <div style={{
-                fontFamily: "'EB Garamond', Georgia, serif",
-                fontStyle: 'italic',
-                fontWeight: 400,
-                fontSize: 'clamp(18px,3.5vw,28px)',
-                color: '#f4ede0',
-                lineHeight: 1.1,
-                marginBottom: '6px',
-              }}>
-                Once Upon a Time<br/>in Hell's Kitchen
-              </div>
-              <div style={{
-                fontFamily: 'Arial, Helvetica, sans-serif',
-                fontWeight: 700,
-                fontSize: '9px',
-                letterSpacing: '0.3em',
-                textTransform: 'uppercase',
-                color: 'rgba(229,226,225,0.6)',
-              }}>
-                Sawyer Spielberg · Melissa Leo
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a
-          href="/investment-opportunities"
-          style={{
-            display: 'inline-block',
-            marginTop: '32px',
-            fontFamily: 'Arial, Helvetica, sans-serif',
-            fontWeight: 700,
-            fontSize: '10px',
-            letterSpacing: '0.32em',
-            textTransform: 'uppercase',
-            color: 'rgba(229,226,225,0.55)',
-            textDecoration: 'none',
-            transition: 'color 0.3s',
+            display: 'inline-block', marginTop: '40px',
+            fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700,
+            fontSize: '10px', letterSpacing: '0.32em', textTransform: 'uppercase',
+            color: 'rgba(229,226,225,0.55)', textDecoration: 'none', transition: 'color 0.3s',
           }}
           onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = '#cc0000'}
-          onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(229,226,225,0.4)'}
+          onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(229,226,225,0.55)'}
         >
           View Full Film Slate →
         </a>
