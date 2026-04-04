@@ -27,7 +27,7 @@ body {
   color: var(--white);
   font-family: var(--font-sans);
   font-weight: 300;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

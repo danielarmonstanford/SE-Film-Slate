@@ -116,10 +116,13 @@ export default function Home({ setIsHovering }: HomeProps) {
         {/* VIMEO BACKGROUND */}
         <iframe
           className="hero-vimeo"
-          src="https://player.vimeo.com/video/1179764303?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0"
+          src="https://player.vimeo.com/video/1179764303?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&playsinline=1"
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', zIndex: 0 }}
           allow="autoplay"
           title="hero"
+          // @ts-ignore
+          playsInline={true}
+          webkit-playsinline="true"
           onError={() => {
             const el = document.getElementById('hero-fallback');
             if (el) el.style.display = 'block';
