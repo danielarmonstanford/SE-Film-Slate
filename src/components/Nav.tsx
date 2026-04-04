@@ -8,7 +8,7 @@ export default function Nav() {
   const playerRef = useRef<any>(null);
   const location = useLocation();
 
-  // Close menu on route change
+  // Close menu on route change — v2
   useEffect(() => { setMenuOpen(false); }, [location.pathname]);
 
   // Ambient audio — YouTube IFrame API
