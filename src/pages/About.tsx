@@ -28,14 +28,14 @@ const BTN_BASE: React.CSSProperties = {
 };
 
 const bullets = [
-  'Executive Producer mindset with investor packaging discipline',
-  'Production design leadership for feature film + series',
-  'Worldbuilding + environmental storytelling',
-  'Pitch decks, lookbooks, visual bibles',
-  'Global private image archive — Brazil, Japan, Sri Lanka',
+  'Creative Director, Art Director & Executive Producer',
+  'Three decades of high-end visual work across commercial, fine art & cinematic development',
+  'Cinematic worldbuilding, art department leadership & investment-ready film packaging',
+  'Poster systems, pitch decks, visual bibles & investor presentation',
+  'Premium fashion, beauty campaigns & strategic brand systems',
+  'Luxury aesthetic sensibility shaped by global visual culture',
   'London International Advertising Award · Art Basel Miami',
   "Victoria's Secret SEXY Vol III · Von Unwerth · Russell James",
-  'Published works: Sea of Dunes · Fascinasia',
 ];
 
 const About = () => {
@@ -132,22 +132,23 @@ const About = () => {
             }}>
               Daniel Armon Stanford
             </h2>
-            <p style={{
+            <div style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 300,
-              fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
-              lineHeight: 1.9,
-              color: 'rgba(244,239,230,0.92)',
+              fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
+              lineHeight: 2,
+              color: 'rgba(244,239,230,0.85)',
               marginBottom: '32px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '24px',
+              maxWidth: '52ch',
             }}>
-              Daniel Stanford is an Executive Producer and Art Department leader specializing in
-              cinematic worldbuilding, production design strategy, and investment-ready film
-              packaging. With 25+ years of visual direction across fashion, architecture, and fine
-              art, he develops feature film worlds designed to attract talent, elevate financing
-              conversations, and translate into real production. His work combines large-scale
-              environmental research, high-end visual development, and disciplined investor
-              presentation into a unified creative pipeline.
-            </p>
+              <p>Daniel Stanford is a Creative Director, Art Director, and Executive Producer specializing in cinematic worldbuilding, art department leadership, and investment-ready film packaging. With three decades of high-end visual work spanning commercial advertising, fine art, branded content, architecture, and cinematic development, he builds feature film worlds designed to attract talent, strengthen financing conversations, and translate into real production.</p>
+              <p>Stanford's vocabulary is visual — from casting instincts and production design development to poster systems, pitch decks, and investor presentation. His lens is shaped by luxury aesthetic sensibility, multidisciplinary art practice, and studio rigor rooted in design and communication.</p>
+              <p>His portfolio includes premium fashion and beauty campaigns, strategic brand systems, immersive visual worlds, and collaborative story development across global markets. He bridges fine art sensibility with commercial storytelling — applying craft honed through fashion, gallery systems, and international visual culture.</p>
+              <p>At Stanford Emporium — Film Slate, he develops projects that synthesize narrative vision with market intelligence, actively engaging collaborators, co-producers, and investors to bring them to life.</p>
+            </div>
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
               <Link
                 to="/investor-inquiry"

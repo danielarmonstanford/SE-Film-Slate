@@ -64,6 +64,9 @@ const Slate: React.FC = () => {
             A curated selection of high-potential cinematic ventures. Each project is structured for commercial viability,
             leveraging strategic tax incentives and global distribution models.
           </p>
+          <p className="text-[var(--cream)] text-base max-w-2xl leading-relaxed opacity-60 mt-6">
+            Our slate includes feature, limited series, and high-concept IP in advanced development. We are actively seeking strategic investment and partnerships. For investors, co-producers, and creative financiers, connect via <Link to="/investor-inquiry" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Inquire</Link> or access investor materials.
+          </p>
         </header>
 
         {/* Film poster grid */}

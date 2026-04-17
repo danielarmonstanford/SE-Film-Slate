@@ -8,7 +8,7 @@ export const EMAIL_CONTACT = 'DARSbit@protonmail.ch';
 export const SOCIAL_LINKS = [
   {
     label: 'Instagram',
-    short: 'IG',
+    short: 'Instagram',
     url: 'https://www.instagram.com/daniel_stanford_art/',
   },
   {

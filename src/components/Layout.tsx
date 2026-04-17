@@ -79,7 +79,7 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="label-text text-[9px] text-[rgba(244,239,230,0.65)] hover:text-[var(--bronze)] transition-colors"
+                  className="label-text text-[9px] text-[rgba(244,239,230,0.55)] hover:text-[#F4EFE6] transition-colors"
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
