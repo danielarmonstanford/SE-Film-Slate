@@ -25,7 +25,7 @@ const Inquire: React.FC = () => {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="reveal active"
         >
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-8 uppercase tracking-[0.4em]">06 / CONNECT</div>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-8 uppercase tracking-[0.4em]">05 / ACCESS · Investor Relations</div>
           <h1 style={{ fontSize: 'clamp(4rem, 8vw, 9rem)', fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', lineHeight: 1, marginBottom: '64px' }}>
             Access.
           </h1>
@@ -33,8 +33,9 @@ const Inquire: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
             <div>
               <p className="text-[#F5F0E6] text-xl leading-relaxed opacity-85 mb-12">
-                We are currently open to strategic partnerships and equity investments for our upcoming slate.
-                Please direct all financial inquiries to our secure investor relations channel.
+                Investor Access &amp; Production Engagement. We are currently open to strategic partnerships
+                and equity investments for our upcoming slate. Direct all financial inquiries to our secure
+                investor relations channel.
               </p>
 
               <div className="space-y-12">
@@ -132,7 +133,7 @@ const Inquire: React.FC = () => {
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  SEND INVESTOR INQUIRY
+                  REQUEST INVESTOR PACKAGE
                 </a>
                 <a
                   href={`mailto:${EMAIL_CONTACT}?subject=Investor%20Call%20Request`}
@@ -140,7 +141,7 @@ const Inquire: React.FC = () => {
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                 >
-                  SCHEDULE INVESTOR CALL
+                  SCHEDULE PRIVATE DISCUSSION
                 </a>
               </div>
             </div>

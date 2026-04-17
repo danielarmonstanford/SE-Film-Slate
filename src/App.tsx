@@ -84,6 +84,7 @@ export default function App() {
             <Route path="/hells-kitchen-dataroom" element={<HellsKitchenDataRoom />} />
             <Route path="/badlander-dataroom" element={<BadlanderDataRoom />} />
             <Route path="/ugrp-dataroom" element={<UGRPDataRoom />} />
+            <Route path="/project/ugrp/dataroom" element={<UGRPDataRoom />} />
           </Routes>
         </Layout>
       </div>

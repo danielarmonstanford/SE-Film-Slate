@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const GATE_PASSWORD = 'money';
+const GATE_PASSWORD = 'grey';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
 const NOTION_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
 const NOTIFY_EMAIL = 'DanielArmonStanford@gmail.com';
@@ -23,7 +23,7 @@ const sendNotification = async (submitterEmail: string) => {
         subject: `UGRP Data Room Access — ${submitterEmail}`,
         from_name: 'Stanford Emporium — Data Room Gate',
         to: NOTIFY_EMAIL,
-        message: `New full data room access granted.\n\nInvestor email: ${submitterEmail}\nProject: Untitled Guy Ritchie Project\nAccessed: ${timestamp}\nPage: /ugrp-dataroom`,
+        message: `New full data room access granted.\n\nInvestor email: ${submitterEmail}\nProject: In The Grey\nAccessed: ${timestamp}\nPage: /project/ugrp/dataroom`,
       }),
     });
   } catch {
@@ -65,7 +65,7 @@ const UGRPDataRoom = () => {
             002 · Restricted Access
           </span>
           <h1 className="text-3xl md:text-4xl italic font-light leading-snug mb-3">
-            Untitled Guy Ritchie Project
+            In The Grey
           </h1>
           <p className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.45)]">
             Full Investor Data Room

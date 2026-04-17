@@ -393,3 +393,38 @@ main > section {
     text-align: center !important;
   }
 }
+
+@media (max-width: 768px) {
+  .deliver-gallery-grid,
+  [style*="gridTemplateColumns: 'repeat(3, 1fr)'"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@keyframes goldPulse {
+  0%, 100% {
+    color: #C9971F;
+    opacity: 1;
+  }
+  50% {
+    color: #F0C84A;
+    opacity: 0.7;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.75); }
+}
+
+@media (max-width:900px) {
+  .film-poster-grid {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+}
+
+@media (max-width:540px) {
+  .film-poster-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

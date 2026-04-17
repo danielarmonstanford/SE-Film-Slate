@@ -69,10 +69,10 @@ export default function Nav() {
       {/* LOGO — fixed top-left */}
       <div className="nav-logo" style={{ position: 'fixed', top: '24px', left: '28px', zIndex: 200 }}>
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <div style={{ fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, color: '#e5e2e1', lineHeight: 1 }}>
+          <div style={{ fontSize: '22px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, color: '#e5e2e1', lineHeight: 1 }}>
             Stanford
           </div>
-          <div style={{ fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', color: '#C9971F', marginTop: '3px' }}>
+          <div style={{ fontSize: '22px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', color: '#C9971F', marginTop: '3px' }}>
             Emporium
           </div>
         </Link>

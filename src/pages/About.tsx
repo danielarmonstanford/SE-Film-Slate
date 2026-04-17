@@ -28,10 +28,10 @@ const BTN_BASE: React.CSSProperties = {
 };
 
 const bullets = [
-  'EP mindset with investor-facing packaging discipline',
-  'Production Design / Art Direction for feature film',
-  'Builds full visual worlds — environment, tone, atmosphere',
-  'Investment-grade pitch materials: decks, lookbooks, bibles',
+  'Executive Producer mindset with investor packaging discipline',
+  'Production design leadership for feature film + series',
+  'Worldbuilding + environmental storytelling',
+  'Pitch decks, lookbooks, visual bibles',
   'Global private image archive — Brazil, Japan, Sri Lanka',
   'London International Advertising Award · Art Basel Miami',
   "Victoria's Secret SEXY Vol III · Von Unwerth · Russell James",
@@ -140,18 +140,20 @@ const About = () => {
               color: 'rgba(244,239,230,0.92)',
               marginBottom: '32px',
             }}>
-              Executive Producer and Art Department leader specializing in cinematic worldbuilding,
-              production design strategy, and investment-ready film packaging. 25+ years across
-              fashion branding, visual development, and large-scale image-making — creating
-              high-concept film worlds designed to attract talent, elevate financing conversations,
-              and translate into real production.
+              Daniel Stanford is an Executive Producer and Art Department leader specializing in
+              cinematic worldbuilding, production design strategy, and investment-ready film
+              packaging. With 25+ years of visual direction across fashion, architecture, and fine
+              art, he develops feature film worlds designed to attract talent, elevate financing
+              conversations, and translate into real production. His work combines large-scale
+              environmental research, high-end visual development, and disciplined investor
+              presentation into a unified creative pipeline.
             </p>
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
               <Link
                 to="/investor-inquiry"
                 style={{ ...BTN_BASE, background: '#C9971F', color: '#080705' }}
               >
-                Access Investment Materials
+                Access Investor Materials
               </Link>
               <Link
                 to="/investment-opportunities"
@@ -339,7 +341,7 @@ const About = () => {
             to="/investor-inquiry"
             style={{ ...BTN_BASE, background: '#C9971F', color: '#080705', padding: '14px 32px' }}
           >
-            Access Investment Materials
+            Access Investor Materials
           </Link>
         </div>
       </section>

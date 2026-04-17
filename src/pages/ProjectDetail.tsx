@@ -146,160 +146,223 @@ const ProjectDetail: React.FC = () => {
 
   // ── UGRP — custom layout ──────────────────────────────────────────────────
   if (slug === 'ugrp') {
-    const snapshotRows = [
-      { label: 'Investment Ask',        value: '$1,000,000 USD',                            yellow: false },
-      { label: 'Equity Assigned',       value: '$1,500,000 in primary film equity',         yellow: false },
-      { label: 'Immediate Return',      value: '50% at assignment close',                   yellow: true  },
-      { label: 'Documented Cost Basis', value: '$1,500,000',                                yellow: false },
-      { label: 'Upside Participation',  value: 'Full profit share on $1.5M position',       yellow: false },
-      { label: 'Maximum Available',     value: '$1,000,000 (this tranche only)',             yellow: false },
-      { label: 'Minimum Commitment',    value: '$250,000',                                   yellow: false },
-      { label: 'Commission',            value: 'Full finder\'s fee paid by assignor',        yellow: false },
-      { label: 'Distribution',          value: 'Black Bear International',                  yellow: false },
-      { label: 'Production Budget',     value: '$73.8M',                                    yellow: false },
-      { label: 'Filming Location',      value: 'Spain',                                     yellow: false },
-    ];
-    const comparables = [
-      { title: 'The Gentlemen',  stats: '$22M budget · $115M box office' },
-      { title: 'Wrath of Man',   stats: '$40M budget · $104M box office' },
-      { title: 'Baby Driver',    stats: '$34M budget · $226M box office' },
-      { title: 'Bullet Train',   stats: '$90M budget · $239M box office' },
-    ];
-    const whyParas = [
-      'You invest $1M. Your documented cost basis is $1.5M — a 50% return is built in at close.',
-      'Your upside exposure is calculated on the full $1.5M equity position, not your cash outlay. If this film performs in line with Guy Ritchie comparables — The Gentlemen returned 5x budget, Wrath of Man returned 2.6x — the back-end on $1.5M of primary equity is material.',
-      'The finder is paid by the assignor. Your $1M goes directly to work.',
-    ];
-
+    const ROW = ({ label, value, gold = false, bold = false }: { label: string; value: string; gold?: boolean; bold?: boolean }) => (
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderBottom: '1px solid rgba(244,239,230,0.06)', gap: '24px' }}>
+        <span style={{ fontSize: '11px', color: 'rgba(229,226,225,0.45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{label}</span>
+        <span style={{ fontSize: '13px', color: gold ? '#ffc800' : '#e5e2e1', textAlign: 'right', fontWeight: (gold || bold) ? 600 : 300, fontFamily: 'var(--font-sans)' }}>{value}</span>
+      </div>
+    );
     return (
-      <div className="bg-[var(--black)] min-h-screen text-white">
+      <div style={{ background: '#080705', color: '#F4EFE6', minHeight: '100vh' }}>
 
-        {/* SECTION 1 — HERO */}
-        <section className="relative h-[90vh] flex items-end pb-24 px-4 md:px-20 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img
-              src={project.heroImage || project.image}
-              alt={project.title}
-              className="w-full h-full object-cover opacity-40"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--black)] via-[rgba(8,7,5,0.4)] to-transparent" />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 max-w-5xl"
-          >
-            <div className="label-text text-[10px] text-[var(--bronze)] mb-6 uppercase tracking-[0.4em]">
-              002 · Investment Opportunity
-            </div>
-            <h1 className="text-[clamp(3rem,8vw,8rem)] leading-[0.9] mb-5 uppercase tracking-tight">
+        {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
+        <section style={{ position: 'relative', height: '85vh', minHeight: '520px', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
+          <img src={project.heroImage || project.image} alt={project.title}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', opacity: 0.45 }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,7,5,0.97) 0%, rgba(8,7,5,0.4) 50%, transparent 100%)' }} />
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{ position: 'relative', zIndex: 2, padding: '0 clamp(28px,6vw,80px) clamp(48px,6vw,72px)', maxWidth: '900px' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
+              Equity Divestment Opportunity
+            </p>
+            <h1 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3.2rem,8vw,8rem)', lineHeight: 0.9, color: '#F4EFE6', marginBottom: '24px' }}>
               {project.title}
             </h1>
-            <div style={{ color: '#ffc800', fontSize: '9px', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '20px' }}>
-              ⚡ Limited Availability — Equity Assignment
-            </div>
-            <p className="text-[rgba(229,226,225,0.7)] text-base md:text-lg mb-10 max-w-2xl leading-relaxed">
-              {project.logline}
+            <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1rem,2vw,1.35rem)', lineHeight: 1.55, color: 'rgba(229,226,225,0.82)', maxWidth: '580px', marginBottom: '36px' }}>
+              A completed Guy Ritchie film. A contractual equity position. A guaranteed return with lifetime upside.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to={project.dataRoomGatedPath!}
-                className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-                Access Data Room
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <Link to="/investor-inquiry"
+                style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', background: 'rgba(8,7,5,0.65)', border: '1px solid rgba(201,151,31,0.5)', color: '#C9971F', padding: '13px 28px', textDecoration: 'none', display: 'inline-block', backdropFilter: 'blur(4px)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.color = '#080705'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(8,7,5,0.65)'; (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}>
+                Request Investment Terms
               </Link>
-              <Link
-                to="/inquire"
-                className="btn-text border border-[rgba(244,239,230,0.3)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-                Inquire
+              <Link to="/project/ugrp/dataroom"
+                style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', background: 'rgba(8,7,5,0.65)', border: '1px solid rgba(244,239,230,0.2)', color: 'rgba(244,239,230,0.7)', padding: '13px 28px', textDecoration: 'none', display: 'inline-block', backdropFilter: 'blur(4px)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.5)'; (e.currentTarget as HTMLAnchorElement).style.color = '#F4EFE6'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.2)'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.7)'; }}>
+                Investor Data Room →
               </Link>
             </div>
           </motion.div>
         </section>
 
-        {/* SECTION 2 — INVESTMENT SNAPSHOT */}
-        <section className="py-24 px-4 md:px-20 bg-[#080808]">
-          <div className="max-w-3xl mx-auto">
-            <div className="label-text text-[10px] text-[var(--bronze)] mb-10 uppercase tracking-[0.4em]">
-              02 · Investment Snapshot
-            </div>
-            <div className="divide-y divide-[rgba(244,239,230,0.06)]">
-              {snapshotRows.map((row) => (
-                <div key={row.label} className="flex justify-between items-baseline py-3 gap-6">
-                  <span style={{ fontSize: '11px', color: 'rgba(229,226,225,0.5)', letterSpacing: '0.06em', flexShrink: 0 }}>
-                    {row.label}
-                  </span>
-                  <span style={{ fontSize: '13px', color: row.yellow ? '#ffc800' : '#e5e2e1', textAlign: 'right', fontWeight: row.yellow ? 700 : 400 }}>
-                    {row.value}
-                  </span>
+        {/* ── 2. THE FILM ──────────────────────────────────────────────────── */}
+        <section style={{ padding: 'clamp(56px,7vw,80px) clamp(28px,6vw,80px)', background: '#080808', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+          <div style={{ maxWidth: '720px' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '28px' }}>
+              The Film
+            </p>
+            <ROW label="Director" value="Guy Ritchie" />
+            <ROW label="Cast" value="Henry Cavill · Jake Gyllenhaal · Eiza González" />
+            <ROW label="Distributor" value="Black Bear International" />
+            <ROW label="Production Status" value="Principal photography complete" gold />
+            <ROW label="US Distribution" value="Confirmed" gold />
+            <ROW label="Budget" value="$73.8M fully financed" />
+            <ROW label="Festival Launch" value="Cannes" />
+          </div>
+        </section>
+
+        {/* ── 3. THE POSITION ──────────────────────────────────────────────── */}
+        <section style={{ padding: 'clamp(56px,7vw,80px) clamp(28px,6vw,80px)', background: '#080705', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+          <div style={{ maxWidth: '860px' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '20px' }}>
+              The Position
+            </p>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', lineHeight: 1.9, color: 'rgba(229,226,225,0.78)', maxWidth: '640px', marginBottom: '48px' }}>
+              Stanford Emporium is offering qualified investors access to a partial assignment of the primary equity position, held by C2 Motion Picture Group.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2px' }}>
+              {[
+                {
+                  title: 'Early Income',
+                  body: 'Distribution fees and P&A are the only items ahead of your position. Revenue from every window — theatrical, streaming, VOD, broadcast — flows into your recoupment.',
+                },
+                {
+                  title: 'Guaranteed Return',
+                  body: 'The equity assignment is priced at a built-in premium. Your recoupment basis is higher than your entry cost, with no participation dilution from net profit pools.',
+                },
+                {
+                  title: 'Lifetime Participation',
+                  body: 'Beyond recoupment, the equity position continues to participate in all revenue — perpetually, across every territory and window the film generates.',
+                },
+              ].map(card => (
+                <div key={card.title} style={{ background: 'rgba(244,239,230,0.03)', border: '1px solid rgba(244,239,230,0.07)', padding: '28px 24px' }}>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '14px' }}>
+                    {card.title}
+                  </p>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.8, color: 'rgba(229,226,225,0.72)' }}>
+                    {card.body}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* SECTION 3 — WHY THIS WORKS */}
-        <section className="py-24 px-4 md:px-20">
-          <div className="max-w-3xl mx-auto">
-            <div className="label-text text-[10px] text-[var(--bronze)] mb-10 uppercase tracking-[0.4em]">
-              03 · Why This Works
-            </div>
-            <div className="space-y-6">
-              {whyParas.map((para, i) => (
-                <p key={i} style={{ fontSize: '15px', color: 'rgba(229,226,225,0.78)', lineHeight: 1.85, letterSpacing: '0.01em' }}>
-                  {para}
-                </p>
-              ))}
-            </div>
+        {/* ── 4. THE WATERFALL ─────────────────────────────────────────────── */}
+        <section style={{ padding: 'clamp(56px,7vw,80px) clamp(28px,6vw,80px)', background: '#080808', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+          <div style={{ maxWidth: '720px' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '12px' }}>
+              Your Contractual Rights
+            </p>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1.6rem,3vw,2.4rem)', color: '#F4EFE6', lineHeight: 1.1, marginBottom: '8px' }}>
+              The Waterfall
+            </h2>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.8, color: 'rgba(229,226,225,0.5)', marginBottom: '32px' }}>
+              Payment order per the Collection Account Management Agreement (CAMA):
+            </p>
+            {[
+              { pri: 'i',   label: 'Collection Agent fees & expenses',                    note: '≤ $100,000',            highlight: false },
+              { pri: 'ii',  label: 'Distributor corridor + gross percentage',              note: 'Off gross receipts',     highlight: false },
+              { pri: 'iii', label: 'Third-party off-the-tops (residuals, withholding)',    note: '~$50,000',               highlight: false },
+              { pri: 'iv',  label: 'Production lender repayment',                          note: 'Already discharged',     highlight: false },
+              { pri: 'v',   label: 'Equity position — C2 / investor recoupment',          note: 'Your position',          highlight: true  },
+            ].map(row => (
+              <div key={row.pri} style={{
+                display: 'grid', gridTemplateColumns: '36px 1fr auto', gap: '16px',
+                alignItems: 'center', padding: '12px 0',
+                borderBottom: '1px solid rgba(244,239,230,0.06)',
+                background: row.highlight ? 'rgba(255,200,0,0.04)' : 'transparent',
+              }}>
+                <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '15px', color: row.highlight ? '#ffc800' : 'rgba(201,151,31,0.5)' }}>
+                  {row.pri}
+                </span>
+                <span style={{ fontFamily: 'var(--font-sans)', fontWeight: row.highlight ? 400 : 300, fontSize: '13px', color: row.highlight ? '#ffc800' : 'rgba(229,226,225,0.65)', lineHeight: 1.45 }}>
+                  {row.label}
+                </span>
+                <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', color: row.highlight ? '#ffc800' : 'rgba(229,226,225,0.35)', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                  {row.note}
+                </span>
+              </div>
+            ))}
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.85, color: 'rgba(229,226,225,0.45)', fontStyle: 'italic', marginTop: '20px' }}>
+              The production loan is retired. There are no finance parties between position iv and your recoupment. You collect next.
+            </p>
           </div>
         </section>
 
-        {/* SECTION 4 — COMPARABLE FILMS */}
-        <section className="py-24 px-4 md:px-20 bg-[#080808]">
-          <div className="max-w-3xl mx-auto">
-            <div className="label-text text-[10px] text-[var(--bronze)] mb-10 uppercase tracking-[0.4em]">
-              04 · Comparable Films
-            </div>
-            <div className="space-y-4">
-              {comparables.map((film) => (
-                <div key={film.title} className="flex items-baseline gap-3">
-                  <span style={{ fontSize: '14px', color: '#e5e2e1', minWidth: '160px' }}>{film.title}</span>
-                  <span style={{ fontSize: '12px', color: 'rgba(229,226,225,0.45)' }}>— {film.stats}</span>
-                </div>
+        {/* ── 5. WHY NOW ───────────────────────────────────────────────────── */}
+        <section style={{ padding: 'clamp(56px,7vw,80px) clamp(28px,6vw,80px)', background: '#080705', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+          <div style={{ maxWidth: '720px' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '32px' }}>
+              Why Now
+            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {[
+                { head: 'Production loan discharged', body: 'The senior lender has been repaid in full. No debt sits ahead of the equity position.' },
+                { head: 'Senior equity position', body: 'This assignment recoup ahead of net profit participants, talent backends, and producer bonuses.' },
+                { head: 'Distribution in motion', body: 'US distribution is confirmed. Release planning is underway. The revenue window is measurable.' },
+                { head: 'De-risked entry', body: 'The film is complete. Zero production risk, zero delivery risk. The only variable remaining is performance.' },
+              ].map((item, i) => (
+                <li key={i} style={{ display: 'flex', gap: '20px', alignItems: 'flex-start', marginBottom: '28px' }}>
+                  <span style={{ width: '2px', minHeight: '20px', background: '#C9971F', flexShrink: 0, marginTop: '5px' }} />
+                  <div>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '11px', letterSpacing: '0.12em', color: '#e5e2e1', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      {item.head}
+                    </p>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.8, color: 'rgba(229,226,225,0.65)' }}>
+                      {item.body}
+                    </p>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
-        {/* SECTION 5 — LEGAL DISCLAIMER */}
-        <section className="py-16 px-4 md:px-20">
-          <div className="max-w-3xl mx-auto">
-            <div
-              style={{
-                background: 'rgba(229,226,225,0.03)',
-                border: '1px solid rgba(229,226,225,0.08)',
-                padding: '16px 20px',
-                marginTop: '40px',
-              }}
-            >
-              <p style={{ fontSize: '12px', color: 'rgba(229,226,225,0.75)', fontStyle: 'italic', lineHeight: 1.85 }}>
-                {project.disclaimer}
-              </p>
-            </div>
-            <div className="mt-12 pt-8 border-t border-[rgba(244,239,230,0.06)]">
-              <Link
-                to="/investment-opportunities"
-                className="text-[9px] uppercase tracking-[0.3em] text-[rgba(244,239,230,0.3)] hover:text-[rgba(244,239,230,0.6)] transition-colors"
-              >
-                ← Back to Film Investment Slate
+        {/* ── 6. STANFORD EMPORIUM ROLE ────────────────────────────────────── */}
+        <section style={{ padding: 'clamp(56px,7vw,80px) clamp(28px,6vw,80px)', background: '#080808', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+          <div style={{ maxWidth: '720px' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '20px' }}>
+              Stanford Emporium Role
+            </p>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1.6rem,3vw,2.4rem)', color: '#F4EFE6', lineHeight: 1.1, marginBottom: '28px' }}>
+              Finder &amp; Consulting Executive Producer
+            </h2>
+            <ROW label="Role" value="Introduction and facilitation only" />
+            <ROW label="NDA Required" value="Yes — before financial terms are shared" gold />
+            <ROW label="Equity Principal" value="C2 Motion Picture Group" />
+            <ROW label="Documentation" value="Available under executed NDA" />
+          </div>
+        </section>
+
+        {/* ── 7. CTA ───────────────────────────────────────────────────────── */}
+        <section style={{ padding: 'clamp(72px,8vw,100px) clamp(28px,6vw,80px)', background: '#080705', borderTop: '1px solid rgba(244,239,230,0.05)', textAlign: 'center' }}>
+          <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1.1rem,2.2vw,1.5rem)', lineHeight: 1.65, color: 'rgba(229,226,225,0.75)', marginBottom: '40px' }}>
+              This opportunity is available to qualified investors under NDA. Contact Stanford Emporium to receive the term sheet.
+            </p>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/investor-inquiry"
+                style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', background: '#C9971F', color: '#080705', padding: '15px 36px', textDecoration: 'none', display: 'inline-block' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#F0C84A'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#C9971F'; }}>
+                Request Investment Terms
+              </Link>
+              <Link to="/project/ugrp/dataroom"
+                style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', border: '1px solid rgba(244,239,230,0.25)', color: 'rgba(244,239,230,0.7)', padding: '15px 36px', textDecoration: 'none', display: 'inline-block' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.6)'; (e.currentTarget as HTMLAnchorElement).style.color = '#F4EFE6'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.25)'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.7)'; }}>
+                Investor Data Room →
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* ── DISCLAIMER ───────────────────────────────────────────────────── */}
+        <section style={{ padding: 'clamp(32px,4vw,56px) clamp(28px,6vw,80px)', background: '#060604', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', lineHeight: 1.85, color: 'rgba(229,226,225,0.35)', fontStyle: 'italic', marginBottom: '24px' }}>
+              This listing is directed to qualified/accredited investors only and does not constitute a public securities offering. Investors should seek independent legal and tax advice. Financial projections are indicative only. © Blackbear Pictures. All Rights Reserved. IP owned by Blackbear Pictures.
+            </p>
+            <Link to="/investment-opportunities"
+              style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.3)', textDecoration: 'none' }}
+              onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.6)'}
+              onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.3)'}>
+              ← Back to Film Investment Slate
+            </Link>
           </div>
         </section>
 

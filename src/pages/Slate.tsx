@@ -6,26 +6,47 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PROJECTS } from '../types';
+import FilmPosterCard, { FilmPosterCardProject } from '../components/FilmPosterCard';
+
+// Derive statusLabel from project flags
+function getStatusLabel(p: typeof PROJECTS[number]): string {
+  if (p.timeSensitive && p.timeSensitiveLabel) return p.timeSensitiveLabel;
+  if (p.timeSensitive) return 'Limited Window';
+  if (p.status === 'Funded') return 'Fully Funded';
+  if (p.status === 'Financing Close') return 'Financing Close';
+  if (p.status === 'Funding Open') return p.urgent ?? 'Funding Open';
+  return p.status;
+}
+
+// Map PROJECTS entry → FilmPosterCardProject
+function toCardProject(p: typeof PROJECTS[number]): FilmPosterCardProject {
+  return {
+    id: p.id,
+    slug: p.slug,
+    title: p.title,
+    posterImage: p.heroImage ?? p.image ?? `/posters/${p.id}.jpg`,
+    director: p.director ?? (p.team?.find(t => t.role === 'Director')?.name),
+    cast: Array.isArray(p.talent)
+      ? (p.talent as string[]).join(' · ')
+      : (p.talent ?? p.team?.filter(t => t.role.toLowerCase().includes('cast')).map(t => t.name).join(' · ')),
+    budget: p.budgetRange,
+    equityAsk: p.equityAvailable,
+    statusLabel: getStatusLabel(p),
+    timeSensitive: p.timeSensitive,
+    urgency: p.urgency,
+    funded: p.status === 'Funded',
+  };
+}
 
 const Slate: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }),
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -33,108 +54,99 @@ const Slate: React.FC = () => {
   return (
     <div className="bg-[var(--black)] min-h-screen pt-[160px] pb-[120px]">
       <div className="px-4 md:px-20 max-w-[1800px] mx-auto">
+
         <header className="mb-24 reveal">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-6">02 / FILM INVESTMENT SLATE</div>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-6">02 / INVESTMENT OPPORTUNITIES</div>
           <h1 style={{ fontSize: 'clamp(4rem, 8vw, 9rem)', fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', lineHeight: 1, marginBottom: '48px' }}>
             Film.
           </h1>
           <p className="text-[var(--cream)] text-lg max-w-2xl leading-relaxed opacity-80">
-            A curated selection of high-potential cinematic ventures. Each project is structured for commercial viability, 
+            A curated selection of high-potential cinematic ventures. Each project is structured for commercial viability,
             leveraging strategic tax incentives and global distribution models.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-20">
-          {PROJECTS.map((project, index) => (
-            <div 
-              key={project.id} 
-              className="group flex flex-col reveal"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {/* Image Container */}
-              <Link 
-                to={`/project/${project.slug}`}
-                className="relative aspect-[16/9] overflow-hidden mb-8 bg-[#111]"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
-                  referrerPolicy="no-referrer"
-                />
-                {project.urgent && (
-                  <div className="absolute top-4 left-4 border border-[var(--red-urgent)] text-[var(--red-urgent)] tracking-[0.1em] bg-[var(--black)]" style={{ fontSize: 'clamp(0.55rem, 2vw, 0.65rem)', padding: '4px 10px' }}>
-                    ⚡ {project.urgent}
-                  </div>
-                )}
-                <div className="absolute top-4 right-4">
-                  <span className="label-text bg-[var(--black)] text-[var(--bronze)] border border-[rgba(212,175,55,0.3)]" style={{ fontSize: 'clamp(0.55rem, 2vw, 0.65rem)', padding: '4px 10px' }}>
-                    {project.status.toUpperCase()}
-                  </span>
-                </div>
-              </Link>
+        {/* Film poster grid */}
+        <div
+          className="film-poster-grid reveal"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: 'clamp(12px, 2vw, 24px)',
+          }}
+        >
+          {PROJECTS.map(p => (
+            <div key={p.id} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <FilmPosterCard project={toCardProject(p)} />
 
-              {/* Content */}
-              <div className="flex flex-col flex-grow">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl text-white tracking-tight">{project.title}</h3>
-                  <span className="label-text text-[10px] text-[var(--bronze)] mt-2">
-                    {project.budgetRange}
-                  </span>
+              {/* Hell's Kitchen PDF downloads sit below the card, outside the overlay */}
+              {p.slug === 'hells-kitchen' && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <a
+                    href="/HK_Finance_Dossier.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'block', textAlign: 'center', padding: '10px',
+                      border: '1px solid rgba(244,239,230,0.15)',
+                      fontFamily: "'Barlow', sans-serif", fontWeight: 300,
+                      fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase',
+                      color: 'rgba(244,239,230,0.65)', textDecoration: 'none',
+                      transition: 'background 0.3s, color 0.3s',
+                    }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(244,239,230,0.06)'; (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.65)'; }}
+                  >
+                    ↓ Finance Dossier — PDF
+                  </a>
+                  <a
+                    href="/HK_Pitch_Deck.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'block', textAlign: 'center', padding: '10px',
+                      border: '1px solid rgba(244,239,230,0.15)',
+                      fontFamily: "'Barlow', sans-serif", fontWeight: 300,
+                      fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase',
+                      color: 'rgba(244,239,230,0.65)', textDecoration: 'none',
+                      transition: 'background 0.3s, color 0.3s',
+                    }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(244,239,230,0.06)'; (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.65)'; }}
+                  >
+                    ↓ Pitch Deck — PDF
+                  </a>
                 </div>
-                
-                <p className="text-[var(--cream)] text-sm mb-6 leading-relaxed opacity-70 italic">
-                  "{project.positioning}"
-                </p>
-
-                <div className="grid grid-cols-2 gap-4 mb-8 border-t border-[rgba(244,239,230,0.1)] pt-6">
-                  <div>
-                    <div className="label-text text-[8px] text-[rgba(244,239,230,0.4)] mb-1 uppercase tracking-widest">Genre</div>
-                    <div className="text-[11px] text-[var(--cream)] uppercase tracking-wider">{project.genre}</div>
-                  </div>
-                  <div>
-                    <div className="label-text text-[8px] text-[rgba(244,239,230,0.4)] mb-1 uppercase tracking-widest">Comparables</div>
-                    <div className="text-[11px] text-[var(--cream)] uppercase tracking-wider">{project.comparables?.join(', ')}</div>
-                  </div>
-                </div>
-
-                <Link
-                  to={`/project/${project.slug}`}
-                  className="btn-text w-full py-4 border border-[rgba(212,175,55,0.3)] text-[var(--bronze)] text-center hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all mobile-full-width"
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                  VIEW SLATE OVERVIEW
-                </Link>
-              </div>
+              )}
             </div>
           ))}
         </div>
 
-        {/* FOOTER CTA */}
+        {/* Footer CTA */}
         <div className="mt-40 pt-24 border-t border-[rgba(244,239,230,0.1)] text-center reveal">
-          <h2 className="text-4xl text-white mb-12">Interested in our full portfolio?</h2>
+          <h2 className="text-4xl text-white mb-12" style={{ fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic' }}>
+            Investor Access &amp; Production Engagement
+          </h2>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
-              to="/inquire"
+              to="/investor-inquiry"
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              REQUEST INVESTMENT MATERIALS
+              REQUEST INVESTOR PACKAGE
             </Link>
             <a
-              href="mailto:DARSbit@prontonmail.ch?subject=Investor%20Call"
+              href="mailto:DASRbit@protonmail.ch?subject=Investor%20Call%20Request"
               className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              SCHEDULE INVESTOR CALL
+              SCHEDULE PRIVATE DISCUSSION
             </a>
           </div>
         </div>
+
       </div>
     </div>
   );
