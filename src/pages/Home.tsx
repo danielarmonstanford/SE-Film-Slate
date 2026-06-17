@@ -4,18 +4,98 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../types';
 
-// Vimeo Player SDK — loaded once, cached on window
-function loadVimeoSDK(): Promise<void> {
-  return new Promise((resolve) => {
-    if ((window as any).Vimeo) { resolve(); return; }
-    const s = document.createElement('script');
-    s.src = 'https://player.vimeo.com/api/player.js';
-    s.onload = () => resolve();
-    document.head.appendChild(s);
-  });
+const HERO_IMAGES_ALL = [
+  'https://res.cloudinary.com/dno3ruh4b/image/upload/f_auto,q_auto,w_3840/guess-cover-winter-2001.jpg',
+  'https://res.cloudinary.com/dno3ruh4b/image/upload/f_auto,q_auto,w_3840/Athena-7757---alpha-_b2k1fa.jpg',
+  // Slot 3: Love Story / White Sands — add URL when uploaded
+];
+
+function HeroCrossfade() {
+  const prefersReduced = typeof window !== 'undefined'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : false;
+  const images = isMobile ? HERO_IMAGES_ALL.slice(0, 2) : HERO_IMAGES_ALL;
+  const interval = isMobile ? 8000 : 6000;
+
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    // Preload images 2+
+    images.slice(1).forEach(url => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = url;
+      document.head.appendChild(link);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (prefersReduced || images.length < 2) return;
+    const id = setInterval(() => {
+      setActive(prev => (prev + 1) % images.length);
+    }, interval);
+    return () => clearInterval(id);
+  }, [prefersReduced, images.length, interval]);
+
+  return (
+    <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt=""
+          fetchPriority={i === 0 ? 'high' : 'low'}
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: '50% 20%',
+            opacity: active === i ? 1 : 0,
+            transition: active === i ? 'opacity 1.5s ease-in-out' : 'opacity 1.5s ease-in-out',
+            willChange: 'opacity',
+          }}
+        />
+      ))}
+      {/* Per-spec overlay */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 60%)', pointerEvents: 'none' }} />
+    </div>
+  );
+}
+
+// Still → video crossfade for the "What We Deliver" section background
+function DeliverBg() {
+  const [videoOn, setVideoOn] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setVideoOn(true); obs.disconnect(); }
+    }, { threshold: 0.2 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div ref={ref} style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+      <img
+        src="/birth-001-title.jpg"
+        alt=""
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: videoOn ? 0 : 0.14, transition: 'opacity 2.5s ease', filter: 'contrast(1.1)' }}
+      />
+      <video
+        autoPlay muted loop playsInline
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: videoOn ? 0.22 : 0, transition: 'opacity 2.5s ease', filter: 'contrast(1.1)' }}
+      >
+        <source src="/birth-ai.mp4" type="video/mp4" />
+      </video>
+      <div style={{ position: 'absolute', inset: 0, background: 'rgba(8,7,5,0.6)' }} />
+    </div>
+  );
 }
 
 interface HomeProps {
@@ -24,25 +104,14 @@ interface HomeProps {
 
 export default function Home({ setIsHovering }: HomeProps) {
   const navigate = useNavigate();
-  const heroTextRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const bgY = useTransform(scrollY, [0, 800], [0, 180]);
+  const textY = useTransform(scrollY, [0, 800], [0, -60]);
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Vimeo SDK — force play on Safari
-  useEffect(() => {
-    let player: any = null;
-    loadVimeoSDK().then(() => {
-      const el = document.getElementById('vimeo-hero');
-      if (!el) return;
-      player = new (window as any).Vimeo.Player(el);
-      player.setMuted(true).then(() => player.play()).catch(() => {});
-    });
-    return () => { if (player) { try { player.destroy(); } catch {} } };
-  }, []);
 
   useEffect(() => {
     const observerOptions = { threshold: 0.1 };
@@ -62,28 +131,6 @@ export default function Home({ setIsHovering }: HomeProps) {
     return () => revealObserver.disconnect();
   }, []);
 
-  // Hero text 10s fade-in / fade-out cycle
-  useEffect(() => {
-    const el = heroTextRef.current;
-    if (!el) return;
-    el.style.opacity = '0';
-    let destroyed = false;
-    const VISIBLE_MS = 10000;
-    const FADE_MS = 1200;
-    const cycle = () => {
-      if (destroyed) return;
-      el.style.transition = 'opacity 1.4s ease';
-      el.style.opacity = '1';
-      setTimeout(() => {
-        if (destroyed) return;
-        el.style.transition = `opacity ${FADE_MS}ms ease`;
-        el.style.opacity = '0';
-        setTimeout(() => { if (!destroyed) cycle(); }, FADE_MS + 300);
-      }, VISIBLE_MS);
-    };
-    const t = setTimeout(cycle, 400);
-    return () => { destroyed = true; clearTimeout(t); };
-  }, []);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!sliderRef.current) return;
@@ -103,59 +150,15 @@ export default function Home({ setIsHovering }: HomeProps) {
     sliderRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const testimonials = [
-    {
-      quote: "Daniel has been an inspirational marketing and advertising force for several of my products. Daniel is able to convey brand intent to the masses, while highlighting the spirit of the brand. His projects have involved numerous international companies, deploying marketing and advertising campaigns, and defining brand engagement strategies.",
-      name: "Ramak Radmard",
-      title: "Creative Director · Lucidream",
-      year: "Client relationship 15+ years"
-    },
-    {
-      quote: "Daniel is one of the best creative directors I know. He is a pleasure to work with and a true high-spirited individual whose input and vision to any project is highly valuable.",
-      name: "Reyhan Sofraci",
-      title: "Creative Director",
-      year: "Colleague"
-    },
-    {
-      quote: "His ambition and creativity set him apart from other creative directors and his positive energy is contagious.",
-      name: "Nori Elshinnawy",
-      title: "Commercial Transformation Leader",
-      year: "Collaborator"
-    }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex(i => (i + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
   return (
     <div className="bg-[var(--black)]">
       {/* SECTION 1 — HERO */}
-      <section style={{ position: 'relative', width: '100vw', height: '100svh', minHeight: '100svh', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}>
-
-        {/* VIMEO BACKGROUND */}
-        <iframe
-          id="vimeo-hero"
-          className="hero-vimeo"
-          src="https://player.vimeo.com/video/1179764303?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&playsinline=1&autopause=0&dnt=1"
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', zIndex: 0 }}
-          allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-          title="hero"
-          // @ts-ignore
-          playsInline={true}
-          webkit-playsinline="true"
-        />
-
-        {/* MOBILE FALLBACK */}
-        <img
-          id="hero-fallback"
-          src="/D80_9144.jpg"
-          alt="Hero Background"
-          style={{ display: 'none', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
-        />
+      <section
+        aria-label="Featured campaign work by Daniel Stanford"
+        style={{ position: 'relative', width: '100vw', height: '100svh', minHeight: '100svh', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}
+      >
+        {/* CROSSFADE IMAGE CAROUSEL */}
+        <HeroCrossfade />
 
         {/* TOP GRADIENT */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '38%', background: 'linear-gradient(to bottom, rgba(8,8,8,0.72) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
@@ -163,17 +166,23 @@ export default function Home({ setIsHovering }: HomeProps) {
         {/* BOTTOM GRADIENT */}
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '62%', background: 'linear-gradient(to top, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0.48) 50%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
 
-        {/* HERO TEXT BLOCK */}
-        <div ref={heroTextRef} className="hero-text-block" style={{ position: 'relative', zIndex: 10, padding: '0 60px 44px 28px' }}>
+        {/* HERO TEXT BLOCK — entrance slide + scroll parallax */}
+        <motion.div
+          style={{ y: textY, position: 'relative', zIndex: 10 }}
+          initial={{ x: -40 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+        <div className="hero-text-block" style={{ padding: '0 60px 44px 28px' }}>
           <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.72)', marginBottom: '14px' }}>
             Executive Producer · Production Design · Film Investment
           </div>
           <h1 style={{ margin: 0, padding: 0 }}>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#e5e2e1', display: 'block' }}>
-              I direct ideas
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#F5F2EC', display: 'block' }}>
+              Brands, Directed.
             </span>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#C9971F', display: 'block', marginBottom: '24px' }}>
-              into reality.
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(28px, 3.8vw, 52px)', lineHeight: 1.1, letterSpacing: '-0.01em', color: '#F5F2EC', display: 'block', marginBottom: '24px', opacity: 0.82 }}>
+              Timeless by Intent.
             </span>
           </h1>
           <button
@@ -186,6 +195,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             INVEST IN FILM
           </button>
         </div>
+        </motion.div>
 
         {/* TIMER BAR */}
         <div style={{ position: 'absolute', bottom: 0, left: 0, height: '1px', background: '#cc0000', width: '100%', transformOrigin: 'left', animation: 'shrink 30s linear forwards', zIndex: 10 }} />
@@ -420,7 +430,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase',
               color: 'rgba(229,226,225,0.5)',
             }}>
-              In Theatres May 15, 2026 · Henry Cavill · Jake Gyllenhaal · Eiza González · Dir. Guy Ritchie
+              Henry Cavill · Jake Gyllenhaal · Eiza González · Dir. Guy Ritchie
             </p>
           </Link>
           {/* Embed */}
@@ -433,6 +443,23 @@ export default function Home({ setIsHovering }: HomeProps) {
               style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
             />
           </div>
+        </div>
+
+        {/* Featured Film Festival */}
+        <div style={{ width: '100%', maxWidth: '860px', marginTop: '32px', borderTop: '1px solid rgba(229,226,225,0.08)', paddingTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.35)' }}>
+            Featured Film Festival
+          </span>
+          <a
+            href="https://www.festival-cannes.com/en/medialibrary/festival-de-cannes-2026-teaser/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#00CFCF', textDecoration: 'none', transition: 'color 0.2s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#00FFFF'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#00CFCF'; }}
+          >
+            Festival de Cannes 2026 →
+          </a>
         </div>
 
         <a
@@ -455,23 +482,145 @@ export default function Home({ setIsHovering }: HomeProps) {
         </a>
       </section>
 
-      {/* SECTION 3 — DIRECTED DISCIPLINES */}
+      {/* THE BIRTH — CREATIVE VISION */}
+      <section style={{ background: '#040402', position: 'relative', overflow: 'hidden', padding: 'clamp(80px,10vw,140px) 0 0' }}>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: '-60px' }}
+          style={{ padding: '0 clamp(28px,6vw,80px)', marginBottom: '48px' }}
+        >
+          <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.55em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '16px' }}>
+            Fine Art · Creative Vision · Photomontage
+          </p>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3rem,7vw,7rem)', lineHeight: 0.9, color: '#F4EFE6', margin: 0 }}>
+            The Birth<span style={{ color: 'rgba(244,239,230,0.18)' }}> · La Naissance</span>
+          </h2>
+        </motion.div>
+
+        {/* AI Video */}
+        <motion.div
+          initial={{ opacity: 0, scale: 1.04 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: '-40px' }}
+          style={{ padding: '0 clamp(28px,6vw,80px)', marginBottom: '3px' }}
+        >
+          <div style={{ width: '100%', aspectRatio: '16/9', position: 'relative', overflow: 'hidden', background: '#0a0905' }}>
+            <video
+              autoPlay muted loop playsInline
+              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.88, filter: 'contrast(1.08)' }}
+            >
+              <source src="/birth-ai.mp4" type="video/mp4" />
+            </video>
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(4,4,2,0.18), rgba(4,4,2,0.55))', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px 28px', background: 'linear-gradient(to top, rgba(4,4,2,0.92), transparent)' }}>
+              <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.35)', margin: 0 }}>
+                AI Generative Cinema · LTX-V · NuLab Visual Pipeline
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 4 stills — horizontal scroll */}
+        <div style={{ display: 'flex', gap: '3px', padding: '3px clamp(28px,6vw,80px) 0', overflowX: 'auto', scrollbarWidth: 'none' }}>
+          {[
+            { src: '/birth-001-title.jpg', label: '001 · Containment', sub: 'La naissance commence' },
+            { src: '/birth-diptych.jpg',   label: '002 · La Fracture',  sub: 'The break' },
+            { src: '/birth-003.jpg',        label: '003 · L\'Émergence', sub: 'Rising through' },
+            { src: '/birth-004.jpg',        label: '004 · L\'Éveil',     sub: 'Awakening' },
+          ].map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: '-40px' }}
+              style={{ flexShrink: 0, width: 'clamp(240px,28vw,400px)', aspectRatio: '16/9', position: 'relative', overflow: 'hidden', background: '#0a0905' }}
+            >
+              <img
+                src={img.src}
+                alt={img.label}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.82, filter: 'contrast(1.1)', transition: 'transform 0.9s ease, opacity 0.5s ease' }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.04)'; e.currentTarget.style.opacity = '0.96'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.opacity = '0.82'; }}
+              />
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 14px', background: 'linear-gradient(to top, rgba(4,4,2,0.92), transparent)', pointerEvents: 'none' }}>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '13px', color: '#F4EFE6', marginBottom: '2px' }}>{img.label}</p>
+                <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.38)', margin: 0 }}>{img.sub}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Footer row */}
+        <div style={{ padding: '32px clamp(28px,6vw,80px) clamp(64px,8vw,100px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.18)', margin: 0 }}>
+            Photomontage & Composite · Original Series · Stanford Emporium
+          </p>
+          <a href="/visual-development" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.42)', borderBottom: '1px solid rgba(244,239,230,0.14)', paddingBottom: '2px', textDecoration: 'none' }}>
+            Full Archive →
+          </a>
+        </div>
+      </section>
+
+      {/* SECTION 3 — WHAT WE DELIVER */}
+      <section className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black-2)]" style={{ position: 'relative', overflow: 'hidden' }}>
+        {/* Still-to-video background */}
+        <DeliverBg />
+        <div className="reveal mb-20" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">03 / DELIVERY</div>
+          <h2 className="text-[48px] text-[var(--white)]">What We Deliver</h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-[1px] bg-[var(--line)] reveal" style={{ position: 'relative', zIndex: 1 }}>
+          {[
+            'Pitch Decks & Packaging',
+            'Visual Development & Worldbuilding',
+            'Production Design Direction',
+            'Casting & Talent Packaging Support',
+            'Investor Materials & Data Room Prep',
+          ].map((title, i) => (
+            <div key={i} className="bg-[var(--black-2)] p-10 group hover:bg-[var(--black-3)] transition-colors duration-300">
+              <div style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '28px', color: 'var(--bronze)', marginBottom: '16px', lineHeight: 1 }}>
+                0{i + 1}
+              </div>
+              <h4 className="label-text" style={{ fontSize: '11px', letterSpacing: '0.18em', color: '#F4EFE6' }}>
+                {title}
+              </h4>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-20 reveal" style={{ position: 'relative', zIndex: 1 }}>
+          <Link
+            to="/disciplines"
+            className="btn-text border border-[rgba(244,239,230,0.3)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
+            Full Studio Deliverables →
+          </Link>
+        </div>
+      </section>
+
+      {/* SECTION 4 — STUDIO DIVISIONS */}
       <section className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black-2)]">
         <div className="reveal">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">03 / STUDIO</div>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">04 / STUDIO</div>
           <h2 className="text-[48px] text-[var(--white)]">
             Studio Divisions
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-[1px] bg-[var(--line)] mt-20 reveal">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--line)] mt-20 reveal">
           {[
-            { icon: '◈', title: 'Film Development', img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80', href: '/investment-opportunities', external: false },
-            { icon: '⬡', title: 'World Atlas', img: '/spatial-preview.jpg', href: '/spatial', external: false },
-            { icon: '◉', title: 'Production Design', img: '/visual-direction-connan.jpg', href: '/production-design', external: false },
-            { icon: '△', title: 'Built Environments Lab', img: 'https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=600&q=80', href: '/lab', external: false },
-            { icon: '✦', title: 'NuLab Studio', img: '/nulab-preview.jpg', href: 'https://nulab.space', external: true },
-            { icon: '✺', title: 'Fine Art Archive', img: '/fineart-loas-starmont.png', href: '/fine-art', external: false },
+            { icon: '◈', title: 'Film Slate — Development & Packaging', img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80', href: '/investment-opportunities', external: false },
+            { icon: '◉', title: 'Production Design & Visual Development', img: '/production-design-cover.jpg', href: '/production-design', external: false, sub: 'World Atlas — Location & Worldbuilding Research', sub2: 'Built Environments Lab — Architecture & Spatial Research' },
+            { icon: '✦', title: 'NuLab — AI / AV Intelligence', img: '/nulab-cover.jpg', href: 'https://nulab.space', external: true },
+            { icon: '✺', title: 'Archive — Fine Art & Photography', img: '/fineart-cover.jpg', href: '/fine-art', external: false },
           ].map((item) => {
             const inner = (
               <>
@@ -489,6 +638,16 @@ export default function Home({ setIsHovering }: HomeProps) {
                 <div className="absolute inset-0 bg-[rgba(8,7,5,0.45)] opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] ease-[ease] pointer-events-none" />
                 <div className="relative z-10 text-[24px] text-[var(--bronze)] opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">{item.icon}</div>
                 <h4 className="relative z-10 text-[17px] font-normal text-[rgba(244,239,230,0.82)] group-hover:text-[rgba(244,239,230,1)] mt-8 transition-colors duration-[400ms]">{item.title}</h4>
+                {(item as any).sub && (
+                  <p className="label-text relative z-10" style={{ fontSize: '8px', letterSpacing: '0.22em', color: 'rgba(244,239,230,0.45)', marginTop: '10px' }}>
+                    {(item as any).sub}
+                  </p>
+                )}
+                {(item as any).sub2 && (
+                  <p className="label-text relative z-10" style={{ fontSize: '8px', letterSpacing: '0.22em', color: 'rgba(244,239,230,0.45)', marginTop: '6px' }}>
+                    {(item as any).sub2}
+                  </p>
+                )}
               </>
             );
             return item.external ? (
@@ -518,245 +677,23 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
       </section>
 
-      {/* SECTION 4 — VISUAL WORLDS & NFT ART */}
-      <section id="visual-worlds" className="section-divider py-[120px] px-4 md:px-20 bg-[var(--black)] text-center overflow-hidden">
-        <div className="reveal mb-10">
-          <span className="block label-text text-[0.65rem] text-[var(--bronze)] mb-4">04 / WORLDS · Cinematic Environment Library</span>
-          <h2 className="text-[clamp(2.5rem,7.5vw,7.5rem)] italic text-white mb-8">
-            World Atlas
-          </h2>
-        </div>
-
-        {/* Video — centered, autoplay muted */}
-        <div className="max-w-[720px] mx-auto mb-16 reveal" style={{ aspectRatio: '16/9' }}>
-          <iframe
-            src="https://www.youtube.com/embed/Ggc8qzs-b20?autoplay=1&mute=1&loop=1&playlist=Ggc8qzs-b20&controls=1&rel=0&modestbranding=1"
-            title="FASCINASIA — Digital Collection Art Animated"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full"
-            style={{ border: 'none', display: 'block' }}
-          />
-        </div>
-
-        {/* Horizontal art strip */}
-        <style>{`.nft-strip{overflow-x:auto;display:flex;scrollbar-width:none;}.nft-strip::-webkit-scrollbar{display:none;}`}</style>
-        <div className="nft-strip -mx-4 md:-mx-20 text-left">
-          {[
-            { src: '/nft-sea-of-dunes.jpg',   label: 'Sea of Dunes — Environmental Worldbuilding Study' },
-            { src: '/nft-jayne-silver-gold.jpg', label: 'Location Reference · Background Plate Material · Brazil' },
-            { src: '/nft-year-of-snake.jpg',  label: 'Year of the Snake · DARS' },
-            { src: '/nft-toxic-politics.jpg', label: 'Toxic Politics · Dystopian' },
-            { src: '/nft-khalumia.jpg',       label: 'Khalumia · Japan · 40×60' },
-            { src: '/nft-desert-warrior.jpg', label: 'Desert Warrior · Digital Collection Edition' },
-            { src: '/nft-snake-goddess.jpg',  label: 'Snake Goddess · Digital Collection Edition' },
-          ].map((item, i, arr) => (
-            <div
-              key={i}
-              className="flex-none"
-              style={{ width: '280px', borderRight: i < arr.length - 1 ? '1px solid rgba(229,226,225,0.08)' : 'none' }}
-            >
-              <div style={{ aspectRatio: '3/2', overflow: 'hidden' }}>
-                <img
-                  src={item.src}
-                  alt={item.label}
-                  className="w-full h-full object-cover transition-all duration-[800ms]"
-                  style={{ filter: 'grayscale(15%) contrast(1.05)' }}
-                  onMouseEnter={e => (e.currentTarget.style.filter = 'grayscale(0%) contrast(1.05)')}
-                  onMouseLeave={e => (e.currentTarget.style.filter = 'grayscale(15%) contrast(1.05)')}
-                />
-              </div>
-              <div className="px-3 py-3">
-                <span className="uppercase block" style={{ fontSize: '0.55rem', letterSpacing: '0.1em', color: 'rgba(229,226,225,0.5)' }}>
-                  {item.label}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-14 reveal">
-          <Link
-            to="/visual-development"
-            className="btn-text border border-[rgba(212,175,55,0.35)] text-[var(--bronze)] px-10 py-4 hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            EXPLORE WORLD ATLAS →
-          </Link>
-        </div>
-      </section>
-
-      {/* SECTION 5 — WHAT WE DELIVER */}
-      <section className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black-2)]">
-        <div className="reveal mb-20">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">05 / DELIVERY</div>
-          <h2 className="text-[48px] text-[var(--white)]">What We Deliver</h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--line)] reveal">
-          {[
-            { title: 'Investor Packaging',          desc: 'Custom pitch decks, lookbooks, visual bibles, investor narrative design.' },
-            { title: 'Production Design Systems',   desc: 'Environment logic, set language, cinematic material design.' },
-            { title: 'Storyboards & Previs',        desc: 'Sequence visualization, camera planning, narrative flow.' },
-            { title: 'Art Department Leadership',   desc: 'Crew direction frameworks, workflows, visual continuity systems.' },
-          ].map((card, i) => (
-            <div key={i} className="bg-[var(--black-2)] p-10 group hover:bg-[var(--black-3)] transition-colors duration-300">
-              <div style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '28px', color: 'var(--bronze)', marginBottom: '16px', lineHeight: 1 }}>
-                0{i + 1}
-              </div>
-              <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#F4EFE6', marginBottom: '12px' }}>
-                {card.title}
-              </h4>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.8, color: 'rgba(244,239,230,0.6)', margin: 0 }}>
-                {card.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-20 reveal">
-          <Link
-            to="/disciplines"
-            className="btn-text border border-[rgba(244,239,230,0.3)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            Full Studio Deliverables →
-          </Link>
-        </div>
-      </section>
-
-      {/* SECTION 6 — FUTURE HABITAT LAB */}
-      <section id="lab" className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black)]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[64px] lg:gap-[128px] items-center">
-          <div className="reveal">
-            <div className="label-text text-[10px] text-[var(--bronze)] mb-4">06 / WORLDS</div>
-            <div className="w-[40px] h-[1px] bg-[var(--bronze)] my-8" />
-            <h2 className="text-[clamp(2.5rem,5vw,5rem)] text-white mb-4 leading-tight">
-              Built Environments Lab
-            </h2>
-            <p className="label-text text-[10px] text-[rgba(244,239,230,0.4)] mb-8 normal-case tracking-[0.12em]">
-              Architecture · Modular Systems · Passive House Concepts
-            </p>
-            <p className="body-text text-[13px] text-white leading-[2] mb-10">
-              Experimental concepts for sustainable, rapid-build, and next-generation cinematic environments.
-            </p>
-            <Link
-              to="/lab"
-              className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              EXPLORE →
-            </Link>
-          </div>
-
-          <div className="relative h-[460px] border border-[rgba(166,124,0,0.45)] overflow-hidden reveal">
-            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(rgba(212,175,55,0.05) 0 1px, transparent 1px 45px), repeating-linear-gradient(90deg, rgba(212,175,55,0.05) 0 1px, transparent 1px 45px)' }} />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-[rgba(212,175,55,0.12)] blur-[60px] rounded-full pointer-events-none" />
-            <div className="scan-line" />
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="text-[112px] text-[rgba(212,175,55,0.12)] font-headline breathing">⬡</div>
-            </div>
-            <img 
-              src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=900&q=80" 
-              alt="Habitat Lab" 
-              className="w-full h-full object-cover opacity-20 grayscale"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7 — TESTIMONIALS */}
-      <section style={{
-        padding: 'clamp(60px,8vw,100px) clamp(20px,6vw,80px)',
-        background: '#0e0e0e',
-        textAlign: 'center',
-        borderTop: '1px solid rgba(229,226,225,0.05)',
-        borderBottom: '1px solid rgba(229,226,225,0.05)',
-      }}>
-        <p style={{
-          fontSize: '0.6rem', letterSpacing: '0.4em',
-          textTransform: 'uppercase', color: '#A67C52',
-          marginBottom: '32px',
-        }}>
-          Client Testimonials
-        </p>
-
-        <p style={{
-          fontFamily: "'Noto Serif', serif",
-          fontStyle: 'italic',
-          fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
-          lineHeight: 1.85,
-          color: 'rgba(229,226,225,0.88)',
-          maxWidth: '780px',
-          margin: '0 auto 32px',
-        }}>
-          "{testimonials[currentIndex].quote}"
-        </p>
-
-        <p style={{
-          fontSize: '0.7rem',
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase',
-          color: '#e5e2e1',
-          marginBottom: '4px',
-          fontWeight: 400,
-        }}>
-          — {testimonials[currentIndex].name}
-        </p>
-
-        <p style={{
-          fontSize: '0.58rem',
-          letterSpacing: '0.25em',
-          textTransform: 'uppercase',
-          color: 'rgba(229,226,225,0.35)',
-        }}>
-          {testimonials[currentIndex].title}
-        </p>
-
-        {/* Dot indicators */}
-        <div style={{
-          display: 'flex', justifyContent: 'center',
-          gap: '8px', marginTop: '32px',
-        }}>
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentIndex(i)}
-              style={{
-                width: i === currentIndex ? '24px' : '6px',
-                height: '1px',
-                background: i === currentIndex
-                  ? '#A67C52' : 'rgba(229,226,225,0.2)',
-                border: 'none', cursor: 'pointer',
-                padding: 0,
-                transition: 'all 0.4s ease',
-              }}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 8 — COLLECT WORKS */}
+      {/* SECTION 5 — VISUAL ARCHIVE */}
       <section id="collect" className="section-divider relative py-[144px] px-4 md:px-20 bg-[var(--black-2)] text-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-50">
           <img
             src="/collect-hero.jpg"
-            alt="Collect Works — Daniel Armon Stanford"
+            alt="Visual Archive — Daniel Stanford"
             className="w-full h-full object-cover grayscale"
           />
           <div className="absolute inset-0 bg-[var(--black-2)] opacity-40" />
         </div>
         <div className="relative z-10 reveal">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">08 / COLLECTION</div>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">05 / COLLECTION</div>
           <h2 className="text-[clamp(2rem,4.5vw,4rem)] text-white mb-4">
-            Collect Works
+            Visual Archive
           </h2>
           <div className="label-text text-[10px] tracking-[0.38em] text-white mb-12">
-            Limited editions. Original prints. Objects.
+            Fine art editions and photographic works from the Stanford archive.
           </div>
           <Link 
             to="/collect" 
@@ -772,14 +709,14 @@ export default function Home({ setIsHovering }: HomeProps) {
       {/* SECTION 9 — INQUIRE */}
       <section id="contact" className="section-divider py-[192px] px-4 md:px-20 bg-[var(--black)] text-center">
         <div className="reveal">
-          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">09 / BEGIN</div>
+          <div className="label-text text-[10px] text-[var(--bronze)] mb-4">06 / BEGIN</div>
           <h2 className="text-[clamp(2.5rem,6.5vw,6.5rem)] text-white leading-[1.08] mb-16">
             Let's build something<br />
             <span className="italic-emphasis">exceptional.</span>
           </h2>
           <div className="flex flex-row flex-wrap gap-4 justify-center">
             <a 
-              href="mailto:DARSbit@prontonmail.ch?subject=Inquiry" 
+              href="mailto:darsbit@pm.me?subject=Inquiry" 
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -787,7 +724,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               INQUIRE
             </a>
             <a 
-              href="mailto:DARSbit@prontonmail.ch?subject=Schedule%20Investor%20Call" 
+              href="mailto:darsbit@pm.me?subject=Schedule%20Investor%20Call" 
               className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -795,7 +732,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               SCHEDULE INVESTOR CALL
             </a>
             <a 
-              href="mailto:DARSbit@prontonmail.ch?subject=Request%20Investment%20Materials" 
+              href="mailto:darsbit@pm.me?subject=Request%20Investment%20Materials" 
               className="btn-text border border-[rgba(212,175,55,0.35)] text-[var(--bronze)] px-10 py-4 hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}

@@ -3,9 +3,15 @@ import { Link, useLocation } from 'react-router-dom';
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [audioOn, setAudioOn] = useState(false);
+  const [audioOn, setAudioOn] = useState(true);
   const [playerReady, setPlayerReady] = useState(false);
+  const [activeTrack, setActiveTrack] = useState(0);
   const playerRef = useRef<any>(null);
+
+  const TRACKS = [
+    { id: '8-wAvbxB7D8', label: 'Hans Zimmer' },
+    { id: '3ciMHwo1ApA', label: 'Culture Capital' },
+  ];
   const location = useLocation();
 
   // Close menu on route change — v2
@@ -25,6 +31,18 @@ export default function Nav() {
             evt.target.setVolume(40);
             playerRef.current = evt.target;
             setPlayerReady(true);
+            // Attempt autoplay; browser may block it silently
+            try { evt.target.playVideo(); } catch {}
+            // Fallback: play on first user interaction
+            const onInteract = () => {
+              if (!destroyed && playerRef.current) {
+                try { playerRef.current.playVideo(); } catch {}
+              }
+              document.removeEventListener('click', onInteract);
+              document.removeEventListener('touchstart', onInteract);
+            };
+            document.addEventListener('click', onInteract);
+            document.addEventListener('touchstart', onInteract);
           },
           onStateChange: (evt: any) => {
             if (destroyed) return;
@@ -54,6 +72,16 @@ export default function Nav() {
   const toggleAudio = () => {
     if (!playerRef.current || !playerReady) return;
     audioOn ? playerRef.current.pauseVideo() : playerRef.current.playVideo();
+  };
+
+  const selectTrack = (index: number) => {
+    if (!playerRef.current || !playerReady) return;
+    if (index === activeTrack) {
+      toggleAudio();
+    } else {
+      setActiveTrack(index);
+      try { playerRef.current.loadVideoById(TRACKS[index].id); } catch {}
+    }
   };
 
   const navLinks = [
@@ -152,20 +180,38 @@ export default function Nav() {
           })}
         </nav>
 
-        {/* Audio toggle inside overlay */}
-        <button
-          onClick={toggleAudio}
-          aria-label={audioOn ? 'Pause ambient audio' : 'Play ambient audio'}
-          style={{
-            marginTop: '56px', display: 'flex', alignItems: 'center', gap: '10px',
-            background: 'none', border: 'none', cursor: 'pointer', padding: 0,
-          }}
-        >
-          <span style={{ fontSize: '18px', color: '#C9971F' }}>{audioOn ? '♬' : '♪'}</span>
-          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'rgba(229,226,225,0.6)', textTransform: 'uppercase' }}>
-            Sound · Zimmerman
+        {/* Audio track selector inside overlay */}
+        <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', color: 'rgba(229,226,225,0.35)', textTransform: 'uppercase', marginBottom: '2px' }}>
+            Ambient Sound
           </span>
-        </button>
+          {TRACKS.map((track, i) => {
+            const isActive = activeTrack === i;
+            const isPlaying = isActive && audioOn;
+            return (
+              <button
+                key={track.id}
+                onClick={() => selectTrack(i)}
+                aria-label={`Play ${track.label}`}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '10px',
+                  background: 'none', border: 'none', cursor: 'pointer', padding: 0,
+                }}
+              >
+                <span style={{ fontSize: '14px', color: isActive ? '#C9971F' : 'rgba(229,226,225,0.3)', transition: 'color 0.2s' }}>
+                  {isPlaying ? '♬' : '♪'}
+                </span>
+                <span style={{
+                  fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
+                  letterSpacing: '0.3em', textTransform: 'uppercase', transition: 'color 0.2s',
+                  color: isActive ? '#C9971F' : 'rgba(229,226,225,0.45)',
+                }}>
+                  {track.label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
 
         {/* Footer contact line */}
         <div style={{
@@ -176,7 +222,7 @@ export default function Nav() {
             film.daniel-stanford.com
           </span>
           <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'rgba(229,226,225,0.35)', textTransform: 'uppercase' }}>
-            DanielArmonStanford@gmail.com
+            darsbit@pm.me
           </span>
         </div>
       </div>

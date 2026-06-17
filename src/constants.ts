@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export const EMAIL_CONTACT = 'DARSbit@protonmail.ch';
+export const EMAIL_CONTACT = 'darsbit@pm.me';
 
 export const SOCIAL_LINKS = [
   {

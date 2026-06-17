@@ -40,23 +40,33 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
       <footer className="section-divider bg-[var(--black)] pt-[56px] pb-[56px] px-4 md:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-12 lg:gap-0">
           <div>
-            <div className="text-[18px] font-normal text-white">Daniel Stanford</div>
-            <div className="label-text text-[9px] tracking-[0.32em] text-[var(--bronze)] mt-1">
-              Creative Director · Visionary · Executive Producer
+            <div className="text-[15px] font-bold text-white tracking-[0.18em] uppercase">Daniel A Stanford</div>
+            <div className="label-text text-[9px] tracking-[0.32em] text-[var(--bronze)] mt-1 uppercase">
+              Art Director
             </div>
             <div className="label-text text-[9px] text-[var(--bronze)] opacity-90 mt-2 lowercase tracking-normal">
               Stanford Emporium
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+          <div className="flex flex-col gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className="label-text text-[9px] tracking-[0.23em] text-[rgba(244,239,230,0.7)] hover:text-[var(--bronze)] transition-colors"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
+                style={{
+                  fontFamily: 'Arial, Helvetica, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 'clamp(22px, 3vw, 42px)',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(229,226,225,0.7)',
+                  textDecoration: 'none',
+                  lineHeight: 1.15,
+                  transition: 'color 0.2s ease',
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; setIsHovering(true); }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(229,226,225,0.7)'; setIsHovering(false); }}
               >
                 {item.name}
               </Link>

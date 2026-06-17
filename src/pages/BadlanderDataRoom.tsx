@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const GATE_PASSWORD = 'money';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1nouywacAT2WlrlbyDM3XLb2hLQjTjMAl?usp=sharing';
 const NOTION_URL = 'https://drive.google.com/file/d/1xq0uiyPgh7P163ubaUUNuEt1aZq2ymby/view';
-const NOTIFY_EMAIL = 'DanielArmonStanford@gmail.com';
+const NOTIFY_EMAIL = 'darsbit@pm.me';
 const WEB3FORMS_KEY = '0928c0d9-38cc-4327-99b1-a50349a62ed7';
 
 const sendNotification = async (submitterEmail: string) => {
