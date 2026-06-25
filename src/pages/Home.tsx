@@ -390,7 +390,7 @@ export default function Home({ setIsHovering }: HomeProps) {
                 fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
                 letterSpacing: '0.3em', textTransform: 'uppercase', color: '#ffc800',
                 border: '1px solid rgba(255,200,0,0.5)', padding: '3px 7px', background: 'rgba(8,8,8,0.7)' }}>
-                Contractual Equity Position
+                Film Finance & Equity Access
               </div>
               <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300,
@@ -716,7 +716,7 @@ export default function Home({ setIsHovering }: HomeProps) {
           </h2>
           <div className="flex flex-row flex-wrap gap-4 justify-center">
             <a 
-              href="mailto:darsbit@pm.me?subject=Inquiry" 
+              href="mailto:Daniel@StanfordEmporium.com?subject=Inquiry" 
               className="btn-text bg-[var(--bronze)] text-[var(--black)] px-10 py-4 hover:bg-[var(--bronze-light)] transition-colors"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -724,7 +724,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               INQUIRE
             </a>
             <a 
-              href="mailto:darsbit@pm.me?subject=Schedule%20Investor%20Call" 
+              href="mailto:Daniel@StanfordEmporium.com?subject=Schedule%20Investor%20Call" 
               className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -732,7 +732,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               SCHEDULE INVESTOR CALL
             </a>
             <a 
-              href="mailto:darsbit@pm.me?subject=Request%20Investment%20Materials" 
+              href="mailto:Daniel@StanfordEmporium.com?subject=Request%20Investment%20Materials" 
               className="btn-text border border-[rgba(212,175,55,0.35)] text-[var(--bronze)] px-10 py-4 hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const GATE_PASSWORD = 'money';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1vyYg-63ZfsTaeVA9z6WMd5CWouho8ikL';
 const NOTION_URL = 'https://www.notion.so/001-A-Child-s-Night-Dream-32e8a599ff278037bc01d8da158c1b7b';
-const NOTIFY_EMAIL = 'darsbit@pm.me';
+const NOTIFY_EMAIL = 'Daniel@StanfordEmporium.com';
 const WEB3FORMS_KEY = '0928c0d9-38cc-4327-99b1-a50349a62ed7';
 
 const sendNotification = async (submitterEmail: string) => {
@@ -144,7 +144,7 @@ const DataRoomGate = () => {
             <p className="text-[9px] text-[rgba(244,239,230,0.3)] text-center leading-relaxed pt-2">
               Access code provided upon qualification.{' '}
               <a
-                href="mailto:studio@stanfordemporium.com?subject=ACND Data Room Access Request"
+                href="mailto:Daniel@StanfordEmporium.com?subject=ACND Data Room Access Request"
                 className="hover:text-[rgba(244,239,230,0.6)] transition-colors underline underline-offset-2"
               >
                 Request access

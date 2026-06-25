@@ -375,7 +375,7 @@ const VisualDevelopment = () => {
                       color: 'rgba(244,239,230,0.25)',
                       marginTop: '16px',
                     }}>
-                      studio@stanfordemporium.com
+                      Daniel@StanfordEmporium.com
                     </p>
                   </div>
                 );
@@ -409,7 +409,7 @@ const VisualDevelopment = () => {
 
             {/* Request button */}
             <a
-              href={`mailto:darsbit@pm.me?subject=Visual Bible Request — ${WORLDS.find(w => w.id === activeWorld)?.name || activeWorld}`}
+              href={`mailto:Daniel@StanfordEmporium.com?subject=Visual Bible Request — ${WORLDS.find(w => w.id === activeWorld)?.name || activeWorld}`}
               onClick={e => e.stopPropagation()}
               style={{
                 display: 'inline-block',
@@ -461,7 +461,7 @@ const VisualDevelopment = () => {
           reference. Full archive accessible upon professional inquiry.
         </p>
         <a
-          href="mailto:darsbit@pm.me?subject=Visual Bible Request"
+          href="mailto:Daniel@StanfordEmporium.com?subject=Visual Bible Request"
           style={{
             fontFamily: 'var(--font-sans)',
             fontWeight: 300,

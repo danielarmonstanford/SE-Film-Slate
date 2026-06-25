@@ -222,7 +222,7 @@ export default function Nav() {
             film.daniel-stanford.com
           </span>
           <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'rgba(229,226,225,0.35)', textTransform: 'uppercase' }}>
-            darsbit@pm.me
+            Daniel@StanfordEmporium.com
           </span>
         </div>
       </div>

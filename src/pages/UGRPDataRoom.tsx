@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const GATE_PASSWORD = 'capital';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
 const NOTION_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
-const NOTIFY_EMAIL = 'darsbit@pm.me';
+const NOTIFY_EMAIL = 'Daniel@StanfordEmporium.com';
 const WEB3FORMS_KEY = '0928c0d9-38cc-4327-99b1-a50349a62ed7';
 
 const sendNotification = async (submitterEmail: string) => {
@@ -21,7 +21,7 @@ const sendNotification = async (submitterEmail: string) => {
       body: JSON.stringify({
         access_key: WEB3FORMS_KEY,
         subject: `UGRP Data Room Access — ${submitterEmail}`,
-        from_name: 'Stanford Emporium — Data Room Gate',
+        from_name: 'Stanford Emporium Inc. — Data Room Gate',
         to: NOTIFY_EMAIL,
         message: `New full data room access granted.\n\nInvestor email: ${submitterEmail}\nProject: In The Grey\nAccessed: ${timestamp}\nPage: /project/ugrp/dataroom`,
       }),
@@ -156,7 +156,7 @@ const UGRPDataRoom = () => {
             <p className="text-[9px] text-[rgba(244,239,230,0.3)] text-center leading-relaxed pt-2">
               Access code provided upon qualification.{' '}
               <a
-                href="mailto:darsbit@pm.me?subject=UGRP Data Room Access Request"
+                href="mailto:Daniel@StanfordEmporium.com?subject=UGRP Data Room Access Request"
                 className="hover:text-[rgba(244,239,230,0.6)] transition-colors underline underline-offset-2"
               >
                 Request access
@@ -175,7 +175,7 @@ const UGRPDataRoom = () => {
                 The Position
               </p>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.9, color: 'rgba(229,226,225,0.78)', marginBottom: '32px' }}>
-                Stanford Emporium is offering qualified investors access to a partial assignment of the primary equity position, held by C2 Motion Picture Group.
+                Stanford Emporium Inc. is offering qualified investors a $2,000,000 USD Film Finance & Equity Access opportunity, with lifetime profit participation, through a partial assignment of the primary equity position held by C2 Motion Picture Group.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {[
@@ -246,7 +246,7 @@ const UGRPDataRoom = () => {
             {/* STANFORD EMPORIUM ROLE */}
             <div style={{ borderTop: '1px solid rgba(244,239,230,0.06)', paddingTop: '40px', marginBottom: '40px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
-                Stanford Emporium Role
+                Stanford Emporium Inc. Role
               </p>
               <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: '#F4EFE6', lineHeight: 1.1, marginBottom: '20px' }}>
                 Finder &amp; Consulting Executive Producer

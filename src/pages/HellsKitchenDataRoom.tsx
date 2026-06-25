@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const GATE_PASSWORD = 'money';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1ucw9T8ocEvJFza44RMsMKIFeo4u93A9o';
 const NOTION_URL = 'https://drive.google.com/file/d/1fhksH7oyC6_7lO8aXRTcjFk6mnhzzpVV/view';
-const NOTIFY_EMAIL = 'darsbit@pm.me';
+const NOTIFY_EMAIL = 'Daniel@StanfordEmporium.com';
 const WEB3FORMS_KEY = '0928c0d9-38cc-4327-99b1-a50349a62ed7';
 
 const sendNotification = async (submitterEmail: string) => {
@@ -143,7 +143,7 @@ const HellsKitchenDataRoom = () => {
             <p className="text-[9px] text-[rgba(244,239,230,0.3)] text-center leading-relaxed pt-2">
               Access code provided upon qualification.{' '}
               <a
-                href="mailto:studio@stanfordemporium.com?subject=Hell%27s Kitchen Data Room Access Request"
+                href="mailto:Daniel@StanfordEmporium.com?subject=Hell%27s Kitchen Data Room Access Request"
                 className="hover:text-[rgba(244,239,230,0.6)] transition-colors underline underline-offset-2"
               >
                 Request access

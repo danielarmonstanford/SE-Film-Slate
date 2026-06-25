@@ -656,7 +656,7 @@ const Work = () => {
                 ))}
               </div>
               <a
-                href={`mailto:studio@stanfordemporium.com?subject=${encodeURIComponent(SERVICES[openCard].title + ' Inquiry')}`}
+                href={`mailto:Daniel@StanfordEmporium.com?subject=${encodeURIComponent(SERVICES[openCard].title + ' Inquiry')}`}
                 style={{
                   display: 'inline-block',
                   marginTop: '20px',
@@ -902,7 +902,7 @@ const Work = () => {
                 ))}
               </div>
               <a
-                href={`mailto:studio@stanfordemporium.com?subject=${encodeURIComponent(SERVICES[openCard].title + ' Inquiry')}`}
+                href={`mailto:Daniel@StanfordEmporium.com?subject=${encodeURIComponent(SERVICES[openCard].title + ' Inquiry')}`}
                 style={{
                   display: 'inline-block',
                   marginTop: '20px',
@@ -1458,7 +1458,7 @@ const Work = () => {
 
         <div style={{ textAlign: 'center' }}>
           <a
-            href="mailto:studio@stanfordemporium.com?subject=Production Design Inquiry"
+            href="mailto:Daniel@StanfordEmporium.com?subject=Production Design Inquiry"
             style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 300,

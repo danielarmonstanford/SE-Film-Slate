@@ -140,7 +140,7 @@ const Slate: React.FC = () => {
               REQUEST INVESTOR PACKAGE
             </Link>
             <a
-              href="mailto:darsbit@pm.me?subject=Investor%20Call%20Request"
+              href="mailto:Daniel@StanfordEmporium.com?subject=Investor%20Call%20Request"
               className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}

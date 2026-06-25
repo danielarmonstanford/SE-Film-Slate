@@ -163,13 +163,13 @@ const ProjectDetail: React.FC = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             style={{ position: 'relative', zIndex: 2, padding: '0 clamp(28px,6vw,80px) clamp(48px,6vw,72px)', maxWidth: '900px' }}>
             <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
-              Equity Divestment Opportunity
+              Film Finance & Equity Access
             </p>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3.2rem,8vw,8rem)', lineHeight: 0.9, color: '#F4EFE6', marginBottom: '24px' }}>
               {project.title}
             </h1>
             <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1rem,2vw,1.35rem)', lineHeight: 1.55, color: 'rgba(229,226,225,0.82)', maxWidth: '580px', marginBottom: '36px' }}>
-              A completed Guy Ritchie film. A contractual equity position. A guaranteed return with lifetime upside.
+              A completed Guy Ritchie film. $2M Film Finance & Equity Access. Lifetime profit participation, open through Stanford Emporium Inc.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <Link to="/investor-inquiry"
@@ -207,7 +207,7 @@ const ProjectDetail: React.FC = () => {
         <section style={{ padding: 'clamp(72px,8vw,100px) clamp(28px,6vw,80px)', background: '#080705', borderTop: '1px solid rgba(244,239,230,0.05)', textAlign: 'center' }}>
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
             <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1.1rem,2.2vw,1.5rem)', lineHeight: 1.65, color: 'rgba(229,226,225,0.75)', marginBottom: '40px' }}>
-              This opportunity is available to qualified investors under NDA. Contact Stanford Emporium to receive the term sheet.
+              This opportunity is available to qualified investors under NDA. Contact Stanford Emporium Inc. to receive the term sheet.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/investor-inquiry"
