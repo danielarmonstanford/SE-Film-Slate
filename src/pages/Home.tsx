@@ -8,65 +8,6 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../types';
 
-const HERO_IMAGES_ALL = [
-  'https://res.cloudinary.com/dno3ruh4b/image/upload/f_auto,q_auto,w_3840/guess-cover-winter-2001.jpg',
-  'https://res.cloudinary.com/dno3ruh4b/image/upload/f_auto,q_auto,w_3840/Athena-7757---alpha-_b2k1fa.jpg',
-  // Slot 3: Love Story / White Sands — add URL when uploaded
-];
-
-function HeroCrossfade() {
-  const prefersReduced = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    : false;
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : false;
-  const images = isMobile ? HERO_IMAGES_ALL.slice(0, 2) : HERO_IMAGES_ALL;
-  const interval = isMobile ? 8000 : 6000;
-
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    // Preload images 2+
-    images.slice(1).forEach(url => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = url;
-      document.head.appendChild(link);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (prefersReduced || images.length < 2) return;
-    const id = setInterval(() => {
-      setActive(prev => (prev + 1) % images.length);
-    }, interval);
-    return () => clearInterval(id);
-  }, [prefersReduced, images.length, interval]);
-
-  return (
-    <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-      {images.map((src, i) => (
-        <img
-          key={src}
-          src={src}
-          alt=""
-          fetchPriority={i === 0 ? 'high' : 'low'}
-          style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%',
-            objectFit: 'cover', objectPosition: '50% 20%',
-            opacity: active === i ? 1 : 0,
-            transition: active === i ? 'opacity 1.5s ease-in-out' : 'opacity 1.5s ease-in-out',
-            willChange: 'opacity',
-          }}
-        />
-      ))}
-      {/* Per-spec overlay */}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 60%)', pointerEvents: 'none' }} />
-    </div>
-  );
-}
-
 // Still → video crossfade for the "What We Deliver" section background
 function DeliverBg() {
   const [videoOn, setVideoOn] = useState(false);
@@ -157,8 +98,29 @@ export default function Home({ setIsHovering }: HomeProps) {
         aria-label="Featured campaign work by Daniel Stanford"
         style={{ position: 'relative', width: '100vw', height: '100svh', minHeight: '100svh', overflow: 'hidden', display: 'flex', alignItems: 'flex-end' }}
       >
-        {/* CROSSFADE IMAGE CAROUSEL */}
-        <HeroCrossfade />
+        {/* VIMEO BACKGROUND */}
+        <iframe
+          className="hero-vimeo"
+          src="https://player.vimeo.com/video/1179764303?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&playsinline=1"
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', zIndex: 0 }}
+          allow="autoplay"
+          title="hero"
+          // @ts-ignore
+          playsInline={true}
+          webkit-playsinline="true"
+          onError={() => {
+            const el = document.getElementById('hero-fallback');
+            if (el) el.style.display = 'block';
+          }}
+        />
+
+        {/* MOBILE FALLBACK */}
+        <img
+          id="hero-fallback"
+          src="/D80_9144.jpg"
+          alt="Hero Background"
+          style={{ display: 'none', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+        />
 
         {/* TOP GRADIENT */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '38%', background: 'linear-gradient(to bottom, rgba(8,8,8,0.72) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
@@ -178,11 +140,11 @@ export default function Home({ setIsHovering }: HomeProps) {
             Executive Producer · Production Design · Film Investment
           </div>
           <h1 style={{ margin: 0, padding: 0 }}>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#F5F2EC', display: 'block' }}>
-              Brands, Directed.
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#e5e2e1', display: 'block' }}>
+              I direct ideas
             </span>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(28px, 3.8vw, 52px)', lineHeight: 1.1, letterSpacing: '-0.01em', color: '#F5F2EC', display: 'block', marginBottom: '24px', opacity: 0.82 }}>
-              Timeless by Intent.
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#C9971F', display: 'block', marginBottom: '24px' }}>
+              into reality.
             </span>
           </h1>
           <button
