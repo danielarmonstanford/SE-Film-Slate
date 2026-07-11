@@ -31,7 +31,7 @@ const ProjectCTA: React.FC<ProjectCTAProps> = ({
 }) => (
   <div className="max-w-2xl mx-auto text-center">
     <h3 className="text-3xl md:text-4xl mb-6 leading-snug">{headline}</h3>
-    <p className="text-[rgba(229,226,225,0.72)] text-sm leading-loose mb-10 max-w-xl mx-auto">{body}</p>
+    <p className="text-[var(--text-72)] text-sm leading-loose mb-10 max-w-xl mx-auto">{body}</p>
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
       <Link
         to="/inquire"
@@ -148,39 +148,39 @@ const ProjectDetail: React.FC = () => {
   if (slug === 'ugrp') {
     const ROW = ({ label, value, gold = false, bold = false }: { label: string; value: string; gold?: boolean; bold?: boolean }) => (
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderBottom: '1px solid rgba(244,239,230,0.06)', gap: '24px' }}>
-        <span style={{ fontSize: '11px', color: 'rgba(229,226,225,0.45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{label}</span>
-        <span style={{ fontSize: '13px', color: gold ? '#ffc800' : '#e5e2e1', textAlign: 'right', fontWeight: (gold || bold) ? 600 : 300, fontFamily: 'var(--font-sans)' }}>{value}</span>
+        <span style={{ fontSize: '11px', color: 'var(--text-45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{label}</span>
+        <span style={{ fontSize: '13px', color: gold ? '#ffc800' : 'var(--text)', textAlign: 'right', fontWeight: (gold || bold) ? 600 : 300, fontFamily: 'var(--font-sans)' }}>{value}</span>
       </div>
     );
     return (
-      <div style={{ background: '#080705', color: '#F4EFE6', minHeight: '100vh' }}>
+      <div style={{ background: 'var(--bg)', color: 'var(--text)', minHeight: '100vh' }}>
 
         {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
         <section style={{ position: 'relative', height: '85vh', minHeight: '520px', display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
           <img src={project.heroImage || project.image} alt={project.title}
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', opacity: 0.45 }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,7,5,0.97) 0%, rgba(8,7,5,0.4) 50%, transparent 100%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--overlay-dark) 0%, rgba(8,7,5,0.4) 50%, transparent 100%)' }} />
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             style={{ position: 'relative', zIndex: 2, padding: '0 clamp(28px,6vw,80px) clamp(48px,6vw,72px)', maxWidth: '900px' }}>
             <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
-              Film Finance & Equity Access
+              Last Chance — One Slot Remaining
             </p>
-            <h1 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3.2rem,8vw,8rem)', lineHeight: 0.9, color: '#F4EFE6', marginBottom: '24px' }}>
+            <h1 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3.2rem,8vw,8rem)', lineHeight: 0.9, color: 'var(--text)', marginBottom: '24px' }}>
               {project.title}
             </h1>
-            <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1rem,2vw,1.35rem)', lineHeight: 1.55, color: 'rgba(229,226,225,0.82)', maxWidth: '580px', marginBottom: '36px' }}>
-              A completed Guy Ritchie film. $2M Film Finance & Equity Access. Lifetime profit participation, open through Stanford Emporium Inc.
+            <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1rem,2vw,1.35rem)', lineHeight: 1.55, color: 'var(--text-72)', maxWidth: '580px', marginBottom: '36px' }}>
+              A completed Guy Ritchie film. One open slot — Lifetime Participation Shares. Inquiry at $350,000 through Stanford Emporium Inc. for contractual agreements.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <Link to="/investor-inquiry"
                 style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', background: 'rgba(8,7,5,0.65)', border: '1px solid rgba(201,151,31,0.5)', color: '#C9971F', padding: '13px 28px', textDecoration: 'none', display: 'inline-block', backdropFilter: 'blur(4px)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.color = '#080705'; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--bg)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(8,7,5,0.65)'; (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}>
                 Request Investment Terms
               </Link>
               <Link to="/project/ugrp/dataroom"
                 style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', background: 'rgba(8,7,5,0.65)', border: '1px solid rgba(244,239,230,0.2)', color: 'rgba(244,239,230,0.7)', padding: '13px 28px', textDecoration: 'none', display: 'inline-block', backdropFilter: 'blur(4px)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.5)'; (e.currentTarget as HTMLAnchorElement).style.color = '#F4EFE6'; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.5)'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.2)'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.7)'; }}>
                 Investor Data Room →
               </Link>
@@ -189,7 +189,7 @@ const ProjectDetail: React.FC = () => {
         </section>
 
         {/* ── 2. THE FILM ──────────────────────────────────────────────────── */}
-        <section style={{ padding: 'clamp(56px,7vw,80px) clamp(28px,6vw,80px)', background: '#080808', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+        <section style={{ padding: 'clamp(56px,7vw,80px) clamp(28px,6vw,80px)', background: 'var(--bg)', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
           <div style={{ maxWidth: '720px' }}>
             <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '28px' }}>
               The Film
@@ -204,22 +204,22 @@ const ProjectDetail: React.FC = () => {
         </section>
 
         {/* ── 3. CTA ───────────────────────────────────────────────────────── */}
-        <section style={{ padding: 'clamp(72px,8vw,100px) clamp(28px,6vw,80px)', background: '#080705', borderTop: '1px solid rgba(244,239,230,0.05)', textAlign: 'center' }}>
+        <section style={{ padding: 'clamp(72px,8vw,100px) clamp(28px,6vw,80px)', background: 'var(--bg)', borderTop: '1px solid rgba(244,239,230,0.05)', textAlign: 'center' }}>
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
             <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1.1rem,2.2vw,1.5rem)', lineHeight: 1.65, color: 'rgba(229,226,225,0.75)', marginBottom: '40px' }}>
               This opportunity is available to qualified investors under NDA. Contact Stanford Emporium Inc. to receive the term sheet.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/investor-inquiry"
-                style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', background: '#C9971F', color: '#080705', padding: '15px 36px', textDecoration: 'none', display: 'inline-block' }}
+                style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', background: '#C9971F', color: 'var(--bg)', padding: '15px 36px', textDecoration: 'none', display: 'inline-block' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#F0C84A'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#C9971F'; }}>
                 Request Investment Terms
               </Link>
               <Link to="/project/ugrp/dataroom"
-                style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', border: '1px solid rgba(244,239,230,0.25)', color: 'rgba(244,239,230,0.7)', padding: '15px 36px', textDecoration: 'none', display: 'inline-block' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.6)'; (e.currentTarget as HTMLAnchorElement).style.color = '#F4EFE6'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.25)'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.7)'; }}>
+                style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', border: '1px solid var(--text-25)', color: 'rgba(244,239,230,0.7)', padding: '15px 36px', textDecoration: 'none', display: 'inline-block' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.6)'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--text-25)'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.7)'; }}>
                 Investor Data Room →
               </Link>
             </div>
@@ -227,9 +227,9 @@ const ProjectDetail: React.FC = () => {
         </section>
 
         {/* ── DISCLAIMER ───────────────────────────────────────────────────── */}
-        <section style={{ padding: 'clamp(32px,4vw,56px) clamp(28px,6vw,80px)', background: '#060604', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+        <section style={{ padding: 'clamp(32px,4vw,56px) clamp(28px,6vw,80px)', background: 'var(--bg)', borderTop: '1px solid rgba(244,239,230,0.05)' }}>
           <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', lineHeight: 1.85, color: 'rgba(229,226,225,0.35)', fontStyle: 'italic', marginBottom: '24px' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', lineHeight: 1.85, color: 'var(--text-35)', fontStyle: 'italic', marginBottom: '24px' }}>
               This listing is directed to qualified/accredited investors only and does not constitute a public securities offering. Investors should seek independent legal and tax advice. Financial projections are indicative only. © Blackbear Pictures. All Rights Reserved. IP owned by Blackbear Pictures.
             </p>
             <Link to="/investment-opportunities"
@@ -325,47 +325,47 @@ const ProjectDetail: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-12 uppercase tracking-[0.4em]">02 / INVESTMENT SNAPSHOT</div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            <div className="p-8 border border-[rgba(244,239,230,0.05)] bg-[rgba(255,255,255,0.02)]">
+            <div className="p-8 border border-[rgba(244,239,230,0.05)] bg-[var(--surface)]">
               <h4 className="label-text text-[11px] text-[var(--bronze)] mb-6 uppercase">Financials</h4>
               <ul className="space-y-4">
                 <li className="flex justify-between border-b border-[rgba(244,239,230,0.05)] pb-2">
-                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Equity Available</span>
+                  <span className="text-[var(--text-72)] text-sm">Equity Available</span>
                   <span className="text-white text-sm">{project.equityAvailable}</span>
                 </li>
                 <li className="flex justify-between border-b border-[rgba(244,239,230,0.05)] pb-2">
-                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Tax Incentives</span>
+                  <span className="text-[var(--text-72)] text-sm">Tax Incentives</span>
                   <span className="text-white text-sm">{project.taxIncentives}</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Target ROI Range</span>
+                  <span className="text-[var(--text-72)] text-sm">Target ROI Range</span>
                   <span className="text-white text-sm font-bold text-[var(--bronze)]">{project.targetROI}</span>
                 </li>
               </ul>
             </div>
 
-            <div className="p-8 border border-[rgba(244,239,230,0.05)] bg-[rgba(255,255,255,0.02)]">
+            <div className="p-8 border border-[rgba(244,239,230,0.05)] bg-[var(--surface)]">
               <h4 className="label-text text-[11px] text-[var(--bronze)] mb-6 uppercase">Market Strategy</h4>
               <ul className="space-y-4">
                 <li className="flex flex-col border-b border-[rgba(244,239,230,0.05)] pb-2">
-                  <span className="text-[rgba(229,226,225,0.72)] text-[10px] uppercase mb-1">Sales Strategy</span>
+                  <span className="text-[var(--text-72)] text-[10px] uppercase mb-1">Sales Strategy</span>
                   <span className="text-white text-sm">{project.salesStrategy}</span>
                 </li>
                 <li className="flex flex-col">
-                  <span className="text-[rgba(229,226,225,0.72)] text-[10px] uppercase mb-1">Comparable Films</span>
+                  <span className="text-[var(--text-72)] text-[10px] uppercase mb-1">Comparable Films</span>
                   <span className="text-white text-sm">{project.comparables?.join(' / ')}</span>
                 </li>
               </ul>
             </div>
 
-            <div className="p-8 border border-[rgba(244,239,230,0.05)] bg-[rgba(255,255,255,0.02)]">
+            <div className="p-8 border border-[rgba(244,239,230,0.05)] bg-[var(--surface)]">
               <h4 className="label-text text-[11px] text-[var(--bronze)] mb-6 uppercase">Project Data</h4>
               <ul className="space-y-4">
                 <li className="flex justify-between border-b border-[rgba(244,239,230,0.05)] pb-2">
-                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Genre</span>
+                  <span className="text-[var(--text-72)] text-sm">Genre</span>
                   <span className="text-white text-sm">{project.genre}</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-[rgba(229,226,225,0.72)] text-sm">Production Year</span>
+                  <span className="text-[var(--text-72)] text-sm">Production Year</span>
                   <span className="text-white text-sm">{project.year}</span>
                 </li>
               </ul>

@@ -67,7 +67,7 @@ const UGRPDataRoom = () => {
           <h1 className="text-3xl md:text-4xl italic font-light leading-snug mb-3">
             In The Grey
           </h1>
-          <p className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.45)]">
+          <p className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-45)]">
             Full Investor Data Room
           </p>
         </div>
@@ -75,7 +75,7 @@ const UGRPDataRoom = () => {
         {/* Option 1 — Overview (no gate) */}
         <div className="border border-[rgba(244,239,230,0.1)] p-6 mb-8">
           <div className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.4)] mb-3">Option 01 — Slate Overview</div>
-          <p className="text-xs text-[rgba(229,226,225,0.72)] leading-relaxed mb-5">
+          <p className="text-xs text-[var(--text-72)] leading-relaxed mb-5">
             Project summary, team, and investment highlights. No access code required.
           </p>
           <div className="flex flex-col gap-3">
@@ -96,22 +96,22 @@ const UGRPDataRoom = () => {
               Watch Film Preview · Blackbear Pictures →
             </a>
           </div>
-          <p className="text-[8px] uppercase tracking-[0.25em] text-[rgba(244,239,230,0.25)] leading-relaxed mt-5">
+          <p className="text-[8px] uppercase tracking-[0.25em] text-[var(--text-25)] leading-relaxed mt-5">
             © Blackbear Pictures. All Rights Reserved. IP owned by Blackbear Pictures.
           </p>
         </div>
 
         {/* Divider */}
         <div className="flex items-center gap-4 mb-8">
-          <div className="flex-1 border-t border-[rgba(244,239,230,0.08)]" />
-          <span className="text-[9px] uppercase tracking-[0.3em] text-[rgba(244,239,230,0.25)]">or</span>
-          <div className="flex-1 border-t border-[rgba(244,239,230,0.08)]" />
+          <div className="flex-1 border-t border-[var(--border)]" />
+          <span className="text-[9px] uppercase tracking-[0.3em] text-[var(--text-25)]">or</span>
+          <div className="flex-1 border-t border-[var(--border)]" />
         </div>
 
         {/* Option 2 — Gated full data room */}
         <div className="mb-2">
           <div className="text-[9px] uppercase tracking-[0.4em] text-[#CC0000] mb-3">Option 02 — Full Data Room</div>
-          <p className="text-xs text-[rgba(229,226,225,0.72)] leading-relaxed mb-6">
+          <p className="text-xs text-[var(--text-72)] leading-relaxed mb-6">
             Full financials, budget breakdown, legal structure, and supporting materials. Access code required.
           </p>
         </div>
@@ -119,7 +119,7 @@ const UGRPDataRoom = () => {
         {!granted ? (
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.45)] block mb-2">
+              <label className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-45)] block mb-2">
                 Your Email
               </label>
               <input
@@ -132,7 +132,7 @@ const UGRPDataRoom = () => {
               />
             </div>
             <div>
-              <label className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.45)] block mb-2">
+              <label className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-45)] block mb-2">
                 Access Code
               </label>
               <input
@@ -174,8 +174,8 @@ const UGRPDataRoom = () => {
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '20px' }}>
                 The Position
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.9, color: 'rgba(229,226,225,0.78)', marginBottom: '32px' }}>
-                Stanford Emporium Inc. is offering qualified investors a $2,000,000 USD Film Finance & Equity Access opportunity, with lifetime profit participation, through a partial assignment of the primary equity position held by C2 Motion Picture Group.
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.9, color: 'var(--text-72)', marginBottom: '32px' }}>
+                Last chance — one open slot remaining. Stanford Emporium Inc. is offering a single Lifetime Participation Share in a finished, delivered Guy Ritchie action thriller. Inquiry at $350,000 USD. Contact Stanford Emporium Inc. for contractual agreements.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {[
@@ -185,7 +185,7 @@ const UGRPDataRoom = () => {
                 ].map(card => (
                   <div key={card.title} style={{ background: 'rgba(244,239,230,0.03)', border: '1px solid rgba(244,239,230,0.07)', padding: '20px 18px' }}>
                     <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '10px' }}>{card.title}</p>
-                    <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'rgba(229,226,225,0.72)' }}>{card.body}</p>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'var(--text-72)' }}>{card.body}</p>
                   </div>
                 ))}
               </div>
@@ -196,10 +196,10 @@ const UGRPDataRoom = () => {
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '8px' }}>
                 Your Contractual Rights
               </p>
-              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: '#F4EFE6', lineHeight: 1.1, marginBottom: '8px' }}>
+              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: 'var(--text)', lineHeight: 1.1, marginBottom: '8px' }}>
                 The Waterfall
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'rgba(229,226,225,0.5)', marginBottom: '24px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'var(--text-45)', marginBottom: '24px' }}>
                 Payment order per the Collection Account Management Agreement (CAMA):
               </p>
               {[
@@ -212,10 +212,10 @@ const UGRPDataRoom = () => {
                 <div key={row.pri} style={{ display: 'grid', gridTemplateColumns: '28px 1fr auto', gap: '12px', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(244,239,230,0.06)', background: row.highlight ? 'rgba(255,200,0,0.04)' : 'transparent' }}>
                   <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '14px', color: row.highlight ? '#ffc800' : 'rgba(201,151,31,0.5)' }}>{row.pri}</span>
                   <span style={{ fontFamily: 'var(--font-sans)', fontWeight: row.highlight ? 400 : 300, fontSize: '12px', color: row.highlight ? '#ffc800' : 'rgba(229,226,225,0.65)', lineHeight: 1.45 }}>{row.label}</span>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', color: row.highlight ? '#ffc800' : 'rgba(229,226,225,0.35)', textAlign: 'right', whiteSpace: 'nowrap' }}>{row.note}</span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', color: row.highlight ? '#ffc800' : 'var(--text-35)', textAlign: 'right', whiteSpace: 'nowrap' }}>{row.note}</span>
                 </div>
               ))}
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.85, color: 'rgba(229,226,225,0.4)', fontStyle: 'italic', marginTop: '16px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.85, color: 'var(--text-35)', fontStyle: 'italic', marginTop: '16px' }}>
                 The production loan is retired. There are no finance parties between position iv and your recoupment. You collect next.
               </p>
             </div>
@@ -235,7 +235,7 @@ const UGRPDataRoom = () => {
                   <li key={i} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', marginBottom: '20px' }}>
                     <span style={{ width: '2px', minHeight: '18px', background: '#C9971F', flexShrink: 0, marginTop: '4px' }} />
                     <div>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '10px', letterSpacing: '0.12em', color: '#e5e2e1', marginBottom: '4px', textTransform: 'uppercase' }}>{item.head}</p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '10px', letterSpacing: '0.12em', color: 'var(--text)', marginBottom: '4px', textTransform: 'uppercase' }}>{item.head}</p>
                       <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'rgba(229,226,225,0.65)' }}>{item.body}</p>
                     </div>
                   </li>
@@ -248,7 +248,7 @@ const UGRPDataRoom = () => {
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
                 Stanford Emporium Inc. Role
               </p>
-              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: '#F4EFE6', lineHeight: 1.1, marginBottom: '20px' }}>
+              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: 'var(--text)', lineHeight: 1.1, marginBottom: '20px' }}>
                 Finder &amp; Consulting Executive Producer
               </p>
               {[
@@ -258,8 +258,8 @@ const UGRPDataRoom = () => {
                 { label: 'Documentation', value: 'Available under executed NDA', gold: false },
               ].map(row => (
                 <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '9px 0', borderBottom: '1px solid rgba(244,239,230,0.06)', gap: '20px' }}>
-                  <span style={{ fontSize: '11px', color: 'rgba(229,226,225,0.45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{row.label}</span>
-                  <span style={{ fontSize: '12px', color: row.gold ? '#ffc800' : '#e5e2e1', textAlign: 'right', fontWeight: row.gold ? 600 : 300, fontFamily: 'var(--font-sans)' }}>{row.value}</span>
+                  <span style={{ fontSize: '11px', color: 'var(--text-45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{row.label}</span>
+                  <span style={{ fontSize: '12px', color: row.gold ? '#ffc800' : 'var(--text)', textAlign: 'right', fontWeight: row.gold ? 600 : 300, fontFamily: 'var(--font-sans)' }}>{row.value}</span>
                 </div>
               ))}
             </div>
