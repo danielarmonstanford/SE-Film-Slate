@@ -108,6 +108,23 @@ export default function Nav() {
         </Link>
       </div>
 
+      {/* THEME TOGGLE — fixed top-right, left of hamburger */}
+      <button
+        onClick={toggleTheme}
+        aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+        style={{
+          position: 'fixed', top: '24px', right: '72px', zIndex: 200,
+          background: 'none', border: '1px solid var(--border-2)', cursor: 'pointer',
+          color: 'var(--text-45)', fontSize: '12px', padding: '5px 9px',
+          lineHeight: 1, transition: 'color 0.2s, border-color 0.2s',
+          fontFamily: 'Arial, Helvetica, sans-serif',
+        }}
+        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#C9971F'; (e.currentTarget as HTMLButtonElement).style.borderColor = '#C9971F'; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-45)'; (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--border-2)'; }}
+      >
+        {theme === 'dark' ? '☀' : '☽'}
+      </button>
+
       {/* HAMBURGER — fixed top-right */}
       <button
         onClick={() => setMenuOpen(o => !o)}
