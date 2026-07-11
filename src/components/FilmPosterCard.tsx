@@ -73,22 +73,22 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         }}
       />
 
-      {/* Top gradient */}
+      {/* Top gradient — always dark, sits on poster image */}
       <div style={{
         position: 'absolute',
         top: 0, left: 0, right: 0,
         height: '35%',
-        background: 'linear-gradient(to bottom, var(--overlay-mid), transparent)',
+        background: 'linear-gradient(to bottom, rgba(8,8,8,0.65), transparent)',
         pointerEvents: 'none',
       }} />
 
-      {/* Ghost overlay box */}
+      {/* Ghost overlay box — always dark regardless of theme */}
       <div style={{
         position: 'absolute',
         bottom: 0, left: 0, right: 0,
-        background: 'var(--overlay-mid)',
-        backdropFilter: 'blur(6px)',
-        WebkitBackdropFilter: 'blur(6px)',
+        background: 'rgba(8,8,8,0.82)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
         borderTop: '1px solid rgba(255,255,255,0.08)',
         padding: '14px 16px 16px',
       }}>
@@ -139,13 +139,13 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
             ...LABEL,
             fontSize: '0.6rem',
             letterSpacing: '0.3em',
-            color: 'var(--text-45)',
+            color: 'rgba(255,255,255,0.5)',
             marginBottom: '10px',
             lineHeight: 1.6,
           }}>
             {project.budget && <span>{project.budget}</span>}
             {project.budget && project.equityAsk && (
-              <span style={{ color: 'var(--text-25)', margin: '0 6px' }}>·</span>
+              <span style={{ color: 'rgba(255,255,255,0.28)', margin: '0 6px' }}>·</span>
             )}
             {project.equityAsk && (
               <span style={{ color: '#C9971F' }}>{project.equityAsk}</span>
@@ -156,7 +156,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         {/* Divider */}
         <div style={{
           height: '1px',
-          background: 'var(--surface-hover)',
+          background: 'rgba(255,255,255,0.08)',
           marginBottom: '10px',
         }} />
 
