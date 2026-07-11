@@ -320,6 +320,80 @@ const ProjectDetail: React.FC = () => {
         </motion.div>
       </section>
 
+      {/* TRAILER SECTION — shown when trailerYoutubeId is set */}
+      {project.trailerYoutubeId && (
+        <section style={{ background: '#080705', padding: '0' }}>
+          {/* Top label bar */}
+          <div style={{
+            padding: 'clamp(32px, 4vw, 56px) clamp(28px, 6vw, 100px) 0',
+            display: 'flex', alignItems: 'center', gap: '20px',
+          }}>
+            <span style={{
+              fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px',
+              letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F',
+            }}>
+              Official Trailer
+            </span>
+            <div style={{ flex: 1, height: '1px', background: 'rgba(201,151,31,0.2)' }} />
+            <span style={{
+              fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px',
+              letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.25)',
+            }}>
+              Paramount Pictures · September 4
+            </span>
+          </div>
+
+          {/* Full-width video */}
+          <div style={{
+            position: 'relative', width: '100%',
+            paddingBottom: '56.25%',
+            marginTop: 'clamp(24px, 3vw, 40px)',
+          }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${project.trailerYoutubeId}?rel=0&modestbranding=1`}
+              title={`${project.title} — Official Trailer`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute', inset: 0,
+                width: '100%', height: '100%',
+                border: 'none',
+              }}
+            />
+          </div>
+
+          {/* Bottom tagline */}
+          <div style={{
+            padding: 'clamp(24px, 3vw, 40px) clamp(28px, 6vw, 100px) clamp(40px, 5vw, 72px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px',
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300,
+              fontSize: 'clamp(1rem, 2vw, 1.4rem)', color: 'rgba(244,239,230,0.55)',
+              margin: 0, maxWidth: '680px', lineHeight: 1.55,
+            }}>
+              "{project.logline}"
+            </p>
+            <a
+              href={`https://www.youtube.com/watch?v=${project.trailerYoutubeId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px',
+                letterSpacing: '0.32em', textTransform: 'uppercase',
+                color: '#C9971F', textDecoration: 'none',
+                border: '1px solid rgba(201,151,31,0.35)', padding: '10px 20px',
+                flexShrink: 0, transition: 'background 0.2s, color 0.2s',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.color = '#080705'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}
+            >
+              Watch on YouTube →
+            </a>
+          </div>
+        </section>
+      )}
+
       {/* SECTION 2: INVESTMENT SNAPSHOT */}
       <section className="py-32 px-4 md:px-20 bg-[var(--bg)]">
         <div className="max-w-7xl mx-auto">

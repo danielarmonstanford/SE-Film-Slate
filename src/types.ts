@@ -35,6 +35,7 @@ export interface Project {
   dataRoomGatedPath?: string;
   notionPageId?: string;
   youtubeId?: string;
+  trailerYoutubeId?: string;
   team: { role: string; name: string }[];
   // Extended investment fields
   number?: string;
@@ -83,6 +84,7 @@ export const PROJECTS: Project[] = [
     shortTitle: 'By Any Means',
     urgency: true,
     highlightColor: '#C9A800',
+    trailerYoutubeId: 'ej8pjisr0Pc',
     positioning: 'Stanford Emporium Inc. is positioned to represent Asian theatrical and ancillary distribution rights across Southeast Asian and East Asian territories for this Paramount major studio release starring Mark Wahlberg and Yahya Abdul-Mateen II — with a September 4 US opening creating an immediate pre-release acquisition window.',
     budgetRange: 'Major Studio — Paramount Pictures',
     equityAvailable: 'Asian Territorial Rights',
