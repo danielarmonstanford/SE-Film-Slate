@@ -333,35 +333,35 @@ export default function Home({ setIsHovering }: HomeProps) {
             </div>
           </a>
 
-          {/* POSTER 2 — UGRP */}
-          <a href="/project/ugrp" style={{ display: 'block', textDecoration: 'none' }}>
+          {/* POSTER 2 — Lost Book of Creation */}
+          <a href="/project/lost-book-of-creation" style={{ display: 'block', textDecoration: 'none' }}>
             <div
               style={{
                 width: '100%', aspectRatio: '2/3', background: 'var(--bg-2)',
                 border: '1px solid var(--border)', overflow: 'hidden',
                 position: 'relative', transition: 'border-color 0.4s',
               }}
-              onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'}
+              onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(201,151,31,0.4)'}
               onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--border)'}
             >
-              <img src="/ugrp-poster.jpg" alt="Untitled Guy Ritchie Project"
+              <img src="https://res.cloudinary.com/dno3ruh4b/image/upload/v1783778860/nano-banana-2_Epic_cinematic_movie_poster_LOST_BOOK_OF_CREATION_in_bold_gold_weathered_serif_t-1_b4imfc.jpg" alt="Lost Book of Creation"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', opacity: 0.85, filter: 'contrast(1.05)' }} />
               <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%',
                 background: 'linear-gradient(to top, var(--overlay-dark) 0%, transparent 100%)' }} />
               <div style={{ position: 'absolute', top: '12px', left: '12px',
                 fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
-                letterSpacing: '0.3em', textTransform: 'uppercase', color: '#ffc800',
-                border: '1px solid rgba(255,200,0,0.5)', padding: '3px 7px', background: 'var(--overlay-mid)' }}>
-                Film Finance & Equity Access
+                letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9971F',
+                border: '1px solid rgba(201,151,31,0.5)', padding: '3px 7px', background: 'var(--overlay-mid)' }}>
+                Funding Open
               </div>
               <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300,
                   fontSize: 'clamp(14px,2.5vw,22px)', color: 'var(--text)', lineHeight: 1.1, marginBottom: '5px' }}>
-                  In The Grey
+                  Lost Book of Creation
                 </div>
                 <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
                   letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-72)' }}>
-                  Henry Cavill · Jake Gyllenhaal
+                  Russell Crowe · Jessica Alba · Eddie Hall
                 </div>
               </div>
             </div>
@@ -372,7 +372,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         {/* ── FEATURED TRAILER ── */}
         <div style={{ width: '100%', maxWidth: '860px', marginTop: '56px' }}>
           {/* Label + title */}
-          <Link to="/project/ugrp" style={{ display: 'block', textDecoration: 'none', marginBottom: '16px', textAlign: 'left' }}>
+          <Link to="/project/lost-book-of-creation" style={{ display: 'block', textDecoration: 'none', marginBottom: '16px', textAlign: 'left' }}>
             <p style={{
               fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700,
               fontSize: '8px', letterSpacing: '0.4em', textTransform: 'uppercase',
@@ -385,22 +385,22 @@ export default function Home({ setIsHovering }: HomeProps) {
               fontWeight: 300, fontSize: 'clamp(1.4rem, 3vw, 2rem)',
               color: '#C9971F', lineHeight: 1.1, marginBottom: '4px',
             }}>
-              In The Grey
+              Lost Book of Creation
             </p>
             <p style={{
               fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700,
               fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase',
               color: 'var(--text-45)',
             }}>
-              Henry Cavill · Jake Gyllenhaal · Eiza González · Dir. Guy Ritchie
+              Russell Crowe · Jessica Alba · Eddie Hall · Dir. Roel Reiné
             </p>
           </Link>
-          {/* Embed */}
+          {/* Embed — Vimeo unlisted */}
           <div style={{ width: '100%', aspectRatio: '16/9', background: 'var(--bg)' }}>
             <iframe
-              src="https://www.youtube.com/embed/nufP15iN4GE?rel=0&modestbranding=1"
-              title="In The Grey — Official Trailer"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src="https://player.vimeo.com/video/1055495356?h=7e45a17405&title=0&byline=0&portrait=0"
+              title="Lost Book of Creation — Featured Trailer"
+              allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
               style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
             />

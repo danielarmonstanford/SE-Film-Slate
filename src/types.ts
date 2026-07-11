@@ -286,6 +286,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'ugrp',
     slug: 'ugrp',
+    youtubeId: 'nufP15iN4GE',
     number: '002',
     shortTitle: 'UGRP',
     title: 'In The Grey',
