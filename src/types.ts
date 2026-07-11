@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
     taxIncentives: 'Tuscany / Italy production incentives — inquire for structure',
     salesStrategy: 'International theatrical release targeting European, North American, and Asian markets. Gangster crime genre with strong cross-territory appeal and cinematic Tuscany setting driving premium ancillary value.',
     targetROI: 'Inquire for Terms',
-    comparables: ['The Godfather Part III', 'Once Upon a Time in America', 'Sicario'],
+    comparables: ['Sexy Beast', 'The Gentlemen', 'Once Upon a Time in America'],
     marketPositioning: 'Prestige gangster crime in the tradition of European crime cinema. Tuscany setting and international ensemble cast position this as a premium theatrical play with strong ancillary and streaming upside.',
     audience: 'Adult crime-drama audiences globally; premium streaming and theatrical across Europe, North America, and Asia.',
     timingRelevance: 'Investment round currently open. Stanford Emporium Inc. is presenting the full deck to qualified investors — contact for terms and financial structure.',
