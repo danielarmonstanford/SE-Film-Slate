@@ -250,7 +250,7 @@ const ProjectDetail: React.FC = () => {
     <div className="bg-[var(--bg)] min-h-screen text-[var(--text)]">
 
       {/* SECTION 1: HERO */}
-      <section className="relative h-[90vh] flex items-end pb-24 px-4 md:px-20 overflow-hidden">
+      <section className="relative h-[90vh] flex items-end pb-24 overflow-hidden" style={{ paddingLeft: 'clamp(28px, 6vw, 100px)', paddingRight: 'clamp(28px, 6vw, 100px)' }}>
         <div className="absolute inset-0 z-0">
           <img
             src={project.image}
@@ -265,13 +265,13 @@ const ProjectDetail: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 max-w-5xl"
+          className="relative z-10 w-full max-w-5xl"
         >
           <div className="label-text text-[10px] text-[var(--bronze)] mb-6 uppercase tracking-[0.4em]">01 / OPPORTUNITY HERO</div>
-          <h1 className="text-[clamp(3.5rem,10vw,10rem)] leading-[0.88] mb-8 uppercase tracking-tighter">
+          <h1 className="text-[clamp(2.8rem,6.5vw,7rem)] leading-[0.9] mb-8 uppercase tracking-tight">
             {project.title}
           </h1>
-          <p className="text-[var(--cream)] text-2xl md:text-3xl mb-12 opacity-90 italic max-w-3xl font-light">
+          <p className="text-[var(--cream)] text-xl md:text-2xl mb-12 opacity-90 italic max-w-3xl font-light">
             "{project.positioning}"
           </p>
           <div className="flex flex-wrap gap-8 items-center mb-12">
