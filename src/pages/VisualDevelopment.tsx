@@ -104,11 +104,11 @@ const VisualDevelopment = () => {
   const [activeWorld, setActiveWorld] = useState<string | null>(null);
 
   return (
-    <div style={{ background: '#080705', color: '#F4EFE6', minHeight: '100vh' }}>
+    <div style={{ background: 'var(--bg)', color: 'var(--text)', minHeight: '100vh' }}>
 
       {/* ── SECTION 1 — PAGE HEADER ───────────────────────────────────────── */}
       <section style={{
-        background: '#080705',
+        background: 'var(--bg)',
         padding: 'clamp(120px,12vw,160px) clamp(40px,6vw,80px) clamp(48px,6vw,72px)',
       }}>
         <p style={{ ...LABEL, color: '#C9971F', marginBottom: '16px' }}>
@@ -120,7 +120,7 @@ const VisualDevelopment = () => {
           fontStyle: 'italic',
           fontSize: 'clamp(3.5rem, 7vw, 7rem)',
           lineHeight: 0.9,
-          color: '#F4EFE6',
+          color: 'var(--text)',
           marginBottom: '24px',
         }}>
           Worlds.
@@ -130,7 +130,7 @@ const VisualDevelopment = () => {
           fontWeight: 300,
           fontSize: '1.05rem',
           lineHeight: 1.8,
-          color: 'rgba(244,239,230,0.85)',
+          color: 'var(--text-72)',
           maxWidth: '560px',
           margin: 0,
         }}>
@@ -140,7 +140,7 @@ const VisualDevelopment = () => {
 
       {/* ── SECTION 2 — WORLD TILES ──────────────────────────────────────── */}
       <section style={{
-        background: '#080705',
+        background: 'var(--bg)',
         padding: '0 clamp(40px,6vw,80px) clamp(64px,8vw,100px)',
       }}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: '2px' }}>
@@ -178,14 +178,14 @@ const VisualDevelopment = () => {
                 position: 'absolute',
                 bottom: 0, left: 0, right: 0,
                 padding: '18px',
-                background: 'linear-gradient(to top, rgba(8,7,5,0.92), transparent)',
+                background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
               }}>
                 <p style={{
                   fontFamily: 'var(--font-serif)',
                   fontStyle: 'italic',
                   fontWeight: 300,
                   fontSize: '22px',
-                  color: '#F4EFE6',
+                  color: 'var(--text)',
                   marginBottom: '4px',
                 }}>
                   {tile.name}
@@ -194,7 +194,7 @@ const VisualDevelopment = () => {
                   ...LABEL,
                   fontSize: '10px',
                   letterSpacing: '0.3em',
-                  color: 'rgba(244,239,230,0.7)',
+                  color: 'var(--text-72)',
                   margin: '0 0 4px',
                 }}>
                   {tile.sub}
@@ -203,7 +203,7 @@ const VisualDevelopment = () => {
                   ...LABEL,
                   fontSize: '8px',
                   letterSpacing: '0.25em',
-                  color: 'rgba(244,239,230,0.35)',
+                  color: 'var(--text-35)',
                   margin: 0,
                 }}>
                   {tile.count}
@@ -226,8 +226,8 @@ const VisualDevelopment = () => {
                 fontSize: '0.65rem',
                 letterSpacing: '0.45em',
                 textTransform: 'uppercase',
-                color: 'rgba(244,239,230,0.7)',
-                border: '1px solid rgba(244,239,230,0.35)',
+                color: 'var(--text-72)',
+                border: '1px solid var(--text-35)',
                 padding: '5px 14px',
               }}>
                 Editorial Reference
@@ -238,13 +238,13 @@ const VisualDevelopment = () => {
                 fontSize: '0.65rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                color: 'rgba(244,239,230,0.55)',
+                color: 'var(--text-45)',
               }}>
                 Informative only · ILM StageCraft · Not a Stanford Emporium production
               </div>
             </div>
           </div>
-          <div style={{ gridColumn: '1 / -1', position: 'relative', aspectRatio: '16/9', background: '#0a0805' }}>
+          <div style={{ gridColumn: '1 / -1', position: 'relative', aspectRatio: '16/9', background: 'var(--bg)' }}>
             <iframe
               src="https://www.youtube.com/embed/gUnxzVOs3rk?rel=0&modestbranding=1"
               title="LED Volume & Virtual Production"
@@ -256,7 +256,7 @@ const VisualDevelopment = () => {
               position: 'absolute',
               bottom: 0, left: 0, right: 0,
               padding: '18px',
-              background: 'linear-gradient(to top, rgba(8,7,5,0.92), transparent)',
+              background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
               pointerEvents: 'none',
             }}>
               <p style={{
@@ -264,7 +264,7 @@ const VisualDevelopment = () => {
                 fontStyle: 'italic',
                 fontWeight: 300,
                 fontSize: '22px',
-                color: '#F4EFE6',
+                color: 'var(--text)',
                 marginBottom: '6px',
               }}>
                 LED Volume & Virtual Production
@@ -273,7 +273,7 @@ const VisualDevelopment = () => {
                 ...LABEL,
                 fontSize: '10px',
                 letterSpacing: '0.3em',
-                color: 'rgba(244,239,230,0.7)',
+                color: 'var(--text-72)',
                 margin: 0,
               }}>
                 NuLab Studio · AI Visual Pipeline
@@ -288,7 +288,7 @@ const VisualDevelopment = () => {
             style={{
               position: 'fixed',
               inset: 0,
-              background: 'rgba(8,7,5,0.96)',
+              background: 'var(--overlay-dark)',
               zIndex: 500,
               display: 'flex',
               flexDirection: 'column',
@@ -340,7 +340,7 @@ const VisualDevelopment = () => {
                     fontStyle: 'italic',
                     fontWeight: 300,
                     fontSize: 'clamp(2rem,5vw,4rem)',
-                    color: '#F4EFE6',
+                    color: 'var(--text)',
                     lineHeight: 0.95,
                   }}>
                     {world.name}
@@ -362,7 +362,7 @@ const VisualDevelopment = () => {
                       fontStyle: 'italic',
                       fontWeight: 300,
                       fontSize: '1.4rem',
-                      color: 'rgba(244,239,230,0.4)',
+                      color: 'var(--text-35)',
                     }}>
                       Archive in preparation.
                     </p>
@@ -372,7 +372,7 @@ const VisualDevelopment = () => {
                       fontSize: '0.65rem',
                       letterSpacing: '0.4em',
                       textTransform: 'uppercase',
-                      color: 'rgba(244,239,230,0.25)',
+                      color: 'var(--text-25)',
                       marginTop: '16px',
                     }}>
                       Daniel@StanfordEmporium.com
@@ -420,7 +420,7 @@ const VisualDevelopment = () => {
                 letterSpacing: '0.28em',
                 textTransform: 'uppercase',
                 background: '#CC0000',
-                color: '#F4EFE6',
+                color: 'var(--text)',
                 padding: '12px 28px',
                 textDecoration: 'none',
               }}
@@ -435,14 +435,14 @@ const VisualDevelopment = () => {
       <div style={{
         width: '100%',
         height: '1px',
-        background: 'rgba(244,239,230,0.06)',
+        background: 'var(--border)',
         margin: '80px 0 0',
       }} />
 
       {/* ── SECTION 3 — REQUEST STRIP ─────────────────────────────────────── */}
       <section style={{
-        background: '#060604',
-        borderTop: '1px solid rgba(244,239,230,0.05)',
+        background: 'var(--bg)',
+        borderTop: '1px solid var(--border)',
         padding: 'clamp(56px,7vw,80px) clamp(40px,6vw,80px)',
         textAlign: 'center',
         marginTop: '120px',
@@ -452,7 +452,7 @@ const VisualDevelopment = () => {
           fontWeight: 300,
           fontStyle: 'italic',
           fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
-          color: 'rgba(244,239,230,0.88)',
+          color: 'var(--text-72)',
           maxWidth: '600px',
           margin: '0 auto 32px',
           lineHeight: 1.8,
@@ -469,7 +469,7 @@ const VisualDevelopment = () => {
             letterSpacing: '0.28em',
             textTransform: 'uppercase',
             background: '#C9971F',
-            color: '#080705',
+            color: 'var(--bg)',
             padding: '12px 28px',
             textDecoration: 'none',
             display: 'inline-block',

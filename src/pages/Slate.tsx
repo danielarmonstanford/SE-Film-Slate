@@ -52,12 +52,12 @@ const Slate: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-[var(--black)] min-h-screen pt-[160px] pb-[120px]">
+    <div className="bg-[var(--bg)] min-h-screen pt-[160px] pb-[120px]">
       <div className="px-4 md:px-20 max-w-[1800px] mx-auto">
 
         <header className="mb-24 reveal">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-6">02 / INVESTMENT OPPORTUNITIES</div>
-          <h1 style={{ fontSize: 'clamp(4rem, 8vw, 9rem)', fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic', color: '#e5e2e1', lineHeight: 1, marginBottom: '48px' }}>
+          <h1 style={{ fontSize: 'clamp(4rem, 8vw, 9rem)', fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic', color: 'var(--text)', lineHeight: 1, marginBottom: '48px' }}>
             Film.
           </h1>
           <p className="text-[var(--cream)] text-lg max-w-2xl leading-relaxed opacity-80">
@@ -91,14 +91,14 @@ const Slate: React.FC = () => {
                     rel="noopener noreferrer"
                     style={{
                       display: 'block', textAlign: 'center', padding: '10px',
-                      border: '1px solid rgba(244,239,230,0.15)',
+                      border: '1px solid var(--border)',
                       fontFamily: "'Barlow', sans-serif", fontWeight: 300,
                       fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase',
-                      color: 'rgba(244,239,230,0.65)', textDecoration: 'none',
+                      color: 'var(--text-72)', textDecoration: 'none',
                       transition: 'background 0.3s, color 0.3s',
                     }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(244,239,230,0.06)'; (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.65)'; }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--border)'; (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-72)'; }}
                   >
                     ↓ Finance Dossier — PDF
                   </a>
@@ -108,14 +108,14 @@ const Slate: React.FC = () => {
                     rel="noopener noreferrer"
                     style={{
                       display: 'block', textAlign: 'center', padding: '10px',
-                      border: '1px solid rgba(244,239,230,0.15)',
+                      border: '1px solid var(--border)',
                       fontFamily: "'Barlow', sans-serif", fontWeight: 300,
                       fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase',
-                      color: 'rgba(244,239,230,0.65)', textDecoration: 'none',
+                      color: 'var(--text-72)', textDecoration: 'none',
                       transition: 'background 0.3s, color 0.3s',
                     }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(244,239,230,0.06)'; (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.65)'; }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--border)'; (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-72)'; }}
                   >
                     ↓ Pitch Deck — PDF
                   </a>
@@ -126,8 +126,8 @@ const Slate: React.FC = () => {
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-40 pt-24 border-t border-[rgba(244,239,230,0.1)] text-center reveal">
-          <h2 className="text-4xl text-white mb-12" style={{ fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic' }}>
+        <div className="mt-40 pt-24 border-t border-[var(--border)] text-center reveal">
+          <h2 className="text-4xl text-[var(--text)] mb-12" style={{ fontFamily: 'var(--font-serif)', fontWeight: 300, fontStyle: 'italic' }}>
             Investor Access &amp; Production Engagement
           </h2>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -141,7 +141,7 @@ const Slate: React.FC = () => {
             </Link>
             <a
               href="mailto:Daniel@StanfordEmporium.com?subject=Investor%20Call%20Request"
-              className="btn-text border border-[rgba(244,239,230,0.2)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+              className="btn-text border border-[var(--border)] text-[var(--text)] px-10 py-4 hover:bg-[var(--text)] hover:text-[var(--bg)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >

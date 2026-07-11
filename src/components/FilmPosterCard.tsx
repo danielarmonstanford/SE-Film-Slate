@@ -46,10 +46,10 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         position: 'relative',
         aspectRatio: '2/3',
         overflow: 'hidden',
-        background: '#0a0805',
+        background: 'var(--bg)',
         border: hovered
           ? '1px solid rgba(201,151,31,0.35)'
-          : '1px solid rgba(244,239,230,0.07)',
+          : '1px solid var(--border)',
         transition: 'border-color 0.4s ease',
         cursor: 'pointer',
       }}
@@ -78,7 +78,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         position: 'absolute',
         top: 0, left: 0, right: 0,
         height: '35%',
-        background: 'linear-gradient(to bottom, rgba(8,7,5,0.55), transparent)',
+        background: 'linear-gradient(to bottom, var(--overlay-mid), transparent)',
         pointerEvents: 'none',
       }} />
 
@@ -86,7 +86,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
       <div style={{
         position: 'absolute',
         bottom: 0, left: 0, right: 0,
-        background: 'rgba(8,7,5,0.72)',
+        background: 'var(--overlay-mid)',
         backdropFilter: 'blur(6px)',
         WebkitBackdropFilter: 'blur(6px)',
         borderTop: '1px solid rgba(255,255,255,0.08)',
@@ -139,13 +139,13 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
             ...LABEL,
             fontSize: '0.6rem',
             letterSpacing: '0.3em',
-            color: 'rgba(244,239,230,0.5)',
+            color: 'var(--text-45)',
             marginBottom: '10px',
             lineHeight: 1.6,
           }}>
             {project.budget && <span>{project.budget}</span>}
             {project.budget && project.equityAsk && (
-              <span style={{ color: 'rgba(244,239,230,0.25)', margin: '0 6px' }}>·</span>
+              <span style={{ color: 'var(--text-25)', margin: '0 6px' }}>·</span>
             )}
             {project.equityAsk && (
               <span style={{ color: '#C9971F' }}>{project.equityAsk}</span>
@@ -156,7 +156,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         {/* Divider */}
         <div style={{
           height: '1px',
-          background: 'rgba(244,239,230,0.12)',
+          background: 'var(--surface-hover)',
           marginBottom: '10px',
         }} />
 

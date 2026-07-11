@@ -12,7 +12,7 @@ const LABEL: React.CSSProperties = {
 
 const LABEL_MUTED: React.CSSProperties = {
   ...LABEL,
-  color: 'rgba(244,239,230,0.75)',
+  color: 'var(--text-72)',
 };
 
 const BTN_BASE: React.CSSProperties = {
@@ -44,7 +44,7 @@ const About = () => {
   }, []);
 
   return (
-    <div style={{ background: '#080705', color: '#F4EFE6', minHeight: '100vh' }}>
+    <div style={{ background: 'var(--bg)', color: 'var(--text)', minHeight: '100vh' }}>
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section style={{ position: 'relative', width: '100%', height: '55vh', overflow: 'hidden' }}>
@@ -60,7 +60,7 @@ const About = () => {
         {/* Minimal bottom fade for text legibility only */}
         <div style={{
           position: 'absolute', bottom: 0, left: 0, right: 0, height: '45%',
-          background: 'linear-gradient(to top, rgba(8,7,5,0.82), transparent)',
+          background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
         }} />
         {/* Content */}
         <div style={{ position: 'absolute', bottom: 0, left: 0, padding: '0 60px 36px 40px' }}>
@@ -71,7 +71,7 @@ const About = () => {
             fontStyle: 'italic',
             fontSize: 'clamp(3.5rem, 7vw, 8rem)',
             lineHeight: 0.9,
-            color: '#F4EFE6',
+            color: 'var(--text)',
             margin: '0 0 14px 0',
             textShadow: '0 2px 24px rgba(0,0,0,0.5)',
           }}>
@@ -84,7 +84,7 @@ const About = () => {
             fontSize: '10px',
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'rgba(244,239,230,0.5)',
+            color: 'var(--text-45)',
           }}>
             Location Sri Lanka · Daniel A Stanford · Spring 2023
           </p>
@@ -93,7 +93,7 @@ const About = () => {
 
       {/* ── SECTION 2 — EXECUTIVE SUMMARY ────────────────────────────────── */}
       <section style={{
-        background: '#080705',
+        background: 'var(--bg)',
         padding: 'clamp(56px,7vw,90px) clamp(40px,6vw,80px)',
       }}>
         <div style={{
@@ -126,7 +126,7 @@ const About = () => {
               fontWeight: 300,
               fontStyle: 'italic',
               fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
-              color: '#F4EFE6',
+              color: 'var(--text)',
               marginBottom: '20px',
               lineHeight: 1.1,
             }}>
@@ -137,7 +137,7 @@ const About = () => {
               fontWeight: 300,
               fontSize: 'clamp(1rem, 1.6vw, 1.1rem)',
               lineHeight: 2,
-              color: 'rgba(244,239,230,0.85)',
+              color: 'var(--text-72)',
               marginBottom: '32px',
               display: 'flex',
               flexDirection: 'column',
@@ -152,20 +152,20 @@ const About = () => {
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
               <Link
                 to="/investor-inquiry"
-                style={{ ...BTN_BASE, background: '#C9971F', color: '#080705' }}
+                style={{ ...BTN_BASE, background: '#C9971F', color: 'var(--bg)' }}
               >
                 Access Investor Materials
               </Link>
               <Link
                 to="/investment-opportunities"
-                style={{ ...BTN_BASE, border: '1px solid rgba(244,239,230,0.35)', color: 'rgba(244,239,230,0.9)' }}
+                style={{ ...BTN_BASE, border: '1px solid var(--text-35)', color: 'var(--text-72)' }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLAnchorElement).style.borderColor = '#C9971F';
                   (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F';
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(244,239,230,0.35)';
-                  (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(244,239,230,0.9)';
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--text-35)';
+                  (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-72)';
                 }}
               >
                 View Film Slate
@@ -189,7 +189,7 @@ const About = () => {
                     fontFamily: 'var(--font-sans)',
                     fontWeight: 300,
                     fontSize: '17px',
-                    color: 'rgba(244,239,230,0.95)',
+                    color: 'var(--text)',
                     lineHeight: 1.6,
                   }}>
                     {b}
@@ -204,8 +204,8 @@ const About = () => {
 
       {/* ── SECTION 3 — PUBLISHED WORKS STRIP ───────────────────────────── */}
       <section style={{
-        background: '#060604',
-        borderTop: '1px solid rgba(244,239,230,0.05)',
+        background: 'var(--bg)',
+        borderTop: '1px solid var(--border)',
         padding: 'clamp(48px,6vw,72px) clamp(40px,6vw,80px)',
       }}>
         <p style={{ ...LABEL, marginBottom: '28px' }}>Published Works</p>
@@ -217,8 +217,8 @@ const About = () => {
 
           {/* Card 1 — Sea of Dunes */}
           <div style={{
-            background: '#080705',
-            border: '1px solid rgba(244,239,230,0.06)',
+            background: 'var(--bg)',
+            border: '1px solid var(--border)',
             borderLeft: '2px solid rgba(201,151,31,0.3)',
             overflow: 'hidden',
           }}>
@@ -236,14 +236,14 @@ const About = () => {
                 fontStyle: 'italic',
                 fontWeight: 300,
                 fontSize: '1.4rem',
-                color: '#F4EFE6',
+                color: 'var(--text)',
                 marginBottom: '8px',
               }}>Sea of Dunes</p>
               <p style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 300,
                 fontSize: '14px',
-                color: 'rgba(244,239,230,0.8)',
+                color: 'var(--text-72)',
                 lineHeight: 1.65,
                 marginBottom: '16px',
               }}>Large-format photography. La Luna Soul Press.</p>
@@ -262,8 +262,8 @@ const About = () => {
 
           {/* Card 2 — Fascinasia */}
           <div style={{
-            background: '#080705',
-            border: '1px solid rgba(244,239,230,0.06)',
+            background: 'var(--bg)',
+            border: '1px solid var(--border)',
             borderLeft: '2px solid rgba(201,151,31,0.3)',
             overflow: 'hidden',
           }}>
@@ -281,14 +281,14 @@ const About = () => {
                 fontStyle: 'italic',
                 fontWeight: 300,
                 fontSize: '1.4rem',
-                color: '#F4EFE6',
+                color: 'var(--text)',
                 marginBottom: '8px',
               }}>Fascinasia</p>
               <p style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 300,
                 fontSize: '14px',
-                color: 'rgba(244,239,230,0.8)',
+                color: 'var(--text-72)',
                 lineHeight: 1.65,
                 marginBottom: '16px',
               }}>Published visual art compendium.</p>
@@ -310,8 +310,8 @@ const About = () => {
 
       {/* ── SECTION 4 — PHILOSOPHY + CTA ─────────────────────────────────── */}
       <section style={{
-        background: '#080705',
-        borderTop: '1px solid rgba(244,239,230,0.05)',
+        background: 'var(--bg)',
+        borderTop: '1px solid var(--border)',
         padding: 'clamp(64px,8vw,100px) clamp(40px,6vw,80px)',
         textAlign: 'center',
       }}>
@@ -321,7 +321,7 @@ const About = () => {
             fontWeight: 300,
             fontStyle: 'italic',
             fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
-            color: '#F4EFE6',
+            color: 'var(--text)',
             lineHeight: 1.3,
             marginBottom: '20px',
           }}>
@@ -332,7 +332,7 @@ const About = () => {
             fontWeight: 300,
             fontSize: '1.05rem',
             lineHeight: 1.9,
-            color: 'rgba(244,239,230,0.82)',
+            color: 'var(--text-72)',
             marginBottom: '40px',
           }}>
             Spatial intelligence, visual authority, and investor-facing discipline — applied to
@@ -340,7 +340,7 @@ const About = () => {
           </p>
           <Link
             to="/investor-inquiry"
-            style={{ ...BTN_BASE, background: '#C9971F', color: '#080705', padding: '14px 32px' }}
+            style={{ ...BTN_BASE, background: '#C9971F', color: 'var(--bg)', padding: '14px 32px' }}
           >
             Access Investor Materials
           </Link>

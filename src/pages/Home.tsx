@@ -34,7 +34,7 @@ function DeliverBg() {
       >
         <source src="/birth-ai.mp4" type="video/mp4" />
       </video>
-      <div style={{ position: 'absolute', inset: 0, background: 'rgba(8,7,5,0.6)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'var(--overlay-mid)' }} />
     </div>
   );
 }
@@ -92,7 +92,7 @@ export default function Home({ setIsHovering }: HomeProps) {
   };
 
   return (
-    <div className="bg-[var(--black)]">
+    <div className="bg-[var(--bg)]">
       {/* SECTION 1 — HERO */}
       <section
         aria-label="Featured campaign work by Daniel Stanford"
@@ -123,10 +123,10 @@ export default function Home({ setIsHovering }: HomeProps) {
         />
 
         {/* TOP GRADIENT */}
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '38%', background: 'linear-gradient(to bottom, rgba(8,8,8,0.72) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '38%', background: 'linear-gradient(to bottom, var(--overlay-mid) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
 
         {/* BOTTOM GRADIENT */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '62%', background: 'linear-gradient(to top, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0.48) 50%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '62%', background: 'linear-gradient(to top, var(--overlay-dark) 0%, var(--overlay-mid) 50%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
 
         {/* HERO TEXT BLOCK — entrance slide + scroll parallax */}
         <motion.div
@@ -136,11 +136,11 @@ export default function Home({ setIsHovering }: HomeProps) {
           transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
         <div className="hero-text-block" style={{ padding: '0 60px 44px 28px' }}>
-          <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.72)', marginBottom: '14px' }}>
+          <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--text-72)', marginBottom: '14px' }}>
             Executive Producer · Production Design · Film Investment
           </div>
           <h1 style={{ margin: 0, padding: 0 }}>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#e5e2e1', display: 'block' }}>
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: 'var(--text)', display: 'block' }}>
               I direct ideas
             </span>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(42px, 6.5vw, 80px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: '#C9971F', display: 'block', marginBottom: '24px' }}>
@@ -151,7 +151,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             className="hero-invest-btn"
             onClick={() => navigate('/investment-opportunities')}
             style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '10px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9971F', border: '1px solid rgba(201,151,31,0.5)', padding: '12px 28px', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#C9971F'; (e.currentTarget as HTMLButtonElement).style.color = '#080808'; }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#C9971F'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--bg)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = '#C9971F'; }}
           >
             INVEST IN FILM
@@ -166,12 +166,12 @@ export default function Home({ setIsHovering }: HomeProps) {
 
       {/* FEATURED PRODUCTIONS — TWO POSTERS */}
       <section style={{
-        background: '#080808',
+        background: 'var(--bg)',
         padding: 'clamp(80px,10vw,120px) clamp(28px,6vw,80px)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        borderTop: '1px solid rgba(229,226,225,0.04)',
+        borderTop: '1px solid var(--border)',
       }}>
         <div style={{
           fontFamily: "'Cormorant Garamond', serif",
@@ -200,20 +200,20 @@ export default function Home({ setIsHovering }: HomeProps) {
             <div
               style={{
                 width: '100%', aspectRatio: '2/3', background: '#1a1208',
-                border: '1px solid rgba(229,226,225,0.08)', overflow: 'hidden',
+                border: '1px solid var(--border)', overflow: 'hidden',
                 position: 'relative', transition: 'border-color 0.4s',
               }}
               onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'}
-              onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(229,226,225,0.08)'}
+              onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--border)'}
             >
               <img src="/hk-poster.jpg" alt="Once Upon a Time in Hell's Kitchen"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8, filter: 'contrast(1.1)' }} />
               <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%',
-                background: 'linear-gradient(to top, rgba(8,8,8,0.95) 0%, transparent 100%)' }} />
+                background: 'linear-gradient(to top, var(--overlay-dark) 0%, transparent 100%)' }} />
               <div style={{ position: 'absolute', top: '12px', left: '12px',
                 fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
                 letterSpacing: '0.3em', textTransform: 'uppercase', color: '#cc0000',
-                border: '1px solid rgba(204,0,0,0.4)', padding: '3px 7px', background: 'rgba(8,8,8,0.7)' }}>
+                border: '1px solid rgba(204,0,0,0.4)', padding: '3px 7px', background: 'var(--overlay-mid)' }}>
                 Equity Open
               </div>
               {/* Ghost info box — bottom of poster */}
@@ -222,7 +222,7 @@ export default function Home({ setIsHovering }: HomeProps) {
                 bottom: '16px',
                 left: '12px',
                 right: '12px',
-                background: 'rgba(8,7,5,0.65)',
+                background: 'var(--overlay-mid)',
                 backdropFilter: 'blur(4px)',
                 border: '1px solid rgba(255,255,255,0.1)',
                 padding: '14px 16px',
@@ -337,30 +337,30 @@ export default function Home({ setIsHovering }: HomeProps) {
           <a href="/project/ugrp" style={{ display: 'block', textDecoration: 'none' }}>
             <div
               style={{
-                width: '100%', aspectRatio: '2/3', background: '#0d0d0d',
-                border: '1px solid rgba(229,226,225,0.08)', overflow: 'hidden',
+                width: '100%', aspectRatio: '2/3', background: 'var(--bg-2)',
+                border: '1px solid var(--border)', overflow: 'hidden',
                 position: 'relative', transition: 'border-color 0.4s',
               }}
               onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'}
-              onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(229,226,225,0.08)'}
+              onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--border)'}
             >
               <img src="/ugrp-poster.jpg" alt="Untitled Guy Ritchie Project"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', opacity: 0.85, filter: 'contrast(1.05)' }} />
               <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%',
-                background: 'linear-gradient(to top, rgba(8,8,8,0.95) 0%, transparent 100%)' }} />
+                background: 'linear-gradient(to top, var(--overlay-dark) 0%, transparent 100%)' }} />
               <div style={{ position: 'absolute', top: '12px', left: '12px',
                 fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
                 letterSpacing: '0.3em', textTransform: 'uppercase', color: '#ffc800',
-                border: '1px solid rgba(255,200,0,0.5)', padding: '3px 7px', background: 'rgba(8,8,8,0.7)' }}>
+                border: '1px solid rgba(255,200,0,0.5)', padding: '3px 7px', background: 'var(--overlay-mid)' }}>
                 Film Finance & Equity Access
               </div>
               <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300,
-                  fontSize: 'clamp(14px,2.5vw,22px)', color: '#f4ede0', lineHeight: 1.1, marginBottom: '5px' }}>
+                  fontSize: 'clamp(14px,2.5vw,22px)', color: 'var(--text)', lineHeight: 1.1, marginBottom: '5px' }}>
                   In The Grey
                 </div>
                 <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
-                  letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.6)' }}>
+                  letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-72)' }}>
                   Henry Cavill · Jake Gyllenhaal
                 </div>
               </div>
@@ -376,7 +376,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             <p style={{
               fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700,
               fontSize: '8px', letterSpacing: '0.4em', textTransform: 'uppercase',
-              color: 'rgba(229,226,225,0.4)', marginBottom: '8px',
+              color: 'var(--text-35)', marginBottom: '8px',
             }}>
               Featured Trailer
             </p>
@@ -390,13 +390,13 @@ export default function Home({ setIsHovering }: HomeProps) {
             <p style={{
               fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700,
               fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase',
-              color: 'rgba(229,226,225,0.5)',
+              color: 'var(--text-45)',
             }}>
               Henry Cavill · Jake Gyllenhaal · Eiza González · Dir. Guy Ritchie
             </p>
           </Link>
           {/* Embed */}
-          <div style={{ width: '100%', aspectRatio: '16/9', background: '#0a0805' }}>
+          <div style={{ width: '100%', aspectRatio: '16/9', background: 'var(--bg)' }}>
             <iframe
               src="https://www.youtube.com/embed/nufP15iN4GE?rel=0&modestbranding=1"
               title="In The Grey — Official Trailer"
@@ -408,8 +408,8 @@ export default function Home({ setIsHovering }: HomeProps) {
         </div>
 
         {/* Featured Film Festival */}
-        <div style={{ width: '100%', maxWidth: '860px', marginTop: '32px', borderTop: '1px solid rgba(229,226,225,0.08)', paddingTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(229,226,225,0.35)' }}>
+        <div style={{ width: '100%', maxWidth: '860px', marginTop: '32px', borderTop: '1px solid var(--border)', paddingTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--text-35)' }}>
             Featured Film Festival
           </span>
           <a
@@ -457,8 +457,8 @@ export default function Home({ setIsHovering }: HomeProps) {
           <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.55em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '16px' }}>
             Fine Art · Creative Vision · Photomontage
           </p>
-          <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3rem,7vw,7rem)', lineHeight: 0.9, color: '#F4EFE6', margin: 0 }}>
-            The Birth<span style={{ color: 'rgba(244,239,230,0.18)' }}> · La Naissance</span>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3rem,7vw,7rem)', lineHeight: 0.9, color: 'var(--text)', margin: 0 }}>
+            The Birth<span style={{ color: 'var(--text-25)' }}> · La Naissance</span>
           </h2>
         </motion.div>
 
@@ -479,7 +479,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </video>
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(4,4,2,0.18), rgba(4,4,2,0.55))', pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px 28px', background: 'linear-gradient(to top, rgba(4,4,2,0.92), transparent)' }}>
-              <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.45em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.35)', margin: 0 }}>
+              <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.45em', textTransform: 'uppercase', color: 'var(--text-35)', margin: 0 }}>
                 AI Generative Cinema · LTX-V · NuLab Visual Pipeline
               </p>
             </div>
@@ -510,8 +510,8 @@ export default function Home({ setIsHovering }: HomeProps) {
                 onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.opacity = '0.82'; }}
               />
               <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 14px', background: 'linear-gradient(to top, rgba(4,4,2,0.92), transparent)', pointerEvents: 'none' }}>
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '13px', color: '#F4EFE6', marginBottom: '2px' }}>{img.label}</p>
-                <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.38)', margin: 0 }}>{img.sub}</p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '13px', color: 'var(--text)', marginBottom: '2px' }}>{img.label}</p>
+                <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-35)', margin: 0 }}>{img.sub}</p>
               </div>
             </motion.div>
           ))}
@@ -519,17 +519,17 @@ export default function Home({ setIsHovering }: HomeProps) {
 
         {/* Footer row */}
         <div style={{ padding: '32px clamp(28px,6vw,80px) clamp(64px,8vw,100px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.18)', margin: 0 }}>
+          <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '8px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-25)', margin: 0 }}>
             Photomontage & Composite · Original Series · Stanford Emporium
           </p>
-          <a href="/visual-development" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.42)', borderBottom: '1px solid rgba(244,239,230,0.14)', paddingBottom: '2px', textDecoration: 'none' }}>
+          <a href="/visual-development" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text-35)', borderBottom: '1px solid var(--border-2)', paddingBottom: '2px', textDecoration: 'none' }}>
             Full Archive →
           </a>
         </div>
       </section>
 
       {/* SECTION 3 — WHAT WE DELIVER */}
-      <section className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black-2)]" style={{ position: 'relative', overflow: 'hidden' }}>
+      <section className="section-divider py-[144px] px-4 md:px-20 bg-[var(--bg-2)]" style={{ position: 'relative', overflow: 'hidden' }}>
         {/* Still-to-video background */}
         <DeliverBg />
         <div className="reveal mb-20" style={{ position: 'relative', zIndex: 1 }}>
@@ -545,11 +545,11 @@ export default function Home({ setIsHovering }: HomeProps) {
             'Casting & Talent Packaging Support',
             'Investor Materials & Data Room Prep',
           ].map((title, i) => (
-            <div key={i} className="bg-[var(--black-2)] p-10 group hover:bg-[var(--black-3)] transition-colors duration-300">
+            <div key={i} className="bg-[var(--bg-2)] p-10 group hover:bg-[var(--bg-3)] transition-colors duration-300">
               <div style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '28px', color: 'var(--bronze)', marginBottom: '16px', lineHeight: 1 }}>
                 0{i + 1}
               </div>
-              <h4 className="label-text" style={{ fontSize: '11px', letterSpacing: '0.18em', color: '#F4EFE6' }}>
+              <h4 className="label-text" style={{ fontSize: '11px', letterSpacing: '0.18em', color: 'var(--text)' }}>
                 {title}
               </h4>
             </div>
@@ -559,7 +559,7 @@ export default function Home({ setIsHovering }: HomeProps) {
         <div className="text-center mt-20 reveal" style={{ position: 'relative', zIndex: 1 }}>
           <Link
             to="/disciplines"
-            className="btn-text border border-[rgba(244,239,230,0.3)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+            className="btn-text border border-[var(--border-2)] text-[var(--text)] px-10 py-4 hover:bg-[var(--text)] hover:text-[var(--bg)] transition-all"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
@@ -569,7 +569,7 @@ export default function Home({ setIsHovering }: HomeProps) {
       </section>
 
       {/* SECTION 4 — STUDIO DIVISIONS */}
-      <section className="section-divider py-[144px] px-4 md:px-20 bg-[var(--black-2)]">
+      <section className="section-divider py-[144px] px-4 md:px-20 bg-[var(--bg-2)]">
         <div className="reveal">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-4">04 / STUDIO</div>
           <h2 className="text-[48px] text-[var(--white)]">
@@ -597,16 +597,16 @@ export default function Home({ setIsHovering }: HomeProps) {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="absolute inset-0 bg-[rgba(8,7,5,0.45)] opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] ease-[ease] pointer-events-none" />
+                <div className="absolute inset-0 bg-[var(--bg)] opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] ease-[ease] pointer-events-none" />
                 <div className="relative z-10 text-[24px] text-[var(--bronze)] opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">{item.icon}</div>
-                <h4 className="relative z-10 text-[17px] font-normal text-[rgba(244,239,230,0.82)] group-hover:text-[rgba(244,239,230,1)] mt-8 transition-colors duration-[400ms]">{item.title}</h4>
+                <h4 className="relative z-10 text-[17px] font-normal text-[var(--text-72)] group-hover:text-[var(--text)] mt-8 transition-colors duration-[400ms]">{item.title}</h4>
                 {(item as any).sub && (
-                  <p className="label-text relative z-10" style={{ fontSize: '8px', letterSpacing: '0.22em', color: 'rgba(244,239,230,0.45)', marginTop: '10px' }}>
+                  <p className="label-text relative z-10" style={{ fontSize: '8px', letterSpacing: '0.22em', color: 'var(--text-45)', marginTop: '10px' }}>
                     {(item as any).sub}
                   </p>
                 )}
                 {(item as any).sub2 && (
-                  <p className="label-text relative z-10" style={{ fontSize: '8px', letterSpacing: '0.22em', color: 'rgba(244,239,230,0.45)', marginTop: '6px' }}>
+                  <p className="label-text relative z-10" style={{ fontSize: '8px', letterSpacing: '0.22em', color: 'var(--text-45)', marginTop: '6px' }}>
                     {(item as any).sub2}
                   </p>
                 )}
@@ -618,7 +618,7 @@ export default function Home({ setIsHovering }: HomeProps) {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-[var(--black-2)] p-[80px_32px] text-center hover:bg-[var(--black-3)] transition-all overflow-hidden"
+                className="group relative bg-[var(--bg-2)] p-[80px_32px] text-center hover:bg-[var(--bg-3)] transition-all overflow-hidden"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
@@ -628,7 +628,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               <Link
                 key={item.title}
                 to={item.href}
-                className="group relative bg-[var(--black-2)] p-[80px_32px] text-center hover:bg-[var(--black-3)] transition-all overflow-hidden"
+                className="group relative bg-[var(--bg-2)] p-[80px_32px] text-center hover:bg-[var(--bg-3)] transition-all overflow-hidden"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
@@ -640,26 +640,26 @@ export default function Home({ setIsHovering }: HomeProps) {
       </section>
 
       {/* SECTION 5 — VISUAL ARCHIVE */}
-      <section id="collect" className="section-divider relative py-[144px] px-4 md:px-20 bg-[var(--black-2)] text-center overflow-hidden">
+      <section id="collect" className="section-divider relative py-[144px] px-4 md:px-20 bg-[var(--bg-2)] text-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-50">
           <img
             src="/collect-hero.jpg"
             alt="Visual Archive — Daniel Stanford"
             className="w-full h-full object-cover grayscale"
           />
-          <div className="absolute inset-0 bg-[var(--black-2)] opacity-40" />
+          <div className="absolute inset-0 bg-[var(--bg-2)] opacity-40" />
         </div>
         <div className="relative z-10 reveal">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-4">05 / COLLECTION</div>
-          <h2 className="text-[clamp(2rem,4.5vw,4rem)] text-white mb-4">
+          <h2 className="text-[clamp(2rem,4.5vw,4rem)] text-[var(--text)] mb-4">
             Visual Archive
           </h2>
-          <div className="label-text text-[10px] tracking-[0.38em] text-white mb-12">
+          <div className="label-text text-[10px] tracking-[0.38em] text-[var(--text)] mb-12">
             Fine art editions and photographic works from the Stanford archive.
           </div>
           <Link 
             to="/collect" 
-            className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+            className="btn-text border border-[var(--border-2)] text-[var(--text)] px-10 py-4 hover:bg-[var(--text)] hover:text-[var(--bg)] transition-all"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
@@ -669,10 +669,10 @@ export default function Home({ setIsHovering }: HomeProps) {
       </section>
 
       {/* SECTION 9 — INQUIRE */}
-      <section id="contact" className="section-divider py-[192px] px-4 md:px-20 bg-[var(--black)] text-center">
+      <section id="contact" className="section-divider py-[192px] px-4 md:px-20 bg-[var(--bg)] text-center">
         <div className="reveal">
           <div className="label-text text-[10px] text-[var(--bronze)] mb-4">06 / BEGIN</div>
-          <h2 className="text-[clamp(2.5rem,6.5vw,6.5rem)] text-white leading-[1.08] mb-16">
+          <h2 className="text-[clamp(2.5rem,6.5vw,6.5rem)] text-[var(--text)] leading-[1.08] mb-16">
             Let's build something<br />
             <span className="italic-emphasis">exceptional.</span>
           </h2>
@@ -687,7 +687,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </a>
             <a 
               href="mailto:Daniel@StanfordEmporium.com?subject=Schedule%20Investor%20Call" 
-              className="btn-text border border-[rgba(244,239,230,0.55)] text-white px-10 py-4 hover:bg-white hover:text-[var(--black)] transition-all"
+              className="btn-text border border-[var(--border-2)] text-[var(--text)] px-10 py-4 hover:bg-[var(--text)] hover:text-[var(--bg)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
@@ -695,7 +695,7 @@ export default function Home({ setIsHovering }: HomeProps) {
             </a>
             <a 
               href="mailto:Daniel@StanfordEmporium.com?subject=Request%20Investment%20Materials" 
-              className="btn-text border border-[rgba(212,175,55,0.35)] text-[var(--bronze)] px-10 py-4 hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all"
+              className="btn-text border border-[rgba(212,175,55,0.35)] text-[var(--bronze)] px-10 py-4 hover:bg-[var(--bronze)] hover:text-[var(--bg)] transition-all"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >

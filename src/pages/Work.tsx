@@ -175,7 +175,7 @@ const Work = () => {
   ];
 
   return (
-    <div style={{ background: '#080705', color: '#F4EFE6', minHeight: '100vh' }}>
+    <div style={{ background: 'var(--bg)', color: 'var(--text)', minHeight: '100vh' }}>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
@@ -226,13 +226,13 @@ const Work = () => {
           position: 'absolute',
           top: 0, left: 0, right: 0,
           height: '40%',
-          background: 'linear-gradient(to bottom, rgba(8,7,5,0.7), transparent)',
+          background: 'linear-gradient(to bottom, var(--overlay-mid), transparent)',
         }} />
         <div style={{
           position: 'absolute',
           bottom: 0, left: 0, right: 0,
           height: '60%',
-          background: 'linear-gradient(to top, rgba(8,7,5,0.97), transparent)',
+          background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
         }} />
         <div style={{
           position: 'relative',
@@ -256,7 +256,7 @@ const Work = () => {
             fontWeight: 300,
             fontSize: 'clamp(3.5rem,7vw,7rem)',
             lineHeight: 0.9,
-            color: '#F4EFE6',
+            color: 'var(--text)',
             margin: 0,
           }}>
             Deliver.
@@ -266,7 +266,7 @@ const Work = () => {
 
       {/* ── SECTION 1 — PAGE HEADER ───────────────────────────────────────── */}
       <section style={{
-        background: '#080705',
+        background: 'var(--bg)',
         padding: 'clamp(120px,12vw,160px) clamp(40px,6vw,80px) clamp(48px,6vw,72px)',
       }}>
         <p style={{ ...LABEL, color: '#CC0000', marginBottom: '16px' }}>
@@ -278,7 +278,7 @@ const Work = () => {
           fontStyle: 'italic',
           fontSize: 'clamp(3.5rem, 7vw, 7rem)',
           lineHeight: 0.9,
-          color: '#F4EFE6',
+          color: 'var(--text)',
           marginBottom: '24px',
         }}>
           Deliver.
@@ -288,7 +288,7 @@ const Work = () => {
           fontWeight: 300,
           fontSize: '1.05rem',
           lineHeight: 1.8,
-          color: 'rgba(244,239,230,0.85)',
+          color: 'var(--text-72)',
           maxWidth: '560px',
           margin: 0,
         }}>
@@ -306,8 +306,8 @@ const Work = () => {
         }}
         style={{
           padding: 'clamp(48px,7vw,80px) clamp(40px,6vw,80px)',
-          background: '#060604',
-          borderTop: '1px solid rgba(244,239,230,0.05)',
+          background: 'var(--bg)',
+          borderTop: '1px solid var(--border)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -318,7 +318,7 @@ const Work = () => {
           fontSize: '0.65rem',
           letterSpacing: '0.55em',
           textTransform: 'uppercase',
-          color: 'rgba(244,239,230,0.35)',
+          color: 'var(--text-35)',
           marginBottom: '32px',
           display: 'block',
         }}>
@@ -337,7 +337,7 @@ const Work = () => {
           transition: 'opacity 0.35s ease',
           zIndex: 1,
           overflow: 'hidden',
-          border: '1px solid rgba(244,239,230,0.1)',
+          border: '1px solid var(--border)',
         }}>
           {activeService && (
             <img
@@ -375,7 +375,7 @@ const Work = () => {
               onMouseLeave={() => setActiveService(null)}
               style={{
                 padding: '18px 0',
-                borderBottom: '1px solid rgba(244,239,230,0.06)',
+                borderBottom: '1px solid var(--border)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '20px',
@@ -390,7 +390,7 @@ const Work = () => {
                 fontStyle: 'italic',
                 fontWeight: 300,
                 fontSize: '20px',
-                color: activeService === svc.img ? '#CC0000' : 'rgba(244,239,230,0.22)',
+                color: activeService === svc.img ? '#CC0000' : 'var(--text-25)',
                 minWidth: '36px',
                 transition: 'color 0.3s',
               }}>
@@ -401,7 +401,7 @@ const Work = () => {
                 fontStyle: 'italic',
                 fontWeight: 300,
                 fontSize: 'clamp(18px,3vw,28px)',
-                color: activeService === svc.img ? '#FFFFFF' : 'rgba(244,239,230,0.75)',
+                color: activeService === svc.img ? '#FFFFFF' : 'var(--text-72)',
                 flex: 1,
                 transition: 'color 0.3s, letter-spacing 0.3s',
                 letterSpacing: activeService === svc.img ? '0.02em' : '0',
@@ -410,7 +410,7 @@ const Work = () => {
               </span>
               <span style={{
                 fontSize: '12px',
-                color: activeService === svc.img ? '#C9971F' : 'rgba(244,239,230,0.2)',
+                color: activeService === svc.img ? '#C9971F' : 'var(--text-25)',
                 transition: 'color 0.3s, transform 0.3s',
                 transform: activeService === svc.img ? 'translateX(4px)' : 'translateX(0)',
               }}>
@@ -423,7 +423,7 @@ const Work = () => {
 
       {/* ── SECTION 2 — 6 SERVICE CARDS ──────────────────────────────────── */}
       <section style={{
-        background: 'rgba(244,239,230,0.05)',
+        background: 'var(--surface)',
         padding: '0 clamp(40px,6vw,80px) clamp(64px,8vw,100px)',
       }}>
         <div style={{
@@ -443,9 +443,9 @@ const Work = () => {
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
                 style={{
-                  background: openCard === i ? 'rgba(204,0,0,0.04)' : '#080705',
+                  background: openCard === i ? 'rgba(204,0,0,0.04)' : 'var(--bg)',
                   padding: '32px 28px',
-                  border: '1px solid rgba(244,239,230,0.06)',
+                  border: '1px solid var(--border)',
                   borderTop: isBronze
                     ? `1px solid ${isHov ? 'rgba(201,151,31,0.5)' : 'rgba(201,151,31,0.2)'}`
                     : openCard === i ? '1px solid #CC0000' : isHov ? '1px solid rgba(204,0,0,0.35)' : '1px solid transparent',
@@ -468,7 +468,7 @@ const Work = () => {
                 </p>
                 <p style={{
                   ...LABEL,
-                  color: '#F4EFE6',
+                  color: 'var(--text)',
                   fontSize: '11px',
                   letterSpacing: '0.15em',
                   marginBottom: '10px',
@@ -480,7 +480,7 @@ const Work = () => {
                   fontWeight: 300,
                   fontSize: '9px',
                   lineHeight: 1.8,
-                  color: 'rgba(244,239,230,0.45)',
+                  color: 'var(--text-45)',
                   margin: 0,
                 }}>
                   {card.desc}
@@ -502,7 +502,7 @@ const Work = () => {
                       textDecoration: 'none',
                       transition: 'color 0.2s',
                     }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#F4EFE6'; }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}
                   >
                     {(card as any).link.label}
@@ -516,7 +516,7 @@ const Work = () => {
                   fontSize: '10px',
                   letterSpacing: '0.28em',
                   textTransform: 'uppercase',
-                  color: openCard === i ? '#CC0000' : 'rgba(244,239,230,0.22)',
+                  color: openCard === i ? '#CC0000' : 'var(--text-25)',
                   transition: 'color 0.3s',
                 }}>
                   {openCard === i ? '↑ Close' : '→ View gallery'}
@@ -529,8 +529,8 @@ const Work = () => {
           {openCard !== null && openCard <= 2 && (
             <div style={{
               gridColumn: '1 / -1',
-              background: '#060604',
-              borderTop: '1px solid rgba(244,239,230,0.05)',
+              background: 'var(--bg)',
+              borderTop: '1px solid var(--border)',
               padding: 'clamp(28px,4vw,40px) clamp(28px,5vw,48px)',
             }}>
               <p style={{
@@ -549,7 +549,7 @@ const Work = () => {
                 fontStyle: 'italic',
                 fontWeight: 300,
                 fontSize: 'clamp(1.2rem,2.5vw,1.8rem)',
-                color: '#F4EFE6',
+                color: 'var(--text)',
                 marginBottom: '12px',
                 lineHeight: 1.1,
               }}>
@@ -560,7 +560,7 @@ const Work = () => {
                 fontWeight: 300,
                 fontSize: '0.85rem',
                 lineHeight: 1.85,
-                color: 'rgba(244,239,230,0.55)',
+                color: 'var(--text-45)',
                 maxWidth: '560px',
                 marginBottom: '24px',
               }}>
@@ -580,7 +580,7 @@ const Work = () => {
                       width: '200px',
                       aspectRatio: '16/9',
                       background: '#0e0e0c',
-                      border: '1px dashed rgba(244,239,230,0.1)',
+                      border: '1px dashed var(--border)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -592,7 +592,7 @@ const Work = () => {
                         fontSize: '9px',
                         letterSpacing: '0.3em',
                         textTransform: 'uppercase',
-                        color: 'rgba(244,239,230,0.2)',
+                        color: 'var(--text-25)',
                         textAlign: 'center',
                         whiteSpace: 'pre-line',
                       }}>
@@ -632,14 +632,14 @@ const Work = () => {
                         position: 'absolute',
                         bottom: 0, left: 0, right: 0,
                         padding: '10px 12px',
-                        background: 'linear-gradient(to top, rgba(8,7,5,0.9), transparent)',
+                        background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
                       }}>
                         <p style={{
                           fontFamily: "'Cormorant Garamond', serif",
                           fontStyle: 'italic',
                           fontWeight: 300,
                           fontSize: '13px',
-                          color: '#F4EFE6',
+                          color: 'var(--text)',
                           marginBottom: '1px',
                         }}>{img.title}</p>
                         <p style={{
@@ -648,7 +648,7 @@ const Work = () => {
                           fontSize: '8px',
                           letterSpacing: '0.28em',
                           textTransform: 'uppercase',
-                          color: 'rgba(244,239,230,0.4)',
+                          color: 'var(--text-35)',
                         }}>{img.sub}</p>
                       </div>
                     </div>
@@ -665,8 +665,8 @@ const Work = () => {
                   fontSize: '10px',
                   letterSpacing: '0.28em',
                   textTransform: 'uppercase',
-                  color: 'rgba(244,239,230,0.35)',
-                  borderBottom: '1px solid rgba(244,239,230,0.12)',
+                  color: 'var(--text-35)',
+                  borderBottom: '1px solid var(--border)',
                   paddingBottom: '2px',
                   textDecoration: 'none',
                 }}
@@ -689,9 +689,9 @@ const Work = () => {
                 onMouseEnter={() => setHovered(cardIndex)}
                 onMouseLeave={() => setHovered(null)}
                 style={{
-                  background: openCard === cardIndex ? 'rgba(204,0,0,0.04)' : '#080705',
+                  background: openCard === cardIndex ? 'rgba(204,0,0,0.04)' : 'var(--bg)',
                   padding: '32px 28px',
-                  border: '1px solid rgba(244,239,230,0.06)',
+                  border: '1px solid var(--border)',
                   borderTop: isBronze
                     ? `1px solid ${isHov ? 'rgba(201,151,31,0.5)' : 'rgba(201,151,31,0.2)'}`
                     : openCard === cardIndex ? '1px solid #CC0000' : isHov ? '1px solid rgba(204,0,0,0.35)' : '1px solid transparent',
@@ -714,7 +714,7 @@ const Work = () => {
                 </p>
                 <p style={{
                   ...LABEL,
-                  color: '#F4EFE6',
+                  color: 'var(--text)',
                   fontSize: '11px',
                   letterSpacing: '0.15em',
                   marginBottom: '10px',
@@ -726,7 +726,7 @@ const Work = () => {
                   fontWeight: 300,
                   fontSize: '9px',
                   lineHeight: 1.8,
-                  color: 'rgba(244,239,230,0.45)',
+                  color: 'var(--text-45)',
                   margin: 0,
                 }}>
                   {card.desc}
@@ -748,7 +748,7 @@ const Work = () => {
                       textDecoration: 'none',
                       transition: 'color 0.2s',
                     }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#F4EFE6'; }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}
                   >
                     {(card as any).link.label}
@@ -762,7 +762,7 @@ const Work = () => {
                   fontSize: '10px',
                   letterSpacing: '0.28em',
                   textTransform: 'uppercase',
-                  color: openCard === cardIndex ? '#CC0000' : 'rgba(244,239,230,0.22)',
+                  color: openCard === cardIndex ? '#CC0000' : 'var(--text-25)',
                   transition: 'color 0.3s',
                 }}>
                   {openCard === cardIndex ? '↑ Close' : '→ View gallery'}
@@ -775,8 +775,8 @@ const Work = () => {
           {openCard !== null && openCard >= 3 && openCard <= 5 && (
             <div style={{
               gridColumn: '1 / -1',
-              background: '#060604',
-              borderTop: '1px solid rgba(244,239,230,0.05)',
+              background: 'var(--bg)',
+              borderTop: '1px solid var(--border)',
               padding: 'clamp(28px,4vw,40px) clamp(28px,5vw,48px)',
             }}>
               <p style={{
@@ -795,7 +795,7 @@ const Work = () => {
                 fontStyle: 'italic',
                 fontWeight: 300,
                 fontSize: 'clamp(1.2rem,2.5vw,1.8rem)',
-                color: '#F4EFE6',
+                color: 'var(--text)',
                 marginBottom: '12px',
                 lineHeight: 1.1,
               }}>
@@ -806,7 +806,7 @@ const Work = () => {
                 fontWeight: 300,
                 fontSize: '0.85rem',
                 lineHeight: 1.85,
-                color: 'rgba(244,239,230,0.55)',
+                color: 'var(--text-45)',
                 maxWidth: '560px',
                 marginBottom: '24px',
               }}>
@@ -826,7 +826,7 @@ const Work = () => {
                       width: '200px',
                       aspectRatio: '16/9',
                       background: '#0e0e0c',
-                      border: '1px dashed rgba(244,239,230,0.1)',
+                      border: '1px dashed var(--border)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -838,7 +838,7 @@ const Work = () => {
                         fontSize: '9px',
                         letterSpacing: '0.3em',
                         textTransform: 'uppercase',
-                        color: 'rgba(244,239,230,0.2)',
+                        color: 'var(--text-25)',
                         textAlign: 'center',
                         whiteSpace: 'pre-line',
                       }}>
@@ -878,14 +878,14 @@ const Work = () => {
                         position: 'absolute',
                         bottom: 0, left: 0, right: 0,
                         padding: '10px 12px',
-                        background: 'linear-gradient(to top, rgba(8,7,5,0.9), transparent)',
+                        background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
                       }}>
                         <p style={{
                           fontFamily: "'Cormorant Garamond', serif",
                           fontStyle: 'italic',
                           fontWeight: 300,
                           fontSize: '13px',
-                          color: '#F4EFE6',
+                          color: 'var(--text)',
                           marginBottom: '1px',
                         }}>{img.title}</p>
                         <p style={{
@@ -894,7 +894,7 @@ const Work = () => {
                           fontSize: '8px',
                           letterSpacing: '0.28em',
                           textTransform: 'uppercase',
-                          color: 'rgba(244,239,230,0.4)',
+                          color: 'var(--text-35)',
                         }}>{img.sub}</p>
                       </div>
                     </div>
@@ -911,8 +911,8 @@ const Work = () => {
                   fontSize: '10px',
                   letterSpacing: '0.28em',
                   textTransform: 'uppercase',
-                  color: 'rgba(244,239,230,0.35)',
-                  borderBottom: '1px solid rgba(244,239,230,0.12)',
+                  color: 'var(--text-35)',
+                  borderBottom: '1px solid var(--border)',
                   paddingBottom: '2px',
                   textDecoration: 'none',
                 }}
@@ -934,9 +934,9 @@ const Work = () => {
                 onMouseEnter={() => setHovered(cardIndex)}
                 onMouseLeave={() => setHovered(null)}
                 style={{
-                  background: '#080705',
+                  background: 'var(--bg)',
                   padding: '32px 28px',
-                  border: '1px solid rgba(244,239,230,0.06)',
+                  border: '1px solid var(--border)',
                   borderTop: isBronze
                     ? `1px solid ${isHov ? 'rgba(201,151,31,0.5)' : 'rgba(201,151,31,0.2)'}`
                     : `1px solid ${isHov ? 'rgba(204,0,0,0.35)' : 'transparent'}`,
@@ -959,7 +959,7 @@ const Work = () => {
                 </p>
                 <p style={{
                   ...LABEL,
-                  color: '#F4EFE6',
+                  color: 'var(--text)',
                   fontSize: '11px',
                   letterSpacing: '0.15em',
                   marginBottom: '10px',
@@ -971,7 +971,7 @@ const Work = () => {
                   fontWeight: 300,
                   fontSize: '9px',
                   lineHeight: 1.8,
-                  color: 'rgba(244,239,230,0.45)',
+                  color: 'var(--text-45)',
                   margin: 0,
                 }}>
                   {card.desc}
@@ -993,7 +993,7 @@ const Work = () => {
                       textDecoration: 'none',
                       transition: 'color 0.2s',
                     }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#F4EFE6'; }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}
                   >
                     {(card as any).link.label}
@@ -1007,9 +1007,9 @@ const Work = () => {
           <div
             className="stagger-card"
             style={{
-              background: '#080705',
+              background: 'var(--bg)',
               padding: '32px 28px',
-              border: '1px solid rgba(244,239,230,0.06)',
+              border: '1px solid var(--border)',
               borderTop: '1px solid rgba(201,151,31,0.2)',
               transition: 'opacity 0.5s ease, transform 0.5s ease, border-top-color 0.3s ease',
               cursor: 'pointer',
@@ -1020,8 +1020,8 @@ const Work = () => {
             onMouseLeave={e => (e.currentTarget.style.borderTopColor = 'rgba(201,151,31,0.2)')}
           >
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '22px', color: '#C9971F', marginBottom: '12px', lineHeight: 1 }}>07</p>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#F4EFE6', marginBottom: '10px' }}>P&amp;A · Poster Design &amp; Marketing</p>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '9px', lineHeight: 1.8, color: 'rgba(244,239,230,0.45)', margin: 0 }}>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text)', marginBottom: '10px' }}>P&amp;A · Poster Design &amp; Marketing</p>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '9px', lineHeight: 1.8, color: 'var(--text-45)', margin: 0 }}>
               Key art, theatrical poster concepts, campaign photography direction, one-sheets. Film marketing from initial concept to final print-ready delivery.
             </p>
             <span style={{ fontSize: '9px', color: 'rgba(201,151,31,0.35)', marginTop: '12px', display: 'block' }}>→ View gallery</span>
@@ -1032,9 +1032,9 @@ const Work = () => {
             className="stagger-card"
             style={{
               gridColumn: '1 / -1',
-              background: '#080705',
+              background: 'var(--bg)',
               padding: '32px 28px',
-              border: '1px solid rgba(244,239,230,0.06)',
+              border: '1px solid var(--border)',
               borderTop: '1px solid transparent',
               transition: 'opacity 0.5s ease, transform 0.5s ease, border-top-color 0.3s ease',
               cursor: 'pointer',
@@ -1044,12 +1044,12 @@ const Work = () => {
             onMouseEnter={e => (e.currentTarget.style.borderTopColor = 'rgba(204,0,0,0.35)')}
             onMouseLeave={e => (e.currentTarget.style.borderTopColor = 'transparent')}
           >
-            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '22px', color: 'rgba(244,239,230,0.5)', marginBottom: '12px', lineHeight: 1 }}>08</p>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#F4EFE6', marginBottom: '10px' }}>VFX / Special Effects Consultation</p>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '9px', lineHeight: 1.8, color: 'rgba(244,239,230,0.45)', margin: 0 }}>
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '22px', color: 'var(--text-45)', marginBottom: '12px', lineHeight: 1 }}>08</p>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text)', marginBottom: '10px' }}>VFX / Special Effects Consultation</p>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '9px', lineHeight: 1.8, color: 'var(--text-45)', margin: 0 }}>
               Post-production consultation, compositing strategy, digital effects, and practical integration. Available through NuLab Audio Visual Intelligence — AI-visual pipeline for qualifying productions.
             </p>
-            <span style={{ fontSize: '9px', color: 'rgba(244,239,230,0.2)', marginTop: '12px', display: 'block' }}>→ View gallery</span>
+            <span style={{ fontSize: '9px', color: 'var(--text-25)', marginTop: '12px', display: 'block' }}>→ View gallery</span>
           </div>
 
           {/* Card 09 — NuLab full-width */}
@@ -1090,11 +1090,11 @@ const Work = () => {
               <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '22px', color: '#C9971F', marginBottom: '10px' }}>
                 09
               </div>
-              <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '13px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#F4EFE6', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '13px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#C9971F', flexShrink: 0, animation: 'pulse 2s ease-in-out infinite' }} />
                 NuLab Audio Visual Intelligence
               </div>
-              <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '10px', lineHeight: 1.85, color: 'rgba(244,239,230,0.42)', maxWidth: '500px', marginBottom: '16px' }}>
+              <p style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '10px', lineHeight: 1.85, color: 'var(--text-35)', maxWidth: '500px', marginBottom: '16px' }}>
                 A creative laboratory at the intersection of sound, image, and emerging technology. AI-visual pipeline, spatial audio, digital collection art, and frequency-based environment work — available for qualifying productions.
               </p>
               <a
@@ -1112,7 +1112,7 @@ const Work = () => {
               <span style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300, fontSize: '9px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.4)', display: 'block', marginBottom: '8px' }}>
                 Co-Founded · Active
               </span>
-              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '16px', color: 'rgba(244,239,230,0.2)' }}>
+              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300, fontSize: '16px', color: 'var(--text-25)' }}>
                 nulab.space
               </span>
             </div>
@@ -1124,8 +1124,8 @@ const Work = () => {
       {/* ── DRAG GALLERY ──────────────────────────────────────────────────── */}
       <section style={{
         padding: 'clamp(48px,7vw,80px) 0 clamp(48px,7vw,80px) clamp(40px,6vw,80px)',
-        borderTop: '1px solid rgba(244,239,230,0.05)',
-        background: '#080705',
+        borderTop: '1px solid var(--border)',
+        background: 'var(--bg)',
       }}>
         <p style={{
           fontFamily: "'Barlow', sans-serif",
@@ -1133,7 +1133,7 @@ const Work = () => {
           fontSize: '0.65rem',
           letterSpacing: '0.55em',
           textTransform: 'uppercase',
-          color: 'rgba(244,239,230,0.35)',
+          color: 'var(--text-35)',
           marginBottom: '28px',
           paddingRight: 'clamp(40px,6vw,80px)',
           display: 'block',
@@ -1234,7 +1234,7 @@ const Work = () => {
                 position: 'absolute',
                 bottom: 0, left: 0, right: 0,
                 padding: '12px 14px',
-                background: 'linear-gradient(to top, rgba(8,7,5,0.9), transparent)',
+                background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
                 pointerEvents: 'none',
               }}>
                 <p style={{
@@ -1242,7 +1242,7 @@ const Work = () => {
                   fontStyle: 'italic',
                   fontWeight: 300,
                   fontSize: '14px',
-                  color: '#F4EFE6',
+                  color: 'var(--text)',
                   marginBottom: '2px',
                 }}>
                   {item.title}
@@ -1253,7 +1253,7 @@ const Work = () => {
                   fontSize: '9px',
                   letterSpacing: '0.28em',
                   textTransform: 'uppercase',
-                  color: 'rgba(244,239,230,0.42)',
+                  color: 'var(--text-35)',
                 }}>
                   {item.sub}
                 </p>
@@ -1268,7 +1268,7 @@ const Work = () => {
           fontSize: '9px',
           letterSpacing: '0.3em',
           textTransform: 'uppercase',
-          color: 'rgba(244,239,230,0.18)',
+          color: 'var(--text-25)',
           paddingRight: 'clamp(40px,6vw,80px)',
           marginTop: '12px',
           textAlign: 'right',
@@ -1280,8 +1280,8 @@ const Work = () => {
       {/* ── GALLERY ───────────────────────────────────────────────────────── */}
       <section style={{
         padding: 'clamp(56px,7vw,80px) clamp(40px,6vw,80px)',
-        borderTop: '1px solid rgba(244,239,230,0.05)',
-        background: '#060604',
+        borderTop: '1px solid var(--border)',
+        background: 'var(--bg)',
       }}>
         <p style={{
           fontFamily: "'Barlow', sans-serif",
@@ -1289,7 +1289,7 @@ const Work = () => {
           fontSize: '0.65rem',
           letterSpacing: '0.55em',
           textTransform: 'uppercase',
-          color: 'rgba(244,239,230,0.35)',
+          color: 'var(--text-35)',
           marginBottom: '32px',
           display: 'block',
         }}>
@@ -1324,14 +1324,14 @@ const Work = () => {
             position: 'absolute',
             bottom: 0, left: 0, right: 0,
             padding: '24px 28px',
-            background: 'linear-gradient(to top, rgba(8,7,5,0.85), transparent)',
+            background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
           }}>
             <p style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontStyle: 'italic',
               fontWeight: 300,
               fontSize: '1.1rem',
-              color: '#F4EFE6',
+              color: 'var(--text)',
               margin: 0,
             }}>
               Atmosphere &amp; Cinematic Environment
@@ -1384,7 +1384,7 @@ const Work = () => {
                 position: 'absolute',
                 bottom: 0, left: 0, right: 0,
                 padding: '12px 16px',
-                background: 'linear-gradient(to top, rgba(8,7,5,0.85), transparent)',
+                background: 'linear-gradient(to top, var(--overlay-dark), transparent)',
               }}>
                 <p style={{
                   fontFamily: "'Barlow', sans-serif",
@@ -1392,7 +1392,7 @@ const Work = () => {
                   fontSize: '0.6rem',
                   letterSpacing: '0.3em',
                   textTransform: 'uppercase',
-                  color: 'rgba(244,239,230,0.55)',
+                  color: 'var(--text-45)',
                   margin: 0,
                 }}>
                   {item.label}
@@ -1405,8 +1405,8 @@ const Work = () => {
 
       {/* ── SECTION 3 — HOW I WORK STRIP ─────────────────────────────────── */}
       <section style={{
-        background: '#060604',
-        borderTop: '1px solid rgba(244,239,230,0.05)',
+        background: 'var(--bg)',
+        borderTop: '1px solid var(--border)',
         padding: 'clamp(56px,7vw,80px) clamp(40px,6vw,80px)',
       }}>
         <p style={{ ...LABEL, color: '#C9971F', marginBottom: '32px' }}>The Pipeline</p>
@@ -1424,7 +1424,7 @@ const Work = () => {
               <div style={{ padding: '16px 24px', textAlign: 'center' }}>
                 <p style={{
                   ...LABEL,
-                  color: 'rgba(244,239,230,0.25)',
+                  color: 'var(--text-25)',
                   marginBottom: '6px',
                 }}>
                   {step.num}
@@ -1434,7 +1434,7 @@ const Work = () => {
                   fontWeight: 300,
                   fontStyle: 'italic',
                   fontSize: '1rem',
-                  color: '#F4EFE6',
+                  color: 'var(--text)',
                   margin: 0,
                 }}>
                   {step.name}
@@ -1479,8 +1479,8 @@ const Work = () => {
       {/* ── SOUNDTRACK INTELLIGENCE ───────────────────────────────────────── */}
       <section style={{
         padding: 'clamp(48px,7vw,80px) clamp(40px,6vw,80px)',
-        background: '#060604',
-        borderTop: '1px solid rgba(244,239,230,0.05)',
+        background: 'var(--bg)',
+        borderTop: '1px solid var(--border)',
       }}>
         <div style={{
           display: 'grid',
@@ -1506,7 +1506,7 @@ const Work = () => {
               fontStyle: 'italic',
               fontWeight: 300,
               fontSize: 'clamp(1.6rem,3vw,2.4rem)',
-              color: '#F4EFE6',
+              color: 'var(--text)',
               lineHeight: 1.05,
               marginBottom: '20px',
             }}>
@@ -1517,7 +1517,7 @@ const Work = () => {
               fontWeight: 300,
               fontSize: '0.85rem',
               lineHeight: 1.85,
-              color: 'rgba(244,239,230,0.55)',
+              color: 'var(--text-45)',
               marginBottom: '24px',
             }}>
               Collecting original motion picture scores since childhood —
@@ -1531,7 +1531,7 @@ const Work = () => {
               fontSize: '0.65rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color: 'rgba(244,239,230,0.22)',
+              color: 'var(--text-25)',
               fontStyle: 'italic',
             }}>
               Ambient score active on this site — toggle via sound control →
@@ -1541,7 +1541,7 @@ const Work = () => {
           {/* Right — track list */}
           <div style={{
             background: '#0e0e0c',
-            border: '1px solid rgba(244,239,230,0.07)',
+            border: '1px solid var(--border)',
             padding: '24px',
           }}>
             <div style={{
@@ -1560,7 +1560,7 @@ const Work = () => {
               fontStyle: 'italic',
               fontWeight: 300,
               fontSize: '18px',
-              color: '#F4EFE6',
+              color: 'var(--text)',
               marginBottom: '4px',
             }}>
               {tracks[activeTrack].name}
@@ -1570,7 +1570,7 @@ const Work = () => {
               fontWeight: 300,
               fontSize: '10px',
               letterSpacing: '0.15em',
-              color: 'rgba(244,239,230,0.35)',
+              color: 'var(--text-35)',
               marginBottom: '20px',
             }}>
               {tracks[activeTrack].composer} · {tracks[activeTrack].year}
@@ -1580,7 +1580,7 @@ const Work = () => {
             <div style={{
               width: '100%',
               height: '1px',
-              background: 'rgba(244,239,230,0.1)',
+              background: 'var(--border)',
               marginBottom: '16px',
               position: 'relative',
             }}>
@@ -1611,7 +1611,7 @@ const Work = () => {
                 onClick={() => setActiveTrack(t => t === 0 ? tracks.length - 1 : t - 1)}
                 style={{
                   background: 'none', border: 'none', cursor: 'pointer',
-                  color: 'rgba(244,239,230,0.4)',
+                  color: 'var(--text-35)',
                   fontFamily: "'Barlow', sans-serif",
                   fontSize: '12px',
                 }}>⟨⟨</button>
@@ -1620,10 +1620,10 @@ const Work = () => {
                 style={{
                   width: '34px', height: '34px',
                   borderRadius: '50%',
-                  border: '1px solid rgba(244,239,230,0.2)',
+                  border: '1px solid var(--text-25)',
                   background: 'none',
                   cursor: 'pointer',
-                  color: '#F4EFE6',
+                  color: 'var(--text)',
                   fontSize: '11px',
                   display: 'flex',
                   alignItems: 'center',
@@ -1631,7 +1631,7 @@ const Work = () => {
                   transition: 'border-color 0.3s',
                 }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = '#CC0000')}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(244,239,230,0.2)')}
+                onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--text-25)')}
               >
                 {isPlaying ? '▐▐' : '▶'}
               </button>
@@ -1639,14 +1639,14 @@ const Work = () => {
                 onClick={() => setActiveTrack(t => (t + 1) % tracks.length)}
                 style={{
                   background: 'none', border: 'none', cursor: 'pointer',
-                  color: 'rgba(244,239,230,0.4)',
+                  color: 'var(--text-35)',
                   fontFamily: "'Barlow', sans-serif",
                   fontSize: '12px',
                 }}>⟩⟩</button>
             </div>
 
             {/* Track list */}
-            <div style={{ borderTop: '1px solid rgba(244,239,230,0.05)' }}>
+            <div style={{ borderTop: '1px solid var(--border)' }}>
               {tracks.map((track, i) => (
                 <div
                   key={i}
@@ -1656,7 +1656,7 @@ const Work = () => {
                     alignItems: 'center',
                     gap: '12px',
                     padding: '9px 0',
-                    borderBottom: '1px solid rgba(244,239,230,0.04)',
+                    borderBottom: '1px solid var(--border)',
                     cursor: 'pointer',
                   }}
                 >
@@ -1664,7 +1664,7 @@ const Work = () => {
                     fontFamily: "'Barlow', sans-serif",
                     fontWeight: 300,
                     fontSize: '9px',
-                    color: 'rgba(244,239,230,0.22)',
+                    color: 'var(--text-25)',
                     minWidth: '16px',
                   }}>
                     {String(i + 1).padStart(2, '0')}
@@ -1674,7 +1674,7 @@ const Work = () => {
                     fontStyle: 'italic',
                     fontWeight: 300,
                     fontSize: '13px',
-                    color: i === activeTrack ? '#C9971F' : 'rgba(244,239,230,0.55)',
+                    color: i === activeTrack ? '#C9971F' : 'var(--text-45)',
                     flex: 1,
                     transition: 'color 0.2s',
                   }}>
@@ -1684,7 +1684,7 @@ const Work = () => {
                     fontFamily: "'Barlow', sans-serif",
                     fontWeight: 300,
                     fontSize: '9px',
-                    color: 'rgba(244,239,230,0.22)',
+                    color: 'var(--text-25)',
                     marginRight: '8px',
                   }}>
                     {track.composer}
@@ -1693,7 +1693,7 @@ const Work = () => {
                     fontFamily: "'Barlow', sans-serif",
                     fontWeight: 300,
                     fontSize: '9px',
-                    color: 'rgba(244,239,230,0.22)',
+                    color: 'var(--text-25)',
                   }}>
                     {track.duration}
                   </span>

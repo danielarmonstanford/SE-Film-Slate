@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 
 const Spatial = () => {
   return (
-    <div className="bg-[#131313] min-h-screen pt-40 pb-0">
+    <div className="bg-[var(--bg-2)] min-h-screen pt-40 pb-0">
 
       {/* HEADER */}
       <section className="px-6 md:px-20 max-w-[1400px] mx-auto mb-20">
         <p style={{ fontSize: '0.6rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '20px' }}>
           Philosophy · Research · Vision
         </p>
-        <h1 style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, lineHeight: 1.05, color: '#e5e2e1', marginBottom: '8px' }}>
+        <h1 style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', fontWeight: 300, lineHeight: 1.05, color: 'var(--text)', marginBottom: '8px' }}>
           Spatial Resonance™
         </h1>
         <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.4rem)', fontStyle: 'italic', color: '#CC0000', marginBottom: '64px', fontWeight: 300 }}>
@@ -21,10 +21,10 @@ const Spatial = () => {
 
           {/* Left — text */}
           <div>
-            <p style={{ fontFamily: "'Noto Serif', serif", fontStyle: 'italic', fontSize: '1.1rem', lineHeight: 1.9, color: 'rgba(229,226,225,0.85)', marginBottom: '28px' }}>
+            <p style={{ fontFamily: "'Noto Serif', serif", fontStyle: 'italic', fontSize: '1.1rem', lineHeight: 1.9, color: 'var(--text-72)', marginBottom: '28px' }}>
               Every space tells a story before a single line of dialogue is spoken. Spatial Resonance™ is the philosophy behind thirty years of environment work — the idea that architecture, light, and atmosphere are not background but character.
             </p>
-            <p style={{ fontSize: '0.85rem', lineHeight: 1.9, color: 'rgba(229,226,225,0.5)' }}>
+            <p style={{ fontSize: '0.85rem', lineHeight: 1.9, color: 'var(--text-45)' }}>
               From the geometry of a fashion campaign set in Morocco to the dune landscapes of Brazil to the neon corridors of Tokyo — every environment carries a frequency. This philosophy underpins the Production Design and Art Direction practice at Stanford Emporium.
             </p>
           </div>
@@ -44,7 +44,7 @@ const Spatial = () => {
 
       {/* FOOTER LINKS */}
       <section className="px-6 md:px-20 max-w-[1400px] mx-auto pb-32">
-        <div style={{ height: '1px', background: 'rgba(229,226,225,0.08)', marginBottom: '40px' }} />
+        <div style={{ height: '1px', background: 'var(--border)', marginBottom: '40px' }} />
         <div style={{ display: 'flex', gap: '40px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link
             to="/visual-development"

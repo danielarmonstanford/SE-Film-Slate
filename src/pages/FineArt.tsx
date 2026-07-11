@@ -29,7 +29,7 @@ const PAYHIP_URL = 'https://payhip.com/DanielArmonStanford';
 
 const FineArt = () => {
   return (
-    <div className="bg-[#131313] pt-32">
+    <div className="bg-[var(--bg-2)] pt-32">
 
       {/* HEADER */}
       <section className="px-6 max-w-[1800px] mx-auto mb-24">
@@ -44,8 +44,8 @@ const FineArt = () => {
               Fine Art &amp;{' '}
               <em className="text-[#CC0000] not-italic italic">Collectable Works.</em>
             </h1>
-            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose max-w-2xl">
-              The fine art practice of Daniel Armon Stanford spans large-format photography, AI-assisted image systems, and Digital Collection editions — exhibited at <strong className="text-white font-normal">MIS — Museum of Image &amp; Sound, São Paulo</strong>, the <strong className="text-white font-normal">Cornell Art Museum, Florida</strong>, and shown during <strong className="text-white font-normal">Art Basel Miami</strong> week. Each work is produced in strictly limited editions with archival standards.
+            <p className="text-sm text-[var(--text)] opacity-85 leading-loose max-w-2xl">
+              The fine art practice of Daniel Armon Stanford spans large-format photography, AI-assisted image systems, and Digital Collection editions — exhibited at <strong className="text-[var(--text)] font-normal">MIS — Museum of Image &amp; Sound, São Paulo</strong>, the <strong className="text-[var(--text)] font-normal">Cornell Art Museum, Florida</strong>, and shown during <strong className="text-[var(--text)] font-normal">Art Basel Miami</strong> week. Each work is produced in strictly limited editions with archival standards.
             </p>
             {/* FASCINASIA — mix media painting series */}
             <div className="max-w-[800px]" style={{ aspectRatio: '16/9' }}>
@@ -64,7 +64,7 @@ const FineArt = () => {
                 href={PAYHIP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-[rgba(244,239,230,0.4)] text-[#F5F0E6] text-[10px] uppercase tracking-[0.35em] px-12 py-5 hover:border-[#CC0000] hover:text-[#CC0000] transition-all duration-500"
+                className="inline-block border border-[var(--border-2)] text-[var(--text)] text-[10px] uppercase tracking-[0.35em] px-12 py-5 hover:border-[#CC0000] hover:text-[#CC0000] transition-all duration-500"
               >
                 Enter Collection →
               </a>
@@ -75,10 +75,10 @@ const FineArt = () => {
 
       {/* GALLERY GRID */}
       <section className="px-6 max-w-[1800px] mx-auto mb-32">
-        <div className="border-t border-[rgba(244,239,230,0.14)] pt-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[rgba(244,239,230,0.08)]">
+        <div className="border-t border-[var(--border-2)] pt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--border)]">
             {works.map((work) => (
-              <div key={work.title} className="group bg-[#131313] overflow-hidden">
+              <div key={work.title} className="group bg-[var(--bg-2)] overflow-hidden">
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <img
                     src={work.src}
@@ -86,10 +86,10 @@ const FineArt = () => {
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                   />
                 </div>
-                <div className="p-8 border-t border-[rgba(244,239,230,0.08)]">
+                <div className="p-8 border-t border-[var(--border)]">
                   <h3 className="font-['Noto_Serif'] text-xl italic font-light mb-2">{work.title}</h3>
                   <div className="flex justify-between items-center">
-                    <span className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.55)]">{work.medium}</span>
+                    <span className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-45)]">{work.medium}</span>
                     <span className="text-[9px] uppercase tracking-[0.3em] text-[#CC0000]">{work.edition}</span>
                   </div>
                 </div>
@@ -100,20 +100,20 @@ const FineArt = () => {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="py-48 px-6 text-center bg-[#1c1b1b]">
+      <section className="py-48 px-6 text-center bg-[var(--bg-3)]">
         <div className="max-w-3xl mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.5em] text-[rgba(244,239,230,0.5)] block mb-8">Stanford Emporium</span>
+          <span className="text-[10px] uppercase tracking-[0.5em] text-[var(--text-45)] block mb-8">Stanford Emporium</span>
           <h2 className="font-['Noto_Serif'] text-3xl md:text-5xl italic mb-8 leading-snug font-light">
             Works available in strictly limited editions.
           </h2>
-          <p className="text-sm text-[#F5F0E6] opacity-70 leading-loose mb-12 max-w-xl mx-auto">
+          <p className="text-sm text-[var(--text)] opacity-70 leading-loose mb-12 max-w-xl mx-auto">
             Archival prints, Digital Collection editions, and AI-assisted works — each authenticated and numbered. Shipped globally.
           </p>
           <a
             href={PAYHIP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#CC0000] text-white text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
+            className="bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
           >
             Browse Full Collection on Payhip
           </a>

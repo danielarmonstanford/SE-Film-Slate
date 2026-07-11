@@ -56,7 +56,7 @@ const UGRPDataRoom = () => {
   };
 
   return (
-    <div className="bg-[var(--black)] min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
+    <div className="bg-[var(--bg)] min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
       <div className="w-full max-w-[480px]">
 
         {/* Header */}
@@ -73,8 +73,8 @@ const UGRPDataRoom = () => {
         </div>
 
         {/* Option 1 — Overview (no gate) */}
-        <div className="border border-[rgba(244,239,230,0.1)] p-6 mb-8">
-          <div className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.4)] mb-3">Option 01 — Slate Overview</div>
+        <div className="border border-[var(--border)] p-6 mb-8">
+          <div className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-35)] mb-3">Option 01 — Slate Overview</div>
           <p className="text-xs text-[var(--text-72)] leading-relaxed mb-5">
             Project summary, team, and investment highlights. No access code required.
           </p>
@@ -83,7 +83,7 @@ const UGRPDataRoom = () => {
               href={NOTION_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-[rgba(244,239,230,0.3)] text-[#F5F0E6] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-white hover:text-white transition-all duration-300"
+              className="inline-block border border-[var(--border-2)] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-[var(--text)] hover:text-[var(--text)] transition-all duration-300"
             >
               View Slate Overview →
             </a>
@@ -91,7 +91,7 @@ const UGRPDataRoom = () => {
               href="https://blackbearpictures.com/film-and-tv/in%20the%20grey"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-[rgba(244,239,230,0.15)] text-[rgba(244,239,230,0.5)] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-[rgba(244,239,230,0.4)] hover:text-[rgba(244,239,230,0.8)] transition-all duration-300"
+              className="inline-block border border-[var(--border)] text-[var(--text-45)] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-[var(--border-2)] hover:text-[var(--text-72)] transition-all duration-300"
             >
               Watch Film Preview · Blackbear Pictures →
             </a>
@@ -126,7 +126,7 @@ const UGRPDataRoom = () => {
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                className="w-full bg-transparent border border-[rgba(244,239,230,0.2)] text-white px-4 py-3 text-sm placeholder:text-[rgba(244,239,230,0.2)] focus:border-[rgba(244,239,230,0.5)] focus:outline-none transition-colors"
+                className="w-full bg-transparent border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm placeholder:text-[var(--text-25)] focus:border-[var(--border-2)] focus:outline-none transition-colors"
                 placeholder="your@email.com"
                 required
               />
@@ -139,7 +139,7 @@ const UGRPDataRoom = () => {
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="w-full bg-transparent border border-[rgba(244,239,230,0.2)] text-white px-4 py-3 text-sm placeholder:text-[rgba(244,239,230,0.2)] focus:border-[rgba(244,239,230,0.5)] focus:outline-none transition-colors"
+                className="w-full bg-transparent border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm placeholder:text-[var(--text-25)] focus:border-[var(--border-2)] focus:outline-none transition-colors"
                 placeholder="Enter access code"
                 required
               />
@@ -149,15 +149,15 @@ const UGRPDataRoom = () => {
             )}
             <button
               type="submit"
-              className="w-full bg-[#CC0000] text-white text-[10px] uppercase tracking-[0.3em] font-bold py-5 hover:bg-[#930000] transition-colors duration-500"
+              className="w-full bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold py-5 hover:bg-[#930000] transition-colors duration-500"
             >
               Access Full Data Room
             </button>
-            <p className="text-[9px] text-[rgba(244,239,230,0.3)] text-center leading-relaxed pt-2">
+            <p className="text-[9px] text-[var(--text-25)] text-center leading-relaxed pt-2">
               Access code provided upon qualification.{' '}
               <a
                 href="mailto:Daniel@StanfordEmporium.com?subject=UGRP Data Room Access Request"
-                className="hover:text-[rgba(244,239,230,0.6)] transition-colors underline underline-offset-2"
+                className="hover:text-[var(--text-72)] transition-colors underline underline-offset-2"
               >
                 Request access
               </a>
@@ -170,7 +170,7 @@ const UGRPDataRoom = () => {
             </div>
 
             {/* THE POSITION */}
-            <div style={{ borderTop: '1px solid rgba(244,239,230,0.06)', paddingTop: '40px', marginBottom: '40px' }}>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '20px' }}>
                 The Position
               </p>
@@ -183,7 +183,7 @@ const UGRPDataRoom = () => {
                   { title: 'Guaranteed Return', body: 'The equity assignment is priced at a built-in premium. Your recoupment basis is higher than your entry cost, with no participation dilution from net profit pools.' },
                   { title: 'Lifetime Participation', body: 'Beyond recoupment, the equity position continues to participate in all revenue — perpetually, across every territory and window the film generates.' },
                 ].map(card => (
-                  <div key={card.title} style={{ background: 'rgba(244,239,230,0.03)', border: '1px solid rgba(244,239,230,0.07)', padding: '20px 18px' }}>
+                  <div key={card.title} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px 18px' }}>
                     <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '10px' }}>{card.title}</p>
                     <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'var(--text-72)' }}>{card.body}</p>
                   </div>
@@ -192,7 +192,7 @@ const UGRPDataRoom = () => {
             </div>
 
             {/* THE WATERFALL */}
-            <div style={{ borderTop: '1px solid rgba(244,239,230,0.06)', paddingTop: '40px', marginBottom: '40px' }}>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '8px' }}>
                 Your Contractual Rights
               </p>
@@ -209,9 +209,9 @@ const UGRPDataRoom = () => {
                 { pri: 'iv',  label: 'Production lender repayment',                       note: 'Already discharged',  highlight: false },
                 { pri: 'v',   label: 'Equity position — C2 / investor recoupment',       note: 'Your position',       highlight: true  },
               ].map(row => (
-                <div key={row.pri} style={{ display: 'grid', gridTemplateColumns: '28px 1fr auto', gap: '12px', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(244,239,230,0.06)', background: row.highlight ? 'rgba(255,200,0,0.04)' : 'transparent' }}>
+                <div key={row.pri} style={{ display: 'grid', gridTemplateColumns: '28px 1fr auto', gap: '12px', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid var(--border)', background: row.highlight ? 'rgba(255,200,0,0.04)' : 'transparent' }}>
                   <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '14px', color: row.highlight ? '#ffc800' : 'rgba(201,151,31,0.5)' }}>{row.pri}</span>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: row.highlight ? 400 : 300, fontSize: '12px', color: row.highlight ? '#ffc800' : 'rgba(229,226,225,0.65)', lineHeight: 1.45 }}>{row.label}</span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: row.highlight ? 400 : 300, fontSize: '12px', color: row.highlight ? '#ffc800' : 'var(--text-72)', lineHeight: 1.45 }}>{row.label}</span>
                   <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', color: row.highlight ? '#ffc800' : 'var(--text-35)', textAlign: 'right', whiteSpace: 'nowrap' }}>{row.note}</span>
                 </div>
               ))}
@@ -221,7 +221,7 @@ const UGRPDataRoom = () => {
             </div>
 
             {/* WHY NOW */}
-            <div style={{ borderTop: '1px solid rgba(244,239,230,0.06)', paddingTop: '40px', marginBottom: '40px' }}>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '24px' }}>
                 Why Now
               </p>
@@ -236,7 +236,7 @@ const UGRPDataRoom = () => {
                     <span style={{ width: '2px', minHeight: '18px', background: '#C9971F', flexShrink: 0, marginTop: '4px' }} />
                     <div>
                       <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '10px', letterSpacing: '0.12em', color: 'var(--text)', marginBottom: '4px', textTransform: 'uppercase' }}>{item.head}</p>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'rgba(229,226,225,0.65)' }}>{item.body}</p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'var(--text-72)' }}>{item.body}</p>
                     </div>
                   </li>
                 ))}
@@ -244,7 +244,7 @@ const UGRPDataRoom = () => {
             </div>
 
             {/* STANFORD EMPORIUM ROLE */}
-            <div style={{ borderTop: '1px solid rgba(244,239,230,0.06)', paddingTop: '40px', marginBottom: '40px' }}>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
                 Stanford Emporium Inc. Role
               </p>
@@ -257,7 +257,7 @@ const UGRPDataRoom = () => {
                 { label: 'Equity Principal', value: 'C2 Motion Picture Group', gold: false },
                 { label: 'Documentation', value: 'Available under executed NDA', gold: false },
               ].map(row => (
-                <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '9px 0', borderBottom: '1px solid rgba(244,239,230,0.06)', gap: '20px' }}>
+                <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '9px 0', borderBottom: '1px solid var(--border)', gap: '20px' }}>
                   <span style={{ fontSize: '11px', color: 'var(--text-45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{row.label}</span>
                   <span style={{ fontSize: '12px', color: row.gold ? '#ffc800' : 'var(--text)', textAlign: 'right', fontWeight: row.gold ? 600 : 300, fontFamily: 'var(--font-sans)' }}>{row.value}</span>
                 </div>
@@ -265,13 +265,13 @@ const UGRPDataRoom = () => {
             </div>
 
             {/* DATA ROOM LINK */}
-            <div style={{ borderTop: '1px solid rgba(244,239,230,0.06)', paddingTop: '32px', textAlign: 'center' }}>
-              <p className="text-sm text-[rgba(229,226,225,0.55)] mb-6">Full financials and legal documentation below.</p>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '32px', textAlign: 'center' }}>
+              <p className="text-sm text-[var(--text-45)] mb-6">Full financials and legal documentation below.</p>
               <a
                 href={DATA_ROOM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#CC0000] text-white text-[10px] uppercase tracking-[0.3em] font-bold px-12 py-5 hover:bg-[#930000] transition-colors duration-500"
+                className="inline-block bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold px-12 py-5 hover:bg-[#930000] transition-colors duration-500"
               >
                 Open Full Data Room →
               </a>
@@ -280,10 +280,10 @@ const UGRPDataRoom = () => {
         )}
 
         {/* Back link */}
-        <div className="mt-12 pt-8 border-t border-[rgba(244,239,230,0.06)] text-center">
+        <div className="mt-12 pt-8 border-t border-[var(--border)] text-center">
           <Link
             to="/project/ugrp"
-            className="text-[9px] uppercase tracking-[0.3em] text-[rgba(244,239,230,0.3)] hover:text-[rgba(244,239,230,0.6)] transition-colors"
+            className="text-[9px] uppercase tracking-[0.3em] text-[var(--text-25)] hover:text-[var(--text-72)] transition-colors"
           >
             ← Back to Project Overview
           </Link>

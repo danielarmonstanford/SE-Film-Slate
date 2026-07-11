@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "seerka-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /Users/danielstanford/Documents/seerka && npm run dev"],
+      "port": 3210,
+      "autoPort": true
+    }
+  ]
+}

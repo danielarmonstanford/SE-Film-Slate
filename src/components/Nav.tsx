@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Nav() {
+  const { theme, toggle: toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [audioOn, setAudioOn] = useState(true);
   const [playerReady, setPlayerReady] = useState(false);
@@ -97,7 +99,7 @@ export default function Nav() {
       {/* LOGO — fixed top-left */}
       <div className="nav-logo" style={{ position: 'fixed', top: '24px', left: '28px', zIndex: 200 }}>
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <div style={{ fontSize: '22px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, color: '#e5e2e1', lineHeight: 1 }}>
+          <div style={{ fontSize: '22px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, color: 'var(--text)', lineHeight: 1 }}>
             Stanford
           </div>
           <div style={{ fontSize: '22px', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Arial, Helvetica, sans-serif', color: '#C9971F', marginTop: '3px' }}>
@@ -119,19 +121,19 @@ export default function Nav() {
       >
         <span style={{
           display: 'block', width: '24px', height: '1px',
-          background: '#e5e2e1',
+          background: 'var(--text)',
           transform: menuOpen ? 'translateY(6px) rotate(45deg)' : 'none',
           transition: 'transform 0.3s ease',
         }} />
         <span style={{
           display: 'block', width: '24px', height: '1px',
-          background: '#e5e2e1',
+          background: 'var(--text)',
           opacity: menuOpen ? 0 : 1,
           transition: 'opacity 0.3s ease',
         }} />
         <span style={{
           display: 'block', width: '24px', height: '1px',
-          background: '#e5e2e1',
+          background: 'var(--text)',
           transform: menuOpen ? 'translateY(-6px) rotate(-45deg)' : 'none',
           transition: 'transform 0.3s ease',
         }} />
@@ -140,7 +142,7 @@ export default function Nav() {
       {/* FULLSCREEN OVERLAY */}
       <div style={{
         position: 'fixed', inset: 0, zIndex: 150,
-        background: 'rgba(8,7,5,0.50)',
+        background: 'var(--overlay-dark)',
         backdropFilter: 'blur(2px)',
         display: 'flex', flexDirection: 'column',
         alignItems: 'flex-start', justifyContent: 'center',
@@ -163,7 +165,7 @@ export default function Nav() {
                   fontSize: 'clamp(36px, 6vw, 72px)',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
-                  color: isActive ? '#C9971F' : 'rgba(229,226,225,0.85)',
+                  color: isActive ? '#C9971F' : 'var(--text)',
                   textDecoration: 'none',
                   lineHeight: 1.15,
                   opacity: menuOpen ? 1 : 0,
@@ -172,7 +174,7 @@ export default function Nav() {
                   display: 'block',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#C9971F'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? '#C9971F' : 'rgba(229,226,225,0.85)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? '#C9971F' : 'var(--text)'; }}
               >
                 {item.label}
               </Link>
@@ -182,7 +184,7 @@ export default function Nav() {
 
         {/* Audio track selector inside overlay */}
         <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', color: 'rgba(229,226,225,0.35)', textTransform: 'uppercase', marginBottom: '2px' }}>
+          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '7px', letterSpacing: '0.4em', color: 'var(--text-35)', textTransform: 'uppercase', marginBottom: '2px' }}>
             Ambient Sound
           </span>
           {TRACKS.map((track, i) => {
@@ -198,13 +200,13 @@ export default function Nav() {
                   background: 'none', border: 'none', cursor: 'pointer', padding: 0,
                 }}
               >
-                <span style={{ fontSize: '14px', color: isActive ? '#C9971F' : 'rgba(229,226,225,0.3)', transition: 'color 0.2s' }}>
+                <span style={{ fontSize: '14px', color: isActive ? '#C9971F' : 'var(--text-25)', transition: 'color 0.2s' }}>
                   {isPlaying ? '♬' : '♪'}
                 </span>
                 <span style={{
                   fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
                   letterSpacing: '0.3em', textTransform: 'uppercase', transition: 'color 0.2s',
-                  color: isActive ? '#C9971F' : 'rgba(229,226,225,0.45)',
+                  color: isActive ? '#C9971F' : 'var(--text-45)',
                 }}>
                   {track.label}
                 </span>
@@ -218,12 +220,27 @@ export default function Nav() {
           position: 'absolute', bottom: '32px', left: 'clamp(32px, 8vw, 120px)', right: '32px',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         }}>
-          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'rgba(229,226,225,0.35)', textTransform: 'uppercase' }}>
+          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'var(--text-35)', textTransform: 'uppercase' }}>
             film.daniel-stanford.com
           </span>
-          <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'rgba(229,226,225,0.35)', textTransform: 'uppercase' }}>
-            Daniel@StanfordEmporium.com
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <button
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              style={{
+                background: 'none', border: 'none', cursor: 'pointer',
+                color: 'var(--text-35)', fontSize: '14px', padding: 0,
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#C9971F'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-35)'; }}
+            >
+              {theme === 'dark' ? '☀' : '☽'}
+            </button>
+            <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px', letterSpacing: '0.3em', color: 'var(--text-35)', textTransform: 'uppercase' }}>
+              Daniel@StanfordEmporium.com
+            </span>
+          </div>
         </div>
       </div>
 

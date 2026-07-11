@@ -20,7 +20,7 @@ const capabilities = [
 
 const ProductionDesign = () => {
   return (
-    <div className="bg-[#131313] pt-32">
+    <div className="bg-[var(--bg-2)] pt-32">
 
       {/* HEADER */}
       <section className="px-6 max-w-[1800px] mx-auto mb-24">
@@ -35,7 +35,7 @@ const ProductionDesign = () => {
               The Architecture of{' '}
               <em className="text-[#CC0000] not-italic italic">Visual World-Building.</em>
             </h1>
-            <p className="mt-10 text-sm text-[#F5F0E6] opacity-85 leading-loose max-w-2xl">
+            <p className="mt-10 text-sm text-[var(--text)] opacity-85 leading-loose max-w-2xl">
               Every surface, every shadow, every prop placement is a decision. Production design is not decoration — it is the grammar of visual storytelling. At Stanford Emporium, we treat the physical and virtual environment as a primary creative instrument.
             </p>
           </div>
@@ -55,7 +55,7 @@ const ProductionDesign = () => {
                 />
               </div>
               <div className="pt-3 pb-6">
-                <span className="text-[9px] uppercase tracking-[0.4em] text-[rgba(244,239,230,0.5)]">{item.label}</span>
+                <span className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-45)]">{item.label}</span>
               </div>
             </div>
           ))}
@@ -64,22 +64,22 @@ const ProductionDesign = () => {
 
       {/* VIRTUAL PRODUCTION */}
       <section className="px-6 max-w-[1800px] mx-auto mb-32">
-        <div className="border-t border-[rgba(244,239,230,0.14)] pt-16 grid grid-cols-1 md:grid-cols-12 gap-16">
+        <div className="border-t border-[var(--border-2)] pt-16 grid grid-cols-1 md:grid-cols-12 gap-16">
           <div className="md:col-span-3 md:sticky top-32 h-fit">
             <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">Technology</span>
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[rgba(244,239,230,0.75)]">Virtual Production &amp; The LED Volume</h3>
+            <h3 className="text-xs uppercase tracking-[0.2em] text-[var(--text-72)]">Virtual Production &amp; The LED Volume</h3>
           </div>
           <div className="md:col-span-7 space-y-10">
             <p className="text-lg md:text-2xl leading-relaxed font-light font-['Noto_Serif'] italic">
               The future of location filmmaking is already here — and it shoots indoors.
             </p>
-            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
+            <p className="text-sm text-[var(--text)] opacity-85 leading-loose">
               LED Volume technology allows entire environments — city streets, alien landscapes, foreign coastlines — to be rendered in real-time on a massive curved display surrounding the actors. The result is physically accurate light interaction, genuine actor performance reaction, and director-controlled environmental consistency across every take.
             </p>
-            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
-              For <strong className="text-white font-normal">400XY</strong> — our international co-production spanning Canada, China, and Greece — LED Volume integration is central to the financial and creative architecture of the film. Rather than building three full location units across three continents, key sequences are designed to be produced against high-resolution LED environments, dramatically reducing travel, logistics, and weather exposure while maintaining the visual scale of a studio tentpole.
+            <p className="text-sm text-[var(--text)] opacity-85 leading-loose">
+              For <strong className="text-[var(--text)] font-normal">400XY</strong> — our international co-production spanning Canada, China, and Greece — LED Volume integration is central to the financial and creative architecture of the film. Rather than building three full location units across three continents, key sequences are designed to be produced against high-resolution LED environments, dramatically reducing travel, logistics, and weather exposure while maintaining the visual scale of a studio tentpole.
             </p>
-            <p className="text-sm text-[#F5F0E6] opacity-85 leading-loose">
+            <p className="text-sm text-[var(--text)] opacity-85 leading-loose">
               This is not compromise. This is intelligence applied to production design.
             </p>
           </div>
@@ -88,14 +88,14 @@ const ProductionDesign = () => {
 
       {/* CAPABILITIES GRID */}
       <section className="px-6 max-w-[1800px] mx-auto mb-32">
-        <div className="border-t border-[rgba(244,239,230,0.14)] pt-16">
+        <div className="border-t border-[var(--border-2)] pt-16">
           <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-16">Capabilities</span>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(244,239,230,0.08)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)]">
             {capabilities.map((cap) => (
-              <div key={cap.num} className="bg-[#131313] p-10 space-y-4">
+              <div key={cap.num} className="bg-[var(--bg-2)] p-10 space-y-4">
                 <div className="text-[10px] tracking-[0.4em] text-[#CC0000] font-bold">{cap.num}</div>
                 <h4 className="font-['Noto_Serif'] text-xl italic font-light">{cap.title}</h4>
-                <p className="text-xs text-[rgba(244,239,230,0.7)] leading-relaxed">{cap.desc}</p>
+                <p className="text-xs text-[var(--text-72)] leading-relaxed">{cap.desc}</p>
               </div>
             ))}
           </div>
@@ -103,18 +103,18 @@ const ProductionDesign = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-48 px-6 text-center bg-[#1c1b1b]">
+      <section className="py-48 px-6 text-center bg-[var(--bg-3)]">
         <div className="max-w-3xl mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.5em] text-[rgba(244,239,230,0.5)] block mb-8">Stanford Emporium</span>
+          <span className="text-[10px] uppercase tracking-[0.5em] text-[var(--text-45)] block mb-8">Stanford Emporium</span>
           <h2 className="font-['Noto_Serif'] text-3xl md:text-5xl italic mb-8 leading-snug font-light">
             Every great film is designed before it's shot.
           </h2>
-          <p className="text-sm text-[#F5F0E6] opacity-70 leading-loose mb-12 max-w-xl mx-auto">
+          <p className="text-sm text-[var(--text)] opacity-70 leading-loose mb-12 max-w-xl mx-auto">
             Bring us into your project at the concept stage and we'll build the visual world from the ground up.
           </p>
           <Link
             to="/inquire"
-            className="bg-[#CC0000] text-white text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
+            className="bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
           >
             INITIATE INQUIRY
           </Link>

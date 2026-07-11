@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Lab = () => {
   return (
-    <div className="bg-[#131313] pt-32">
+    <div className="bg-[var(--bg-2)] pt-32">
       <section className="relative h-[70vh] w-full overflow-hidden mb-32">
         <img
           src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80"
@@ -33,11 +33,11 @@ const Lab = () => {
         </div>
       </section>
 
-      <section className="py-48 px-6 text-center bg-[#1c1b1b]">
+      <section className="py-48 px-6 text-center bg-[var(--bg-3)]">
         <h2 className="font-['Noto_Serif'] text-4xl md:text-6xl italic mb-12">Explore the unknown.</h2>
         <Link
           to="/inquire"
-          className="bg-[#CC0000] text-white text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
+          className="bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold px-16 py-6 hover:bg-[#930000] transition-colors duration-500 inline-block"
         >
           INITIATE INQUIRY
         </Link>

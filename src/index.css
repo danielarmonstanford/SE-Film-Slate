@@ -20,11 +20,44 @@
   --green-funded: #4CAF50;
   --line: rgba(244,239,230,0.14);
   --ease: cubic-bezier(0.16,1,0.3,1);
+
+  /* Theme tokens — dark default */
+  --bg: #080705;
+  --bg-2: #080808;
+  --bg-3: #0E0C09;
+  --text: #F4EFE6;
+  --text-72: rgba(229,226,225,0.72);
+  --text-45: rgba(229,226,225,0.45);
+  --text-35: rgba(229,226,225,0.35);
+  --text-25: rgba(229,226,225,0.25);
+  --overlay-dark: rgba(8,7,5,0.97);
+  --overlay-mid: rgba(8,8,8,0.6);
+  --border: rgba(244,239,230,0.08);
+  --border-2: rgba(244,239,230,0.14);
+  --surface: rgba(255,255,255,0.02);
+  --surface-hover: rgba(255,255,255,0.04);
+}
+
+[data-theme="light"] {
+  --bg: #F5F0E6;
+  --bg-2: #EDE5D8;
+  --bg-3: #E5DDD0;
+  --text: #1A1410;
+  --text-72: rgba(26,20,16,0.72);
+  --text-45: rgba(26,20,16,0.45);
+  --text-35: rgba(26,20,16,0.35);
+  --text-25: rgba(26,20,16,0.25);
+  --overlay-dark: rgba(245,240,230,0.97);
+  --overlay-mid: rgba(245,240,230,0.6);
+  --border: rgba(26,20,16,0.10);
+  --border-2: rgba(26,20,16,0.14);
+  --surface: rgba(0,0,0,0.04);
+  --surface-hover: rgba(0,0,0,0.06);
 }
 
 body {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--bg);
+  color: var(--text);
   font-family: var(--font-sans);
   font-weight: 300;
   overflow-x: clip;
@@ -139,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 nav.scrolled {
   padding-top: 22px !important;
   padding-bottom: 22px !important;
-  background-color: rgba(8, 7, 5, 0.97) !important;
+  background-color: var(--overlay-dark) !important;
 }
 
 /* Section Dividers */
@@ -237,7 +270,7 @@ nav.scrolled {
   p {
     font-size: 0.95rem !important;
     line-height: 1.8 !important;
-    color: rgba(229,226,225,0.82) !important;
+    color: var(--text-72) !important;
   }
 
   /* Nav — collapse gracefully */
@@ -324,12 +357,12 @@ main > section {
 
 /* Increase body text opacity globally */
 p {
-  color: rgba(229,226,225,0.78);
+  color: var(--text-72);
 }
 
 /* Section dividers — add subtle separator */
 main > section {
-  border-bottom: 1px solid rgba(229,226,225,0.04);
+  border-bottom: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {

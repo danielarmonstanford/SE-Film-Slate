@@ -5,6 +5,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -51,6 +52,7 @@ export default function App() {
   }, [cursorPos]);
 
   return (
+    <ThemeProvider>
     <Router>
       <div className={`min-h-screen ${isHovering ? 'cursor-hover' : ''}`}>
         {/* Custom Cursor */}
@@ -89,5 +91,6 @@ export default function App() {
         </Layout>
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
