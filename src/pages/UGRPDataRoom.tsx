@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const GATE_PASSWORD = 'capital';
+const GATE_PASSWORD = import.meta.env.VITE_DATAROOM_PASSWORD ?? '';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
 const NOTION_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
 const NOTIFY_EMAIL = 'Daniel@StanfordEmporium.com';
@@ -140,7 +140,7 @@ const UGRPDataRoom = () => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 style={{ width: '100%', background: 'transparent', border: '1px solid var(--border)', color: 'var(--text)', padding: '14px 16px', fontSize: '16px', outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box' }}
-                placeholder="Enter access code"
+                placeholder="Access code — contact daniel@stanfordemporium.com"
                 required
               />
             </div>
@@ -251,6 +251,64 @@ const UGRPDataRoom = () => {
                 Documents
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+
+                {/* Button 1 — Hero document: solid gold */}
+                <a
+                  href="/assets/Operation_In_The_Gr.pdf"
+                  download
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#C9971F', padding: '20px 22px', textDecoration: 'none', transition: 'background 0.2s' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#b8861a'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#C9971F'; }}
+                >
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 400, fontSize: '14px', letterSpacing: '0.04em', color: '#080705' }}>
+                    Operation: In The Grey — Financial Arbitrage Briefing
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 400, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(8,7,5,0.6)', flexShrink: 0, marginLeft: '16px' }}>
+                    PDF ↓
+                  </span>
+                </a>
+
+                {/* Button 2 — Executive Summary */}
+                <a
+                  href="/assets/In_The_Grey_Executive.pdf"
+                  download
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid rgba(201,151,31,0.45)', padding: '18px 20px', textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,151,31,0.06)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,151,31,0.45)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; }}
+                >
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', letterSpacing: '0.04em', color: '#C9971F' }}>
+                    In The Grey — Executive Summary
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.65)', flexShrink: 0, marginLeft: '12px' }}>
+                    PDF ↓
+                  </span>
+                </a>
+
+                {/* Button 3 — Waterfall Contract with legal note */}
+                <div>
+                  <a
+                    href="/assets/Full_Waterfall_Contract.pdf"
+                    download
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid rgba(201,151,31,0.45)', padding: '18px 20px', textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,151,31,0.06)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,151,31,0.45)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; }}
+                  >
+                    <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', letterSpacing: '0.04em', color: '#C9971F' }}>
+                      Production Co-Finance Agreement — Full Waterfall Contract
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.65)', flexShrink: 0, marginLeft: '12px' }}>
+                      PDF ↓
+                    </span>
+                  </a>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', color: 'var(--text-35)', marginTop: '6px', paddingLeft: '2px', letterSpacing: '0.02em' }}>
+                    Legal instrument — waterfall payment order and recoupment structure
+                  </p>
+                </div>
+
+                {/* Divider between new and existing docs */}
+                <div style={{ height: '1px', background: 'var(--border)', margin: '4px 0' }} />
+
+                {/* Button 4 — Investor Deck (existing) */}
                 <a
                   href="/assets/UGRP_Deck_2025-07-18.pdf"
                   download
@@ -265,6 +323,8 @@ const UGRPDataRoom = () => {
                     PDF ↓
                   </span>
                 </a>
+
+                {/* Button 5 — Finance Plan (existing) */}
                 <a
                   href="/assets/UGRP_Finance_Plan_8-17-25.pdf"
                   download
@@ -279,6 +339,7 @@ const UGRPDataRoom = () => {
                     PDF ↓
                   </span>
                 </a>
+
               </div>
             </div>
 
