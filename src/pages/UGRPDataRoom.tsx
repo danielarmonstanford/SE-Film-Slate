@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const GATE_PASSWORD = import.meta.env.VITE_DATAROOM_PASSWORD ?? '';
+const GATE_PASSWORD = 'capital';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
 const NOTION_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
 const NOTIFY_EMAIL = 'Daniel@StanfordEmporium.com';
