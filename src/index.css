@@ -26,16 +26,16 @@
   --bg-2: #080808;
   --bg-3: #0E0C09;
   --text: #F4EFE6;
-  --text-72: rgba(229,226,225,0.72);
-  --text-45: rgba(229,226,225,0.45);
-  --text-35: rgba(229,226,225,0.35);
-  --text-25: rgba(229,226,225,0.25);
+  --text-72: rgba(229,226,225,0.88);
+  --text-45: rgba(229,226,225,0.65);
+  --text-35: rgba(229,226,225,0.52);
+  --text-25: rgba(229,226,225,0.40);
   --overlay-dark: rgba(8,7,5,0.97);
   --overlay-mid: rgba(8,8,8,0.6);
-  --border: rgba(244,239,230,0.08);
-  --border-2: rgba(244,239,230,0.14);
-  --surface: rgba(255,255,255,0.02);
-  --surface-hover: rgba(255,255,255,0.04);
+  --border: rgba(244,239,230,0.10);
+  --border-2: rgba(244,239,230,0.18);
+  --surface: rgba(255,255,255,0.03);
+  --surface-hover: rgba(255,255,255,0.06);
 }
 
 [data-theme="light"] {
@@ -43,16 +43,16 @@
   --bg-2: #E2E2E2;
   --bg-3: #D6D6D6;
   --text: #141414;
-  --text-72: rgba(20,20,20,0.72);
-  --text-45: rgba(20,20,20,0.45);
-  --text-35: rgba(20,20,20,0.35);
-  --text-25: rgba(20,20,20,0.25);
+  --text-72: rgba(20,20,20,0.82);
+  --text-45: rgba(20,20,20,0.58);
+  --text-35: rgba(20,20,20,0.46);
+  --text-25: rgba(20,20,20,0.34);
   --overlay-dark: rgba(236,236,236,0.97);
   --overlay-mid: rgba(236,236,236,0.6);
-  --border: rgba(20,20,20,0.10);
-  --border-2: rgba(20,20,20,0.16);
-  --surface: rgba(0,0,0,0.04);
-  --surface-hover: rgba(0,0,0,0.07);
+  --border: rgba(20,20,20,0.12);
+  --border-2: rgba(20,20,20,0.20);
+  --surface: rgba(0,0,0,0.05);
+  --surface-hover: rgba(0,0,0,0.09);
 }
 
 body {
@@ -60,6 +60,7 @@ body {
   color: var(--text);
   font-family: var(--font-sans);
   font-weight: 300;
+  font-size: 15px;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,8 +68,21 @@ body {
 }
 
 p, li, span {
-  line-height: 1.85;
+  line-height: 1.9;
   letter-spacing: 0.01em;
+}
+
+/* Prevent iOS auto-zoom on focus */
+input, textarea, select {
+  font-size: 16px !important;
+}
+
+/* Minimum readable size for all text — override tiny hardcoded values */
+* {
+  min-height: 0;
+}
+p, li {
+  font-size: clamp(14px, 1.5vw, 15px);
 }
 
 /* ── SITE DESIGN RULE: All headings use Cormorant Garamond (var(--font-serif)) ── */
@@ -266,10 +280,10 @@ nav.scrolled {
     padding-right: 20px !important;
   }
 
-  /* Body text — more readable on mobile screens */
+  /* Body text — mobile */
   p {
-    font-size: 0.95rem !important;
-    line-height: 1.8 !important;
+    font-size: 15px !important;
+    line-height: 1.9 !important;
     color: var(--text-72) !important;
   }
 

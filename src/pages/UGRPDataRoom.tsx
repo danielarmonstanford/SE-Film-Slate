@@ -56,26 +56,26 @@ const UGRPDataRoom = () => {
   };
 
   return (
-    <div className="bg-[var(--bg)] min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
-      <div className="w-full max-w-[480px]">
+    <div className="bg-[var(--bg)] min-h-screen flex items-center justify-center px-5 md:px-8 pt-28 md:pt-32 pb-20">
+      <div className="w-full max-w-[560px]">
 
         {/* Header */}
-        <div className="mb-12">
-          <span className="text-[10px] uppercase tracking-[0.5em] text-[#CC0000] font-bold block mb-4">
+        <div className="mb-10">
+          <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#CC0000', display: 'block', marginBottom: '16px' }}>
             002 · Restricted Access
           </span>
-          <h1 className="text-3xl md:text-4xl italic font-light leading-snug mb-3">
+          <h1 className="text-4xl md:text-5xl italic font-light leading-snug mb-3">
             In The Grey
           </h1>
-          <p className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-45)]">
+          <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-45)' }}>
             Full Investor Data Room
           </p>
         </div>
 
         {/* Option 1 — Overview (no gate) */}
         <div className="border border-[var(--border)] p-6 mb-8">
-          <div className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-35)] mb-3">Option 01 — Slate Overview</div>
-          <p className="text-xs text-[var(--text-72)] leading-relaxed mb-5">
+          <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-45)', marginBottom: '10px' }}>Option 01 — Slate Overview</div>
+          <p style={{ fontSize: '14px', color: 'var(--text-72)', lineHeight: 1.8, marginBottom: '20px' }}>
             Project summary, team, and investment highlights. No access code required.
           </p>
           <div className="flex flex-col gap-3">
@@ -83,7 +83,7 @@ const UGRPDataRoom = () => {
               href={NOTION_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-[var(--border-2)] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-[var(--text)] hover:text-[var(--text)] transition-all duration-300"
+              style={{ display: 'inline-block', border: '1px solid var(--border-2)', color: 'var(--text)', fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '14px 24px', textDecoration: 'none', transition: 'border-color 0.3s, color 0.3s' }}
             >
               View Slate Overview →
             </a>
@@ -91,27 +91,27 @@ const UGRPDataRoom = () => {
               href="https://blackbearpictures.com/film-and-tv/in%20the%20grey"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-[var(--border)] text-[var(--text-45)] text-[10px] uppercase tracking-[0.3em] px-8 py-4 hover:border-[var(--border-2)] hover:text-[var(--text-72)] transition-all duration-300"
+              style={{ display: 'inline-block', border: '1px solid var(--border)', color: 'var(--text-45)', fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '14px 24px', textDecoration: 'none', transition: 'border-color 0.3s, color 0.3s' }}
             >
               Watch Film Preview · Blackbear Pictures →
             </a>
           </div>
-          <p className="text-[8px] uppercase tracking-[0.25em] text-[var(--text-25)] leading-relaxed mt-5">
-            © Blackbear Pictures. All Rights Reserved. IP owned by Blackbear Pictures.
+          <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-35)', lineHeight: 1.7, marginTop: '16px' }}>
+            © Blackbear Pictures. All Rights Reserved.
           </p>
         </div>
 
         {/* Divider */}
         <div className="flex items-center gap-4 mb-8">
           <div className="flex-1 border-t border-[var(--border)]" />
-          <span className="text-[9px] uppercase tracking-[0.3em] text-[var(--text-25)]">or</span>
+          <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-35)' }}>or</span>
           <div className="flex-1 border-t border-[var(--border)]" />
         </div>
 
         {/* Option 2 — Gated full data room */}
-        <div className="mb-2">
-          <div className="text-[9px] uppercase tracking-[0.4em] text-[#CC0000] mb-3">Option 02 — Full Data Room</div>
-          <p className="text-xs text-[var(--text-72)] leading-relaxed mb-6">
+        <div className="mb-4">
+          <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '10px' }}>Option 02 — Full Data Room</div>
+          <p style={{ fontSize: '14px', color: 'var(--text-72)', lineHeight: 1.8, marginBottom: '24px' }}>
             Full financials, budget breakdown, legal structure, and supporting materials. Access code required.
           </p>
         </div>
@@ -119,45 +119,47 @@ const UGRPDataRoom = () => {
         {!granted ? (
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-45)] block mb-2">
+              <label style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-45)', display: 'block', marginBottom: '8px' }}>
                 Your Email
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                className="w-full bg-transparent border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm placeholder:text-[var(--text-25)] focus:border-[var(--border-2)] focus:outline-none transition-colors"
+                style={{ width: '100%', background: 'transparent', border: '1px solid var(--border)', color: 'var(--text)', padding: '14px 16px', fontSize: '16px', outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box' }}
                 placeholder="your@email.com"
                 required
               />
             </div>
             <div>
-              <label className="text-[9px] uppercase tracking-[0.4em] text-[var(--text-45)] block mb-2">
+              <label style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-45)', display: 'block', marginBottom: '8px' }}>
                 Access Code
               </label>
               <input
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="w-full bg-transparent border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm placeholder:text-[var(--text-25)] focus:border-[var(--border-2)] focus:outline-none transition-colors"
+                style={{ width: '100%', background: 'transparent', border: '1px solid var(--border)', color: 'var(--text)', padding: '14px 16px', fontSize: '16px', outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box' }}
                 placeholder="Enter access code"
                 required
               />
             </div>
             {error && (
-              <p className="text-[#CC0000] text-[11px] tracking-wide">{error}</p>
+              <p style={{ color: '#CC0000', fontSize: '13px', letterSpacing: '0.02em' }}>{error}</p>
             )}
             <button
               type="submit"
-              className="w-full bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold py-5 hover:bg-[#930000] transition-colors duration-500"
+              style={{ width: '100%', background: '#CC0000', color: 'var(--text)', fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', padding: '18px', border: 'none', cursor: 'pointer', transition: 'background 0.4s' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#930000'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = '#CC0000'; }}
             >
               Access Full Data Room
             </button>
-            <p className="text-[9px] text-[var(--text-25)] text-center leading-relaxed pt-2">
+            <p style={{ fontSize: '13px', color: 'var(--text-35)', textAlign: 'center', lineHeight: 1.8, paddingTop: '8px' }}>
               Access code provided upon qualification.{' '}
               <a
                 href="mailto:Daniel@StanfordEmporium.com?subject=UGRP Data Room Access Request"
-                className="hover:text-[var(--text-72)] transition-colors underline underline-offset-2"
+                style={{ color: 'var(--text-45)', textDecoration: 'underline', textUnderlineOffset: '3px', transition: 'color 0.2s' }}
               >
                 Request access
               </a>
@@ -165,27 +167,27 @@ const UGRPDataRoom = () => {
           </form>
         ) : (
           <div className="space-y-0 py-4">
-            <div className="text-[10px] uppercase tracking-[0.5em] text-[#C9971F] mb-10">
+            <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '40px' }}>
               ✓ Access Granted
             </div>
 
             {/* THE POSITION */}
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '20px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '20px' }}>
                 The Position
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.9, color: 'var(--text-72)', marginBottom: '32px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '15px', lineHeight: 1.9, color: 'var(--text-72)', marginBottom: '28px' }}>
                 Last chance — one open slot remaining. Stanford Emporium Inc. is offering a single Lifetime Participation Share in a finished, delivered Guy Ritchie action thriller. Inquiry at $350,000 USD. Contact Stanford Emporium Inc. for contractual agreements.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 {[
                   { title: 'Early Income', body: 'Distribution fees and P&A are the only items ahead of your position. Revenue from every window — theatrical, streaming, VOD, broadcast — flows into your recoupment.' },
                   { title: 'Guaranteed Return', body: 'The equity assignment is priced at a built-in premium. Your recoupment basis is higher than your entry cost, with no participation dilution from net profit pools.' },
                   { title: 'Lifetime Participation', body: 'Beyond recoupment, the equity position continues to participate in all revenue — perpetually, across every territory and window the film generates.' },
                 ].map(card => (
-                  <div key={card.title} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '20px 18px' }}>
-                    <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '10px' }}>{card.title}</p>
-                    <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'var(--text-72)' }}>{card.body}</p>
+                  <div key={card.title} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '22px 20px' }}>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '10px' }}>{card.title}</p>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', lineHeight: 1.85, color: 'var(--text-72)' }}>{card.body}</p>
                   </div>
                 ))}
               </div>
@@ -193,13 +195,13 @@ const UGRPDataRoom = () => {
 
             {/* THE WATERFALL */}
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '8px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '10px' }}>
                 Your Contractual Rights
               </p>
-              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: 'var(--text)', lineHeight: 1.1, marginBottom: '8px' }}>
+              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1.5rem,4vw,1.9rem)', color: 'var(--text)', lineHeight: 1.1, marginBottom: '12px' }}>
                 The Waterfall
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'var(--text-45)', marginBottom: '24px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', lineHeight: 1.8, color: 'var(--text-65)', marginBottom: '24px' }}>
                 Payment order per the Collection Account Management Agreement (CAMA):
               </p>
               {[
@@ -207,36 +209,36 @@ const UGRPDataRoom = () => {
                 { pri: 'ii',  label: 'Distributor corridor + gross percentage',           note: 'Off gross receipts',  highlight: false },
                 { pri: 'iii', label: 'Third-party off-the-tops (residuals, withholding)', note: '~$50,000',            highlight: false },
                 { pri: 'iv',  label: 'Production lender repayment',                       note: 'Already discharged',  highlight: false },
-                { pri: 'v',   label: 'Equity position — investor recoupment',            note: 'Your position',       highlight: true  },
+                { pri: 'v',   label: 'Equity position — investor recoupment',             note: 'Your position',       highlight: true  },
               ].map(row => (
-                <div key={row.pri} style={{ display: 'grid', gridTemplateColumns: '28px 1fr auto', gap: '12px', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid var(--border)', background: row.highlight ? 'rgba(255,200,0,0.04)' : 'transparent' }}>
-                  <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '14px', color: row.highlight ? '#ffc800' : 'rgba(201,151,31,0.5)' }}>{row.pri}</span>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: row.highlight ? 400 : 300, fontSize: '12px', color: row.highlight ? '#ffc800' : 'var(--text-72)', lineHeight: 1.45 }}>{row.label}</span>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px', color: row.highlight ? '#ffc800' : 'var(--text-35)', textAlign: 'right', whiteSpace: 'nowrap' }}>{row.note}</span>
+                <div key={row.pri} style={{ display: 'grid', gridTemplateColumns: '32px 1fr auto', gap: '12px', alignItems: 'center', padding: '13px 0', borderBottom: '1px solid var(--border)', background: row.highlight ? 'rgba(255,200,0,0.05)' : 'transparent' }}>
+                  <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '16px', color: row.highlight ? '#ffc800' : 'rgba(201,151,31,0.5)' }}>{row.pri}</span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: row.highlight ? 400 : 300, fontSize: '14px', color: row.highlight ? '#ffc800' : 'var(--text-72)', lineHeight: 1.5 }}>{row.label}</span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', color: row.highlight ? '#ffc800' : 'var(--text-45)', textAlign: 'right', whiteSpace: 'nowrap' }}>{row.note}</span>
                 </div>
               ))}
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.85, color: 'var(--text-35)', fontStyle: 'italic', marginTop: '16px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '13px', lineHeight: 1.9, color: 'var(--text-45)', fontStyle: 'italic', marginTop: '16px' }}>
                 The production loan is retired. There are no finance parties between position iv and your recoupment. You collect next.
               </p>
             </div>
 
             {/* WHY NOW */}
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '24px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '28px' }}>
                 Why Now
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {[
                   { head: 'Production loan discharged', body: 'The senior lender has been repaid in full. No debt sits ahead of the equity position.' },
-                  { head: 'Senior equity position', body: 'This assignment recoup ahead of net profit participants, talent backends, and producer bonuses.' },
+                  { head: 'Senior equity position', body: 'This assignment recoups ahead of net profit participants, talent backends, and producer bonuses.' },
                   { head: 'Distribution in motion', body: 'US distribution is confirmed. Release planning is underway. The revenue window is measurable.' },
                   { head: 'De-risked entry', body: 'The film is complete. Zero production risk, zero delivery risk. The only variable remaining is performance.' },
                 ].map((item, i) => (
-                  <li key={i} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', marginBottom: '20px' }}>
-                    <span style={{ width: '2px', minHeight: '18px', background: '#C9971F', flexShrink: 0, marginTop: '4px' }} />
+                  <li key={i} style={{ display: 'flex', gap: '18px', alignItems: 'flex-start', marginBottom: '24px' }}>
+                    <span style={{ width: '2px', minHeight: '20px', background: '#C9971F', flexShrink: 0, marginTop: '5px' }} />
                     <div>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '10px', letterSpacing: '0.12em', color: 'var(--text)', marginBottom: '4px', textTransform: 'uppercase' }}>{item.head}</p>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.8, color: 'var(--text-72)' }}>{item.body}</p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '12px', letterSpacing: '0.1em', color: 'var(--text)', marginBottom: '6px', textTransform: 'uppercase' }}>{item.head}</p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', lineHeight: 1.85, color: 'var(--text-72)' }}>{item.body}</p>
                     </div>
                   </li>
                 ))}
@@ -245,44 +247,36 @@ const UGRPDataRoom = () => {
 
             {/* DOCUMENTS */}
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '24px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '24px' }}>
                 Documents
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <a
                   href="/assets/UGRP_Deck_2025-07-18.pdf"
                   download
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    border: '1px solid rgba(201,151,31,0.45)', padding: '14px 18px',
-                    textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s',
-                  }}
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid rgba(201,151,31,0.45)', padding: '18px 20px', textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,151,31,0.06)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,151,31,0.45)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; }}
                 >
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.08em', color: '#C9971F' }}>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', letterSpacing: '0.04em', color: '#C9971F' }}>
                     In The Grey — Investor Deck
                   </span>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.6)' }}>
-                    Download PDF ↓
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.65)', flexShrink: 0, marginLeft: '12px' }}>
+                    PDF ↓
                   </span>
                 </a>
                 <a
                   href="/assets/UGRP_Finance_Plan_8-17-25.pdf"
                   download
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    border: '1px solid rgba(201,151,31,0.45)', padding: '14px 18px',
-                    textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s',
-                  }}
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid rgba(201,151,31,0.45)', padding: '18px 20px', textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,151,31,0.06)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,151,31,0.45)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; }}
                 >
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.08em', color: '#C9971F' }}>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', letterSpacing: '0.04em', color: '#C9971F' }}>
                     Black Bear International — Finance Plan
                   </span>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.6)' }}>
-                    Download PDF ↓
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.65)', flexShrink: 0, marginLeft: '12px' }}>
+                    PDF ↓
                   </span>
                 </a>
               </div>
@@ -290,35 +284,37 @@ const UGRPDataRoom = () => {
 
             {/* STANFORD EMPORIUM ROLE */}
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
                 Stanford Emporium Inc. Role
               </p>
-              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: 'var(--text)', lineHeight: 1.1, marginBottom: '12px' }}>
+              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1.3rem,3.5vw,1.7rem)', color: 'var(--text)', lineHeight: 1.15, marginBottom: '14px' }}>
                 Finder &amp; Consulting Executive Producer
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.85, color: 'var(--text-45)', marginBottom: '20px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', lineHeight: 1.9, color: 'var(--text-65)', marginBottom: '24px' }}>
                 Stanford Emporium Inc. is a Montreal-based film finance and creative advisory holding company presenting this opportunity on behalf of the principal equity partner.
               </p>
               {[
-                { label: 'Role', value: 'Introduction and facilitation only', gold: false },
-                { label: 'Equity Principal', value: 'Principal Equity Partner', gold: false },
-                { label: 'Documentation', value: 'Available upon request — Daniel@StanfordEmporium.com', gold: false },
+                { label: 'Role', value: 'Introduction and facilitation only' },
+                { label: 'Equity Principal', value: 'Principal Equity Partner' },
+                { label: 'Documentation', value: 'Available upon request — Daniel@StanfordEmporium.com' },
               ].map(row => (
-                <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '9px 0', borderBottom: '1px solid var(--border)', gap: '20px' }}>
-                  <span style={{ fontSize: '11px', color: 'var(--text-45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{row.label}</span>
-                  <span style={{ fontSize: '12px', color: row.gold ? '#ffc800' : 'var(--text)', textAlign: 'right', fontWeight: row.gold ? 600 : 300, fontFamily: 'var(--font-sans)' }}>{row.value}</span>
+                <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '12px 0', borderBottom: '1px solid var(--border)', gap: '20px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '12px', color: 'var(--text-45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{row.label}</span>
+                  <span style={{ fontSize: '14px', color: 'var(--text)', textAlign: 'right', fontWeight: 300, fontFamily: 'var(--font-sans)' }}>{row.value}</span>
                 </div>
               ))}
             </div>
 
             {/* DATA ROOM LINK */}
-            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '32px', textAlign: 'center' }}>
-              <p className="text-sm text-[var(--text-45)] mb-6">Full financials and legal documentation below.</p>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '36px', textAlign: 'center' }}>
+              <p style={{ fontSize: '14px', color: 'var(--text-45)', marginBottom: '20px', lineHeight: 1.8 }}>Full financials and legal documentation below.</p>
               <a
                 href={DATA_ROOM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold px-12 py-5 hover:bg-[#930000] transition-colors duration-500"
+                style={{ display: 'inline-block', background: '#CC0000', color: 'var(--text)', fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', padding: '18px 40px', textDecoration: 'none', transition: 'background 0.4s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#930000'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#CC0000'; }}
               >
                 Open Full Data Room →
               </a>
@@ -330,7 +326,7 @@ const UGRPDataRoom = () => {
         <div className="mt-12 pt-8 border-t border-[var(--border)] text-center">
           <Link
             to="/project/ugrp"
-            className="text-[9px] uppercase tracking-[0.3em] text-[var(--text-25)] hover:text-[var(--text-72)] transition-colors"
+            style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text-35)', textDecoration: 'none', transition: 'color 0.2s' }}
           >
             ← Back to Project Overview
           </Link>
