@@ -207,7 +207,7 @@ const UGRPDataRoom = () => {
                 { pri: 'ii',  label: 'Distributor corridor + gross percentage',           note: 'Off gross receipts',  highlight: false },
                 { pri: 'iii', label: 'Third-party off-the-tops (residuals, withholding)', note: '~$50,000',            highlight: false },
                 { pri: 'iv',  label: 'Production lender repayment',                       note: 'Already discharged',  highlight: false },
-                { pri: 'v',   label: 'Equity position — C2 / investor recoupment',       note: 'Your position',       highlight: true  },
+                { pri: 'v',   label: 'Equity position — investor recoupment',            note: 'Your position',       highlight: true  },
               ].map(row => (
                 <div key={row.pri} style={{ display: 'grid', gridTemplateColumns: '28px 1fr auto', gap: '12px', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid var(--border)', background: row.highlight ? 'rgba(255,200,0,0.04)' : 'transparent' }}>
                   <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '14px', color: row.highlight ? '#ffc800' : 'rgba(201,151,31,0.5)' }}>{row.pri}</span>
@@ -243,19 +243,66 @@ const UGRPDataRoom = () => {
               </ul>
             </div>
 
+            {/* DOCUMENTS */}
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '24px' }}>
+                Documents
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <a
+                  href="/assets/UGRP_Deck_2025-07-18.pdf"
+                  download
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    border: '1px solid rgba(201,151,31,0.45)', padding: '14px 18px',
+                    textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s',
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,151,31,0.06)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,151,31,0.45)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; }}
+                >
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.08em', color: '#C9971F' }}>
+                    In The Grey — Investor Deck
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.6)' }}>
+                    Download PDF ↓
+                  </span>
+                </a>
+                <a
+                  href="/assets/UGRP_Finance_Plan_8-17-25.pdf"
+                  download
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    border: '1px solid rgba(201,151,31,0.45)', padding: '14px 18px',
+                    textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s',
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,151,31,0.06)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,151,31,0.45)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; }}
+                >
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.08em', color: '#C9971F' }}>
+                    Black Bear International — Finance Plan
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.6)' }}>
+                    Download PDF ↓
+                  </span>
+                </a>
+              </div>
+            </div>
+
             {/* STANFORD EMPORIUM ROLE */}
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
                 Stanford Emporium Inc. Role
               </p>
-              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: 'var(--text)', lineHeight: 1.1, marginBottom: '20px' }}>
+              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: '1.4rem', color: 'var(--text)', lineHeight: 1.1, marginBottom: '12px' }}>
                 Finder &amp; Consulting Executive Producer
+              </p>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', lineHeight: 1.85, color: 'var(--text-45)', marginBottom: '20px' }}>
+                Stanford Emporium Inc. is a Montreal-based film finance and creative advisory holding company presenting this opportunity on behalf of the principal equity partner.
               </p>
               {[
                 { label: 'Role', value: 'Introduction and facilitation only', gold: false },
-                { label: 'NDA Required', value: 'Yes — before financial terms are shared', gold: true },
-                { label: 'Equity Principal', value: 'C2 Motion Picture Group', gold: false },
-                { label: 'Documentation', value: 'Available under executed NDA', gold: false },
+                { label: 'Equity Principal', value: 'Principal Equity Partner', gold: false },
+                { label: 'Documentation', value: 'Available upon request — Daniel@StanfordEmporium.com', gold: false },
               ].map(row => (
                 <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '9px 0', borderBottom: '1px solid var(--border)', gap: '20px' }}>
                   <span style={{ fontSize: '11px', color: 'var(--text-45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{row.label}</span>
