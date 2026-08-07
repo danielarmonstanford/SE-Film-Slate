@@ -163,13 +163,13 @@ const ProjectDetail: React.FC = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             style={{ position: 'relative', zIndex: 2, padding: '0 clamp(28px,6vw,80px) clamp(48px,6vw,72px)', maxWidth: '900px' }}>
             <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
-              Last Chance — One Slot Remaining
+              Exclusive — Stanford Emporium Inc.
             </p>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3.2rem,8vw,8rem)', lineHeight: 0.9, color: 'var(--text)', marginBottom: '24px' }}>
               {project.title}
             </h1>
             <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1rem,2vw,1.35rem)', lineHeight: 1.55, color: 'var(--text-72)', maxWidth: '580px', marginBottom: '36px' }}>
-              A completed Guy Ritchie film. One open slot — Lifetime Participation Shares. Inquiry at $350,000 through Stanford Emporium Inc. for contractual agreements.
+              Up to $1,000,000 in Lifetime Participation Shares — exclusive through Stanford Emporium Inc. Fixed minimum return of $1,500,000 in 6–12 months.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <Link to="/investor-inquiry"
