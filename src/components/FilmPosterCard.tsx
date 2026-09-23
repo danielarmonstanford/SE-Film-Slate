@@ -35,7 +35,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
 
   // Badge color logic
   const badgeColor = project.closed
-    ? 'rgba(244,239,230,0.46)'
+    ? '#00D4E8'
     : project.distributionOpen
     ? '#4CAF50'
     : project.timeSensitive
