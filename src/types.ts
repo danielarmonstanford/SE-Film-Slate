@@ -101,8 +101,8 @@ export const PROJECTS: Project[] = [
     investmentNote: 'Packaging stage — casting options under consideration, financing structure to be confirmed. Contact Stanford Emporium Inc. for the full deck and latest status.',
     disclaimer: 'This listing does not constitute a securities offering. Interested parties should consult their legal and tax advisors. © M-World Films. All Rights Reserved.',
     highlightColor: '#2E7D8C',
-    dataRoomUrl: '/investor-inquiry',
-    dataRoomGatedPath: '/investor-inquiry',
+    dataRoomUrl: '/docs/The_Robinsons_Deck.pdf',
+    dataRoomGatedPath: '/robinsons-dataroom',
     previewImages: ['/robinsons-poster.jpg'],
     team: [
       { role: 'Director', name: 'Harvey Lowry' },
