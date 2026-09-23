@@ -35,6 +35,7 @@ function toCardProject(p: typeof PROJECTS[number]): FilmPosterCardProject {
     timeSensitive: p.timeSensitive,
     urgency: p.urgency,
     funded: p.status === 'Funded',
+    distributionOpen: p.distributionOpen,
   };
 }
 

@@ -14,6 +14,7 @@ export interface FilmPosterCardProject {
   timeSensitive?: boolean;
   urgency?: boolean;
   funded?: boolean;
+  distributionOpen?: boolean;
 }
 
 interface FilmPosterCardProps {
@@ -32,7 +33,9 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
   const [hovered, setHovered] = useState(false);
 
   // Badge color logic
-  const badgeColor = project.timeSensitive
+  const badgeColor = project.distributionOpen
+    ? '#4CAF50'
+    : project.timeSensitive
     ? '#ffc800'
     : project.funded
     ? '#00D4E8'
