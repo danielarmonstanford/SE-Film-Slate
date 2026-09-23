@@ -32,6 +32,7 @@ export interface Project {
   timingRelevance: string;
   commercialStrengths: string[];
   dataRoomUrl: string;
+  taxCreditDocumentsUrl?: string;
   dataRoomGatedPath?: string;
   notionPageId?: string;
   youtubeId?: string;
@@ -572,6 +573,7 @@ export const PROJECTS: Project[] = [
       'Multi-territory pre-sales via treaty rights provide downside protection.'
     ],
     dataRoomUrl: '/400XY_Investment_Dossier.pdf',
+    taxCreditDocumentsUrl: 'https://drive.google.com/drive/folders/15vOymgjiuI-By3ESevht6q_7YVifF0A3',
     team: [
       { role: 'IP Owner / Director', name: 'Alastair Paton' },
       { role: 'Executive Producer', name: 'Daniel Stanford' }

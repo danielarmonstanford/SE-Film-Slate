@@ -316,6 +316,18 @@ const ProjectDetail: React.FC = () => {
             >
               INQUIRE
             </Link>
+            {project.taxCreditDocumentsUrl && (
+              <a
+                href={project.taxCreditDocumentsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-text border border-[var(--bronze)] text-[var(--bronze)] px-12 py-5 hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-all inline-block"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                TAX CREDIT PAPERWORK
+              </a>
+            )}
           </div>
         </motion.div>
       </section>
