@@ -177,7 +177,7 @@ const UGRPDataRoom = () => {
                 The Position
               </p>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '15px', lineHeight: 1.9, color: 'var(--text-72)', marginBottom: '28px' }}>
-                Exclusive through Stanford Emporium Inc. — up to $1,000,000 in Lifetime Participation Shares available in a finished, delivered Guy Ritchie action thriller. Fixed minimum return of $1,500,000 in 6–12 months. Contact Stanford Emporium Inc. for contractual agreements.
+                Exclusive through Stanford Emporium Inc. — up to $500,000 in Lifetime Participation Shares available only for a limited time in a finished, delivered Guy Ritchie action thriller. Fixed minimum return of $1,500,000 in 6–12 months. Contact Stanford Emporium Inc. for contractual agreements.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 {[

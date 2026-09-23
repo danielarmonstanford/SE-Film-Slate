@@ -169,7 +169,7 @@ const ProjectDetail: React.FC = () => {
               {project.title}
             </h1>
             <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1rem,2vw,1.35rem)', lineHeight: 1.55, color: 'var(--text-72)', maxWidth: '580px', marginBottom: '36px' }}>
-              Up to $1,000,000 in Lifetime Participation Shares — exclusive through Stanford Emporium Inc. Fixed minimum return of $1,500,000 in 6–12 months.
+              Up to $500,000 in Lifetime Participation Shares — available only for a limited time through Stanford Emporium Inc. Fixed minimum return of $1,500,000 in 6–12 months.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <Link to="/investor-inquiry"
