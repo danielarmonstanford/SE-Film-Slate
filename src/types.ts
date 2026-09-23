@@ -578,7 +578,7 @@ export const PROJECTS: Project[] = [
     slug: '99',
     title: '"99"',
     genre: 'FILM',
-    image: '/film-99-poster.jpg',
+    image: '/film-99-poster.png',
     description: 'Star-driven action thriller. Production active in Egypt. $3M equity opportunity now open.',
     details: 'Principal Talent: Sylvester Stallone — Deal Memo in Place',
     stats: 'Budget: $12M | Capital Committed: $9M | Equity Open: $3M',
@@ -590,7 +590,7 @@ export const PROJECTS: Project[] = [
     subStatus: 'Production Active — Egypt',
     deckUrl: 'https://drive.google.com/file/d/1_placeholder_deck_link/view?usp=sharing',
     previewImages: [
-      '/film-99-poster.jpg',
+      '/film-99-poster.png',
     ],
     positioning: 'Active production in Egypt. $9M committed. $3M equity opportunity now open — Senior Preferred, LIFO structure.',
     budgetRange: '$12M (Fixed)',
