@@ -193,6 +193,30 @@ const UGRPDataRoom = () => {
               </div>
             </div>
 
+            {/* CURRENT REVENUE POSITION */}
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '14px' }}>
+                Current Revenue Position
+              </p>
+              <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(1.5rem,4vw,1.9rem)', color: 'var(--text)', lineHeight: 1.15, marginBottom: '24px' }}>
+                Revenue is already in motion.
+              </p>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {[
+                  'Film is released',
+                  'Already collecting revenue',
+                  '59% ROI confirmed at current collections',
+                  'Path to 125%+ documented in Preliminary Ultimate',
+                  'Investor buys in now at a discount while the meter is still running',
+                ].map(item => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '14px 16px', border: '1px solid var(--border)', background: 'var(--surface)' }}>
+                    <span aria-hidden="true" style={{ color: '#00D4E8', fontSize: '16px', lineHeight: 1.45, flexShrink: 0 }}>✓</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', lineHeight: 1.6, color: 'var(--text-72)' }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* THE WATERFALL */}
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '40px', marginBottom: '40px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '10px' }}>
