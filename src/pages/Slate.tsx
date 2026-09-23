@@ -8,6 +8,19 @@ import { Link } from 'react-router-dom';
 import { PROJECTS } from '../types';
 import FilmPosterCard, { FilmPosterCardProject } from '../components/FilmPosterCard';
 
+// Lead with the current priority opportunities, while completed/closed projects
+// remain visible but are always grouped at the end of the investment slate.
+const prioritySlugs = ['the-robinsons', 'acnd', '99'];
+const slateProjects = [...PROJECTS].sort((a, b) => {
+  if (a.closed !== b.closed) return a.closed ? 1 : -1;
+
+  const aPriority = prioritySlugs.indexOf(a.slug);
+  const bPriority = prioritySlugs.indexOf(b.slug);
+  const aRank = aPriority === -1 ? Number.MAX_SAFE_INTEGER : aPriority;
+  const bRank = bPriority === -1 ? Number.MAX_SAFE_INTEGER : bPriority;
+  return aRank - bRank;
+});
+
 // Derive statusLabel from project flags
 function getStatusLabel(p: typeof PROJECTS[number]): string {
   if (p.closed) return 'Completed · Opportunity Closed';
@@ -81,7 +94,7 @@ const Slate: React.FC = () => {
             gap: 'clamp(12px, 2vw, 24px)',
           }}
         >
-          {PROJECTS.map(p => (
+          {slateProjects.map(p => (
             <div key={p.id} className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <FilmPosterCard project={toCardProject(p)} />
 
