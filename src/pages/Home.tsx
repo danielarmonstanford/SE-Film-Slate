@@ -333,8 +333,8 @@ export default function Home({ setIsHovering }: HomeProps) {
             </div>
           </a>
 
-          {/* POSTER 2 — UGRP */}
-          <a href="/project/ugrp" style={{ display: 'block', textDecoration: 'none' }}>
+          {/* POSTER 2 — The Robinsons */}
+          <a href="/project/the-robinsons" style={{ display: 'block', textDecoration: 'none' }}>
             <div
               style={{
                 width: '100%', aspectRatio: '2/3', background: 'var(--bg-2)',
@@ -344,7 +344,7 @@ export default function Home({ setIsHovering }: HomeProps) {
               onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(204,0,0,0.4)'}
               onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--border)'}
             >
-              <img src="/ugrp-poster.jpg" alt="In The Grey"
+              <img src="/robinsons-poster.jpg" alt="The Robinsons"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', opacity: 0.85, filter: 'contrast(1.05)' }} />
               <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%',
                 background: 'linear-gradient(to top, var(--overlay-dark) 0%, transparent 100%)' }} />
@@ -357,11 +357,11 @@ export default function Home({ setIsHovering }: HomeProps) {
               <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300,
                   fontSize: 'clamp(14px,2.5vw,22px)', color: 'var(--text)', lineHeight: 1.1, marginBottom: '5px' }}>
-                  In The Grey
+                  The Robinsons
                 </div>
                 <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, fontSize: '8px',
                   letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--text-72)' }}>
-                  Henry Cavill · Jake Gyllenhaal · Dir. Guy Ritchie
+                  Dir. Harvey Lowry · M-World Films · Barbados
                 </div>
               </div>
             </div>

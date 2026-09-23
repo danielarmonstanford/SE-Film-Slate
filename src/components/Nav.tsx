@@ -11,8 +11,8 @@ export default function Nav() {
   const playerRef = useRef<any>(null);
 
   const TRACKS = [
-    { id: '8-wAvbxB7D8', label: 'Hans Zimmer' },
     { id: '3ciMHwo1ApA', label: 'Culture Capital' },
+    { id: '8-wAvbxB7D8', label: 'Hans Zimmer' },
   ];
   const location = useLocation();
 
@@ -266,7 +266,7 @@ export default function Nav() {
         <iframe
           id="nav-ambient-player"
           width="100" height="100"
-          src="https://www.youtube.com/embed/8-wAvbxB7D8?autoplay=0&mute=0&loop=1&playlist=8-wAvbxB7D8&controls=0&enablejsapi=1"
+          src="https://www.youtube.com/embed/3ciMHwo1ApA?autoplay=0&mute=0&loop=1&playlist=3ciMHwo1ApA&controls=0&enablejsapi=1"
           allow="autoplay"
           title="Ambient Audio"
         />
