@@ -74,14 +74,26 @@ export default function Layout({ children, setIsHovering }: LayoutProps) {
           </div>
 
           <div className="text-center lg:text-right">
-            <a
-              href={`mailto:${EMAIL_CONTACT}`}
-              className="body-text text-[11px] hover:text-[var(--bronze)] transition-colors" style={{ color: 'var(--text)' }}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              {EMAIL_CONTACT}
-            </a>
+            <div className="flex flex-col items-center lg:items-end gap-2">
+              <a
+                href={`mailto:${EMAIL_CONTACT}`}
+                className="body-text text-[11px] hover:text-[var(--bronze)] transition-colors" style={{ color: 'var(--text)' }}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                {EMAIL_CONTACT}
+              </a>
+              <a
+                href="https://stanfordemporium.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="body-text text-[11px] hover:text-[var(--bronze)] transition-colors" style={{ color: 'var(--text-72)' }}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                StanfordEmporium.com
+              </a>
+            </div>
             <div className="flex justify-center lg:justify-end gap-6 mt-4">
               {SOCIAL_LINKS.map((link) => (
                 <a
