@@ -108,18 +108,15 @@ export default function Home({ setIsHovering }: HomeProps) {
           // @ts-ignore
           playsInline={true}
           webkit-playsinline="true"
-          onError={() => {
-            const el = document.getElementById('hero-fallback');
-            if (el) el.style.display = 'block';
-          }}
         />
 
-        {/* MOBILE FALLBACK */}
+        {/* The still is always present. It is the mobile hero and a reliable
+            visual fallback while the desktop video connects. */}
         <img
-          id="hero-fallback"
+          className="hero-fallback"
           src="/D80_9144.jpg"
           alt="Hero Background"
-          style={{ display: 'none', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
         />
 
         {/* TOP GRADIENT */}

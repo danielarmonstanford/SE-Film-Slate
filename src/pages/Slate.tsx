@@ -72,7 +72,7 @@ const Slate: React.FC = () => {
 
         {/* Film poster grid */}
         <div
-          className="film-poster-grid reveal"
+          className="film-poster-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -80,7 +80,7 @@ const Slate: React.FC = () => {
           }}
         >
           {PROJECTS.map(p => (
-            <div key={p.id} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div key={p.id} className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <FilmPosterCard project={toCardProject(p)} />
 
               {/* Hell's Kitchen PDF downloads sit below the card, outside the overlay */}

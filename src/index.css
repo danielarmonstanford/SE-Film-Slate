@@ -245,6 +245,15 @@ nav.scrolled {
 
 /* ── HERO CTA GROUP — mobile ── */
 @media (max-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
@@ -281,10 +290,26 @@ nav.scrolled {
   }
 
   /* Body text — mobile */
-  p {
-    font-size: 15px !important;
-    line-height: 1.9 !important;
+  p, li {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
     color: var(--text-72) !important;
+  }
+
+  /* Compact metadata stays legible without turning headings into body copy. */
+  [style*="font-size: 7px"],
+  [style*="font-size: 8px"],
+  [style*="font-size: 9px"],
+  [style*="font-size: 10px"],
+  [style*="font-size: 11px"] {
+    font-size: 0.75rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Give tap controls a dependable touch target. */
+  button:not(.hero-invest-btn),
+  a[style*="padding"] {
+    min-height: 44px;
   }
 
   /* Nav — collapse gracefully */
@@ -296,6 +321,14 @@ nav.scrolled {
   .film-card, [class*="col-span"] {
     width: 100% !important;
     min-width: 100% !important;
+  }
+
+  /* A catalogue must not depend on scroll animation to be readable. This also
+     covers fast scrolling and restored mobile scroll positions. */
+  .film-poster-grid > .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   /* Any 12-column grid — collapse to 1 column */
@@ -407,18 +440,18 @@ main > section {
 @media (max-width: 768px) {
   /* Fill viewport with video — no black bars */
   .hero-vimeo {
-    top: 50% !important;
-    left: 50% !important;
-    width: 177.78vh !important; /* 16:9 */
-    height: 100% !important;
-    min-width: 100% !important;
-    transform: translate(-50%, -50%) !important;
+    display: none;
+  }
+
+  .hero-fallback {
+    display: block;
+    object-position: center center;
   }
 
   /* Center all hero text */
   .hero-text-block {
-    width: 100% !important;
-    padding: 0 20px 52px !important;
+    width: min(100%, 36rem) !important;
+    padding: 0 24px max(40px, env(safe-area-inset-bottom)) !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -432,12 +465,51 @@ main > section {
     text-align: center !important;
   }
 
+  .nav-logo > a > div {
+    font-size: clamp(1.05rem, 5.3vw, 1.375rem) !important;
+    letter-spacing: 0.28em !important;
+  }
+
+  .theme-toggle {
+    top: 18px !important;
+    right: 58px !important;
+  }
+
+  .menu-toggle {
+    top: 18px !important;
+    right: 18px !important;
+  }
+
   /* CTA button */
   .hero-invest-btn {
-    width: 50% !important;
-    font-size: 10px !important;
-    padding: 14px 0 !important;
+    width: min(100%, 17rem) !important;
+    min-height: 44px;
+    font-size: 0.75rem !important;
+    padding: 12px 20px !important;
     text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* The hero title remains dramatic but never crowds the call to action. */
+  .hero-text-block h1 span {
+    font-size: clamp(2.5rem, 12vw, 3.25rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .hero-text-block > div:first-child {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.24em !important;
+    line-height: 1.45 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

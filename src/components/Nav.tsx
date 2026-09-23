@@ -110,6 +110,7 @@ export default function Nav() {
 
       {/* THEME TOGGLE — fixed top-right, left of hamburger */}
       <button
+        className="theme-toggle"
         onClick={toggleTheme}
         aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
         style={{
@@ -127,6 +128,7 @@ export default function Nav() {
 
       {/* HAMBURGER — fixed top-right */}
       <button
+        className="menu-toggle"
         onClick={() => setMenuOpen(o => !o)}
         aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         style={{
