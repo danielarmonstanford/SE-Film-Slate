@@ -36,6 +36,7 @@ export interface Project {
   notionPageId?: string;
   youtubeId?: string;
   trailerYoutubeId?: string;
+  storyboardVideo?: string;
   team: { role: string; name: string }[];
   // Extended investment fields
   number?: string;
@@ -551,6 +552,7 @@ export const PROJECTS: Project[] = [
     status: 'Funding Open',
     statusColor: 'var(--red-urgent)',
     deckUrl: '/400XY_Investment_Dossier.pdf',
+    storyboardVideo: '/400xy-storyboard.mp4',
     previewImages: [],
     positioning: 'Live Opportunity — Feature Equity + Animation Series',
     budgetRange: '$5M Feature Equity | $600K Animation Series',

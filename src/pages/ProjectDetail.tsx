@@ -320,6 +320,43 @@ const ProjectDetail: React.FC = () => {
         </motion.div>
       </section>
 
+      {/* STORYBOARD — supplied project visual, presented silently by default */}
+      {project.storyboardVideo && (
+        <section style={{ background: '#080705', padding: 'clamp(32px, 4vw, 56px) 0 0' }}>
+          <div style={{
+            padding: '0 clamp(28px, 6vw, 100px) clamp(20px, 2vw, 28px)',
+            display: 'flex', alignItems: 'center', gap: '20px',
+          }}>
+            <span style={{
+              fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px',
+              letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F',
+            }}>
+              400XY Storyboard
+            </span>
+            <div style={{ flex: 1, height: '1px', background: 'rgba(201,151,31,0.2)' }} />
+            <span style={{
+              fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '10px',
+              letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(244,239,230,0.3)',
+            }}>
+              Muted Preview
+            </span>
+          </div>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+            preload="metadata"
+            aria-label={`${project.title} storyboard`}
+            style={{ display: 'block', width: '100%', maxHeight: '78vh', objectFit: 'contain', background: '#000' }}
+          >
+            <source src={project.storyboardVideo} type="video/mp4" />
+            Your browser does not support the storyboard video.
+          </video>
+        </section>
+      )}
+
       {/* TRAILER SECTION — shown when trailerYoutubeId is set */}
       {project.trailerYoutubeId && (
         <section style={{ background: '#080705', padding: '0' }}>
