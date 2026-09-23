@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 const GATE_PASSWORD = 'money';
 const DATA_ROOM_URL = '/docs/The_Robinsons_Deck.pdf';
+const DATA_ROOM_DOCS = [
+  { label: 'Investor Deck', url: '/docs/The_Robinsons_Deck.pdf' },
+  { label: 'Finance Plan', url: '/docs/Robinsons_Finance_Plan.pdf' },
+  { label: 'Budget Topsheet ($6.6M)', url: '/docs/Robinsons_Budget_Topsheet.pdf' },
+];
 const NOTIFY_EMAIL = 'Daniel@StanfordEmporium.com';
 const WEB3FORMS_KEY = '0928c0d9-38cc-4327-99b1-a50349a62ed7';
 
@@ -153,14 +158,19 @@ const RobinsonsDataRoom = () => {
               ✓ Access Granted
             </div>
             <p className="text-sm text-[var(--text-72)]">Opening data room…</p>
-            <a
-              href={DATA_ROOM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold px-12 py-5 hover:bg-[#930000] transition-colors duration-500"
-            >
-              Open Full Data Room →
-            </a>
+            <div className="flex flex-col gap-3">
+              {DATA_ROOM_DOCS.map(doc => (
+                <a
+                  key={doc.url}
+                  href={doc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#CC0000] text-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-bold px-12 py-5 hover:bg-[#930000] transition-colors duration-500"
+                >
+                  {doc.label} →
+                </a>
+              ))}
+            </div>
           </div>
         )}
 
