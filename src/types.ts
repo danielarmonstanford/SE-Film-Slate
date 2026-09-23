@@ -661,43 +661,5 @@ export const PROJECTS: Project[] = [
       { role: 'Lead Cast', name: 'Gerard Butler' },
       { role: 'Executive Producer', name: 'Daniel Stanford' }
     ]
-  },
-  {
-    id: '004',
-    slug: 'a-town-called-consequence',
-    title: 'A Town Called Consequence',
-    genre: 'FILM',
-    image: '/consequence-poster.jpg',
-    description: 'A gritty western starring Kiefer Sutherland, where every choice has a price and every town has a secret.',
-    details: 'Starring Kiefer Sutherland',
-    stats: 'Budget: $8M | Allocation Open: $2M',
-    status: 'Funded',
-    subStatus: 'Packaging Phase — Fully Financed',
-    statusColor: 'var(--green-funded)',
-    previewImages: [
-      '/consequence-poster.jpg',
-      'https://images.unsplash.com/photo-1533167649158-6d508895b980?w=800&q=80',
-      'https://images.unsplash.com/photo-1501183638710-841dd1904471?w=800&q=80'
-    ],
-    positioning: 'Kiefer Sutherland anchors a brutal, modern deconstruction of the classic Western.',
-    budgetRange: '$8M–$10M',
-    equityAvailable: 'Fully Funded',
-    taxIncentives: 'New Mexico Film Credit',
-    salesStrategy: 'Festival circuit followed by premium VOD and cable syndication.',
-    targetROI: '18% Fixed Return',
-    comparables: ['Unforgiven', 'Bone Tomahawk', 'Hostiles'],
-    marketPositioning: 'Elevated Western with strong critical appeal and cult potential.',
-    audience: 'Western fans, Kiefer Sutherland fans, and indie cinema enthusiasts.',
-    timingRelevance: 'Riding the wave of the Western genre resurgence (Yellowstone effect).',
-    commercialStrengths: [
-      'Low budget vs. high-profile lead creates a safe investment floor.',
-      'Kiefer Sutherland\'s strong TV and film following ensures SVOD interest.',
-      'Genre resurgence provides multiple distribution pathways.'
-    ],
-    dataRoomUrl: 'https://notion.so/consequence-data-room',
-    team: [
-      { role: 'Lead Cast', name: 'Kiefer Sutherland' },
-      { role: 'Executive Producer', name: 'Daniel Stanford' }
-    ]
   }
 ];

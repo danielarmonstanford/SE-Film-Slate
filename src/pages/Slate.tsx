@@ -10,7 +10,7 @@ import FilmPosterCard, { FilmPosterCardProject } from '../components/FilmPosterC
 
 // Lead with the current priority opportunities, while completed/closed projects
 // remain visible but are always grouped at the end of the investment slate.
-const prioritySlugs = ['the-robinsons', 'acnd', '99', '400xy'];
+const prioritySlugs = ['the-robinsons', 'acnd', '99', '400xy', 'ugrp', 'hells-kitchen', 'badlander'];
 const slateProjects = [...PROJECTS].sort((a, b) => {
   if (a.closed !== b.closed) return a.closed ? 1 : -1;
 
