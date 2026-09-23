@@ -252,6 +252,22 @@ const UGRPDataRoom = () => {
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
 
+                {/* Current domestic waterfall */}
+                <a
+                  href="/docs/In_The_Grey_Domestic_Waterfall_Equity_Summary.pdf"
+                  download
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid rgba(201,151,31,0.45)', padding: '18px 20px', textDecoration: 'none', transition: 'border-color 0.2s, background 0.2s' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#C9971F'; (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(201,151,31,0.06)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201,151,31,0.45)'; (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; }}
+                >
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', letterSpacing: '0.04em', color: '#C9971F' }}>
+                    In The Grey — Domestic Waterfall &amp; Equity Summary
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(201,151,31,0.65)', flexShrink: 0, marginLeft: '12px' }}>
+                    PDF ↓
+                  </span>
+                </a>
+
                 {/* Button 1 — Hero document: solid gold */}
                 <a
                   href="/assets/Operation_In_The_Gr.pdf"
