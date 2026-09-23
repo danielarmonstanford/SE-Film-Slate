@@ -10,6 +10,7 @@ import FilmPosterCard, { FilmPosterCardProject } from '../components/FilmPosterC
 
 // Derive statusLabel from project flags
 function getStatusLabel(p: typeof PROJECTS[number]): string {
+  if (p.closed) return 'Completed · Opportunity Closed';
   if (p.timeSensitive && p.timeSensitiveLabel) return p.timeSensitiveLabel;
   if (p.timeSensitive) return 'Limited Window';
   if (p.status === 'Funded') return 'Fully Funded';
@@ -35,6 +36,7 @@ function toCardProject(p: typeof PROJECTS[number]): FilmPosterCardProject {
     timeSensitive: p.timeSensitive,
     urgency: p.urgency,
     funded: p.status === 'Funded',
+    closed: p.closed,
     distributionOpen: p.distributionOpen,
   };
 }

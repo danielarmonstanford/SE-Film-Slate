@@ -14,6 +14,7 @@ export interface FilmPosterCardProject {
   timeSensitive?: boolean;
   urgency?: boolean;
   funded?: boolean;
+  closed?: boolean;
   distributionOpen?: boolean;
 }
 
@@ -33,7 +34,9 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
   const [hovered, setHovered] = useState(false);
 
   // Badge color logic
-  const badgeColor = project.distributionOpen
+  const badgeColor = project.closed
+    ? 'rgba(244,239,230,0.46)'
+    : project.distributionOpen
     ? '#4CAF50'
     : project.timeSensitive
     ? '#ffc800'
@@ -55,6 +58,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
           : '1px solid var(--border)',
         transition: 'border-color 0.4s ease',
         cursor: 'pointer',
+        opacity: project.closed ? 0.62 : 1,
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -70,9 +74,10 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
           height: '100%',
           objectFit: 'cover',
           objectPosition: 'top center',
-          opacity: hovered ? 0.9 : 0.75,
+          opacity: project.closed ? 0.55 : hovered ? 0.9 : 0.75,
           transform: hovered ? 'scale(1.03)' : 'scale(1)',
-          transition: 'opacity 0.5s ease, transform 0.7s ease',
+          filter: project.closed ? 'grayscale(0.8)' : undefined,
+          transition: 'opacity 0.5s ease, transform 0.7s ease, filter 0.5s ease',
         }}
       />
 
