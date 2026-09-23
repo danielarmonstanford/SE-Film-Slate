@@ -43,6 +43,7 @@ export interface Project {
   urgency?: boolean;
   timeSensitive?: boolean;
   timeSensitiveLabel?: string;
+  distributionOpen?: boolean;
   director?: string;
   ep?: string;
   talent?: string;
@@ -67,8 +68,10 @@ export const PROJECTS: Project[] = [
     image: '/robinsons-poster.jpg',
     heroImage: '/robinsons-poster.jpg',
     description: "A family's sailing trip to Singapore turns into the adventure of a lifetime when a fierce storm hits and the family is shipwrecked on a tropical island. A modern-day retelling of the classic tale, The Swiss Family Robinson.",
-    status: 'Packaging',
-    statusColor: 'var(--bronze)',
+    status: 'Funding Open',
+    statusColor: 'var(--green-funded)',
+    urgent: 'DISTRIBUTION OPEN',
+    distributionOpen: true,
     details: "Dir: Harvey Lowry | Prod: Bryan Lord (M-World Films) | Shooting Barbados | A modern-day retelling of The Swiss Family Robinson.",
     stats: 'Dir. Harvey Lowry · M-World Films · Budget $6,656,021 · Barbados',
     pos: 'Position: Equity ($2.75M) — Senior Preferred, Equity + Debt Structure',
