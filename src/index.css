@@ -331,6 +331,23 @@ nav.scrolled {
     transition: none;
   }
 
+  /* Film-card details retain a comfortable reading scale after the global
+     mobile type rules are applied. */
+  .film-poster-card .film-card-title {
+    font-size: 1.35rem !important;
+    line-height: 1.12 !important;
+  }
+
+  .film-poster-card .film-card-meta-value {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .film-poster-card .film-card-cta {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.2em !important;
+  }
+
   /* Any 12-column grid — collapse to 1 column */
   .grid-cols-12,
   [style*="grid-template-columns"] {

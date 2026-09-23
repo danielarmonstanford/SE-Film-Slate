@@ -25,7 +25,7 @@ interface FilmPosterCardProps {
 const LABEL: React.CSSProperties = {
   fontFamily: "'Barlow', sans-serif",
   fontWeight: 300,
-  fontSize: '0.65rem',
+  fontSize: '0.7rem',
   letterSpacing: '0.55em',
   textTransform: 'uppercase',
 };
@@ -48,6 +48,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
 
   return (
     <div
+      className="film-poster-card"
       style={{
         position: 'relative',
         aspectRatio: '2/3',
@@ -98,7 +99,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         backdropFilter: 'blur(8px)',
         WebkitBackdropFilter: 'blur(8px)',
         borderTop: '1px solid rgba(255,255,255,0.08)',
-        padding: '14px 16px 16px',
+        padding: '18px 18px 20px',
       }}>
 
         {/* Status dot + label */}
@@ -119,8 +120,8 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
           }} />
           <span style={{
             ...LABEL,
-            fontSize: '0.6rem',
-            letterSpacing: '0.4em',
+            fontSize: '0.68rem',
+            letterSpacing: '0.32em',
             color: badgeColor,
           }}>
             {project.statusLabel ?? 'Funding Open'}
@@ -128,11 +129,11 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         </div>
 
         {/* Title */}
-        <p style={{
+        <p className="film-card-title" style={{
           fontFamily: "'Cormorant Garamond', serif",
           fontStyle: 'italic',
           fontWeight: 300,
-          fontSize: 'clamp(1rem, 2.5vw, 1.35rem)',
+          fontSize: 'clamp(1.2rem, 1.8vw, 1.55rem)',
           color: '#FFFFFF',
           lineHeight: 1.15,
           marginBottom: '10px',
@@ -145,9 +146,9 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         {(project.budget || project.equityAsk) && (
           <p style={{
             ...LABEL,
-            fontSize: '0.6rem',
-            letterSpacing: '0.3em',
-            color: 'rgba(255,255,255,0.5)',
+            fontSize: '0.68rem',
+            letterSpacing: '0.24em',
+            color: 'rgba(255,255,255,0.68)',
             marginBottom: '10px',
             lineHeight: 1.6,
           }}>
@@ -178,17 +179,17 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
           }}>
             <span style={{
               ...LABEL,
-              fontSize: '0.58rem',
-              letterSpacing: '0.35em',
-              color: 'rgba(255,255,255,0.38)',
+              fontSize: '0.65rem',
+              letterSpacing: '0.28em',
+              color: 'rgba(255,255,255,0.54)',
             }}>
               Director
             </span>
-            <span style={{
+            <span className="film-card-meta-value" style={{
               fontFamily: "'Barlow', sans-serif",
               fontWeight: 300,
-              fontSize: '10px',
-              color: 'rgba(255,255,255,0.78)',
+              fontSize: '12px',
+              color: 'rgba(255,255,255,0.88)',
               letterSpacing: '0.04em',
               textAlign: 'right',
             }}>
@@ -207,19 +208,19 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
           }}>
             <span style={{
               ...LABEL,
-              fontSize: '0.58rem',
-              letterSpacing: '0.35em',
-              color: 'rgba(255,255,255,0.38)',
+              fontSize: '0.65rem',
+              letterSpacing: '0.28em',
+              color: 'rgba(255,255,255,0.54)',
               flexShrink: 0,
               marginRight: '10px',
             }}>
               Cast
             </span>
-            <span style={{
+            <span className="film-card-meta-value" style={{
               fontFamily: "'Barlow', sans-serif",
               fontWeight: 300,
-              fontSize: '10px',
-              color: 'rgba(255,255,255,0.68)',
+              fontSize: '12px',
+              color: 'rgba(255,255,255,0.8)',
               letterSpacing: '0.03em',
               textAlign: 'right',
               lineHeight: 1.55,
@@ -231,13 +232,14 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
 
         {/* VIEW OVERVIEW CTA */}
         <Link
+          className="film-card-cta"
           to={`/project/${project.slug}`}
           style={{
             display: 'block',
             fontFamily: "'Barlow', sans-serif",
             fontWeight: 300,
-            fontSize: '10px',
-            letterSpacing: '0.32em',
+            fontSize: '11px',
+            letterSpacing: '0.26em',
             textTransform: 'uppercase',
             color: '#C9971F',
             textDecoration: 'none',
