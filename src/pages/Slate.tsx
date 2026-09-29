@@ -62,6 +62,8 @@ function toCardProject(p: typeof PROJECTS[number]): FilmPosterCardProject {
     funded: p.status === 'Funded',
     closed: p.closed,
     distributionOpen: p.distributionOpen,
+    ctaLabel: p.slug === 'tax-credit-funding' ? 'Request More Information' : undefined,
+    ctaPath: p.slug === 'tax-credit-funding' ? '/investor-inquiry' : undefined,
   };
 }
 

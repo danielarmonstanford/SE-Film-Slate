@@ -16,6 +16,8 @@ export interface FilmPosterCardProject {
   funded?: boolean;
   closed?: boolean;
   distributionOpen?: boolean;
+  ctaLabel?: string;
+  ctaPath?: string;
 }
 
 interface FilmPosterCardProps {
@@ -233,7 +235,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
         {/* VIEW OVERVIEW CTA */}
         <Link
           className="film-card-cta"
-          to={`/project/${project.slug}`}
+          to={project.ctaPath ?? `/project/${project.slug}`}
           style={{
             display: 'block',
             fontFamily: "'Barlow', sans-serif",
@@ -250,7 +252,7 @@ export default function FilmPosterCard({ project }: FilmPosterCardProps) {
           onMouseEnter={e => (e.currentTarget.style.color = '#FFFFFF')}
           onMouseLeave={e => (e.currentTarget.style.color = '#C9971F')}
         >
-          View Overview →
+          {project.ctaLabel ?? 'View Overview →'}
         </Link>
       </div>
     </div>
