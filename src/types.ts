@@ -555,7 +555,7 @@ export const PROJECTS: Project[] = [
       'Multi-territory pre-sales via treaty rights provide downside protection.'
     ],
     dataRoomUrl: '/400XY_Investment_Dossier.pdf',
-    taxCreditDocumentsUrl: 'https://drive.google.com/drive/folders/15vOymgjiuI-By3ESevht6q_7YVifF0A3',
+    taxCreditDocumentsUrl: 'https://drive.google.com/drive/folders/1H1Q61tqIaJs6conPDfKdUNqpckdhDhoa',
     team: [
       { role: 'IP Owner / Director', name: 'Alastair Paton' },
       { role: 'Executive Producer', name: 'Daniel Stanford' }
