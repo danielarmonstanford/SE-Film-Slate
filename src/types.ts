@@ -554,7 +554,7 @@ export const PROJECTS: Project[] = [
       '$600K animation-series investment layer, with an ongoing series planned for a Netflix path.',
       'Multi-territory pre-sales via treaty rights provide downside protection.'
     ],
-    dataRoomUrl: '/400XY_Investment_Dossier.pdf',
+    dataRoomUrl: '/400XY_NapoleonStreet_Executive_Summary_USD_EUR_Update.pdf',
     taxCreditDocumentsUrl: 'https://drive.google.com/drive/folders/1H1Q61tqIaJs6conPDfKdUNqpckdhDhoa',
     team: [
       { role: 'IP Owner / Director', name: 'Alastair Paton' },
