@@ -330,7 +330,7 @@ const ProjectDetail: React.FC = () => {
   // ─────────────────────────────────────────────────────────────────────────────
 
   return (
-    <div className="bg-[var(--bg)] min-h-screen text-[var(--text)]">
+    <div className={`bg-[var(--bg)] min-h-screen text-[var(--text)]${isNapoleonStreet ? ' project-detail--400xy' : ''}`}>
 
       {/* SECTION 1: HERO */}
       <section className="relative h-[90vh] flex items-end pb-24 overflow-hidden" style={{ paddingLeft: 'clamp(28px, 6vw, 100px)', paddingRight: 'clamp(28px, 6vw, 100px)' }}>

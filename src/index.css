@@ -109,6 +109,55 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--white);
 }
 
+/* 400XY investor portal: finance material must remain legible at arm's length,
+   especially when its compact document rows collapse to one column on mobile. */
+.project-detail--400xy .label-text {
+  font-size: 0.8125rem;
+  letter-spacing: 0.18em;
+}
+
+.project-detail--400xy .btn-text,
+.project-detail--400xy .text-\[9px\],
+.project-detail--400xy .text-\[10px\],
+.project-detail--400xy .text-\[11px\],
+.project-detail--400xy .text-xs {
+  font-size: 0.8125rem !important;
+  line-height: 1.45;
+}
+
+.project-detail--400xy .opacity-40 {
+  opacity: 0.68;
+}
+
+.project-detail--400xy .opacity-50 {
+  opacity: 0.72;
+}
+
+.project-detail--400xy a:focus-visible {
+  outline: 2px solid var(--bronze-light);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .project-detail--400xy p,
+  .project-detail--400xy li,
+  .project-detail--400xy dt,
+  .project-detail--400xy dd {
+    font-size: 1rem !important;
+    line-height: 1.65;
+  }
+
+  .project-detail--400xy .label-text,
+  .project-detail--400xy .btn-text,
+  .project-detail--400xy .text-\[9px\],
+  .project-detail--400xy .text-\[10px\],
+  .project-detail--400xy .text-\[11px\],
+  .project-detail--400xy .text-xs {
+    font-size: 0.875rem !important;
+    line-height: 1.5;
+  }
+}
+
 .body-text {
   font-family: var(--font-sans);
   font-weight: 300;
