@@ -129,6 +129,7 @@ const ProjectDetail: React.FC = () => {
   const investorPackUrl = project.dataRoomUrl;
   const isNapoleonStreet = slug === '400xy';
   const financingDataRoomUrl = project.taxCreditDocumentsUrl;
+  const historicalSourceArchiveUrl = 'https://drive.google.com/drive/folders/15vOymgjiuI-By3ESevht6q_7YVifF0A3';
   const napoleonStreetDocuments = {
     current: [
       { title: 'Napoleon Street Waterfall — 2026-09-24', status: 'Current' },
@@ -615,25 +616,25 @@ const ProjectDetail: React.FC = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {[
-                ['Current Materials', napoleonStreetDocuments.current],
-                ['Historical Supporting Materials', napoleonStreetDocuments.historical],
-              ].map(([group, documents]) => (
-                <div key={group as string}>
-                  <h3 className="text-lg text-[var(--text)] mb-4">{group as string}</h3>
+                { title: 'Current Materials', documents: napoleonStreetDocuments.current, url: financingDataRoomUrl, action: 'Open Data Room' },
+                { title: 'Historical Supporting Materials', documents: napoleonStreetDocuments.historical, url: historicalSourceArchiveUrl, action: 'Open Historical 400 Project Source Archive' },
+              ].map((group) => (
+                <div key={group.title}>
+                  <h3 className="text-lg text-[var(--text)] mb-4">{group.title}</h3>
                   <div className="border-t border-[var(--border)]">
-                    {(documents as { title: string; status: string }[]).map((document) => (
+                    {group.documents.map((document) => (
                       <div key={document.title} className="py-4 border-b border-[var(--border)] flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
                         <div className="min-w-0 flex-1">
                           <p className="text-sm text-[var(--text)] leading-snug">{document.title}</p>
                           <span className="inline-block mt-2 border border-[var(--border-2)] px-2 py-0.5 text-[10px] text-[var(--text-72)]">{document.status}</span>
                         </div>
                         <a
-                          href={financingDataRoomUrl}
+                          href={group.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="btn-text text-[10px] text-[var(--bronze)] border border-[var(--bronze)] px-4 py-2 hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-colors shrink-0 text-center"
                         >
-                          Open Data Room
+                          {group.action}
                         </a>
                       </div>
                     ))}
