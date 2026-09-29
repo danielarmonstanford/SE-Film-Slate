@@ -37,7 +37,6 @@ export interface Project {
   notionPageId?: string;
   youtubeId?: string;
   trailerYoutubeId?: string;
-  soundtrackYoutubeId?: string;
   storyboardVideo?: string;
   team: { role: string; name: string }[];
   // Extended investment fields
@@ -346,7 +345,6 @@ export const PROJECTS: Project[] = [
   {
     id: 'ugrp',
     slug: 'ugrp',
-    soundtrackYoutubeId: 'JYictIhaevk',
     number: '002',
     shortTitle: 'UGRP',
     title: 'In The Grey',

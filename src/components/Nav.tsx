@@ -2,6 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
+const TRACKS = [
+  { id: '3ciMHwo1ApA', label: 'Culture Capital' },
+  { id: '8-wAvbxB7D8', label: 'Hans Zimmer' },
+  { id: 'JYictIhaevk', label: 'In The Grey' },
+];
+
 export default function Nav() {
   const { theme, toggle: toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,14 +16,20 @@ export default function Nav() {
   const [activeTrack, setActiveTrack] = useState(0);
   const playerRef = useRef<any>(null);
 
-  const TRACKS = [
-    { id: '3ciMHwo1ApA', label: 'Culture Capital' },
-    { id: '8-wAvbxB7D8', label: 'Hans Zimmer' },
-  ];
   const location = useLocation();
 
   // Close menu on route change — v2
   useEffect(() => { setMenuOpen(false); }, [location.pathname]);
+
+  // The exclusive In The Grey portal uses its soundtrack as the active site track.
+  useEffect(() => {
+    if (location.pathname !== '/project/ugrp' || !playerReady || !playerRef.current) return;
+    setActiveTrack(2);
+    try {
+      playerRef.current.loadVideoById(TRACKS[2].id);
+      playerRef.current.playVideo();
+    } catch {}
+  }, [location.pathname, playerReady]);
 
   // Ambient audio — YouTube IFrame API
   useEffect(() => {
