@@ -567,8 +567,8 @@ export const PROJECTS: Project[] = [
     title: '"99"',
     genre: 'FILM',
     image: '/film-99-poster.png',
-    description: 'Star-driven action thriller from director Steven C. Miller, starring Sylvester Stallone and Joel Kinnaman. $3M equity opportunity now open.',
-    details: 'Dir: Steven C. Miller | Principal Talent: Sylvester Stallone & Joel Kinnaman',
+    description: 'Star-driven action thriller from director Steven C. Miller, featuring Sylvester Stallone (pending contractual agreements) and Joel Kinnaman. $3M equity opportunity now open.',
+    details: 'Dir: Steven C. Miller | Principal Talent: Sylvester Stallone — Pending Contractual Agreements | Joel Kinnaman',
     stats: 'Budget: $10M | Equity Open: $3M | Shoot: Georgia + Malta',
     pos: 'Status: Live Opportunity — Equity Open',
     status: 'Funding Open',
@@ -587,11 +587,11 @@ export const PROJECTS: Project[] = [
     salesStrategy: 'Pre-sales at AFM/Cannes; Major theatrical release in key territories.',
     targetROI: '20% Preferred Premium + 20% Backend — 12-Month Repayment Target',
     comparables: ['The Town', 'Hell or High Water', 'Gran Torino'],
-    marketPositioning: '99 is a $10M action thriller directed by Steven C. Miller and starring Sylvester Stallone and Joel Kinnaman. The planned production schedule is one week in Georgia and three weeks in Malta, structured to access the respective 30% and 40% production incentives. The $3M equity opportunity is live under a Senior Preferred structure — Last In, First Out (LIFO) positioning, 20% preferred premium, and a 12-month repayment target.\n\nThe Senior Preferred Equity structure gives incoming capital LIFO positioning — last capital in is first capital returned — with a 20% preferred premium and a 12-month repayment target.',
+    marketPositioning: '99 is a $10M action thriller directed by Steven C. Miller and featuring Sylvester Stallone, pending contractual agreements, and Joel Kinnaman. The planned production schedule is one week in Georgia and three weeks in Malta, structured to access the respective 30% and 40% production incentives. The $3M equity opportunity is live under a Senior Preferred structure — Last In, First Out (LIFO) positioning, 20% preferred premium, and a 12-month repayment target.\n\nThe Senior Preferred Equity structure gives incoming capital LIFO positioning — last capital in is first capital returned — with a 20% preferred premium and a 12-month repayment target.',
     audience: 'Action fans, Stallone loyalists, and mainstream theatrical audiences (Ages 18–55).',
     timingRelevance: 'Live opportunity: $3M in Senior Preferred Equity is currently open ahead of a four-week shoot — one week in Georgia and three weeks in Malta.',
     commercialStrengths: [
-      'Sylvester Stallone (Deal Memo in place) — guaranteed international theatrical and SVOD value.',
+      'Sylvester Stallone — pending contractual agreements.',
       '$10M production budget with a four-week Georgia and Malta shoot schedule.',
       'Senior Preferred LIFO — last capital in is first capital returned at 20% premium.',
       'Georgia 30% and Malta 40% incentives support an efficient international production plan.',
@@ -600,7 +600,7 @@ export const PROJECTS: Project[] = [
     dataRoomUrl: 'https://notion.so/99-investment-data-room',
     team: [
       { role: 'Director', name: 'Steven C. Miller' },
-      { role: 'Lead Cast', name: 'Sylvester Stallone' },
+      { role: 'Principal Talent — Pending Contractual Agreements', name: 'Sylvester Stallone' },
       { role: 'Cast', name: 'Joel Kinnaman' },
       { role: 'Cast', name: 'Ester Expósito' },
       { role: 'Executive Producer', name: 'Daniel Stanford' }
