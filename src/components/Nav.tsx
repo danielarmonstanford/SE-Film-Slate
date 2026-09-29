@@ -13,7 +13,7 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [audioOn, setAudioOn] = useState(true);
   const [playerReady, setPlayerReady] = useState(false);
-  const [activeTrack, setActiveTrack] = useState(0);
+  const [activeTrack, setActiveTrack] = useState(2);
   const playerRef = useRef<any>(null);
 
   const location = useLocation();
@@ -280,7 +280,7 @@ export default function Nav() {
         <iframe
           id="nav-ambient-player"
           width="100" height="100"
-          src="https://www.youtube.com/embed/3ciMHwo1ApA?autoplay=0&mute=0&loop=1&playlist=3ciMHwo1ApA&controls=0&enablejsapi=1"
+          src="https://www.youtube.com/embed/JYictIhaevk?autoplay=0&mute=0&loop=1&playlist=JYictIhaevk&controls=0&enablejsapi=1"
           allow="autoplay"
           title="Ambient Audio"
         />
