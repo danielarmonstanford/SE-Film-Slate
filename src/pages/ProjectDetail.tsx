@@ -13,6 +13,9 @@ interface NotionDoc {
   url: string;
 }
 
+const SECRET_PORTAL_PASSWORD = 'invest2026';
+const SECRET_PORTAL_SESSION_KEY = 'secret-film-projects-portal-access';
+
 // ── Reusable CTA block ────────────────────────────────────────────────────────
 interface ProjectCTAProps {
   headline: string;
@@ -63,6 +66,9 @@ const ProjectDetail: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [docs, setDocs] = useState<NotionDoc[]>([]);
   const [docsLoading, setDocsLoading] = useState(false);
+  const [portalPassword, setPortalPassword] = useState('');
+  const [portalError, setPortalError] = useState('');
+  const [portalUnlocked, setPortalUnlocked] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -100,6 +106,22 @@ const ProjectDetail: React.FC = () => {
       .catch(() => {})
       .finally(() => setDocsLoading(false));
   }, [project]);
+
+  useEffect(() => {
+    if (slug !== 'ugrp') return;
+    setPortalUnlocked(window.sessionStorage.getItem(SECRET_PORTAL_SESSION_KEY) === 'granted');
+  }, [slug]);
+
+  const unlockSecretPortal = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (portalPassword !== SECRET_PORTAL_PASSWORD) {
+      setPortalError('Incorrect password. Please try again.');
+      return;
+    }
+    window.sessionStorage.setItem(SECRET_PORTAL_SESSION_KEY, 'granted');
+    setPortalError('');
+    setPortalUnlocked(true);
+  };
 
   if (!project) return null;
 
@@ -146,6 +168,50 @@ const ProjectDetail: React.FC = () => {
 
   // ── UGRP — custom layout ──────────────────────────────────────────────────
   if (slug === 'ugrp') {
+    if (!portalUnlocked) {
+      return (
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]" style={{ minHeight: '100vh', background: '#080705', color: 'var(--text)' }}>
+          <div style={{ minHeight: '46vh', position: 'relative', overflow: 'hidden' }}>
+            <img
+              src="/secret-film-projects-portal.jpg"
+              alt="2026 Secret Film Projects Portal"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, transparent 35%, #080705 100%)' }} />
+          </div>
+          <main style={{ padding: 'clamp(120px, 12vw, 180px) clamp(28px, 7vw, 112px) clamp(64px, 9vw, 120px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', maxWidth: '720px' }}>
+            <p style={{ margin: '0 0 20px', fontFamily: 'var(--font-sans)', fontSize: '10px', fontWeight: 300, letterSpacing: '0.38em', textTransform: 'uppercase', color: '#C9971F' }}>
+              Restricted Access
+            </p>
+            <h1 style={{ margin: '0 0 24px', fontFamily: 'var(--font-serif)', fontSize: 'clamp(3rem, 6vw, 6.5rem)', lineHeight: 0.92, fontStyle: 'italic', fontWeight: 300, color: 'var(--text)' }}>
+              2026 Secret Film Projects Portal
+            </h1>
+            <p style={{ margin: '0 0 36px', maxWidth: '460px', fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: 'clamp(1rem, 1.6vw, 1.2rem)', lineHeight: 1.65, color: 'var(--text-72)' }}>
+              Enter your password to access confidential project materials.
+            </p>
+            <form onSubmit={unlockSecretPortal} style={{ maxWidth: '430px' }}>
+              <label htmlFor="secret-portal-password" style={{ display: 'block', marginBottom: '10px', fontFamily: 'var(--font-sans)', fontSize: '10px', fontWeight: 300, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text-45)' }}>
+                Password
+              </label>
+              <input
+                id="secret-portal-password"
+                type="password"
+                value={portalPassword}
+                onChange={event => setPortalPassword(event.target.value)}
+                autoComplete="current-password"
+                style={{ width: '100%', boxSizing: 'border-box', background: 'transparent', border: '1px solid var(--text-25)', color: 'var(--text)', padding: '15px 16px', fontSize: '16px', outline: 'none' }}
+                required
+              />
+              {portalError && <p style={{ margin: '12px 0 0', color: '#FF7777', fontSize: '13px' }}>{portalError}</p>}
+              <button type="submit" style={{ marginTop: '16px', background: '#C9971F', border: 0, color: '#080705', cursor: 'pointer', padding: '14px 24px', fontFamily: 'var(--font-sans)', fontSize: '10px', fontWeight: 300, letterSpacing: '0.28em', textTransform: 'uppercase' }}>
+                Enter Portal
+              </button>
+            </form>
+          </main>
+        </div>
+      );
+    }
+
     const ROW = ({ label, value, gold = false, bold = false }: { label: string; value: string; gold?: boolean; bold?: boolean }) => (
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderBottom: '1px solid var(--border)', gap: '24px' }}>
         <span style={{ fontSize: '11px', color: 'var(--text-45)', letterSpacing: '0.06em', flexShrink: 0, fontFamily: 'var(--font-sans)', fontWeight: 300 }}>{label}</span>

@@ -34,6 +34,17 @@ function getStatusLabel(p: typeof PROJECTS[number]): string {
 
 // Map PROJECTS entry → FilmPosterCardProject
 function toCardProject(p: typeof PROJECTS[number]): FilmPosterCardProject {
+  if (p.slug === 'ugrp') {
+    return {
+      id: p.id,
+      slug: p.slug,
+      title: '2026 Secret Film Projects Portal',
+      posterImage: '/secret-film-projects-portal.jpg',
+      equityAsk: 'Password Required',
+      statusLabel: 'Restricted Access',
+    };
+  }
+
   return {
     id: p.id,
     slug: p.slug,

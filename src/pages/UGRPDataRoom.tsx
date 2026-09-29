@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const GATE_PASSWORD = 'capital';
+const GATE_PASSWORD = 'invest2026';
 const DATA_ROOM_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
-const NOTION_URL = 'https://drive.google.com/drive/folders/1JXGFTnuqPNeWmMTUHaaPzx8RzAQxe5K_?usp=sharing';
 const NOTIFY_EMAIL = 'Daniel@StanfordEmporium.com';
 const WEB3FORMS_KEY = '0928c0d9-38cc-4327-99b1-a50349a62ed7';
 
@@ -62,55 +61,18 @@ const UGRPDataRoom = () => {
         {/* Header */}
         <div className="mb-10">
           <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#CC0000', display: 'block', marginBottom: '16px' }}>
-            002 · Restricted Access
+            2026 · Restricted Access
           </span>
           <h1 className="text-4xl md:text-5xl italic font-light leading-snug mb-3">
-            In The Grey
+            Secret Film Projects Portal
           </h1>
           <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '12px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-45)' }}>
-            Full Investor Data Room
+            Confidential Investor Materials
           </p>
         </div>
 
-        {/* Option 1 — Overview (no gate) */}
-        <div className="border border-[var(--border)] p-6 mb-8">
-          <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--text-45)', marginBottom: '10px' }}>Option 01 — Slate Overview</div>
-          <p style={{ fontSize: '14px', color: 'var(--text-72)', lineHeight: 1.8, marginBottom: '20px' }}>
-            Project summary, team, and investment highlights. No access code required.
-          </p>
-          <div className="flex flex-col gap-3">
-            <a
-              href={NOTION_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: 'inline-block', border: '1px solid var(--border-2)', color: 'var(--text)', fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '14px 24px', textDecoration: 'none', transition: 'border-color 0.3s, color 0.3s' }}
-            >
-              View Slate Overview →
-            </a>
-            <a
-              href="https://blackbearpictures.com/film-and-tv/in%20the%20grey"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: 'inline-block', border: '1px solid var(--border)', color: 'var(--text-45)', fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '14px 24px', textDecoration: 'none', transition: 'border-color 0.3s, color 0.3s' }}
-            >
-              Watch Film Preview · Blackbear Pictures →
-            </a>
-          </div>
-          <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-35)', lineHeight: 1.7, marginTop: '16px' }}>
-            © Blackbear Pictures. All Rights Reserved.
-          </p>
-        </div>
-
-        {/* Divider */}
-        <div className="flex items-center gap-4 mb-8">
-          <div className="flex-1 border-t border-[var(--border)]" />
-          <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-35)' }}>or</span>
-          <div className="flex-1 border-t border-[var(--border)]" />
-        </div>
-
-        {/* Option 2 — Gated full data room */}
         <div className="mb-4">
-          <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '10px' }}>Option 02 — Full Data Room</div>
+          <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#CC0000', marginBottom: '10px' }}>Password Required</div>
           <p style={{ fontSize: '14px', color: 'var(--text-72)', lineHeight: 1.8, marginBottom: '24px' }}>
             Full financials, budget breakdown, legal structure, and supporting materials. Access code required.
           </p>
