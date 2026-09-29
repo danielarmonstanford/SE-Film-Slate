@@ -127,6 +127,23 @@ const ProjectDetail: React.FC = () => {
 
   // Single source of truth for the investor pack URL
   const investorPackUrl = project.dataRoomUrl;
+  const isNapoleonStreet = slug === '400xy';
+  const financingDataRoomUrl = project.taxCreditDocumentsUrl;
+  const napoleonStreetDocuments = {
+    current: [
+      { title: 'Napoleon Street Waterfall — 2026-09-24', status: 'Current' },
+      { title: 'SODEC — 400 Boys Quebec Tax Credit Decision', status: 'Tax Credit' },
+      { title: 'National Bank of Canada — 400 Boys Tax Credit Financing Term Sheet', status: 'Bank Financing' },
+    ],
+    historical: [
+      { title: 'Canadian federal and provincial tax credit history', status: 'Historical' },
+      { title: 'Hungary rebate / financing history', status: 'Historical' },
+      { title: 'China financing / co-production history', status: 'Reference' },
+      { title: 'Product placement revenue projection', status: 'Reference' },
+      { title: 'International sales projections', status: 'Reference' },
+      { title: 'Prior financing structure documents', status: 'Historical' },
+    ],
+  };
 
   // Incomplete projects show a minimal gated view
   const isIncomplete = !project.marketPositioning;
@@ -562,6 +579,80 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* 400XY / NAPOLEON STREET: FINANCING DOCUMENTATION */}
+      {isNapoleonStreet && financingDataRoomUrl && (
+        <section className="py-20 md:py-24 px-4 md:px-20 border-t border-[var(--border)] bg-[var(--bg-2)]">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-3xl mb-12">
+              <h2 className="text-3xl md:text-4xl text-[var(--text)] mb-4">Financing &amp; Tax Credit Documentation</h2>
+              <p className="text-[var(--cream)] opacity-65 text-base leading-relaxed">
+                Current financing materials for 400 / Napoleon Street, including the Canadian tax credit structure, current waterfall, and supporting historical documentation.
+              </p>
+            </div>
+
+            <div className="border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8 mb-10">
+              <h3 className="text-xl text-[var(--text)] mb-6">Current Financing Snapshot</h3>
+              <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8">
+                {[
+                  ['Core production budget', 'US$17.91M'],
+                  ['Greek rebate advance', 'US$3.00M'],
+                  ['Federal tax credit advance', 'US$1.07M'],
+                  ['Provincial tax credit advance', 'US$2.77M'],
+                  ['Private investment requirement', 'US$7.25M'],
+                  ['Total financing', 'US$17.91M'],
+                ].map(([label, value]) => (
+                  <div key={label} className="py-4 border-b border-[var(--border)] last:border-b sm:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:nth-last-child(-n+3)]:border-b-0">
+                    <dt className="text-[11px] text-[var(--text-35)] tracking-wide mb-1">{label}</dt>
+                    <dd className="text-lg text-[var(--bronze)]">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 pt-5 border-t border-[var(--border)] text-xs text-[var(--cream)] opacity-50 leading-relaxed max-w-4xl">
+                Historical Canadian tax credit and financing documents are included for due-diligence reference. Current eligibility and final amounts remain subject to updated production structure, certification, and lender review.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              {[
+                ['Current Materials', napoleonStreetDocuments.current],
+                ['Historical Supporting Materials', napoleonStreetDocuments.historical],
+              ].map(([group, documents]) => (
+                <div key={group as string}>
+                  <h3 className="text-lg text-[var(--text)] mb-4">{group as string}</h3>
+                  <div className="border-t border-[var(--border)]">
+                    {(documents as { title: string; status: string }[]).map((document) => (
+                      <div key={document.title} className="py-4 border-b border-[var(--border)] flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+                        <div className="min-w-0 flex-1">
+                          <p className="text-sm text-[var(--text)] leading-snug">{document.title}</p>
+                          <span className="inline-block mt-2 border border-[var(--border-2)] px-2 py-0.5 text-[10px] text-[var(--text-72)]">{document.status}</span>
+                        </div>
+                        <a
+                          href={financingDataRoomUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-text text-[10px] text-[var(--bronze)] border border-[var(--bronze)] px-4 py-2 hover:bg-[var(--bronze)] hover:text-[var(--black)] transition-colors shrink-0 text-center"
+                        >
+                          Open Data Room
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href={financingDataRoomUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-text inline-block mt-10 bg-[var(--bronze)] text-[var(--black)] px-8 py-4 hover:bg-[var(--bronze-light)] transition-colors"
+            >
+              Open Investor Data Room
+            </a>
+          </div>
+        </section>
+      )}
 
       {/* MID-PAGE CTA — after snapshot */}
       <section className="py-14 px-4 md:px-20 border-t border-[var(--border)]">
