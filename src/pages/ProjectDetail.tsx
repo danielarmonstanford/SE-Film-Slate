@@ -163,7 +163,7 @@ const ProjectDetail: React.FC = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             style={{ position: 'relative', zIndex: 2, padding: '0 clamp(28px,6vw,80px) clamp(48px,6vw,72px)', maxWidth: '900px' }}>
             <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.6rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: '#C9971F', marginBottom: '16px' }}>
-              Exclusive — Stanford Emporium Inc.
+              Exclusive Film Investment Portal · Stanford Emporium Inc.
             </p>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(3.2rem,8vw,8rem)', lineHeight: 0.9, color: 'var(--text)', marginBottom: '24px' }}>
               {project.title}
@@ -187,6 +187,31 @@ const ProjectDetail: React.FC = () => {
             </div>
           </motion.div>
         </section>
+
+        {/* ── SOUNDTRACK ───────────────────────────────────────────────────── */}
+        {project.soundtrackYoutubeId && (
+          <section style={{ position: 'relative', padding: '18px clamp(28px,6vw,80px)', background: 'var(--bg-2)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${project.soundtrackYoutubeId}?autoplay=1&loop=1&playlist=${project.soundtrackYoutubeId}&playsinline=1&rel=0&modestbranding=1`}
+              title="In The Grey soundtrack"
+              allow="autoplay; encrypted-media"
+              style={{ position: 'absolute', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none', border: 0 }}
+            />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px', position: 'relative' }}>
+              <p style={{ margin: 0, fontFamily: 'var(--font-sans)', fontSize: '10px', fontWeight: 300, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--text-72)' }}>
+                Now playing · In The Grey No. 1 soundtrack
+              </p>
+              <a
+                href={`https://www.youtube.com/watch?v=${project.soundtrackYoutubeId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontFamily: 'var(--font-sans)', fontSize: '10px', fontWeight: 300, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9971F', textDecoration: 'none', borderBottom: '1px solid rgba(201,151,31,0.45)', paddingBottom: '3px' }}
+              >
+                Play soundtrack
+              </a>
+            </div>
+          </section>
+        )}
 
         {/* ── 2. THE FILM ──────────────────────────────────────────────────── */}
         <section style={{ padding: 'clamp(56px,7vw,80px) clamp(28px,6vw,80px)', background: 'var(--bg)', borderTop: '1px solid var(--border)' }}>
